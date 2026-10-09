@@ -269,29 +269,36 @@
   // place, one column per year, the shade set by the value on one scale.
   function heat(el, spec) {
     var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
-    var L = Math.min(narrow ? 128 : 190, W * 0.4), cell = (W - L - 4) / spec.x.length, rh = narrow ? 22 : 24, T = 22;
-    var H = T + spec.rows.length * rh + 6, vals = [];
+    // spec.above puts each row's name on its own line over its cells on a phone, so long names are never cut
+    var above = narrow && spec.above, lh = above ? 18 : 0;
+    var L = above ? 0 : Math.min(narrow ? 128 : (spec.labelW || 190), W * 0.4), cell = (W - L - 4) / spec.x.length, rh = narrow ? 22 : (spec.rowH || 24), T = 22;
+    var H = T + spec.rows.length * (rh + lh) + 6, vals = [];
     spec.rows.forEach(function (r) { r.values.forEach(function (v) { if (v != null) vals.push(v); }); });
     vals.sort(function (a, b) { return a - b; });
     var q = function (p) { return vals[Math.min(vals.length - 1, Math.floor(p * vals.length))]; };
     var cuts = [q(0.2), q(0.4), q(0.6), q(0.8)], ramp = ['--q1', '--q2', '--q3', '--q4', '--q5'];
     var bin = function (v) { var b = 0; cuts.forEach(function (c) { if (v > c) b++; }); return b; };
+    // With rowScale, each row is shaded against its own highest year, so a rare
+    // crime's change shows as plainly as a common one's.
+    if (spec.rowScale) bin = function (v, row) { var mx = Math.max.apply(null, row.values.filter(function (q) { return q != null; })); return mx > 0 ? Math.min(4, Math.floor(v / mx * 5 - 1e-9)) : 0; };
     var g = '';
     spec.x.forEach(function (x, j) { g += '<text class="tick" x="' + (L + j * cell + cell / 2).toFixed(1) + '" y="14" text-anchor="middle">' + esc(x) + '</text>'; });
     spec.rows.forEach(function (r, i) {
-      var y = T + i * rh;
+      var y = T + i * (rh + lh) + lh;
       // a name too long for the label column is shortened, with the whole name in its tooltip
       var room = Math.floor((L - 12) / 6.6), lab = r.label.length > room ? r.label.slice(0, room - 1).replace(/\s+\S*$/, '') + '…' : r.label;
-      g += '<text class="tick rowlab" x="' + (L - 8) + '" y="' + (y + rh / 2 + 4) + '" text-anchor="end"><title>' + esc(r.label) + '</title>' + esc(lab) + '</text>';
+      if (above) g += '<text class="tick rowlab" x="0" y="' + (y - 5) + '">' + esc(r.label) + '</text>';
+      else g += '<text class="tick rowlab" x="' + (L - 8) + '" y="' + (y + rh / 2 + 4) + '" text-anchor="end"><title>' + esc(r.label) + '</title>' + esc(lab) + '</text>';
       r.values.forEach(function (v, j) {
-        var b = v == null ? -1 : bin(v), x = L + j * cell;
+        var b = v == null ? -1 : bin(v, r), x = L + j * cell;
         g += '<rect x="' + (x + 1).toFixed(1) + '" y="' + (y + 1) + '" width="' + (cell - 2).toFixed(1) + '" height="' + (rh - 2) + '" fill="' + (b < 0 ? 'var(--ground)' : 'var(' + ramp[b] + ')') + '"><title>' +
           esc(r.label + ', ' + spec.x[j] + ': ' + (v == null ? '–' : fmt(v))) + '</title></rect>';
         if (v != null && cell > 40) g += '<text x="' + (x + cell / 2).toFixed(1) + '" y="' + (y + rh / 2 + 4) + '" text-anchor="middle" font-size="11" class="hv' + (b >= 3 ? ' dark' : '') + '">' + esc(fmt(v)) + '</text>';
       });
     });
     var edges = [vals[0]].concat(cuts).concat([vals[vals.length - 1]]);
-    var key = '<ul class="legend">' + ramp.map(function (c, i) { return '<li><i style="background:var(' + c + ');border-radius:2px"></i>' + esc(fmt(edges[i]) + ' – ' + fmt(edges[i + 1])) + '</li>'; }).join('') + '</ul>';
+    var key = spec.rowScale ? '<ul class="legend"><li>' + esc(spec.keyLow) + '</li>' + ramp.map(function (c) { return '<li><i style="background:var(' + c + ');border-radius:2px;margin:0"></i></li>'; }).join('') + '<li>' + esc(spec.keyHigh) + '</li></ul>'
+      : '<ul class="legend">' + ramp.map(function (c, i) { return '<li><i style="background:var(' + c + ');border-radius:2px"></i>' + esc(fmt(edges[i]) + ' – ' + fmt(edges[i + 1])) + '</li>'; }).join('') + '</ul>';
     el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
     el.__csv = [['place'].concat(spec.x)].concat(spec.rows.map(function (r) { return [r.label].concat(r.values); }));
   }
@@ -320,6 +327,36 @@
     el.__csv = [['', spec.aLabel, spec.bLabel]].concat(spec.rows.map(function (r) { return [r.label, r.a, r.b]; }));
   }
 
+
+
+  // ---------- strip ----------
+  // spec: {rows: [{label, dots: [{name, v}], hi, mark}], hiLabel, markLabel, fmt, label}.
+  // One row per crime: every state as a small dot, this state as a large red
+  // one and India as a line. Each row has its own scale from zero, and the
+  // dots carry no rank. The point is where one place sits among the rest.
+  function strip(el, spec) {
+    var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
+    var L = narrow ? 4 : Math.min(240, W * 0.36), R = 58, rh = narrow ? 52 : 34, T = 6, g = '';
+    var H = T + spec.rows.length * rh + 4;
+    spec.rows.forEach(function (r, i) {
+      var y = T + i * rh + (narrow ? 36 : rh / 2), mx = 0;
+      r.dots.forEach(function (d) { if (d.v > mx) mx = d.v; });
+      if (r.mark > mx) mx = r.mark; if (r.hi > mx) mx = r.hi; mx = mx * 1.04 || 1;
+      var x = function (v) { return L + (W - L - R) * v / mx; };
+      g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" stroke="var(--thread)"/>';
+      if (narrow) g += '<text class="tick rowlab" x="0" y="' + (y - 14) + '">' + esc(r.label) + '</text>';
+      else g += '<text class="tick rowlab" x="' + (L - 12) + '" y="' + (y + 4) + '" text-anchor="end">' + esc(r.label) + '</text>';
+      r.dots.forEach(function (d) {
+        g += '<circle cx="' + x(d.v).toFixed(1) + '" cy="' + y + '" r="3.6" fill="var(--knot)" fill-opacity=".38"><title>' + esc(d.name + ': ' + fmt(d.v)) + '</title></circle>';
+      });
+      if (r.mark != null) g += '<line x1="' + x(r.mark).toFixed(1) + '" x2="' + x(r.mark).toFixed(1) + '" y1="' + (y - 9) + '" y2="' + (y + 9) + '" stroke="var(--ink)" stroke-width="2.5"><title>' + esc(spec.markLabel + ': ' + fmt(r.mark)) + '</title></line>';
+      if (r.hi != null) g += '<circle cx="' + x(r.hi).toFixed(1) + '" cy="' + y + '" r="7" fill="var(--red)" stroke="var(--cloth)" stroke-width="2"><title>' + esc(spec.hiLabel + ': ' + fmt(r.hi)) + '</title></circle>';
+      g += '<text class="lab num" x="' + (W - R + 10) + '" y="' + (y + 4) + '" fill="var(--red)">' + esc(r.hi == null ? '–' : fmt(r.hi)) + '</text>';
+    });
+    var key = '<ul class="legend"><li><i style="background:var(--red)"></i>' + esc(spec.hiLabel) + '</li><li><i style="background:var(--ink);width:3px;border-radius:0"></i>' + esc(spec.markLabel) + '</li><li><i style="background:var(--knot);opacity:.45"></i>' + esc(spec.dotLabel) + '</li></ul>';
+    el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [['', spec.hiLabel, spec.markLabel]].concat(spec.rows.map(function (r) { return [r.label, r.hi, r.mark]; }));
+  }
 
   // ---------- treemap ----------
   // spec: {items: [{label, value, color, ink}], fmt, label}. Squarified, so the
@@ -568,5 +605,5 @@
     return '<div class="iso">' + out + '</div>';
   }
 
-  window.SC_CHARTS = { treemap: treemap, tiles: tiles, swarm: swarm, wrap: wrap, columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
+  window.SC_CHARTS = { strip: strip, treemap: treemap, tiles: tiles, swarm: swarm, wrap: wrap, columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
 })();

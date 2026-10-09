@@ -19,11 +19,11 @@
 <link rel="canonical" href="https://shecounts.netlify.app/states/telangana/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/fonts.css?v=d6299a11d6">
-<link rel="stylesheet" href="/css/site.css?v=7a657644dd">
+<link rel="stylesheet" href="/css/site.css?v=1f11dfc288">
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.SC_BUILD = "2e797ea832"; window.SC_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"7a657644dd","data/context.csv":"c4c676784e","data/context.json":"4efb3fb68d","data/explore.json":"22a90018a0","data/geo/india.json":"f82dbbe582","data/shecounts.csv":"eb84607428","data/site.json":"6acb7593e8","downloads/codebook.csv":"0577778935","downloads/context.xlsx":"a85d040438","downloads/shecounts.xlsx":"e76e373d9b","js/app.js":"73cce63aed","js/charts.js":"9b19e9e11a","js/i18n.js":"ff0cdab236"};
+  window.SC_BUILD = "1068259685"; window.SC_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"1f11dfc288","data/context.csv":"c4c676784e","data/context.json":"4efb3fb68d","data/explore.json":"22a90018a0","data/geo/india.json":"f82dbbe582","data/shecounts.csv":"eb84607428","data/site.json":"6acb7593e8","downloads/codebook.csv":"0577778935","downloads/context.xlsx":"a85d040438","downloads/shecounts.xlsx":"e76e373d9b","js/app.js":"e11f1c1321","js/charts.js":"878aa03f80","js/i18n.js":"c0c2cd3e81"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -82,32 +82,37 @@
 <div class="page wrap">
 <nav class="toc" id="toc" aria-labelledby="tocH" hidden><p id="tocH" data-i18n="toc">On this page</p><ol></ol></nav>
 <main id="main">
-  <header class="phead">
-    <p class="kicker"><a href="/states/" data-i18n="nav.states">States</a></p>
-    <div class="state-head">
-      <h1 id="h-state"></h1>
-      <label><span class="sr" data-i18n="pick.state">State or union territory</span>
-        <select id="statePick"></select></label>
+  <header class="phead shead">
+    <div class="shead-t">
+      <p class="kicker"><a href="/states/" data-i18n="nav.states">States</a></p>
+      <div class="state-head">
+        <h1 id="h-state"></h1>
+        <label><span class="sr" data-i18n="pick.state">State or union territory</span>
+          <select id="statePick"></select></label>
+      </div>
+      <p class="intro" id="stateIntro"></p>
     </div>
-    <p class="intro" id="stateIntro"></p>
+    <svg class="locator" id="locator" role="img" aria-hidden="true"></svg>
   </header>
 
+  <section class="sec" id="court" aria-labelledby="h-court">
+    <h2 id="h-court" data-i18n="state.iso.h">Before the courts, 2024</h2>
+    <figure class="isofig hero-iso"><div id="stateIso"></div><figcaption id="stateIsoCap"></figcaption></figure>
+  </section>
+
+  <section class="sec" id="mix" aria-labelledby="h-mix">
+    <h2 id="h-mix" data-i18n="mix.h">What was recorded</h2>
+    <figure class="chart cloth"><div id="stateMix"></div><figcaption id="stateMixCap"></figcaption></figure>
+  </section>
+
   <section class="sec" id="vsindia" aria-labelledby="h-vsindia">
-    <h2 id="h-vsindia" data-i18n="db.h">Against India, 2024</h2>
-    <figure class="chart cloth"><div id="dbChart"></div><figcaption data-i18n="db.cap">Cases recorded for every lakh women in 2024, in this state and in India. Each row has its own scale, because some crimes are recorded hundreds of times more often than others.</figcaption></figure>
+    <h2 id="h-vsindia" data-i18n="strip.h">Among the states, 2024</h2>
+    <figure class="chart cloth"><div id="stripChart"></div><figcaption data-i18n="strip.cap">Cases recorded for every lakh women in 2024. In each row the red dot is this state, the black line is India, and the faint dots are the other states and union territories. Each row has its own scale, because some crimes are recorded hundreds of times more often than others. NCRB warns that a higher rate can come from more crime or from police who record more of it.</figcaption></figure>
   </section>
 
   <section class="sec" id="change" aria-labelledby="h-change">
-    <h2 id="h-change" data-i18n="slope.h">2020 against 2024</h2>
-    <p class="intro" data-i18n="slope.intro">Each panel joins the state's recorded rate in 2020 to its rate in 2024, for every lakh women, on its own scale. The dashed grey line is India. A rise can mean more crime or more recording, and the figures cannot tell the two apart.</p>
-    <div class="slopes" id="slopes"></div>
-  </section>
-
-  <section class="sec" id="table" aria-labelledby="h-table">
-    <h2 id="h-table" data-i18n="state.table">Every crime, five years</h2>
-    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-table">
-      <table class="grid" id="stateTable"></table>
-    </div>
+    <h2 id="h-change" data-i18n="grid.h">Five years, crime by crime</h2>
+    <figure class="chart cloth"><div id="gridChart"></div><figcaption data-i18n="grid.cap">Cases recorded for every lakh women in each year. Each row is shaded against its own highest year, so the darkest cell in a row is the year that crime was recorded most often in this state.</figcaption></figure>
   </section>
 
   <section class="sec" id="ages" aria-labelledby="h-ages">
@@ -119,9 +124,21 @@
     <h2 id="h-after" data-i18n="state.after">What police and courts did, all crimes against women together</h2>
     <div class="tabs" role="tablist" aria-label="Show" id="obMode"></div>
     <figure class="chart cloth"><div id="obChart"></div><figcaption id="obCap"></figcaption></figure>
-    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-after">
-      <table class="grid" id="stateOutcomes"></table>
-    </div>
+    <details class="fold"><summary data-i18n="fold.show">Show every figure</summary>
+      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-after">
+        <table class="grid" id="stateOutcomes"></table>
+      </div>
+    </details>
+  </section>
+
+  <section class="sec" id="table" aria-labelledby="h-table">
+    <h2 id="h-table" data-i18n="state.table">Every crime, five years</h2>
+    <p class="intro" data-i18n="state.table.p">The cases recorded under every heading in each year, with the rate for every lakh women in 2024 worked out from the cases and NCRB's population figure.</p>
+    <details class="fold"><summary data-i18n="fold.show">Show every figure</summary>
+      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-table">
+        <table class="grid" id="stateTable"></table>
+      </div>
+    </details>
   </section>
 </main>
 </div>
@@ -142,8 +159,8 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=ff0cdab236"></script>
-<script src="/js/charts.js?v=9b19e9e11a"></script>
-<script src="/js/app.js?v=73cce63aed"></script>
+<script src="/js/i18n.js?v=c0c2cd3e81"></script>
+<script src="/js/charts.js?v=878aa03f80"></script>
+<script src="/js/app.js?v=e11f1c1321"></script>
 </body>
 </html>

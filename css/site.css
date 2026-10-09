@@ -481,3 +481,14 @@ html[dir="rtl"] .findings a::after { content: " \2190"; }
 @media (max-width: 760px) { .exbar { grid-template-columns: 1fr 1fr; } .exsearch { grid-column: 1 / -1; } .extable th[scope="row"] { min-width: 8em; } }
 .extable thead th.t { text-align: start; }
 .exyears { gap: 8px; }
+/* state page header with a locator map */
+.shead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 28px; align-items: start; }
+.locator { width: 150px; height: auto; margin-top: 28px; }
+@media (max-width: 560px) { .locator { width: 92px; margin-top: 4px; } .shead { grid-template-columns: minmax(0, 1fr) 92px; gap: 8px 12px; } }
+.fold { margin-top: 10px; }
+.fold > summary { cursor: pointer; font-weight: 600; font-size: 15px; padding: 10px 14px; border: 1px solid var(--thread); border-radius: 4px; background: var(--cloth); display: inline-block; }
+.fold[open] > summary { margin-bottom: 10px; }
+@media (min-width: 900px) {
+  #stateIso { display: grid; grid-template-columns: minmax(0, 1fr) 330px; grid-template-areas: "big iso" "leg iso" "note iso"; grid-template-rows: auto auto 1fr; gap: 14px 36px; align-items: start; }
+  #stateIso .isobig { grid-area: big; } #stateIso .iso { grid-area: iso; margin: 0; } #stateIso .legend { grid-area: leg; flex-direction: column; } #stateIso .isonote { grid-area: note; }
+}

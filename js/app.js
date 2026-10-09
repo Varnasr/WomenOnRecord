@@ -82,6 +82,12 @@
     if (code === 'MURDER_WOMEN') { var v = S(code, 'victims', p, y), pop = S('FEMALE_POP', 'population_lakh', p, y); return v != null && pop ? v / pop : null; }
     return S(code, 'rate', p, y);
   }
+  // A rate worked out from cases and NCRB's own female population, to two places.
+  // NCRB prints rates to one place, so a state with a few cases shows 0.0.
+  function rc(code, p, y) {
+    var i = D.years.indexOf(y == null ? st.year : y), c = cases(code, p), pop = S('FEMALE_POP', 'population_lakh', p, y);
+    return c && c[i] != null && pop ? c[i] / pop : null;
+  }
   function law(code) { return [D.heads[code].ipc ? 'IPC ' + D.heads[code].ipc : '', D.heads[code].bns || ''].filter(Boolean).join(' · '); }
   // Police and court figures. For one crime, India only: <code> with police_ and court_
   // measures. For all crimes together in a state: POLICE and COURTS.
@@ -398,6 +404,13 @@
       box.__csv = [['state'].concat(D.years)].concat(STATES().slice().sort(byName).map(function (p) { return [place(p.id)].concat(D.years.map(function (y) { return mapValue(st.head, p.id, y); })); }));
     });
   }
+  // A small map of India with this state filled, beside its name.
+  function locator(p) {
+    var svg = $('locator'); if (!svg || !projected) return;
+    var mp = (D.places.find(function (x) { return x.id === p; }) || {}).map;
+    svg.setAttribute('viewBox', '0 0 ' + projected.W + ' ' + projected.H.toFixed(0));
+    svg.innerHTML = projected.paths.map(function (pp) { return '<path d="' + pp.d + '" fill="' + (pp.name === mp ? 'var(--red)' : 'var(--q1)') + '" stroke="var(--cloth)" stroke-width="1"/>'; }).join('');
+  }
   function states() {
     map();
     tileMap();
@@ -449,17 +462,32 @@
     document.title = place(p) + ' · She Counts';
     var tot = S('TOTAL', 'cases', p, 2024), r = S('TOTAL', 'rate', p, 2024), ri = S('TOTAL', 'rate', 'All India', 2024);
     $('stateIntro').textContent = t('state.intro', { s: place(p), pop: fmt(S('FEMALE_POP', 'population_lakh', p, 2024), 1), tot: fmt(tot, 0), r: fmt(r, 1), ri: fmt(ri, 1) });
-    // slope panels
-    var y0 = D.years[0], y1 = D.years[D.years.length - 1];
-    $('slopes').innerHTML = CRIMES.map(function (code) {
-      var a = rate(code, p, y0), b = rate(code, p, y1), ia = rate(code, 'All India', y0), ib = rate(code, 'All India', y1);
-      if (a == null && b == null) return '';
-      var dp = Math.max(a || 0, b || 0, ia || 0, ib || 0) < 1 ? 2 : 1;
-      var f = function (v) { return fmt(v, dp); };
-      return '<figure class="slope cloth"><figcaption><a href="' + link('/crimes/' + slug(code) + '/') + '">' + head(code) + '</a></figcaption>' +
-        C.slope({ a: a, b: b, ia: ia, ib: ib, ya: y0, yb: y1, fmt: f, label: t('slope.label', { crime: head(code), a: f(a), b: f(b), y0: y0, y1: y1, ia: f(ia), ib: f(ib) }) }) + '</figure>';
-    }).join('');
-    links($('slopes'));
+    var y1 = D.years[D.years.length - 1];
+    locator(p);
+    // the hundred women, for every crime against women before this state's courts
+    var o = pc('STATE', p, y1), tn = lc(t('tab.TOTAL'));
+    $('stateIso').innerHTML = isoBlock(o, tn, y1);
+    $('stateIso').__csv = isoCsv(o);
+    $('stateIsoCap').textContent = t('state.iso.cap', { s: place(p), n: fmt(o.ct, 0), y: y1, conv: fmt(o.conv, 0), pend: fmt(o.ptr, 0), share: isoParts(o)[3] });
+    $('stateIso').setAttribute('aria-label', $('stateIsoCap').textContent);
+    // what was recorded
+    $('stateMixCap').textContent = t('state.mix.cap', { s: place(p), y: y1, n: fmt(S('TOTAL', 'cases', p, y1), 0) });
+    drawMix($('stateMix'), p, y1, $('stateMixCap').textContent);
+    // among the states
+    var list = CRIMES.filter(function (c) { return c !== 'TOTAL'; }).concat(['TOTAL']);
+    var srows = list.map(function (c) {
+      return { label: head(c), hi: rc(c, p, y1), mark: rc(c, 'All India', y1),
+        dots: STATES().filter(function (q) { return q.id !== p; }).map(function (q) { return { name: place(q.id), v: rc(c, q.id, y1) }; }).filter(function (d) { return d.v != null; }) };
+    }).filter(function (r) { return r.hi != null || r.mark != null; });
+    C.watch($('stripChart'), function () {
+      C.strip($('stripChart'), { rows: srows, hiLabel: place(p), markLabel: t('india'), dotLabel: t('strip.dot'), label: t('strip.cap'), fmt: function (v) { return fmt(v, 2); } });
+    });
+    // five years, each row on its own scale
+    var grows = list.map(function (c) { return { label: head(c), values: D.years.map(function (y) { return rc(c, p, y); }) }; })
+      .filter(function (r) { return r.values.some(function (v) { return v != null; }); });
+    C.watch($('gridChart'), function () {
+      C.heat($('gridChart'), { rows: grows, x: D.years, rowScale: true, above: true, labelW: 310, rowH: 28, keyLow: t('grid.low'), keyHigh: t('grid.high'), label: t('grid.cap'), fmt: function (v) { return fmt(v, 2); } });
+    });
     // every crime, five years
     var h = '<thead><tr><th scope="col">' + t('crime') + '</th>' + D.years.map(function (y, i) { return '<th scope="col"' + (i < D.years.length - 1 ? ' class="old"' : '') + '>' + y + '</th>'; }).join('') +
       '<th scope="col">' + t('trend') + '</th><th scope="col" data-tip="tip.rate">' + t('rate24') + '</th><th scope="col" class="ind">' + t('india24') + '</th></tr></thead><tbody>';
@@ -469,17 +497,12 @@
         var vals = cases(code, p); if (!vals) return;
         h += '<tr><th scope="row">' + head(code) + (law(code) ? '<span class="sub">' + law(code) + '</span>' : '') + '</th>' +
           vals.map(function (v, i) { return '<td' + (i < vals.length - 1 ? ' class="old"' : '') + '>' + fmt(v, 0) + '</td>'; }).join('') + '<td>' + spark(vals) + '</td>' +
-          '<td class="hl">' + fmt(rate(code, p, 2024), 2) + '</td><td class="ind">' + fmt(rate(code, 'All India', 2024), 2) + '</td></tr>';
+          '<td class="hl">' + fmt(rc(code, p, 2024), 2) + '</td><td class="ind">' + fmt(rc(code, 'All India', 2024), 2) + '</td></tr>';
       });
     });
     $('stateTable').innerHTML = h + '</tbody>';
     outcomes('STATE', p);
     ages(p);
-    var dbRows = CRIMES.filter(function (c) { return c !== 'TOTAL'; }).map(function (c) { return { label: head(c), a: rate(c, p, 2024), b: rate(c, 'All India', 2024) }; })
-      .filter(function (r) { return r.a != null || r.b != null; });
-    C.watch($('dbChart'), function () {
-      C.dumbbell($('dbChart'), { rows: dbRows, aLabel: place(p), bLabel: t('india'), label: t('db.cap'), fmt: function (v) { return fmt(v, v < 1 ? 2 : 1); } });
-    });
     var oc = [['POLICE', 'reported', 'o.reported', 0], ['POLICE', 'chargesheeting_rate', 'o.cs', 1], ['POLICE', 'pending_investigation_end_of_year', 'o.pinv', 0],
               ['COURTS', 'total_for_trial', 'o.trial', 0], ['COURTS', 'convicted', 'o.conv', 0], ['COURTS', 'conviction_rate', 'o.cr', 1],
               ['COURTS', 'pending_trial_end_of_year', 'o.ptrial', 0], ['COURTS', 'court_pendency', 'o.cp', 1]];
@@ -505,17 +528,24 @@
     var years = D.years.slice().reverse();
     if (years.indexOf(st.mixY) < 0) st.mixY = years[0];
     tabs($('mixYear'), years, 'mixY', String, mix);
-    var y = st.mixY, i = D.years.indexOf(y), items = [];
-    var add = function (code) { var v = (cases(code, 'All India') || [])[i]; if (v) { var c = GROUP_COLOR[D.heads[code].group]; items.push({ label: head(code), value: v, color: c[0], ink: c[1] }); return v; } return 0; };
+    var y = st.mixY;
+    $('mixCap').textContent = t('mix.cap', { y: y, n: fmt(cases('TOTAL', 'All India')[D.years.indexOf(y)], 0) });
+    drawMix($('mixChart'), 'All India', y, $('mixCap').textContent);
+  }
+  function mixItems(p, y) {
+    var i = D.years.indexOf(y), items = [];
+    var add = function (code) { var v = (cases(code, p) || [])[i]; if (v) { var c = GROUP_COLOR[D.heads[code].group]; items.push({ label: head(code), value: v, color: c[0], ink: c[1] }); return v; } return 0; };
     var ipc = MIX_IPC.reduce(function (a, c) { return a + add(c); }, 0), sll = MIX_SLL.reduce(function (a, c) { return a + add(c); }, 0);
-    var restI = cases('IPC_TOTAL', 'All India')[i] - ipc, restS = cases('SLL_TOTAL', 'All India')[i] - sll;
+    var restI = cases('IPC_TOTAL', p)[i] - ipc, restS = cases('SLL_TOTAL', p)[i] - sll;
     if (restI > 0) items.push({ label: t('mix.ipc'), value: restI, color: '--soft' });
     if (restS > 0) items.push({ label: t('mix.sll'), value: restS, color: '--soft' });
-    var total = cases('TOTAL', 'All India')[i];
-    $('mixCap').textContent = t('mix.cap', { y: y, n: fmt(total, 0) });
-    C.watch($('mixChart'), function () {
-      C.treemap($('mixChart'), { items: items, fmt: function (v) { return fmt(v, 0); }, label: $('mixCap').textContent });
-      $('mixChart').insertAdjacentHTML('afterbegin', '<ul class="legend">' + ['sexual', 'killed', 'home', 'other'].map(function (g) {
+    return items;
+  }
+  function drawMix(el, p, y, label) {
+    var items = mixItems(p, y);
+    C.watch(el, function () {
+      C.treemap(el, { items: items, fmt: function (v) { return fmt(v, 0); }, label: label });
+      el.insertAdjacentHTML('afterbegin', '<ul class="legend">' + ['sexual', 'killed', 'home', 'other'].map(function (g) {
         return '<li><i style="background:var(' + GROUP_COLOR[g][0] + ')"></i>' + t('group.' + g) + '</li>'; }).join('') + '<li><i style="background:var(--soft)"></i>' + t('mix.rest') + '</li></ul>');
     });
   }
@@ -1136,7 +1166,7 @@
     if ($('statePick')) $('statePick').addEventListener('change', function () { go(this.value); });
     if ($('crimePick')) $('crimePick').addEventListener('change', function () { location.href = link('/crimes/' + slug(this.value) + '/'); });
     var want = [fetch(ver('/data/site.json')).then(function (r) { return r.json(); })];
-    if (PAGE === 'states') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'states' || PAGE === 'state') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'context') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
