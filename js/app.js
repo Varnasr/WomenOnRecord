@@ -731,7 +731,7 @@
       { label: t('cx.adsi.hw') + ', 2024', get: function (p) { return cv('adsi', 'ADSI_SUI_HW', p, '2024'); } },
       { label: t('cx.adsi.f') + ', 2020', get: function (p) { return cv('adsi', 'ADSI_SUI_F', p, '2020'); } }]);
     // BPR&D
-    var B = '2023-01-01', wp = cv('bprd', 'women_police_pct_actual', 'All India', B);
+    var B = '2024-01-01', wp = cv('bprd', 'women_police_pct_actual', 'All India', B);
     $('bprdLead').textContent = t('cx.bprd.lead', { pct: fmt(wp, 1), n: fmt(cv('bprd', 'women_police_actual', 'All India', B), 0), old: fmt(cv('bprd', 'women_police_pct_actual', 'All India', '2020-01-01'), 1), ps: fmt(cv('bprd', 'women_police_stations_total', 'All India', B), 0) });
     $('bprdCap').textContent = t('cx.bprd.cap');
     single($('bprdChart'), [{ key: 'w', value: wp }, { key: 'm', value: 100 - wp }],

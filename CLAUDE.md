@@ -126,8 +126,8 @@ limits and every check run). `scripts/build_context.py` writes
 no figure; `build_xlsx.py` writes `downloads/context.xlsx`. Limits each page
 must keep saying: NFHS spousal violence is ever-married women 18 to 49; NCW
 counts complaints, half from Uttar Pradesh; ADSI does not say why anyone died;
-BPR&D is 1 January 2023 (the 2024 edition, about 60 MB, could not be fetched
-from the sandbox); the FTSC conviction rate has no stated denominator and the
+BPR&D is 1 January 2024 (the PDF is checked against the Wayback SHA-1 by
+`scripts/context/bprd_2024.py`, which refuses any other file); the FTSC conviction rate has no stated denominator and the
 dashboard's undated figure is never shown with a date; NJDG counts cases a
 woman filed, which are not crimes against women; Nirbhaya state figures are
 released and used combined; ADR counts declared pending cases, never

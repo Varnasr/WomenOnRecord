@@ -1,11 +1,12 @@
 # BPR&D Data on Police Organisations: notes
 
-Retrieved 2026-10-09. Scripts: `../../work/parse_dopo.py` (table extraction) and `../../work/build_bprd.py` (CSV and checks). Check output: `../../work/bprd_checks.log`.
+Retrieved 2026-10-09. The 2024 rows are written by `scripts/context/bprd_2024.py`. The 2023 and 2020 rows are written by `scripts/context/bprd_2020_2023/build_bprd.py` from the tables `parse_dopo.py` read into `dopo2023.json` and `dopo2020.json` beside it; `bprd_checks.log` there is its check output.
 
 ## What is in data.csv
 
-Two editions of Data on Police Organizations (DoPO), published by the Bureau of Police Research and Development, Ministry of Home Affairs:
+Three editions of Data on Police Organizations (DoPO), published by the Bureau of Police Research and Development, Ministry of Home Affairs:
 
+- as on 1 January 2024 (`year_or_as_of` = 2024-01-01), 36 States/UTs plus All India, the edition the context page shows
 - as on 1 January 2023 (`year_or_as_of` = 2023-01-01), 36 States/UTs plus All India
 - as on 1 January 2020 (`year_or_as_of` = 2020-01-01), for comparison
 
@@ -20,19 +21,48 @@ Indicators, all as printed by BPR&D:
 | police_per_lakh_sanctioned / _actual | 2.1.3 | Total police per 100,000 population |
 | population_thousand | 2.1.2 | The projected population DoPO used for its ratios (RGI projection from Census 2011, as on 1 October of the preceding year) |
 | ps_special_crime_against_women_children | 5.1.4 | Special purpose police stations in the column "Crime against women & children" |
-| women_police_stations_total / _rural / _urban | 6.2.4 | Women police stations, 2023 edition only |
+| women_police_stations_total / _rural / _urban | 6.2.4 | Women police stations, 2024 and 2023 editions |
 
 Central forces (CAPFs, CPOs) are not included. Every figure is State/UT police.
 
-## The latest edition was not retrieved
+## The 2024 edition
 
-The latest edition is DoPO as on 1 January 2024, launched on 1 July 2025 and posted as `https://bprd.nic.in/uploads/pdf/Data%20on%20Police%20Organizations%20(2024)_%20(14-07-25)%20All.pdf`. It could not be read from this sandbox. bprd.nic.in reset every connection, web.archive.org (which holds four captures of the file) also reset direct connections, and the one route that reached the archive (Firecrawl) refuses files over 50 MiB; this one is about 60 MB. No figure from the 2024 edition is in data.csv. No DoPO as on 1 January 2025 was found published as of 2026-10-09.
+DoPO as on 1 January 2024, launched on 1 July 2025, posted at
+`https://bprd.nic.in/uploads/pdf/Data%20on%20Police%20Organizations%20(2024)_%20(14-07-25)%20All.pdf`.
+bprd.nic.in and web.archive.org reset every connection from the build sandbox, so the
+site's owner downloaded the file on an ordinary connection and passed it on through
+Google Drive. It is 70,059,096 bytes and 344 pages. Its SHA-1 equals the digest the
+Wayback Machine recorded for its capture of the BPR&D address
+(`SZBJFBIFOKGTYXKBTNFOW3WQO7MJUY2Z`), so it is the file BPR&D published, byte for
+byte. The sha256 is in sources.json. The PDF is not committed (it is 70 MB).
 
-To fill the gap, download the file from bprd.nic.in or the Wayback capture listed in sources.json on an ordinary connection, check its SHA-1 against the Wayback digest `SZBJFBIFOKGTYXKBTNFOW3WQO7MJUY2Z`, and rerun the same tables (2.1.2, 2.1.3, 3.2.1, 5.1.4, 6.2.4). The 2023 table numbering may have shifted.
+Unlike the 2023 and 2020 editions, this one was read from the PDF's own text layer
+(`pdftotext -layout`) by `scripts/context/bprd_2024.py`, which is in the repository.
+The script refuses a file with any other SHA-1. Run it with `--check` to confirm
+data.csv still carries what the file says.
 
-## How the files were read
+Checks, all passed on 9 October 2026:
 
-The two PDFs could not be downloaded as bytes, for the reasons above. Both were read as text through Firecrawl's PDF extraction of the Wayback Machine captures of the BPR&D files (URLs in sources.json). So there is no sha256 of the PDFs. sources.json gives the Wayback SHA-1 for the 2023 capture and the sha256 of the text extraction that was parsed. The publisher's own URL is the one recorded in `source_url`. Page numbers in `table_or_page` are the printed page numbers from each edition's list of tables, not PDF page indices.
+- The States/UTs sum to the printed All India row for sanctioned strength
+  (27,55,274), actual strength (21,62,436), women police (2,72,535), population
+  (13,95,474 thousand) and special purpose stations for crime against women and
+  children (721).
+- Women police stations sum to the printed TOTAL of Table 6.2.4: 154 rural, 654
+  urban, 808 in all. Unlike 2023, no row had to be reconstructed. Maharashtra is
+  again printed NA.
+- Actual and sanctioned totals agree between Tables 2.1.2, 3.1.1 and 3.2.1, and
+  women police between 3.1.1 and 3.2.1, for every State/UT.
+- The women's percentage, recomputed, matches the printed one to the second
+  decimal, and police per lakh matches within 0.6, for every State/UT.
+
+The 2024 edition prints Dadra and Nagar Haveli and Daman and Diu as one row, so no
+merging was needed. Its population column is the RGI projection as on 1 October 2023.
+No DoPO as on 1 January 2025 was found as of 9 October 2026, though bprd.nic.in
+itself could not be checked from here.
+
+## How the 2023 and 2020 files were read
+
+Those two PDFs could not be downloaded as bytes, for the reasons above. Both were read as text through Firecrawl's PDF extraction of the Wayback Machine captures of the BPR&D files (URLs in sources.json). So there is no sha256 of the PDFs. sources.json gives the Wayback SHA-1 for the 2023 capture and the sha256 of the text extraction that was parsed. The publisher's own URL is the one recorded in `source_url`. Page numbers in `table_or_page` are the printed page numbers from each edition's list of tables, not PDF page indices.
 
 Extraction from a PDF can misread a cell. The checks below are the reason to trust these figures: each total is printed twice or three times in different tables, and every one agrees.
 
@@ -62,6 +92,5 @@ DoPO is a staffing and infrastructure count reported by each State/UT police for
 
 ## Gaps
 
-- DoPO as on 1 January 2024 (latest): not retrieved, see above.
 - DoPO as on 1 January 2021 and 2022: not used. The 2022 edition is in the Wayback index (about 4 MB) if a third year is wanted.
 - Women police stations for 2020: the 2020 edition has no equivalent of Table 6.2.4 in the pages read, so only the Table 5.1.4 count is given for that year.

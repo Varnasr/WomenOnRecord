@@ -1,0 +1,19 @@
+== DoPO as on 2023-01-01: 36 state/UT rows
+sum of states sanctioned total (T2.1.2): 2722669 vs All India 2722669 -> OK
+sum of states actual total (T2.1.2): 2141305 vs All India 2141305 -> OK
+sum of states women actual (T3.2.1): 263762 vs All India 263762 -> OK
+sum of states population thousand (T2.1.2): 1382898 vs All India 1382898 -> OK
+sum of states special PS crime against women & children (T5.1.4): 681 vs All India 681 -> OK
+sum of states women police stations (T6.2.4): 769 vs printed Total 769 -> OK
+  rural 121 vs 121; urban 648 vs 648
+cross-table and recompute checks: all OK
+== DoPO as on 2020-01-01: 37 state/UT rows
+sum of states sanctioned total (T2.1.2): 2623225 vs All India 2623225 -> OK
+sum of states actual total (T2.1.2): 2091488 vs All India 2091488 -> OK
+sum of states women actual (T3.2.1): 215504 vs All India 215504 -> OK
+sum of states population thousand (T2.1.2): 1342590 vs All India 1342590 -> OK
+sum of states special PS crime against women & children (T5.1.4): 389 vs All India 389 -> OK
+cross-table and recompute checks: all OK
+canonical names missing from output: none
+non-canonical names in output: none
+699 rows written
