@@ -102,6 +102,9 @@ for l, own in OWN.items():
                 fail.append(f'{l} {k} carries {name} characters')
         if ';' in v or '\u061b' in v:
             fail.append(f'{l} {k} joins clauses with a semicolon')
+        # The owner's rule: India is بھارت everywhere in Urdu.
+        if l == 'ur' and 'ہندوستان' in v:
+            fail.append(f'ur {k} names India as ہندوستان, use بھارت')
 
 if fail:
     print('\n'.join(fail)); sys.exit(1)

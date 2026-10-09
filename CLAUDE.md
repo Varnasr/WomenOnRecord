@@ -84,7 +84,8 @@ preview image, and commit messages.
 change all five translations in the same commit; `build_i18n.py --check`
 fails on a missing key or a changed placeholder. No native speaker has read
 the translations yet, and every translated page says so. Numbers stay in
-Western digits with Indian grouping in every language.
+Western digits with Indian grouping in every language. In Urdu, India is
+بھارت everywhere (the owner's rule), and `check.py` fails on ہندوستان.
 
 ## Data
 
