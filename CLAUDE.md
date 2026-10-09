@@ -50,6 +50,15 @@ States are listed alphabetically on every page and never ranked by rate.
 NCRB warns against comparing states on these figures, and the state pages show
 each state against itself (2020 against 2024) and against India.
 
+## Credit
+
+The footer follows offtheroll.in's: one centred line saying who did the
+research, the promise about what is published, then links. The research is by
+Vinita Joseph, Nivedita Biswas, Tarusha Mittal and Varna. Do not copy
+offtheroll's credit here; the two sites credit different people. Names stay in
+Latin script in every language. There is no contact email yet; add one only
+when the owner gives it.
+
 ## Context sources
 
 `context/<source>/` holds each of the eight sources as collected: `data.csv`,

@@ -164,8 +164,10 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .srclist code { font-size: 12.5px; word-break: break-all; color: var(--soft); }
 
 .foot { margin-top: 30px; border-top: 1px solid var(--thread); background: var(--cloth); }
-.foot-in { padding-block: 22px 34px; display: grid; gap: 6px; font-size: 15px; color: var(--soft); }
-.foot-in p { margin: 0; }
+/* One centred line, as on offtheroll.in: who made it, the promise, then links. */
+.foot-in { margin-block: 0; padding-block: 24px 36px; text-align: center; font-size: 14px; line-height: 1.8; color: var(--soft); max-width: 900px; }
+.foot-in a { color: var(--soft); }
+.foot-in a:hover { color: var(--ink); }
 .foot-in b { color: var(--ink); }
 
 .tip { position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--cloth); padding: 6px 10px; border-radius: 4px; font-size: 14px; max-width: 260px; }
