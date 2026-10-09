@@ -58,10 +58,23 @@ for f in ('downloads/shecounts.xlsx', 'downloads/codebook.csv', 'data/site.json'
         fail.append(f'{f} is missing')
 
 text = re.sub(r'<(script|style)[^>]*>.*?</\1>', '', page, flags=re.S)
+text = re.sub(r'<[^>]+>', ' ', text)
+# The owner's banned words (the part of the list a regex can hold) and the
+# "X, not Y" endings. See CLAUDE.md.
+BANNED = r'\b(delve\w*|certainly|utilise|leverage|robust|streamline|harness|foster|underscore|enhance|testament|pivotal|intricate|crucial|transformative|groundbreaking|tapestry|landscape|paradigm|synergy|showcas\w+|meticulous\w*|notabl[ey]|noteworthy|seamless\w*|multifaceted|nuanced|holistic|invaluable|unparalleled|garner|bolster|elucidate|interplay|underpin\w*|vibrant|stunning|boasts|renowned|embark|unlock|unleash|empower\w*|elevate|amplify|resonate|facilitate|spearhead|realm|myriad|plethora|genuinely|truly|arguably|honestly|navigate)\b'
+TURNS = [r',\s*not\s+(?:a |an |the )?\w+\.', r'\bnot only\b', r'\bnot just\b', r"\bit'?s not\b.*\bit'?s\b"]
 en = json.load(open(os.path.join(ROOT, 'i18n', 'en.json'), encoding='utf-8'))
-for where, s in [('index.html', text)] + [(f'en.json {k}', v) for k, v in en.items()]:
-    if '—' in s:
+readme = open(os.path.join(ROOT, 'README.md'), encoding='utf-8').read()
+for where, s in [('index.html', text), ('README.md', readme)] + [(f'en.json {k}', v) for k, v in en.items()]:
+    if ';' in s and where != 'index.html':
+        fail.append(f'semicolon in {where}')
+    if '\u2014' in s or ' -- ' in s:
         fail.append(f'em dash in {where}')
+    for w in re.findall(BANNED, s, flags=re.I):
+        fail.append(f'banned word "{w}" in {where}')
+    for pat in TURNS:
+        if re.search(pat, s, flags=re.I):
+            fail.append(f'"X, not Y" turn ({pat}) in {where}')
 
 # A locale's strings must not carry another Indic script, which is what a
 # machine-translated or pasted-in string shows first.
@@ -73,6 +86,8 @@ for l, own in OWN.items():
         for name, (a, b) in SCRIPTS.items():
             if name != own and any(a <= ord(ch) <= b and ch not in '\u0964\u0965' for ch in v):
                 fail.append(f'{l} {k} carries {name} characters')
+        if ';' in v or '\u061b' in v:
+            fail.append(f'{l} {k} joins clauses with a semicolon')
 
 if fail:
     print('\n'.join(fail)); sys.exit(1)

@@ -4,7 +4,7 @@ Crimes against women in India, as police and courts recorded them, 2020 to 2024.
 Every state and union territory, from the National Crime Records Bureau's
 *Crime in India* reports, with a free dataset in CSV and Excel.
 
-Live at **https://shecounts.netlify.app**
+Live at https://shecounts.netlify.app
 
 ## What it shows
 
@@ -15,8 +15,9 @@ Live at **https://shecounts.netlify.app**
   Violence Act, kidnapping, acid attacks, trafficking and cyber crimes.
 - Rates per lakh women, using the female population NCRB itself uses.
 - What police and courts did: charge-sheeting, convictions, and the cases still
-  waiting. By state for all crimes against women together; for single crimes
-  such as rape, for India as a whole, because that is all NCRB publishes.
+  waiting. These are shown by state for all crimes against women together.
+  For single crimes such as rape they are shown for India as a whole, because
+  NCRB publishes them only at that level.
 
 ## What it cannot show
 
@@ -34,8 +35,8 @@ states on these figures alone. The site says this where the numbers are.
 | `downloads/codebook.csv` | Every column, crime code and flag explained. |
 | `data/raw/` | The NCRB pages the figures were read from, as extracted text, and `sources.json` with each PDF's address and checksum. |
 
-Licence: figures are NCRB's; the compilation, codes and notes are CC BY 4.0;
-the code is MIT. The state map is DataMeet's (CC BY 4.0), following India's
+The figures are NCRB's. The compilation, codes and notes are released under
+CC BY 4.0, and the code is released under the MIT licence. The state map is DataMeet's (CC BY 4.0), following India's
 official boundary.
 
 ## Rebuilding
