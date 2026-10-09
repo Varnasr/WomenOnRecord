@@ -119,7 +119,7 @@
 
   // ---------- home ----------
   function hero() {
-    var y = 2024;
+    var y = D.years[D.years.length - 1];
     var before = S('RAPE', 'court_total_for_trial', 'All India', y), pend = S('RAPE', 'court_pending_trial_end_of_year', 'All India', y);
     var out = [
       [fmt(S('TOTAL', 'cases', 'All India', y), 0), t('hero.f1', { y: y }), null],
@@ -134,13 +134,13 @@
   // Four findings, each computed from the data, so they move when it does.
   function findings() {
     var y0 = D.years[0], y1 = D.years[D.years.length - 1];
-    var cr = cases('CRUELTY', 'All India')[4] / cases('TOTAL', 'All India')[4] * 100;
-    var pa = cases('POCSO_RAPE', 'All India'), ch = Math.round((pa[4] - pa[0]) / pa[0] * 100);
+    var L = D.years.length - 1, cr = cases('CRUELTY', 'All India')[L] / cases('TOTAL', 'All India')[L] * 100;
+    var pa = cases('POCSO_RAPE', 'All India'), ch = Math.round((pa[L] - pa[0]) / pa[0] * 100);
     var cs = S('RAPE', 'police_chargesheeting_rate', 'All India', y1);
     var done = S('RAPE', 'court_trials_completed', 'All India', y1), pend = S('RAPE', 'court_pending_trial_end_of_year', 'All India', y1);
     var f = [
       [t('field.big', { share: Math.round(cr) }), t('find.1', { share: Math.round(cr), y: y1 }), '/crimes/cruelty/'],
-      ['+' + ch + '%', t('find.2', { a: fmt(pa[0], 0), b: fmt(pa[4], 0), y0: y0, y1: y1 }), '/crimes/pocso-rape/'],
+      ['+' + ch + '%', t('find.2', { a: fmt(pa[0], 0), b: fmt(pa[L], 0), y0: y0, y1: y1 }), '/crimes/pocso-rape/'],
       [t('field.big', { share: Math.round(cs) }), t('find.3', { cs: Math.round(cs), y: y1 }), '/courts/'],
       [t('find.yrs', { n: fmt(pend / done, 1) }), t('find.4', { done: fmt(done, 0), pend: fmt(pend, 0), y: y1, yrs: fmt(pend / done, 1) }), '/courts/#years']];
     $('findList').innerHTML = f.map(function (x) { return '<li><b>' + x[0] + '</b><span>' + x[1] + '</span><a href="' + link(x[2]) + '">' + t('find.more') + '</a></li>'; }).join('');
@@ -148,8 +148,8 @@
   function home() {
     hero();
     findings();
-    var o = pc('RAPE', 'All India', 2024);
-    $('homeCourts').textContent = t('home.courts.t', { conv: Math.round(o.cr), y: 2024 });
+    var YL = D.years[D.years.length - 1], o = pc('RAPE', 'All India', YL);
+    $('homeCourts').textContent = t('home.courts.t', { conv: Math.round(o.cr), y: YL });
     // a strip of every rape case before the courts in 2024, split by outcome
     var parts = [['conv', '--red'], ['acq', '--turmeric'], ['dis', '--q4'], ['othc', '--soft'], ['ptr', '--knot-open']], x = 0, g = '';
     parts.forEach(function (p) { var w = o[p[0]] / o.ct * 300; g += '<rect x="' + x.toFixed(1) + '" y="0" width="' + Math.max(1, w).toFixed(1) + '" height="14" fill="var(' + p[1] + ')"/>'; x += w; });
@@ -158,12 +158,12 @@
     var d = v.map(function (n, i) { return (i ? 'L' : 'M') + (i * 72 + 6) + ' ' + (40 - n / mx * 34).toFixed(1); }).join('');
     $('vizCrimes').setAttribute('viewBox', '0 0 300 44');
     $('vizCrimes').innerHTML = '<path d="' + d + '" fill="none" stroke="var(--knot)" stroke-width="2.5"/>' +
-      v.map(function (n, i) { return '<circle cx="' + (i * 72 + 6) + '" cy="' + (40 - n / mx * 34).toFixed(1) + '" r="3.5" fill="' + (i === 4 ? 'var(--red)' : 'var(--knot)') + '"/>'; }).join('');
+      v.map(function (n, i) { return '<circle cx="' + (i * 72 + 6) + '" cy="' + (40 - n / mx * 34).toFixed(1) + '" r="3.5" fill="' + (i === v.length - 1 ? 'var(--red)' : 'var(--knot)') + '"/>'; }).join('');
   }
 
   // ---------- protests ----------
   function protests() {
-    var y = 2024, ri = S('RAPE', 'rate', 'All India', y);
+    var y = D.years[D.years.length - 1], ri = S('RAPE', 'rate', 'All India', y);
     ['Delhi', 'Bihar'].forEach(function (p) {
       $(p === 'Delhi' ? 'prDelhi' : 'prBihar').textContent = t(p === 'Delhi' ? 'pr.delhi' : 'pr.bihar', {
         rape: fmt(S('RAPE', 'cases', p, y), 0), pocso: fmt(S('POCSO_RAPE', 'cases', p, y), 0),
@@ -439,7 +439,7 @@
   var AGES = [['victims_under6', 'age.u6'], ['victims_6_12', '6-12'], ['victims_12_16', '12-16'], ['victims_16_18', '16-18'],
               ['victims_18_30', '18-30'], ['victims_30_45', '30-45'], ['victims_45_60', '45-60'], ['victims_60plus', 'age.60']];
   function ages(p) {
-    var y = 2024, vals = AGES.map(function (g) { return S('RAPE_VICTIMS_AGE', g[0], p, y); });
+    var y = D.years[D.years.length - 1], vals = AGES.map(function (g) { return S('RAPE_VICTIMS_AGE', g[0], p, y); });
     if (vals.every(function (v) { return v == null; })) { $('ages').hidden = true; return; }
     $('ages').hidden = false;
     $('ageCap').textContent = t('age.cap', { y: y, place: p === 'All India' ? t('india') : place(p), girls: fmt(S('RAPE_VICTIMS_AGE', 'victims_girls', p, y), 0), women: fmt(S('RAPE_VICTIMS_AGE', 'victims_women', p, y), 0) });
@@ -460,8 +460,8 @@
     var p = placeFromPage();
     $('h-state').textContent = place(p);
     document.title = place(p) + ' · She Counts';
-    var tot = S('TOTAL', 'cases', p, 2024), r = S('TOTAL', 'rate', p, 2024), ri = S('TOTAL', 'rate', 'All India', 2024);
-    $('stateIntro').textContent = t('state.intro', { s: place(p), pop: fmt(S('FEMALE_POP', 'population_lakh', p, 2024), 1), tot: fmt(tot, 0), r: fmt(r, 1), ri: fmt(ri, 1) });
+    var YL = D.years[D.years.length - 1], tot = S('TOTAL', 'cases', p, YL), r = S('TOTAL', 'rate', p, YL), ri = S('TOTAL', 'rate', 'All India', YL);
+    $('stateIntro').textContent = t('state.intro', { s: place(p), pop: fmt(S('FEMALE_POP', 'population_lakh', p, YL), 1), tot: fmt(tot, 0), r: fmt(r, 1), ri: fmt(ri, 1) });
     var y1 = D.years[D.years.length - 1];
     locator(p);
     // the hundred women, for every crime against women before this state's courts
@@ -497,7 +497,7 @@
         var vals = cases(code, p); if (!vals) return;
         h += '<tr><th scope="row">' + head(code) + (law(code) ? '<span class="sub">' + law(code) + '</span>' : '') + '</th>' +
           vals.map(function (v, i) { return '<td' + (i < vals.length - 1 ? ' class="old"' : '') + '>' + fmt(v, 0) + '</td>'; }).join('') + '<td>' + spark(vals) + '</td>' +
-          '<td class="hl">' + fmt(rc(code, p, 2024), 2) + '</td><td class="ind">' + fmt(rc(code, 'All India', 2024), 2) + '</td></tr>';
+          '<td class="hl">' + fmt(rc(code, p, YL), 2) + '</td><td class="ind">' + fmt(rc(code, 'All India', YL), 2) + '</td></tr>';
       });
     });
     $('stateTable').innerHTML = h + '</tbody>';
@@ -557,14 +557,14 @@
       if (!vals) return '';
       var dp = st.mult === 'rate' ? 2 : 0;
       var mx = Math.max.apply(null, vals.filter(function (v) { return v != null; })) * 1.15, W = 240, H = 90, L = 4, B = 18;
-      var pts = vals.map(function (v, i) { return v == null ? null : [L + i * (W - 2 * L - 30) / 4, H - B - v / mx * (H - B - 6)]; });
+      var pts = vals.map(function (v, i) { return v == null ? null : [L + i * (W - 2 * L - 30) / (vals.length - 1), H - B - v / mx * (H - B - 6)]; });
       var d = pts.filter(Boolean).map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join('');
       var g = '<line x1="' + L + '" x2="' + (W - 30) + '" y1="' + (H - B) + '" y2="' + (H - B) + '" stroke="var(--thread)" stroke-dasharray="5 4"/>';
       g += '<path d="M' + pts[0][0] + ' ' + (H - B) + d.replace(/^M/, 'L') + 'L' + pts[pts.length - 1][0] + ' ' + (H - B) + 'Z" fill="var(--q1)"/>';
       g += '<path d="' + d + '" fill="none" stroke="var(--knot)" stroke-width="2"/>';
-      pts.forEach(function (p, i) { if (p) g += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="' + (i === 4 ? 4 : 2.6) + '" fill="' + (i === 4 ? 'var(--red)' : 'var(--knot)') + '"/>'; });
-      g += '<text x="' + L + '" y="' + (H - 3) + '" class="tick">2020</text><text x="' + (W - 30) + '" y="' + (H - 3) + '" class="tick" text-anchor="end">2024</text>';
-      var first = vals[0], last = vals[4], ch = first ? Math.round((last - first) / first * 100) : null;
+      pts.forEach(function (p, i) { if (p) g += '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="' + (i === vals.length - 1 ? 4 : 2.6) + '" fill="' + (i === vals.length - 1 ? 'var(--red)' : 'var(--knot)') + '"/>'; });
+      g += '<text x="' + L + '" y="' + (H - 3) + '" class="tick">' + D.years[0] + '</text><text x="' + (W - 30) + '" y="' + (H - 3) + '" class="tick" text-anchor="end">' + D.years[D.years.length - 1] + '</text>';
+      var first = vals[0], last = vals[vals.length - 1], ch = first ? Math.round((last - first) / first * 100) : null;
       return '<a class="mult cloth" href="' + link('/crimes/' + slug(code) + '/') + '"><h3>' + head(code) + '</h3>' + (law(code) ? '<span class="law">' + law(code) + '</span>' : '') +
         '<span class="last">' + fmt(last, dp) + '</span>' +
         '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + head(code) + ': ' + vals.map(function (v) { return fmt(v, dp); }).join(', ') + '">' + g + '</svg>' +
@@ -581,8 +581,8 @@
     document.title = head(c) + ' · She Counts';
     $('crimeLaw').textContent = law(c);
     var v = cases(c, 'All India'), y0 = D.years[0], y1 = D.years[D.years.length - 1];
-    $('crimeIntro').textContent = t('crime.intro', { b: fmt(v[4], 0), y1: y1, a: fmt(v[0], 0), y0: y0, r: fmt(rate(c, 'All India', y1), 2) });
-    var note = (D.notes[c] || {})['2024'];
+    $('crimeIntro').textContent = t('crime.intro', { b: fmt(v[v.length - 1], 0), y1: y1, a: fmt(v[0], 0), y0: y0, r: fmt(rate(c, 'All India', y1), 2) });
+    var note = (D.notes[c] || {})[String(D.years[D.years.length - 1])];
     $('crimeNote').textContent = note || '';
     $('crimeNote').hidden = !note;
     tabs($('trendMode'), ['cases', 'rate'], 'trend', function (m) { return t(m === 'rate' ? 'm.rate' : 'm.cases'); }, trend);
@@ -614,12 +614,12 @@
     C.watch($('trendChart'), function () {
       C.lines($('trendChart'), { x: D.years, series: series, label: $('trendCap').textContent,
         fmt: function (v, tick) { return tick && !rateMode && v >= 100000 ? fmt(v / 100000, 1) + ' L' : fmt(v, tick ? (rateMode ? 1 : 0) : dp); },
-        marks: [{ i: 0, label: t('mark.lock') }, { i: 4, label: t('mark.bns') }] });
+        marks: [{ i: D.years.indexOf(2020), label: t('mark.lock') }, { i: D.years.indexOf(2024), label: t('mark.bns') }] });
     });
   }
   function crimeStates(c) {
     var cols = D.years.map(function (y) { return { key: 'y' + y, label: String(y), get: function (p) { return (cases(c, p) || [])[D.years.indexOf(y)]; }, dp: 0 }; })
-      .concat([{ key: 'rate', label: t('rate24'), get: function (p) { return rate(c, p, 2024); }, dp: 2, tip: 'tip.rate' }]);
+      .concat([{ key: 'rate', label: t('rate24'), get: function (p) { return rate(c, p, D.years[D.years.length - 1]); }, dp: 2, tip: 'tip.rate' }]);
     function draw() {
       var list = STATES().slice();
       var sc = cols.find(function (x) { return x.key === st.sort; });
@@ -694,23 +694,24 @@
       { label: t('cx.nfhs.c2'), get: function (p) { return cv('nfhs', 'NFHS5_SV_EVER', p, NF); }, pct: 1 },
       { label: t('cx.nfhs.c3'), get: function (p) { return cv('nfhs', 'NFHS5_HS_NEVER_TOLD', p, NF); }, pct: 1 }]);
     // NCW
-    var nt = D.years.map(function (y) { return cv('ncw', 'ncw_complaints_total', 'All India', String(y)); });
+    var CY = [2020, 2021, 2022, 2023, 2024];
+    var nt = CY.map(function (y) { return cv('ncw', 'ncw_complaints_total', 'All India', String(y)); });
     var up = cv('ncw', 'ncw_complaints_total', 'Uttar Pradesh', '2024');
     $('ncwLead').textContent = t('cx.ncw.lead', { n: fmt(nt[4], 0), y: 2024, up: fmt(up / nt[4] * 100, 0), rape: fmt(cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', '2024'), 0), dv: fmt(cv('ncw', 'ncw_nature_domestic_violence', 'All India', '2024'), 0) });
     $('ncwCap').textContent = t('cx.ncw.cap');
     C.watch($('ncwChart'), function () {
-      C.columns($('ncwChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
+      C.columns($('ncwChart'), { x: CY, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
         { label: t('cx.ncw.all'), values: nt, color: '--knot', width: 3 },
-        { label: t('cx.ncw.dv'), values: D.years.map(function (y) { return cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(y)); }), color: '--turmeric' },
-        { label: t('cx.ncw.rape'), values: D.years.map(function (y) { return cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(y)); }), color: '--red' }] });
+        { label: t('cx.ncw.dv'), values: CY.map(function (y) { return cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(y)); }), color: '--turmeric' },
+        { label: t('cx.ncw.rape'), values: CY.map(function (y) { return cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(y)); }), color: '--red' }] });
     });
-    placeTable($('ncwTable'), D.years.map(function (y) { return { label: String(y), get: function (p) { return cv('ncw', 'ncw_complaints_total', p, String(y)); } }; }));
+    placeTable($('ncwTable'), CY.map(function (y) { return { label: String(y), get: function (p) { return cv('ncw', 'ncw_complaints_total', p, String(y)); } }; }));
     // ADSI
-    var af = D.years.map(function (y) { return cv('adsi', 'ADSI_SUI_F', 'All India', String(y)); }), ah = D.years.map(function (y) { return cv('adsi', 'ADSI_SUI_HW', 'All India', String(y)); });
+    var af = CY.map(function (y) { return cv('adsi', 'ADSI_SUI_F', 'All India', String(y)); }), ah = CY.map(function (y) { return cv('adsi', 'ADSI_SUI_HW', 'All India', String(y)); });
     $('adsiLead').textContent = t('cx.adsi.lead', { f: fmt(af[4], 0), hw: fmt(ah[4], 0), share: fmt(ah[4] / af[4] * 100, 0), y: 2024 });
     $('adsiCap').textContent = t('cx.adsi.cap');
     C.watch($('adsiChart'), function () {
-      C.columns($('adsiChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('adsiCap').textContent, series: [
+      C.columns($('adsiChart'), { x: CY, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('adsiCap').textContent, series: [
         { label: t('cx.adsi.f'), values: af, color: '--knot', width: 3 }, { label: t('cx.adsi.hw'), values: ah, color: '--red' }] });
     });
     placeTable($('adsiTable'), [
