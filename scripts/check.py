@@ -47,8 +47,13 @@ rows = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'shecounts.csv'), enc
 pop = {(r['state'], r['year']): float(r['value']) for r in rows if r['crime_code'] == 'FEMALE_POP' and r['value']}
 cases = {(r['crime_code'], r['state'], r['year']): float(r['value']) for r in rows if r['measure'] == 'cases' and r['value']}
 checked = 0
+# NCRB misprints, kept as printed because the dataset never alters a printed figure.
+# Each is named here with its source, so a new one still fails.
+MISPRINTS = {('2016', 'Uttarakhand', 'TRAFFICKING'): 'Crime in India 2016, table 3A.2: 2 cases over 52.2 lakh women is 0.04, NCRB prints 0.1'}
 for r in rows:
     if r['measure'] != 'rate' or not r['value'] or 'Computed here' in r['note']:
+        continue
+    if (r['year'], r['state'], r['crime_code']) in MISPRINTS:
         continue
     c = cases.get((r['crime_code'], r['state'], r['year']))
     p = pop.get((r['state'], r['year']))

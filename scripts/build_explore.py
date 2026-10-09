@@ -59,7 +59,29 @@ MEASURES = {
     'conviction_rate': 'Courts: conviction rate (%)',
     'pending_trial_end_of_year': 'Courts: still waiting for a verdict at year end',
     'court_pendency': 'Courts: share still waiting for a verdict (%)',
+    # measures printed only in the 2014 to 2016 tables
+    'acquitted_or_discharged': 'Courts: acquitted or discharged (printed as one figure before 2017)',
+    'court_acquitted_or_discharged': 'Courts: acquitted or discharged (printed as one figure before 2017)',
+    'court_compounded_or_withdrawn': 'Courts: compounded or withdrawn',
+    'court_disposed_by_plea_bargaining': 'Courts: disposed of by plea bargaining',
+    'court_pending_trial_from_previous_year': 'Courts: pending trial from the year before',
+    'court_sent_for_trial': 'Courts: sent for trial during the year',
+    'court_total_for_trial_2014def': 'Courts: cases for trial, 2014-2015 definition (net of withdrawals and plea bargaining)',
+    'court_withdrawn_by_govt': 'Courts: withdrawn by the government',
+    'police_chargesheeting_rate_2014def': 'Police: charge-sheeting rate, 2014-2015 definition (%)',
+    'police_disposed_by_police_2014def': 'Police: cases disposed of, 2014-2015 definition',
+    'police_final_report_mistake_of_fact_or_law': 'Police: closed as a mistake of fact or law',
+    'police_final_report_non_cognizable': 'Police: closed as non-cognizable',
+    'police_not_investigated_157_1_b': 'Police: not investigated under CrPC s.157(1)(b)',
+    'police_pending_from_previous_year': 'Police: pending investigation from the year before',
+    'police_police_pendency_2014def': 'Police: share still under investigation, 2014-2015 definition (%)',
+    'police_total_for_investigation_2014def': 'Police: cases for investigation, 2014-2015 definition',
+    'police_transferred': 'Police: transferred to another police station or magistrate',
+    'police_withdrawn_by_govt': 'Police: withdrawn by the government during investigation',
 }
+for band, words in (('under6', 'under 6'), ('6_12', '6 to 12'), ('12_16', '12 to 16'), ('16_18', '16 to 18'),
+                    ('18_30', '18 to 30'), ('30_45', '30 to 45'), ('45_60', '45 to 60'), ('60plus', '60 and over')):
+    MEASURES['victims_female_' + band] = 'Female victims aged ' + words
 
 
 def label(m):
@@ -79,7 +101,7 @@ def build():
     rows = list(csv.reader(open(SRC, encoding='utf-8')))
     head, body = rows[0], rows[1:]
     ix = {c: i for i, c in enumerate(head)}
-    places, crimes, measures, years, flags, notes, tables = [], {}, {}, {}, [], [], []
+    places, crimes, measures, years, flags, notes, tables, sources = [], {}, {}, set(), [], [], [], []
     pidx, cidx, midx = {}, {}, {}
 
     def idx(lst, v):
@@ -103,10 +125,7 @@ def build():
             midx[mk] = len(measures); measures[len(measures)] = [g('measure'), g('unit'), label(g('measure'))]
         src = [g('source_edition'), g('source_url'), g('source_sha256')]
         y = g('year')
-        if y in years:
-            assert years[y] == src, f'{y} carries two sources'
-        else:
-            years[y] = src
+        years.add(int(y))
         v = g('value')
         if v == '':
             val = None
@@ -114,13 +133,13 @@ def build():
             f = float(v)
             # keep the figure exactly as written; JSON numbers that would not print back the same stay strings
             val = int(f) if f.is_integer() and '.' not in v else (f if repr(f) == v else v)
-        out.append([pidx[pk], int(y), cidx[ck], midx[mk], val, idx(tables, g('table_no')), idx(flags, g('flag')), idx(notes, g('note'))])
+        out.append([pidx[pk], int(y), cidx[ck], midx[mk], val, idx(tables, g('table_no')), idx(flags, g('flag')), idx(notes, g('note')), idx(sources, src)])
     data = {'columns': head, 'places': places, 'crimes': [list(c) for c in cidx], 'measures': [measures[i] for i in range(len(measures))],
-            'sources': years, 'tables': tables, 'flags': flags, 'notes': notes, 'rows': out}
+            'years': sorted(years), 'sources': sources, 'tables': tables, 'flags': flags, 'notes': notes, 'rows': out}
     # The explorer must give back exactly the rows of the CSV.
     for r, o in zip(body, out):
         p, c, m = places[o[0]], data['crimes'][o[2]], data['measures'][o[3]]
-        s = years[str(o[1])]
+        s = sources[o[8]]
         val = '' if o[4] is None else (o[4] if isinstance(o[4], str) else (str(o[4]) if isinstance(o[4], int) else repr(o[4])))
         back = [p[0], p[1], p[2], str(o[1]), c[0], c[1], c[2], c[3], c[4], m[0], val, m[1], s[0], tables[o[5]], s[1], s[2], flags[o[6]], notes[o[7]]]
         assert back == r, f'row does not round-trip: {r} != {back}'

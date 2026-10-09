@@ -1,0 +1,3927 @@
+{
+ "blank": [
+  "2016 Lakshadweep COURTS conviction_rate (3A.8): printed blank or \"-\", left out",
+  "2017 Lakshadweep COURTS conviction_rate (3A.8): printed blank or \"-\", left out",
+  "2018 Lakshadweep COURTS conviction_rate (3A.8): printed blank or \"-\", left out"
+ ],
+ "checks": [
+  "2016 3A.1: 3 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2016 3A.1: printed rate (col 9) = col 5 / female population (col 8) within rounding, all 39 rows",
+  "2016 3A.2: 78 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2016 3A.2 DOWRY_DEATH: printed rate col 5 = col 3 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 ABETMENT_SUICIDE: printed rate col 8 = col 6 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 ACID_INCL_ATTEMPT: printed rate col 17 = col 15 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 CRUELTY: printed rate col 20 = col 18 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 KIDNAP: printed rate col 23 = col 21 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 RAPE: printed rate col 29 = col 27 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 ATTEMPT_RAPE: printed rate col 32 = col 30 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 ASSAULT_MODESTY: printed rate col 38 = col 36 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 INSULT_MODESTY: printed rate col 41 = col 39 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 IPC_TOTAL: printed rate col 44 = col 42 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 DOWRY_ACT: printed rate col 47 = col 45 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 ITPA: printed rate col 50 = col 48 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 PWDVA: printed rate col 53 = col 51 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 CYBER_67A: printed rate col 56 = col 54 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 SLL_TOTAL: printed rate col 62 = col 60 / female population (3A.1 col 8), all 39 rows",
+  "2016 3A.2 TOTAL: printed rate col 65 = col 63 / female population (3A.1 col 8), all 39 rows",
+  "2016: 3A.1 col 5 (total crime against women) equals 3A.2 col 63 in all 39 rows",
+  "2016 3A.2: IPC total (col 42) + SLL total (col 60) = total (col 63) for cases, all 39 rows",
+  "2016 3A.2: IPC total (col 43) + SLL total (col 61) = total (col 64) for victims, all 39 rows",
+  "2016 3A.2: col 42 = col 3 + col 6 + col 9 + col 12 + col 15 + col 18 + col 21 + col 24 + col 27 + col 30 + col 33 + col 36 + col 39, all 39 rows",
+  "2016 3A.2: col 60 = col 45 + col 48 + col 51 + col 54 + col 57, all 39 rows",
+  "2016 3A.3: 12 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2016: 3A.3 col 3 equals 3A.2 RAPE col 27 (cases), all 39 rows",
+  "2016: 3A.3 col 14 equals 3A.2 RAPE col 28 (victims), all 39 rows",
+  "2016 3A.3: bands 4-7 = col 8, bands 9-12 = col 13, col 8 + col 13 = col 14, all 39 rows",
+  "2016 3A.6: 14 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2016 3A.8: 11 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2016: 3A.6 col 4 (cases reported) equals 3A.1 col 5, all 39 rows",
+  "2016 3A.5: 37 head rows in the same order in all 16 columns (labels agree wherever an SL could be read)",
+  "2016 3A.5: the 18 top-level crime heads add to the printed total rows in every count column",
+  "2016 3A.5: row identities across page groups hold for all 37 head rows (Col.5=3+4; Col.15=7+8+13+14; Col.16=5-6-15; Col.13=9+10+11+12)",
+  "2016: 3A.5 \"Total Crime against Women\" row equals 3A.6 All India row in all 16 columns",
+  "2016 3A.7: the 18 top-level crime heads add to the printed total rows in every count column",
+  "2016 3A.7: row identities across page groups hold for all 37 head rows (Col.5=3+4; Col.9=10+11; Col.12=6+7+8+9; Col.13=5-12)",
+  "2016: 3A.7 \"Total Crime against Women\" row equals 3A.8 All India row in all 13 columns",
+  "2016: 3A.5 rape row col 4 (reported) equals 3A.2 RAPE cases, All India",
+  "2016 2A.3: 33 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2017 3A.1: 3 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2017 3A.1: printed rate (col 8) = col 5 / female population (col 7) within rounding, all 39 rows",
+  "2017 3A.2: 110 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2017 3A.2 MURDER_RAPE: printed rate col 5 = col 3 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 DOWRY_DEATH: printed rate col 8 = col 6 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 ABETMENT_SUICIDE: printed rate col 11 = col 9 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 ACID: printed rate col 17 = col 15 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 ACID_ATTEMPT: printed rate col 20 = col 18 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 CRUELTY: printed rate col 23 = col 21 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 KIDNAP: printed rate col 26 = col 24 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 TRAFFICKING: printed rate col 56 = col 54 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 RAPE: printed rate col 65 = col 63 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 RAPE_WOMEN: printed rate col 68 = col 66 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 RAPE_GIRLS_IPC: printed rate col 71 = col 69 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 ATTEMPT_RAPE: printed rate col 74 = col 72 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 ASSAULT_MODESTY: printed rate col 83 = col 81 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 INSULT_MODESTY: printed rate col 92 = col 90 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 IPC_TOTAL: printed rate col 101 = col 99 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 DOWRY_ACT: printed rate col 104 = col 102 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 ITPA: printed rate col 107 = col 105 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 PWDVA: printed rate col 125 = col 123 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 CYBER: printed rate col 128 = col 126 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 POCSO_TOTAL: printed rate col 137 = col 135 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 POCSO_RAPE: printed rate col 140 = col 138 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 POCSO_ASSAULT: printed rate col 143 = col 141 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 SLL_TOTAL: printed rate col 161 = col 159 / female population (3A.1 col 7), all 39 rows",
+  "2017 3A.2 TOTAL: printed rate col 164 = col 162 / female population (3A.1 col 7), all 39 rows",
+  "2017: 3A.1 col 5 (total crime against women) equals 3A.2 col 162 in all 39 rows",
+  "2017 3A.2: IPC total (col 99) + SLL total (col 159) = total (col 162) for cases, all 39 rows",
+  "2017 3A.2: IPC total (col 100) + SLL total (col 160) = total (col 163) for victims, all 39 rows",
+  "2017 3A.2: col 99 = col 3 + col 6 + col 9 + col 12 + col 15 + col 18 + col 21 + col 24 + col 54 + col 57 + col 60 + col 63 + col 72 + col 81 + col 90, all 39 rows",
+  "2017 3A.2: col 159 = col 102 + col 105 + col 123 + col 126 + col 135 + col 156, all 39 rows",
+  "2017 3A.2: col 24 = col 27 + col 30 + col 33 + col 36 + col 45 + col 48 + col 51, all 39 rows",
+  "2017 3A.3: 12 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2017: 3A.3 col 3 equals 3A.2 RAPE col 63 (cases), all 39 rows",
+  "2017: 3A.3 col 14 equals 3A.2 RAPE col 64 (victims), all 39 rows",
+  "2017 3A.3: bands 4-7 = col 8, bands 9-12 = col 13, col 8 + col 13 = col 14, all 39 rows",
+  "2017 3A.6: 20 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2017 3A.8: 18 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2017: 3A.6 col 4 (cases reported) equals 3A.1 col 5, all 39 rows",
+  "2017 3A.5: 54 head rows in the same order in all 22 columns (labels agree wherever an SL could be read)",
+  "2017 3A.5: the 21 top-level crime heads add to the printed total rows in every count column",
+  "2017 3A.5: row identities across page groups hold for all 54 head rows (Col.6=3+4+5; Col.15=10+11+12+13+14; Col.18=16+17; Col.19=7+8+15+18; Col.22=6-9-19-20)",
+  "2017: 3A.5 \"Total Crime against Women\" row equals 3A.6 All India row in all 22 columns",
+  "2017 3A.7: 54 head rows in the same order in all 20 columns (labels agree wherever an SL could be read)",
+  "2017 3A.7: the 21 top-level crime heads add to the printed total rows in every count column",
+  "2017 3A.7: row identities across page groups hold for all 54 head rows (Col.5=3+4; Col.11=6+7+8+9+10; Col.15=13+14; Col.18=15+16+17; Col.19=11+18; Col.20=5-19)",
+  "2017: 3A.7 \"Total Crime against Women\" row equals 3A.8 All India row in all 20 columns",
+  "2017: 3A.5 rape row col 4 (reported) equals 3A.2 RAPE cases, All India",
+  "2017 2A.3: 44 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2018 3A.1: 3 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2018 3A.1: printed rate (col 8) = col 5 / female population (col 7) within rounding, all 39 rows",
+  "2018 3A.2: 109 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2018 3A.2 MURDER_RAPE: printed rate col 5 = col 3 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 DOWRY_DEATH: printed rate col 8 = col 6 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 ABETMENT_SUICIDE: printed rate col 11 = col 9 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 ACID: printed rate col 17 = col 15 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 ACID_ATTEMPT: printed rate col 20 = col 18 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 CRUELTY: printed rate col 23 = col 21 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 KIDNAP: printed rate col 26 = col 24 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 TRAFFICKING: printed rate col 56 = col 54 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 RAPE: printed rate col 65 = col 63 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 RAPE_WOMEN: printed rate col 68 = col 66 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 RAPE_GIRLS_IPC: printed rate col 71 = col 69 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 ATTEMPT_RAPE: printed rate col 74 = col 72 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 ASSAULT_MODESTY: printed rate col 83 = col 81 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 INSULT_MODESTY: printed rate col 92 = col 90 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 IPC_TOTAL: printed rate col 101 = col 99 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 DOWRY_ACT: printed rate col 104 = col 102 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 ITPA: printed rate col 107 = col 105 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 PWDVA: printed rate col 125 = col 123 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 CYBER: printed rate col 128 = col 126 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 POCSO_TOTAL: printed rate col 137 = col 135 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 POCSO_RAPE: printed rate col 140 = col 138 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 POCSO_ASSAULT: printed rate col 143 = col 141 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 SLL_TOTAL: printed rate col 161 = col 159 / female population (3A.1 col 7), all 39 rows",
+  "2018 3A.2 TOTAL: printed rate col 164 = col 162 / female population (3A.1 col 7), all 39 rows",
+  "2018: 3A.1 col 5 (total crime against women) equals 3A.2 col 162 in all 39 rows",
+  "2018 3A.2: IPC total (col 99) + SLL total (col 159) = total (col 162) for cases, all 39 rows",
+  "2018 3A.2: IPC total (col 100) + SLL total (col 160) = total (col 163) for victims, all 39 rows",
+  "2018 3A.2: col 99 = col 3 + col 6 + col 9 + col 12 + col 15 + col 18 + col 21 + col 24 + col 54 + col 57 + col 60 + col 63 + col 72 + col 81 + col 90, all 39 rows",
+  "2018 3A.2: col 159 = col 102 + col 105 + col 123 + col 126 + col 135 + col 156, all 39 rows",
+  "2018 3A.2: col 24 = col 27 + col 30 + col 33 + col 36 + col 45 + col 48 + col 51, all 39 rows",
+  "2018 3A.3: 12 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2018: 3A.3 col 3 equals 3A.2 RAPE col 63 (cases), all 39 rows",
+  "2018: 3A.3 col 14 equals 3A.2 RAPE col 64 (victims), all 39 rows",
+  "2018 3A.3: bands 4-7 = col 8, bands 9-12 = col 13, col 8 + col 13 = col 14, all 39 rows",
+  "2018 3A.6: 20 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2018 3A.8: 18 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2018: 3A.6 col 4 (cases reported) equals 3A.1 col 5, all 39 rows",
+  "2018 3A.5: 54 head rows in the same order in all 22 columns (labels agree wherever an SL could be read)",
+  "2018 3A.5: the 21 top-level crime heads add to the printed total rows in every count column",
+  "2018 3A.5: row identities across page groups hold for all 54 head rows (Col.6=3+4+5; Col.15=10+11+12+13+14; Col.18=16+17; Col.19=7+8+15+18; Col.22=6-9-19-20)",
+  "2018: 3A.5 \"Total Crime against Women\" row equals 3A.6 All India row in all 22 columns",
+  "2018 3A.7: 54 head rows in the same order in all 20 columns (labels agree wherever an SL could be read)",
+  "2018 3A.7: the 21 top-level crime heads add to the printed total rows in every count column",
+  "2018 3A.7: row identities across page groups hold for all 54 head rows (Col.5=3+4; Col.11=6+7+8+9+10; Col.15=13+14; Col.18=15+16+17; Col.19=11+18; Col.20=5-19)",
+  "2018: 3A.7 \"Total Crime against Women\" row equals 3A.8 All India row in all 20 columns",
+  "2018: 3A.5 rape row col 4 (reported) equals 3A.2 RAPE cases, All India",
+  "2018 2A.3: 44 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2019 3A.1: 3 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2019 3A.1: printed rate (col 8) = col 5 / female population (col 7) within rounding, all 39 rows",
+  "2019 3A.2: 114 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2019 3A.2 MURDER_RAPE: printed rate col 5 = col 3 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 DOWRY_DEATH: printed rate col 8 = col 6 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 ABETMENT_SUICIDE: printed rate col 11 = col 9 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 ACID: printed rate col 17 = col 15 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 ACID_ATTEMPT: printed rate col 20 = col 18 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 CRUELTY: printed rate col 23 = col 21 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 KIDNAP: printed rate col 26 = col 24 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 TRAFFICKING: printed rate col 56 = col 54 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 RAPE: printed rate col 65 = col 63 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 RAPE_WOMEN: printed rate col 68 = col 66 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 RAPE_GIRLS_IPC: printed rate col 71 = col 69 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 ATTEMPT_RAPE: printed rate col 74 = col 72 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 ASSAULT_MODESTY: printed rate col 83 = col 81 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 INSULT_MODESTY: printed rate col 92 = col 90 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 IPC_TOTAL: printed rate col 101 = col 99 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 DOWRY_ACT: printed rate col 104 = col 102 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 ITPA: printed rate col 107 = col 105 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 PWDVA: printed rate col 125 = col 123 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 CYBER: printed rate col 128 = col 126 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 POCSO_TOTAL: printed rate col 137 = col 135 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 POCSO_RAPE: printed rate col 140 = col 138 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 POCSO_ASSAULT: printed rate col 143 = col 141 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 SLL_TOTAL: printed rate col 161 = col 159 / female population (3A.1 col 7), all 39 rows",
+  "2019 3A.2 TOTAL: printed rate col 164 = col 162 / female population (3A.1 col 7), all 39 rows",
+  "2019: 3A.1 col 5 (total crime against women) equals 3A.2 col 162 in all 39 rows",
+  "2019 3A.2: IPC total (col 99) + SLL total (col 159) = total (col 162) for cases, all 39 rows",
+  "2019 3A.2: IPC total (col 100) + SLL total (col 160) = total (col 163) for victims, all 39 rows",
+  "2019 3A.2: col 99 = col 3 + col 6 + col 9 + col 12 + col 15 + col 18 + col 21 + col 24 + col 54 + col 57 + col 60 + col 63 + col 72 + col 81 + col 90, all 39 rows",
+  "2019 3A.2: col 159 = col 102 + col 105 + col 123 + col 126 + col 135 + col 156, all 39 rows",
+  "2019 3A.2: col 24 = col 27 + col 30 + col 33 + col 36 + col 45 + col 48 + col 51, all 39 rows",
+  "2019 3A.3: 12 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2019: 3A.3 col 3 equals 3A.2 RAPE col 63 (cases), all 39 rows",
+  "2019: 3A.3 col 14 equals 3A.2 RAPE col 64 (victims), all 39 rows",
+  "2019 3A.3: bands 4-7 = col 8, bands 9-12 = col 13, col 8 + col 13 = col 14, all 39 rows",
+  "2019 3A.6: 20 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2019 3A.8: 18 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2019: 3A.6 col 4 (cases reported) equals 3A.1 col 5, all 39 rows",
+  "2019 3A.5: 54 head rows in the same order in all 22 columns (labels agree wherever an SL could be read)",
+  "2019 3A.5: the 21 top-level crime heads add to the printed total rows in every count column",
+  "2019 3A.5: row identities across page groups hold for all 54 head rows (Col.6=3+4+5; Col.15=10+11+12+13+14; Col.18=16+17; Col.19=7+8+15+18; Col.22=6-9-19-20)",
+  "2019: 3A.5 \"Total Crime against Women\" row equals 3A.6 All India row in all 22 columns",
+  "2019 3A.7: the 21 top-level crime heads add to the printed total rows in every count column",
+  "2019 3A.7: row identities across page groups hold for all 54 head rows (Col.5=3+4; Col.11=6+7+8+9+10; Col.15=13+14; Col.18=15+16+17; Col.19=11+18; Col.20=5-19)",
+  "2019: 3A.7 \"Total Crime against Women\" row equals 3A.8 All India row in all 20 columns",
+  "2019: 3A.5 rape row col 4 (reported) equals 3A.2 RAPE cases, All India",
+  "2019 2A.3: 44 count columns, states sum to Total State(s), UTs to Total UT(s), both to All India",
+  "2016 3A.3: separate NCRB file identical to the same table in the full 2016 publication",
+  "2016 3A.6: separate NCRB file identical to the same table in the full 2016 publication",
+  "2016 3A.8: separate NCRB file identical to the same table in the full 2016 publication",
+  "2016 3A.5: separate NCRB file identical to the same table in the full 2016 publication",
+  "2016 3A.7: separate NCRB file identical to the same table in the full 2016 publication"
+ ],
+ "failures": [
+  "2016 3A.2 TRAFFICKING rate col 26: printed rate differs from cases/female population: [('Uttarakhand', 2.0, 52.2, 0.1, 0.038)]"
+ ],
+ "columns": [
+  {
+   "year": 2016,
+   "table": "3A.1",
+   "col": "5",
+   "page": 1,
+   "printed_header": "2016 (cases of crime against women, IPC+SLL)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.1",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Mid-Year Projected Female Population (In Lakhs) (2016)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.1",
+   "col": "9",
+   "page": 1,
+   "printed_header": "Rate of Total Crime against Women (2016)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec.304B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec.304B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec.304B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Abetment of Suicide of Women (Sec.306 IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Abetment of Suicide of Women (Sec.306 IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Abetment of Suicide of Women (Sec.306 IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "15",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326 A IPC) & Attempt to Acid Attack (Sec. 326 B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "16",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326 A IPC) & Attempt to Acid Attack (Sec. 326 B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "17",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326 A IPC) & Attempt to Acid Attack (Sec. 326 B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "18",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "19",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "21",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "22",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "23",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "24",
+   "page": 4,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) (Female) * : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "25",
+   "page": 4,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) (Female) * : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "26",
+   "page": 4,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) (Female) * : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "27",
+   "page": 5,
+   "printed_header": "Rape * (Total) [* Includes Cases Registered under Section 4 & 6 of POCSO Act r/w 376 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "28",
+   "page": 5,
+   "printed_header": "Rape * (Total) [* Includes Cases Registered under Section 4 & 6 of POCSO Act r/w 376 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "29",
+   "page": 5,
+   "printed_header": "Rape * (Total) [* Includes Cases Registered under Section 4 & 6 of POCSO Act r/w 376 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "30",
+   "page": 6,
+   "printed_header": "Attempt to Commit Rape (Sec. 376/511 IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "31",
+   "page": 6,
+   "printed_header": "Attempt to Commit Rape (Sec. 376/511 IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "32",
+   "page": 6,
+   "printed_header": "Attempt to Commit Rape (Sec. 376/511 IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "36",
+   "page": 7,
+   "printed_header": "Assault On Women With Intent To Outrage Her Modesty: Assault On Women (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "37",
+   "page": 7,
+   "printed_header": "Assault On Women With Intent To Outrage Her Modesty: Assault On Women (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "38",
+   "page": 7,
+   "printed_header": "Assault On Women With Intent To Outrage Her Modesty: Assault On Women (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "39",
+   "page": 8,
+   "printed_header": "Insult to Modesty of Women (Sec. 509 IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "40",
+   "page": 8,
+   "printed_header": "Insult to Modesty of Women (Sec. 509 IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "41",
+   "page": 8,
+   "printed_header": "Insult to Modesty of Women (Sec. 509 IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "42",
+   "page": 8,
+   "printed_header": "Total IPC Crimes* against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "43",
+   "page": 8,
+   "printed_header": "Total IPC Crimes* against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "44",
+   "page": 8,
+   "printed_header": "Total IPC Crimes* against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "45",
+   "page": 9,
+   "printed_header": "Dowry Prohibition Act, 1961 : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "46",
+   "page": 9,
+   "printed_header": "Dowry Prohibition Act, 1961 : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "47",
+   "page": 9,
+   "printed_header": "Dowry Prohibition Act, 1961 : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "48",
+   "page": 9,
+   "printed_header": "Immoral Traffic (Prevention) Act* 1956 (Total) [Women Cases only] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "49",
+   "page": 9,
+   "printed_header": "Immoral Traffic (Prevention) Act* 1956 (Total) [Women Cases only] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "50",
+   "page": 9,
+   "printed_header": "Immoral Traffic (Prevention) Act* 1956 (Total) [Women Cases only] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "51",
+   "page": 10,
+   "printed_header": "Protection of Women From Domestic Violence Act, 2005 : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "52",
+   "page": 10,
+   "printed_header": "Protection of Women From Domestic Violence Act, 2005 : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "53",
+   "page": 10,
+   "printed_header": "Protection of Women From Domestic Violence Act, 2005 : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "54",
+   "page": 11,
+   "printed_header": "Publishing or Transmitting of Material containing Sexually Explicit Act (Sec 67A IT Act) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "55",
+   "page": 11,
+   "printed_header": "Publishing or Transmitting of Material containing Sexually Explicit Act (Sec 67A IT Act) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "56",
+   "page": 11,
+   "printed_header": "Publishing or Transmitting of Material containing Sexually Explicit Act (Sec 67A IT Act) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "60",
+   "page": 11,
+   "printed_header": "Total SLL Crimes against Women @ : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "61",
+   "page": 11,
+   "printed_header": "Total SLL Crimes against Women @ : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "62",
+   "page": 11,
+   "printed_header": "Total SLL Crimes against Women @ : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "63",
+   "page": 11,
+   "printed_header": "Total Crime against Women (IPC+SLL) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "64",
+   "page": 11,
+   "printed_header": "Total Crime against Women (IPC+SLL) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2016,
+   "table": "3A.2",
+   "col": "65",
+   "page": 11,
+   "printed_header": "Total Crime against Women (IPC+SLL) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Cases Reported",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Below 6 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "5",
+   "page": 1,
+   "printed_header": "6 Years & Above - Below 12 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "6",
+   "page": 1,
+   "printed_header": "12 Years & Above - Below 16 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "7",
+   "page": 1,
+   "printed_header": "16 Years & Above - Below 18 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Total Girl/Child Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "9",
+   "page": 1,
+   "printed_header": "18 Years & Above - Below 30 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "10",
+   "page": 1,
+   "printed_header": "30 Years & Above - Below 45 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "11",
+   "page": 1,
+   "printed_header": "45 Years & Above - Below 60 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "12",
+   "page": 1,
+   "printed_header": "60 Years & Above",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "13",
+   "page": 1,
+   "printed_header": "Total Women/Adult Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.3",
+   "col": "14",
+   "page": 1,
+   "printed_header": "Total Victims (Col.8+Col.13)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Cases Reported During the Year",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Total Cases for Investigation (Col.3+4) [no re-opened column in 2016]",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "10",
+   "page": 1,
+   "printed_header": "Final Report: False",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "9",
+   "page": 1,
+   "printed_header": "Final Report: True but insufficient Evidence [2016 has no \"or Untraced or No Clue\" wording]",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "14",
+   "page": 2,
+   "printed_header": "Cases in Which Charge-sheets were Submitted",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "15",
+   "page": 2,
+   "printed_header": "Total Cases Disposed off by Police (Col.7+8+Col.13+Col.14)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "16",
+   "page": 2,
+   "printed_header": "Cases Pending Investigation at the End of the Year (Col.5 - (Col.6 + Col.15))",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "17",
+   "page": 2,
+   "printed_header": "Charge-Sheeting Rate (Col.14/Col.15)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.6",
+   "col": "18",
+   "page": 2,
+   "printed_header": "Pendency Percentage (Col.16/(Col.5))*100",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Total Cases for Trial During the Year (Col.3+4)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "10",
+   "page": 2,
+   "printed_header": "Cases Convicted",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "11",
+   "page": 2,
+   "printed_header": "Cases Acquitted or Discharged [one column in 2016]",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "9",
+   "page": 2,
+   "printed_header": "Cases in Which Trials were Completed (Col.10+11)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "13",
+   "page": 2,
+   "printed_header": "Cases Pending Trial at the End of the Year (Col.5-Col.12)",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "14",
+   "page": 2,
+   "printed_header": "Conviction Rate (Col.10/Col.9)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "3A.8",
+   "col": "15",
+   "page": 2,
+   "printed_header": "Pendency Percentage (Col.13/Col.5)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2016,
+   "table": "2A.3",
+   "col": "16",
+   "page": 2,
+   "printed_header": "Total Child Victims : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2016,
+   "table": "2A.3",
+   "col": "34",
+   "page": 3,
+   "printed_header": "Total Victims (Child + Adult) : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2016,
+   "table": "2A.3",
+   "col": "35",
+   "page": 3,
+   "printed_header": "Total Victims (Child+Adult) : T",
+   "subhead": "T"
+  },
+  {
+   "year": 2017,
+   "table": "3A.1",
+   "col": "5",
+   "page": 1,
+   "printed_header": "2017 (cases of crime against women, IPC+SLL)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.1",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Mid-Year Projected Female Population (In Lakhs) (2017)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.1",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Rate of Total Crime against Women (2017)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "9",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "10",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "11",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "15",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "16",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "17",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "18",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "19",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "21",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "22",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "23",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "24",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "25",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "26",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "54",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "55",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "56",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "63",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "64",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "65",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "66",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "67",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "68",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "69",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "70",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "71",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "72",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "73",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "74",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "81",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "82",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "83",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "90",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "91",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "92",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "99",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "100",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "101",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "102",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "103",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "104",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "105",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "106",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "107",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "123",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "124",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "125",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "126",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "127",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "128",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "135",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "136",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "137",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "138",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "139",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "140",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "141",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "142",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "143",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "159",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "160",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "161",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "162",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "163",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2017,
+   "table": "3A.2",
+   "col": "164",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Cases Reported",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Below 6 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "5",
+   "page": 1,
+   "printed_header": "6 Years & Above - Below 12 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "6",
+   "page": 1,
+   "printed_header": "12 Years & Above - Below 16 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "7",
+   "page": 1,
+   "printed_header": "16 Years & Above - Below 18 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Total Girl/Child Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "9",
+   "page": 1,
+   "printed_header": "18 Years & Above - Below 30 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "10",
+   "page": 1,
+   "printed_header": "30 Years & Above - Below 45 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "11",
+   "page": 1,
+   "printed_header": "45 Years & Above - Below 60 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "12",
+   "page": 1,
+   "printed_header": "60 Years & Above",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "13",
+   "page": 1,
+   "printed_header": "Total Women/Adult Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.3",
+   "col": "14",
+   "page": 1,
+   "printed_header": "Total Victims (Col.8+Col.13)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Cases Reported during the year",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Total Cases for Investigation (Col.3+Col.4+Col.5)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "11",
+   "page": 2,
+   "printed_header": "Final Report: Cases Ended as Final Report False",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "13",
+   "page": 3,
+   "printed_header": "Final Report: Cases True but Insufficient Evidence or Untraced or No Clue",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "18",
+   "page": 3,
+   "printed_header": "Cases Chargesheeted (Col.16+Col.17)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "19",
+   "page": 4,
+   "printed_header": "Total Cases Disposed Off by Police (Col.7+Col.8+Col.15+Col.18)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "22",
+   "page": 4,
+   "printed_header": "Cases Pending Investigation at End of the Year (Col.6-Col.9-Col.19-Col.20)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "23",
+   "page": 4,
+   "printed_header": "Charge-Sheeting Rate (Col.18/Col.19)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.6",
+   "col": "24",
+   "page": 4,
+   "printed_header": "Pendency Percentage (Col.22/Col.6)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Total Cases for Trial (Col.3+Col.4)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "15",
+   "page": 3,
+   "printed_header": "Cases Convicted (Col.13+Col.14)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "16",
+   "page": 3,
+   "printed_header": "Cases Discharged",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "17",
+   "page": 3,
+   "printed_header": "Cases Acquitted",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "18",
+   "page": 4,
+   "printed_header": "Cases in which Trials were Completed (Col.15+Col.16+Col.17)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "20",
+   "page": 4,
+   "printed_header": "Cases Pending Trial at End of the Year (Col.5-Col.19)",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "21",
+   "page": 4,
+   "printed_header": "Conviction Rate (Col.15/Col.18)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "3A.8",
+   "col": "22",
+   "page": 4,
+   "printed_header": "Pendency Percentage (Col.20/Col.5)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2017,
+   "table": "2A.3",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Total Child Victims : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2017,
+   "table": "2A.3",
+   "col": "44",
+   "page": 4,
+   "printed_header": "Total Victims (Child + Adult) : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2017,
+   "table": "2A.3",
+   "col": "46",
+   "page": 4,
+   "printed_header": "Total Victims (Child + Adult) : Total",
+   "subhead": "Total"
+  },
+  {
+   "year": 2018,
+   "table": "3A.1",
+   "col": "5",
+   "page": 1,
+   "printed_header": "2018 (cases of crime against women, IPC+SLL)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.1",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Mid-Year Projected Female Population (In Lakhs) (2018)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.1",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Rate of Total Crime against Women (2018)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "9",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "10",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "11",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "15",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "16",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "17",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "18",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "19",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "21",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "22",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "23",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "24",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "25",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "26",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "54",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "55",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "56",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "63",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "64",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "65",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "66",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "67",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "68",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "69",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "70",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "71",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "72",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "73",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "74",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "81",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "82",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "83",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "90",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "91",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "92",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "99",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "100",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "101",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "102",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "103",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "104",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "105",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "106",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "107",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "123",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "124",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "125",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "126",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "127",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "128",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "135",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "136",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "137",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "138",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "139",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "140",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "141",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "142",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "143",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "159",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "160",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "161",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "162",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "163",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2018,
+   "table": "3A.2",
+   "col": "164",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Cases Reported",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Below 6 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "5",
+   "page": 1,
+   "printed_header": "6 Years & Above - Below 12 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "6",
+   "page": 1,
+   "printed_header": "12 Years & Above - Below 16 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "7",
+   "page": 1,
+   "printed_header": "16 Years & Above - Below 18 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Total Girl/Child Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "9",
+   "page": 1,
+   "printed_header": "18 Years & Above - Below 30 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "10",
+   "page": 1,
+   "printed_header": "30 Years & Above - Below 45 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "11",
+   "page": 1,
+   "printed_header": "45 Years & Above - Below 60 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "12",
+   "page": 1,
+   "printed_header": "60 Years & Above",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "13",
+   "page": 1,
+   "printed_header": "Total Women/Adult Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.3",
+   "col": "14",
+   "page": 1,
+   "printed_header": "Total Victims (Col.8+Col.13)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Cases Reported during the year",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Total Cases for Investigation (Col.3+Col.4+Col.5)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "11",
+   "page": 2,
+   "printed_header": "Final Report: Cases Ended as Final Report False",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "13",
+   "page": 3,
+   "printed_header": "Final Report: Cases True but Insufficient Evidence or Untraced or No Clue",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "18",
+   "page": 3,
+   "printed_header": "Cases Chargesheeted (Col.16+Col.17)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "19",
+   "page": 4,
+   "printed_header": "Total Cases Disposed Off by Police (Col.7+Col.8+Col.15+Col.18)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "22",
+   "page": 4,
+   "printed_header": "Cases Pending Investigation at End of the Year (Col.6-Col.9-Col.19-Col.20)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "23",
+   "page": 4,
+   "printed_header": "Charge-Sheeting Rate (Col.18/Col.19)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.6",
+   "col": "24",
+   "page": 4,
+   "printed_header": "Pendency Percentage (Col.22/Col.6)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Total Cases for Trial (Col.3+Col.4)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "15",
+   "page": 3,
+   "printed_header": "Cases Convicted (Col.13+Col.14)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "16",
+   "page": 3,
+   "printed_header": "Cases Discharged",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "17",
+   "page": 3,
+   "printed_header": "Cases Acquitted",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "18",
+   "page": 4,
+   "printed_header": "Cases in which Trials were Completed (Col.15+Col.16+Col.17)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "20",
+   "page": 4,
+   "printed_header": "Cases Pending Trial at End of the Year (Col.5-Col.19)",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "21",
+   "page": 4,
+   "printed_header": "Conviction Rate (Col.15/Col.18)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "3A.8",
+   "col": "22",
+   "page": 4,
+   "printed_header": "Pendency Percentage (Col.20/Col.5)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2018,
+   "table": "2A.3",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Total Child Victims : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2018,
+   "table": "2A.3",
+   "col": "44",
+   "page": 4,
+   "printed_header": "Total Victims (Child + Adult) : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2018,
+   "table": "2A.3",
+   "col": "46",
+   "page": 4,
+   "printed_header": "Total Victims (Child + Adult) : Total",
+   "subhead": "Total"
+  },
+  {
+   "year": 2019,
+   "table": "3A.1",
+   "col": "5",
+   "page": 1,
+   "printed_header": "2019 (cases of crime against women, IPC+SLL)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.1",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Mid-Year Projected Female Population (In Lakhs) (2019)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.1",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Rate of Total Crime against Women (2019)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Murder with Rape/Gang Rape : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "7",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Dowry Deaths (Sec. 304B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "9",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "10",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "11",
+   "page": 1,
+   "printed_header": "Abetment to Suicide of Women (Sec. 305/306 IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "15",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "16",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "17",
+   "page": 2,
+   "printed_header": "Acid Attack (Sec. 326A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "18",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "19",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Attempt to Acid Attack (Sec. 326B IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "21",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "22",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "23",
+   "page": 2,
+   "printed_header": "Cruelty by Husband or his relatives (Sec. 498 A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "24",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "25",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "26",
+   "page": 3,
+   "printed_header": "Kidnapping & Abduction of Women (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "54",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "55",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "56",
+   "page": 6,
+   "printed_header": "Human Trafficking (Sec. 370 & 370A IPC) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "63",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "64",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "65",
+   "page": 7,
+   "printed_header": "Rape (Total) [Rape (Sec. 376 IPC)] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "66",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "67",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "68",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): A) Women (18 Yrs. And above) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "69",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "70",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "71",
+   "page": 7,
+   "printed_header": "Rape (Sec. 376 IPC): B) Girls (Below 18 yrs) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "72",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "73",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "74",
+   "page": 8,
+   "printed_header": "Attempt to Commit Rape (Total) [Sec. 376/511 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "81",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "82",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "83",
+   "page": 9,
+   "printed_header": "Assault on Women with Intent to Outrage her Modesty (Total) [Sec. 354 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "90",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "91",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "92",
+   "page": 10,
+   "printed_header": "Insult to the Modesty of Women (Total) [Sec. 509 IPC] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "99",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "100",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "101",
+   "page": 10,
+   "printed_header": "Total IPC Crimes against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "102",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "103",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "104",
+   "page": 11,
+   "printed_header": "Dowry Prohibition Act, 1961 : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "105",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "106",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "107",
+   "page": 11,
+   "printed_header": "Immoral Traffic (Prevention) Act, 1956 (Total) [Women Victims cases only] : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "123",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "124",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "125",
+   "page": 12,
+   "printed_header": "Protection of Women from Domestic Violence Act (2019 prints \"Domestic Offences Act\") : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "126",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "127",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "128",
+   "page": 13,
+   "printed_header": "Cyber Crimes/Information Technology Act (Women Centric Crimes only) (Total) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "135",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "136",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "137",
+   "page": 14,
+   "printed_header": "Protection of Children from Sexual Violence Act (Girl Child Victims only) (Total) (2019: \"Sexual Offences Act\") : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "138",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "139",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "140",
+   "page": 14,
+   "printed_header": "A) Child Rape (Sec. 4 & 6 of POCSO Act) / Sec. 376 IPC : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "141",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "142",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "143",
+   "page": 14,
+   "printed_header": "B) Sexual Assault of Children (Sec. 8 & 10 of POCSO Act) / Sec. 354 IPC : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "159",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "160",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "161",
+   "page": 16,
+   "printed_header": "Total SLL Crimes against Women : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "162",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : I",
+   "subhead": "I"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "163",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : V",
+   "subhead": "V"
+  },
+  {
+   "year": 2019,
+   "table": "3A.2",
+   "col": "164",
+   "page": 16,
+   "printed_header": "Total Crime against Women (IPC+SLL) : R",
+   "subhead": "R"
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "3",
+   "page": 1,
+   "printed_header": "Cases Reported",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Below 6 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "5",
+   "page": 1,
+   "printed_header": "6 Years & Above - Below 12 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "6",
+   "page": 1,
+   "printed_header": "12 Years & Above - Below 16 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "7",
+   "page": 1,
+   "printed_header": "16 Years & Above - Below 18 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "8",
+   "page": 1,
+   "printed_header": "Total Girl/Child Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "9",
+   "page": 1,
+   "printed_header": "18 Years & Above - Below 30 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "10",
+   "page": 1,
+   "printed_header": "30 Years & Above - Below 45 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "11",
+   "page": 1,
+   "printed_header": "45 Years & Above - Below 60 Years",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "12",
+   "page": 1,
+   "printed_header": "60 Years & Above",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "13",
+   "page": 1,
+   "printed_header": "Total Women/Adult Victims",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.3",
+   "col": "14",
+   "page": 1,
+   "printed_header": "Total Victims (Col.8+Col.13)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "4",
+   "page": 1,
+   "printed_header": "Cases Reported during the year",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "6",
+   "page": 1,
+   "printed_header": "Total Cases for Investigation (Col.3+Col.4+Col.5)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "11",
+   "page": 2,
+   "printed_header": "Final Report: Cases Ended as Final Report False",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "13",
+   "page": 3,
+   "printed_header": "Final Report: Cases True but Insufficient Evidence or Untraced or No Clue",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "18",
+   "page": 3,
+   "printed_header": "Cases Chargesheeted (Col.16+Col.17)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "19",
+   "page": 4,
+   "printed_header": "Total Cases Disposed Off by Police (Col.7+Col.8+Col.15+Col.18)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "22",
+   "page": 4,
+   "printed_header": "Cases Pending Investigation at End of the Year (Col.6-Col.9-Col.19-Col.20)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "23",
+   "page": 4,
+   "printed_header": "Charge-Sheeting Rate (Col.18/Col.19)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.6",
+   "col": "24",
+   "page": 4,
+   "printed_header": "Pendency Percentage (Col.22/Col.6)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "5",
+   "page": 1,
+   "printed_header": "Total Cases for Trial (Col.3+Col.4)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "15",
+   "page": 3,
+   "printed_header": "Cases Convicted (Col.13+Col.14)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "16",
+   "page": 3,
+   "printed_header": "Cases Discharged",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "17",
+   "page": 3,
+   "printed_header": "Cases Acquitted",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "18",
+   "page": 4,
+   "printed_header": "Cases in which Trials were Completed (Col.15+Col.16+Col.17)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "20",
+   "page": 4,
+   "printed_header": "Cases Pending Trial at End of the Year (Col.5-Col.19)",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "21",
+   "page": 4,
+   "printed_header": "Conviction Rate (Col.15/Col.18)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "3A.8",
+   "col": "22",
+   "page": 4,
+   "printed_header": "Pendency Percentage (Col.20/Col.5)*100",
+   "subhead": ""
+  },
+  {
+   "year": 2019,
+   "table": "2A.3",
+   "col": "20",
+   "page": 2,
+   "printed_header": "Total Child Victims : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2019,
+   "table": "2A.3",
+   "col": "44",
+   "page": 4,
+   "printed_header": "Total Victims (Child + Adult) : F",
+   "subhead": "F"
+  },
+  {
+   "year": 2019,
+   "table": "2A.3",
+   "col": "46",
+   "page": 4,
+   "printed_header": "Total Victims (Child + Adult) : Total",
+   "subhead": "Total"
+  }
+ ],
+ "absent": [
+  "2016: RAPE_WOMEN not a head in table 3A.2",
+  "2016: RAPE_GIRLS_IPC not a head in table 3A.2",
+  "2016: POCSO_TOTAL not a head in table 3A.2",
+  "2016: POCSO_RAPE not a head in table 3A.2",
+  "2016: POCSO_ASSAULT not a head in table 3A.2",
+  "2016: MURDER_RAPE not a head in table 3A.2",
+  "2016: ACID not a head in table 3A.2",
+  "2016: ACID_ATTEMPT not a head in table 3A.2",
+  "2016: CYBER not a head in table 3A.2",
+  "2016: no MURDER_RAPE row in 3A.5/3A.7",
+  "2016: no POCSO_TOTAL row in 3A.5/3A.7",
+  "2016: no POCSO_RAPE row in 3A.5/3A.7",
+  "2017: ACID_INCL_ATTEMPT not a head in table 3A.2",
+  "2017: CYBER_67A not a head in table 3A.2",
+  "2018: ACID_INCL_ATTEMPT not a head in table 3A.2",
+  "2018: CYBER_67A not a head in table 3A.2",
+  "2019: ACID_INCL_ATTEMPT not a head in table 3A.2",
+  "2019: CYBER_67A not a head in table 3A.2"
+ ],
+ "revisions": [
+  "2016 as printed in the 2017 edition (3A.1 col 4) equals the 2016 edition in all 39 rows",
+  "2016 as printed in the 2018 edition (3A.1 col 3) equals the 2016 edition in all 39 rows",
+  "2017 as printed in the 2018 edition (3A.1 col 4) equals the 2017 edition in all 39 rows",
+  "2017 as printed in the 2019 edition (3A.1 col 3) equals the 2017 edition in all 39 rows",
+  "2018 as printed in the 2019 edition (3A.1 col 4) differs from the 2018 edition: Assam: 27728.0 -> 27687.0 (-41); Total states: 363817.0 -> 363776.0 (-41); All India: 378277.0 -> 378236.0 (-41)"
+ ],
+ "identities": [
+  "2016 3A.2: printed identity Col.21=Col.21A+Col.21B+Col.21C+Col.21D+Col.21E holds in all 39 rows",
+  "2016 3A.2: printed identity Col.22=Col.22A+Col.22B+Col.22C+Col.22D+Col.22E holds in all 39 rows",
+  "2016 3A.2: printed identity Col.27=Col.27A+Col.27B+Col.27C holds in all 39 rows",
+  "2016 3A.2: printed identity Col.28=Col.28A+Col.28B+Col.28C holds in all 39 rows",
+  "2016 3A.2: printed identity Col.36=Col.36A+Col.36B+Col.36C+Col.36D+Col.36E holds in all 39 rows",
+  "2016 3A.2: printed identity Col.37=Col.37A+Col.37B+Col.37C+Col.37D+Col.37E holds in all 39 rows",
+  "2016 3A.2: printed identity Col.48=Col.48A+Col.48B+Col.48C+Col.48D+Col.48E holds in all 39 rows",
+  "2016 3A.2: printed identity Col.49=Col.49A+Col.49B+Col.49C+Col.49D+Col.49E holds in all 39 rows",
+  "2016 3A.2: printed identity Col.63=Col.42+Col.60 holds in all 39 rows",
+  "2016 3A.2: printed identity Col.64=Col.43+Col.61 holds in all 39 rows",
+  "2016 2A.3: printed identity Col.33=Col.15+Col.30 holds in all 39 rows",
+  "2016 2A.3: printed identity Col.34=Col.16+Col.31 holds in all 39 rows",
+  "2016 2A.3: printed identity Col.35=Col.17+Col.32 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.24=Col.27+Col.30+Col.33+Col.36+Col.39+Col.42+Col.51 FAILS in 32 rows, e.g. [('Andhra Pradesh', 712.0, 822.0), ('Arunachal Pradesh', 74.0, 83.0), ('Assam', 5554.0, 7518.0)]",
+  "2017 3A.2: printed identity Col.25=Col.28+Col.31+Col.34+Col.37+Col.40+Col.43+Col.52 FAILS in 32 rows, e.g. [('Andhra Pradesh', 741.0, 844.0), ('Arunachal Pradesh', 86.0, 94.0), ('Assam', 5703.0, 7566.0)]",
+  "2017 3A.2: printed identity Col.36=Col.39+Col.42 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.37=Col.40+Col.43 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.63=Col.66+Col.69 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.64=Col.67+Col.70 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.72=Col.75+Col.78 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.73=Col.76+Col.79 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.81=Col.84+Col.87 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.82=Col.85+Col.88 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.90=Col.93+Col.96 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.91=Col.94+Col.97 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.105=Col.108+Col.111+Col.114+Col.117+Col.120 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.106=Col.109+Col.112+Col.115+Col.118+Col.121 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.126=Col.129+Col.132 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.127=Col.130+Col.133 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.135=Col.138+Col.141+Col.144+Col.147+Col.150+Col.153 holds in all 39 rows",
+  "2017 3A.2: printed identity Col.136=Col.139+Col.142+Col.145+Col.148+Col.151+Col.154 holds in all 39 rows",
+  "2017 2A.3: printed identity Col.43=Col.19+Col.39 holds in all 39 rows",
+  "2017 2A.3: printed identity Col.45=Col.21+Col.41 holds in all 39 rows",
+  "2017 2A.3: printed identity Col.44=Col.20+Col.40 holds in all 39 rows",
+  "2017 2A.3: printed identity Col.46=Col.22+Col.42 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.24=Col.27+Col.30+Col.33+Col.36+Col.39+Col.42+Col.51 FAILS in 33 rows, e.g. [('Andhra Pradesh', 697.0, 777.0), ('Arunachal Pradesh', 87.0, 93.0), ('Assam', 6401.0, 8703.0)]",
+  "2018 3A.2: printed identity Col.25=Col.28+Col.31+Col.34+Col.37+Col.40+Col.43+Col.52 FAILS in 33 rows, e.g. [('Andhra Pradesh', 719.0, 804.0), ('Arunachal Pradesh', 95.0, 103.0), ('Assam', 6737.0, 8773.0)]",
+  "2018 3A.2: printed identity Col.36=Col.39+Col.42 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.37=Col.40+Col.43 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.63=Col.66+Col.69 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.64=Col.67+Col.70 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.72=Col.75+Col.78 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.73=Col.76+Col.79 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.81=Col.84+Col.87 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.82=Col.85+Col.88 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.90=Col.93+Col.96 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.91=Col.94+Col.97 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.105=Col.108+Col.111+Col.114+Col.117+Col.120 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.106=Col.109+Col.112+Col.115+Col.118+Col.121 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.126=Col.129+Col.132 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.127=Col.130+Col.133 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.135=Col.138+Col.141+Col.144+Col.147+Col.150+Col.153 holds in all 39 rows",
+  "2018 3A.2: printed identity Col.136=Col.139+Col.142+Col.145+Col.148+Col.151+Col.154 holds in all 39 rows",
+  "2018 2A.3: printed identity Col.43=Col.19+Col.39 holds in all 39 rows",
+  "2018 2A.3: printed identity Col.45=Col.21+Col.41 holds in all 39 rows",
+  "2018 2A.3: printed identity Col.44=Col.20+Col.40 holds in all 39 rows",
+  "2018 2A.3: printed identity Col.46=Col.22+Col.42 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.24=Col.27+Col.30+Col.33+Col.36+Col.39+Col.42+Col.51 FAILS in 34 rows, e.g. [('Andhra Pradesh', 589.0, 645.0), ('Arunachal Pradesh', 68.0, 73.0), ('Assam', 6989.0, 9405.0)]",
+  "2019 3A.2: printed identity Col.25=Col.28+Col.31+Col.34+Col.37+Col.40+Col.43+Col.52 FAILS in 34 rows, e.g. [('Andhra Pradesh', 595.0, 651.0), ('Arunachal Pradesh', 74.0, 76.0), ('Assam', 7220.0, 9716.0)]",
+  "2019 3A.2: printed identity Col.36=Col.39+Col.42 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.37=Col.40+Col.43 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.63=Col.66+Col.69 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.64=Col.67+Col.70 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.72=Col.75+Col.78 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.73=Col.76+Col.79 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.81=Col.84+Col.87 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.82=Col.85+Col.88 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.90=Col.93+Col.96 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.91=Col.94+Col.97 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.105=Col.108+Col.111+Col.114+Col.117+Col.120 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.106=Col.109+Col.112+Col.115+Col.118+Col.121 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.126=Col.129+Col.132 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.127=Col.130+Col.133 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.135=Col.138+Col.141+Col.144+Col.147+Col.150+Col.153 holds in all 39 rows",
+  "2019 3A.2: printed identity Col.136=Col.139+Col.142+Col.145+Col.148+Col.151+Col.154 holds in all 39 rows",
+  "2019 2A.3: printed identity Col.43=Col.19+Col.39 holds in all 39 rows",
+  "2019 2A.3: printed identity Col.45=Col.21+Col.41 holds in all 39 rows",
+  "2019 2A.3: printed identity Col.44=Col.20+Col.40 holds in all 39 rows",
+  "2019 2A.3: printed identity Col.46=Col.22+Col.42 holds in all 39 rows"
+ ],
+ "info": [
+  [
+   2016,
+   "ipc_case_cols",
+   [
+    "3",
+    "6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "27",
+    "30",
+    "33",
+    "36",
+    "39"
+   ]
+  ],
+  "2016 3A.7: 14 row labels read on later pages disagree with the first column (labels wrapped, SL printed below its row); rows keyed by order and checked by row identities across pages",
+  [
+   2017,
+   "ipc_case_cols",
+   [
+    "3",
+    "6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "27",
+    "30",
+    "33",
+    "36",
+    "39",
+    "42",
+    "45",
+    "48",
+    "51",
+    "54",
+    "57",
+    "60",
+    "63",
+    "66",
+    "69",
+    "72",
+    "75",
+    "78",
+    "81",
+    "84",
+    "87",
+    "90",
+    "93",
+    "96"
+   ]
+  ],
+  [
+   2018,
+   "ipc_case_cols",
+   [
+    "3",
+    "6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "27",
+    "30",
+    "33",
+    "36",
+    "39",
+    "42",
+    "45",
+    "48",
+    "51",
+    "54",
+    "57",
+    "60",
+    "63",
+    "66",
+    "69",
+    "72",
+    "75",
+    "78",
+    "81",
+    "84",
+    "87",
+    "90",
+    "93",
+    "96"
+   ]
+  ],
+  [
+   2019,
+   "ipc_case_cols",
+   [
+    "3",
+    "6",
+    "9",
+    "12",
+    "15",
+    "18",
+    "21",
+    "24",
+    "27",
+    "30",
+    "33",
+    "36",
+    "39",
+    "42",
+    "45",
+    "48",
+    "51",
+    "54",
+    "57",
+    "60",
+    "63",
+    "66",
+    "69",
+    "72",
+    "75",
+    "78",
+    "81",
+    "84",
+    "87",
+    "90",
+    "93",
+    "96"
+   ]
+  ],
+  "2019 3A.7: 80 row labels read on later pages disagree with the first column (labels wrapped, SL printed below its row); rows keyed by order and checked by row identities across pages"
+ ],
+ "sources": [
+  [
+   2016,
+   "2A.3",
+   "2016_full.pdf",
+   "e23f9c0c06c3fe11a453714b3a5880bb673ab3d31c5e10568a93a0496346ee31",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1653886924_Crime in India - 2016 Complete PDF 291117.pdf"
+  ],
+  [
+   2016,
+   "3A.1",
+   "2016_full.pdf",
+   "e23f9c0c06c3fe11a453714b3a5880bb673ab3d31c5e10568a93a0496346ee31",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1653886924_Crime in India - 2016 Complete PDF 291117.pdf"
+  ],
+  [
+   2016,
+   "3A.2",
+   "2016_full.pdf",
+   "e23f9c0c06c3fe11a453714b3a5880bb673ab3d31c5e10568a93a0496346ee31",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1653886924_Crime in India - 2016 Complete PDF 291117.pdf"
+  ],
+  [
+   2016,
+   "3A.3",
+   "2016_1679982722Table3A3.pdf",
+   "f256c01d1dfd654682ec82a8183e676e2e9fc9577a4e14ad5d9637a9e7897a40",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679982722Table3A3.pdf"
+  ],
+  [
+   2016,
+   "3A.5",
+   "2016_1679982966Table3A5.pdf",
+   "632c9ce1281273e888c900c0a5f8fc51f79f1f696e0900193cc2f0c2ece1e151",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679982966Table3A5.pdf"
+  ],
+  [
+   2016,
+   "3A.6",
+   "2016_1679983444Table3A6.pdf",
+   "ee4cdb60c175291c8946db15dad50415dc47e65e64fbc7f3518b6f6913505e65",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679983444Table3A6.pdf"
+  ],
+  [
+   2016,
+   "3A.7",
+   "2016_1679983481Table3A7.pdf",
+   "83304acb9ae801609b03e0ab9faab9ca29dff824d56ef02a024f27e10d9174a8",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679983481Table3A7.pdf"
+  ],
+  [
+   2016,
+   "3A.8",
+   "2016_1679983519Table3A8.pdf",
+   "dc6bcb3cc36dd5a4d1fb3ebb53e49ac4ebe29e1003de04d78d134164d88b58ce",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679983519Table3A8.pdf"
+  ],
+  [
+   2017,
+   "2A.3",
+   "2017_table-2A.3_1-2007.pdf",
+   "62227cdf00eb906da47fbe55a197d02270853b7b202ae8b56b79b553df4976a2",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/table-2A.3_1-2007.pdf"
+  ],
+  [
+   2017,
+   "3A.1",
+   "2017_Table-3A.1_1.pdf",
+   "9aee8bc7bc9d10bcfdc78f2dbf24a2cedda6b3fb158591af87e1064e96af5172",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.1_1.pdf"
+  ],
+  [
+   2017,
+   "3A.2",
+   "2017_Table-3A.2_1.pdf",
+   "3bd6b654e8ca4f9904deed8505878f93285d48e6ea44298ec35d23a71ab0a8be",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.2_1.pdf"
+  ],
+  [
+   2017,
+   "3A.3",
+   "2017_Table-3A.3_1.pdf",
+   "ce21fee27aa516cc915cd051cb0b47a30b93cf4c0d2391e837b99db799a7a7af",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.3_1.pdf"
+  ],
+  [
+   2017,
+   "3A.5",
+   "2017_Table-3A.5_1.pdf",
+   "8a8e393a1850f950cd477b3d7d767ad51c2c5b059ab8f42cd46cf8aec7204d91",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.5_1.pdf"
+  ],
+  [
+   2017,
+   "3A.6",
+   "2017_Table-3A.6_1.pdf",
+   "5fb91f193361d7719812c2736fdeaae93983531439615c610d647c8906f12e6c",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.6_1.pdf"
+  ],
+  [
+   2017,
+   "3A.7",
+   "2017_Table-3A.7_1.pdf",
+   "10835c86401099c06eb580068f4a698b4f829e606a035e5d0d21953a0539ea1d",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.7_1.pdf"
+  ],
+  [
+   2017,
+   "3A.8",
+   "2017_Table-3A.8_1.pdf",
+   "f5dcfbeac7ff10b257d79f0d0718c0ececff589a02bd7b8052766a5ee64081d6",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.8_1.pdf"
+  ],
+  [
+   2018,
+   "2A.3",
+   "2018_table-2A.3_0-2018.pdf",
+   "f24a2ebf78e876af5938f32f48bf2e6e2c16845eb83e9f94870956ecb7a02414",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/table-2A.3_0-2018.pdf"
+  ],
+  [
+   2018,
+   "3A.1",
+   "2018_Table-3A.1_0.pdf",
+   "752f07f0eb2e75fd66b4c0be96b321bbec4cc734b29e87e733654da3a56cb5c9",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.1_0.pdf"
+  ],
+  [
+   2018,
+   "3A.2",
+   "2018_Table-3A.2_0.pdf",
+   "97247969b1b9c1d9d03f481a28e5fa9737e33467d1630704830bbb3a3b32ae3d",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.2_0.pdf"
+  ],
+  [
+   2018,
+   "3A.3",
+   "2018_Table-3A.3_0.pdf",
+   "16ea26b0c76e6ab5ff1ee051b0fb5adec0866c0a122f3f5d128235ee3dfa814d",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.3_0.pdf"
+  ],
+  [
+   2018,
+   "3A.5",
+   "2018_Table-3A.5_0.pdf",
+   "79c4802b9dd489c242f73ab750f4ed743b62a6b8c0a8f40adfea3acbc68e3757",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.5_0.pdf"
+  ],
+  [
+   2018,
+   "3A.6",
+   "2018_Table-3A.6_0.pdf",
+   "2676e3005f8d8d87e43c1464b81a7bceb341bad80a0af807b763b2fbbb473968",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.6_0.pdf"
+  ],
+  [
+   2018,
+   "3A.7",
+   "2018_Table-3A.7_0.pdf",
+   "090024ddb56f840a8149f22fb960cdde774ba1685ff15cdc7445e28a52aaba31",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.7_0.pdf"
+  ],
+  [
+   2018,
+   "3A.8",
+   "2018_Table-3A.8_0.pdf",
+   "84758762bd3397893fe6b77995508f429a4ca128013e428e139376fe0dc4871a",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.8_0.pdf"
+  ],
+  [
+   2019,
+   "2A.3",
+   "2019_1681276651Table2A32.pdf",
+   "a04e635e3e9c226a64f7d925f5bdcb1839a86c16a36f0c5c1efdc96c680ec912",
+   "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1681276651Table2A32.pdf"
+  ],
+  [
+   2019,
+   "3A.1",
+   "2019_Table-3A.1_2.pdf",
+   "31ca54ebef652ff5576470af495e738a87bda218e7137097046b7725ac2e946c",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.1_2.pdf"
+  ],
+  [
+   2019,
+   "3A.2",
+   "2019_Table-3A.2_2.pdf",
+   "ebf89cd6073f2ee1fe26824c7b69cd8595c2eaf1f8dc2696997097da12afbff9",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.2_2.pdf"
+  ],
+  [
+   2019,
+   "3A.3",
+   "2019_Table-3A.3_2.pdf",
+   "06f700e054ed373c79a138013d712e35bc84b73e6c8fdacfcfdc6dae68583c41",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.3_2.pdf"
+  ],
+  [
+   2019,
+   "3A.5",
+   "2019_Table-3A.5_2.pdf",
+   "dade539f33380c0dd09f243bc0f7e982055c1369dce01ae39d01c0133cdc4b2d",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.5_2.pdf"
+  ],
+  [
+   2019,
+   "3A.6",
+   "2019_Table-3A.6_2.pdf",
+   "3ab577f568bce606ce100fd487ddb76805f21268f279e0cff9c94471151b59d7",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.6_2.pdf"
+  ],
+  [
+   2019,
+   "3A.7",
+   "2019_Table-3A.7_2.pdf",
+   "8dd291e06ee4446ee1eb69a888e4db8f00e12c04b5d00ac7c2a6b6ead828da77",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.7_2.pdf"
+  ],
+  [
+   2019,
+   "3A.8",
+   "2019_Table-3A.8_2.pdf",
+   "8b16c20795c0781c93f5615c357b17e33e8cfa973936fa21630c83a45dde8aad",
+   "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.8_2.pdf"
+  ]
+ ]
+}

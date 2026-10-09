@@ -19,7 +19,7 @@ COLUMNS = [
  ('state', 'State or union territory as NCRB prints it, or a total row (Total states, Total UTs, All India).'),
  ('lgd_code', 'Local Government Directory state code, for joining to other data. Blank for total rows.'),
  ('kind', 'state, ut (union territory) or total.'),
- ('year', 'Calendar year the cases were recorded, 2020 to 2024.'),
+ ('year', 'Calendar year the cases were recorded, 2014 to 2024.'),
  ('crime_code', 'Short stable code for the crime head. See the crime codes below.'),
  ('group', 'sexual, killed, home, other, total, outcome or denominator.'),
  ('crime_head', 'The crime head in plain words.'),
@@ -40,6 +40,8 @@ FLAGS = [
  ('LOCKDOWN_2020', '2020: the COVID-19 lockdown kept people from police stations and courts. Counts are lower for that reason.'),
  ('CODE_SPLIT_2024', '2024: offences from 1 July 2024 were booked under the BNS, earlier ones under the IPC. NCRB reports both; cases is their sum.'),
  ('NOT_REPORTED', 'NCRB published no figure for this cell.'),
+ ('BOUNDARIES_PRE_2020', '2014 to 2019: Jammu and Kashmir includes Ladakh, and Dadra and Nagar Haveli and Daman and Diu, which NCRB printed separately, are added together here. Totals for states and for union territories are as NCRB printed them, with Jammu and Kashmir counted as a state.'),
+ ('WB_2019_REPEATS_2018', 'West Bengal, 2019: NCRB received no data in time and printed the 2018 figures again. Rates differ only because the population changed.'),
 ]
 
 wb = Workbook()
@@ -55,12 +57,13 @@ def header(ws, cols):
 
 ws = wb.active; ws.title = 'About'
 about = [
- ['She Counts: crimes against women in India, as police and courts recorded them, 2020 to 2024'],
+ ['She Counts: crimes against women in India, as police and courts recorded them, 2014 to 2024'],
  [],
- ['What this is', 'Every figure published state-wise in Chapter 3A (crimes against women) and table 2A.3 (murder victims by sex) of NCRB Crime in India, Volume 1, for 2020 to 2024, read from the PDFs by script and checked against NCRB\'s own totals.'],
+ ['What this is', 'Every figure published state-wise in Chapter 3A (crimes against women) and table 2A.3 (murder victims by sex) of NCRB Crime in India, Volume 1, for 2016 to 2024, and in tables 5.2, 5.3, 5.5, 5.6 and 3.3 for 2014 and 2015, read from the PDFs by script and checked against NCRB\'s own totals.'],
+ ['Years that differ', 'NCRB changed its crime headings in 2017. A heading defined differently before then carries a code of its own ending in _2014DEF or _2016DEF, so it never joins a later series by accident. In 2016 rape includes POCSO cases booked with s.376, and before 2017 the total for crimes against women leaves out POCSO and several other headings. For 2014 and 2015 NCRB published police and court outcomes for India only. The population behind the rates changed in 2018 and again in 2020.'],
  ['What it cannot show', 'These are cases recorded by police. They are not a measure of how often these crimes happen: most violence against women is never reported. A higher rate in one state can mean more crime or more recording. NCRB itself warns that states should not be compared on these figures alone.'],
  ['Police and court outcomes', 'NCRB publishes police and court disposal by state only for all crimes against women together (COURTS, POLICE). For single crimes such as rape it publishes them for India as a whole only (measures starting police_ and court_ on All India rows).'],
- ['Checks', 'For every count column, the 28 states add to NCRB\'s Total State(s), the 8 union territories to Total UT(s), and both to Total All India. The build stops on any mismatch.'],
+ ['Checks', 'For every count column, the states add to NCRB\'s Total State(s), the union territories to Total UT(s), and both to Total All India, as NCRB drew them in that year. The build stops on any mismatch. The checks on 2014 to 2019 are in data/raw/old.'],
  ['Licence', 'Figures: National Crime Records Bureau. This compilation, its codes and notes: CC BY 4.0. Cite NCRB and She Counts.'],
  ['Built', 'scripts/build_data.py and scripts/build_xlsx.py at github.com/Varnasr/SheCounts'],
 ]

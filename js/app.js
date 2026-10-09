@@ -172,12 +172,12 @@
     var o = pc('RAPE', 'All India', y);
     $('prIndia').textContent = t('pr.india', { pend: Math.round(o.ptr / o.ct * 100), conv: Math.round(o.cr) });
     C.watch($('prChart'), function () {
-      C.columns($('prChart'), { x: D.years, fmt: function (v) { return fmt(v, 1); }, label: t('pr.chart'),
+      C.columns($('prChart'), { x: D.years, fmt: function (v) { return fmt(v, 1); }, label: t('pr.chart', { y0: D.years[0], y1: D.years[D.years.length - 1] }),
         series: [{ label: place('Delhi'), values: row('RAPE', 'rate', 'Delhi'), color: '--red' },
                  { label: place('Bihar'), values: row('RAPE', 'rate', 'Bihar'), color: '--knot' },
                  { label: t('india'), values: row('RAPE', 'rate', 'All India'), color: '--soft' }] });
     });
-    $('prChartCap').textContent = t('pr.chart');
+    $('prChartCap').textContent = t('pr.chart', { y0: D.years[0], y1: D.years[D.years.length - 1] });
   }
 
   // ---------- police and courts ----------
@@ -384,7 +384,7 @@
     var bin = function (v) { if (v == null) return -1; var b = 0; cuts.forEach(function (c) { if (v > c) b++; }); return b; };
     var names = {}; STATES().forEach(function (p) { names[p.map] = place(p.id); });
     var unit = st.measure === 'rate' ? t('unit.rate') : t('unit.cases');
-    $('yearCap').textContent = t('years.cap', { crime: head(st.head), unit: unit });
+    $('yearCap').textContent = t('years.cap', { crime: head(st.head), unit: unit, y0: D.years[0], y1: D.years[D.years.length - 1] });
     var box = $('yearMaps');
     C.watch(box, function () {
       var W = Math.max(260, box.clientWidth), n = W < 560 ? 2 : W < 900 ? 3 : 5, gap = 10, mw = (W - gap * (n - 1)) / n, k = mw / projected.W, mh = projected.H * k;
@@ -490,7 +490,7 @@
     });
     // every crime, five years
     var h = '<thead><tr><th scope="col">' + t('crime') + '</th>' + D.years.map(function (y, i) { return '<th scope="col"' + (i < D.years.length - 1 ? ' class="old"' : '') + '>' + y + '</th>'; }).join('') +
-      '<th scope="col">' + t('trend') + '</th><th scope="col" data-tip="tip.rate">' + t('rate24') + '</th><th scope="col" class="ind">' + t('india24') + '</th></tr></thead><tbody>';
+      '<th scope="col">' + t('trend', { y0: D.years[0], y1: D.years[D.years.length - 1] }) + '</th><th scope="col" data-tip="tip.rate">' + t('rate24') + '</th><th scope="col" class="ind">' + t('india24') + '</th></tr></thead><tbody>';
     GROUPS.forEach(function (g) {
       h += '<tr class="group"><th colspan="9" scope="rowgroup">' + t('group.' + g[0]) + '</th></tr>';
       g[1].forEach(function (code) {
@@ -568,7 +568,7 @@
       return '<a class="mult cloth" href="' + link('/crimes/' + slug(code) + '/') + '"><h3>' + head(code) + '</h3>' + (law(code) ? '<span class="law">' + law(code) + '</span>' : '') +
         '<span class="last">' + fmt(last, dp) + '</span>' +
         '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + head(code) + ': ' + vals.map(function (v) { return fmt(v, dp); }).join(', ') + '">' + g + '</svg>' +
-        '<p>' + t('mult.p', { a: fmt(first, dp), b: fmt(last, dp), ch: (ch > 0 ? '+' : '') + ch }) + '</p></a>';
+        '<p>' + t('mult.p', { a: fmt(first, dp), b: fmt(last, dp), ch: (ch > 0 ? '+' : '') + ch, y0: D.years[0], y1: D.years[D.years.length - 1] }) + '</p></a>';
     }).join('');
   }
 
@@ -604,17 +604,23 @@
   }
   function trend() {
     var c = body.dataset.crime, rateMode = st.trend === 'rate';
-    var get = function (code) { return rateMode ? D.years.map(function (y) { return rate(code, 'All India', y); }) : cases(code, 'All India'); };
+    // Before 2017, India only, and only where NCRB defined the heading the same way (data/site.json 'long').
+    var LY = D.long.years, X = LY.concat(D.years);
+    var get = function (code) {
+      var old = (D.long.series[code] || {})[rateMode ? 'rate' : 'cases'] || LY.map(function () { return null; });
+      var now = rateMode ? D.years.map(function (y) { return rate(code, 'All India', y); }) : cases(code, 'All India');
+      return old.concat(now);
+    };
     var series = [{ label: head(c), short: crimeName(c), values: get(c), color: '--red', width: 3 }];
     // Rape and POCSO rape are two halves of one crime and are always shown together.
     var pair = { RAPE: 'POCSO_RAPE', POCSO_RAPE: 'RAPE' }[c];
     if (pair) series.push({ label: head(pair), short: crimeName(pair), values: get(pair), color: '--knot', dash: '6 5' });
     var dp = rateMode ? 2 : 0;
-    $('trendCap').textContent = t(rateMode ? 'trend.cap.rate' : 'trend.cap.cases') + (pair ? ' ' + t('trend.pair') : '');
+    $('trendCap').textContent = t(rateMode ? 'trend.cap.rate' : 'trend.cap.cases') + (pair ? ' ' + t('trend.pair') : '') + ' ' + t('trend.long');
     C.watch($('trendChart'), function () {
-      C.lines($('trendChart'), { x: D.years, series: series, label: $('trendCap').textContent,
-        fmt: function (v, tick) { return tick && !rateMode && v >= 100000 ? fmt(v / 100000, 1) + ' L' : fmt(v, tick ? (rateMode ? 1 : 0) : dp); },
-        marks: [{ i: D.years.indexOf(2020), label: t('mark.lock') }, { i: D.years.indexOf(2024), label: t('mark.bns') }] });
+      C.lines($('trendChart'), { x: X, series: series, label: $('trendCap').textContent,
+        fmt: function (v, tick) { return tick && !rateMode && v >= 100000 ? fmt(v / 100000, 3) + ' L' : fmt(v, tick ? (rateMode ? 1 : 0) : dp); },
+        marks: [{ i: X.indexOf(2020), label: t('mark.lock') }, { i: X.indexOf(2024), label: t('mark.bns') }] });
     });
   }
   function crimeStates(c) {
@@ -642,8 +648,10 @@
   }
 
   function method() {
-    $('srcList').innerHTML = D.years.map(function (y) {
+    $('srcList').innerHTML = Object.keys(D.sources).sort().map(Number).map(function (y) {
       var s = D.sources[String(y)];
+      if (s.files) return '<li>' + s.title + ' · ' + t('src.via') + ' ' + s.mirror + '<details><summary>' + t('src.files', { n: s.files.length }) + '</summary><ul class="files">' +
+        s.files.map(function (f) { return '<li><a href="' + f.url + '">' + f.name + '</a><br><code>sha256 ' + f.sha256 + '</code></li>'; }).join('') + '</ul></details></li>';
       return '<li>' + s.title + ' · ' + t('src.via') + ' ' + s.mirror + ' · <a href="' + s.url + '">PDF</a><br><code>sha256 ' + s.sha256 + '</code></li>';
     }).join('');
   }
@@ -804,7 +812,7 @@
     history.replaceState(null, '', u);
   }
   function exPrep() {
-    E.years = Object.keys(E.sources).map(Number).sort();
+    E.years = E.years.slice();
     E.code = E.crimes.map(function (c) { return c[0]; });
     E.codes = E.code.filter(function (c, i) { return E.code.indexOf(c) === i; });
     E.mcodes = E.measures.map(function (m) { return m[0]; });
@@ -876,7 +884,7 @@
       var sortable = i < cols.length, s = ex.sort === c[0];
       return '<th scope="col"' + (s ? ' aria-sort="' + (ex.desc ? 'descending' : 'ascending') + '"' : '') + (i > 2 && i < cols.length ? '' : ' class="t"') + '>' +
         (sortable ? '<button type="button" data-k="' + c[0] + '">' + c[1] + (s ? (ex.desc ? ' ↓' : ' ↑') : '') + '</button>' : c[1]) + '</th>';
-    }).join('') + (ex.lay === 'wide' && years.length > 1 ? '<th scope="col">' + t('trend') + '</th>' : '') + '</tr></thead><tbody>';
+    }).join('') + (ex.lay === 'wide' && years.length > 1 ? '<th scope="col">' + t('trend', { y0: years[0], y1: years[years.length - 1] }) + '</th>' : '') + '</tr></thead><tbody>';
     groups.slice(0, ex.shown).forEach(function (x) {
       var r = x.r, p = E.places[r[0]], c = E.code[r[2]], m = E.measures[r[3]];
       var pn = place(p[0]), pc2 = p[2] === 'total' ? pn : '<a href="' + link('/states/' + slug(p[0]) + '/') + '">' + pn + '</a>';
@@ -930,7 +938,7 @@
   function exCsv() {
     var head2 = E.columns, out = [head2];
     ex.rows.forEach(function (o) {
-      var p = E.places[o[0]], c = E.crimes[o[2]], m = E.measures[o[3]], s = E.sources[String(o[1])];
+      var p = E.places[o[0]], c = E.crimes[o[2]], m = E.measures[o[3]], s = E.sources[o[8]];
       out.push([p[0], p[1], p[2], o[1], c[0], c[1], c[2], c[3], c[4], m[0], o[4] == null ? '' : o[4], m[1], s[0], E.tables[o[5]], s[1], s[2], E.flags[o[6]], E.notes[o[7]]]);
     });
     return out;

@@ -1,0 +1,3537 @@
+{
+ "checks": [
+  {
+   "year": 2014,
+   "table": "5.1",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 321993 vs 321993; UTs 15929 vs 15929; TS+TU 337922 vs AI 337922",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.1",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 5888.7 vs 5888.3; UTs 110.4 vs 110.4; TS+TU 5998.7 vs AI 5998.7",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 4 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 34530 vs 34530; UTs 2205 vs 2205; TS+TU 36735 vs AI 36735",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 34764 vs 34764; UTs 2211 vs 2211; TS+TU 36975 vs AI 36975",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 7 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 196 vs 196; UTs 1 vs 1; TS+TU 197 vs AI 197",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 8 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 196 vs 196; UTs 1 vs 1; TS+TU 197 vs AI 197",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 10 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 7 vs 7; UTs 0 vs 0; TS+TU 7 vs AI 7",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 11 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 7 vs 7; UTs 0 vs 0; TS+TU 7 vs AI 7",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 13 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 189 vs 189; UTs 1 vs 1; TS+TU 190 vs AI 190",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 14 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 189 vs 189; UTs 1 vs 1; TS+TU 190 vs AI 190",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 16 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 34334 vs 34334; UTs 2204 vs 2204; TS+TU 36538 vs AI 36538",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 17 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 34568 vs 34568; UTs 2210 vs 2210; TS+TU 36778 vs AI 36778",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 19 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 2197 vs 2197; UTs 149 vs 149; TS+TU 2346 vs AI 2346",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 20 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 2212 vs 2212; UTs 149 vs 149; TS+TU 2361 vs AI 2361",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 22 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 32137 vs 32137; UTs 2055 vs 2055; TS+TU 34192 vs AI 34192",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 23 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 32356 vs 32356; UTs 2061 vs 2061; TS+TU 34417 vs AI 34417",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 25 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 4158 vs 4158; UTs 76 vs 76; TS+TU 4234 vs AI 4234",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 26 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 4158 vs 4158; UTs 76 vs 76; TS+TU 4234 vs AI 4234",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 28 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 53112 vs 53112; UTs 4199 vs 4199; TS+TU 57311 vs AI 57311",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 29 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 54081 vs 54081; UTs 4411 vs 4411; TS+TU 58492 vs AI 58492",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 31 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 13178 vs 13178; UTs 3838 vs 3838; TS+TU 17016 vs AI 17016",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 32 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 13541 vs 13541; UTs 4020 vs 4020; TS+TU 17561 vs AI 17561",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 34 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 206 vs 206; UTs 0 vs 0; TS+TU 206 vs AI 206",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 35 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 207 vs 207; UTs 0 vs 0; TS+TU 207 vs AI 207",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 37 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 84 vs 84; UTs 7 vs 7; TS+TU 91 vs AI 91",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 38 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 84 vs 84; UTs 7 vs 7; TS+TU 91 vs AI 91",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 40 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 30828 vs 30828; UTs 46 vs 46; TS+TU 30874 vs AI 30874",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 41 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 30911 vs 30911; UTs 46 vs 46; TS+TU 30957 vs AI 30957",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 43 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 8816 vs 8816; UTs 308 vs 308; TS+TU 9124 vs AI 9124",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 44 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 9338 vs 9338; UTs 338 vs 338; TS+TU 9676 vs AI 9676",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 46 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 8296 vs 8296; UTs 159 vs 159; TS+TU 8455 vs AI 8455",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 47 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 8342 vs 8342; UTs 159 vs 159; TS+TU 8501 vs AI 8501",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 49 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 77747 vs 77747; UTs 4488 vs 4488; TS+TU 82235 vs AI 82235",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 50 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 78122 vs 78122; UTs 4498 vs 4498; TS+TU 82620 vs AI 82620",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 52 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 20688 vs 20688; UTs 1250 vs 1250; TS+TU 21938 vs AI 21938",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 53 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 20769 vs 20769; UTs 1250 vs 1250; TS+TU 22019 vs AI 22019",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 55 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 6023 vs 6023; UTs 389 vs 389; TS+TU 6412 vs AI 6412",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 56 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 6051 vs 6051; UTs 389 vs 389; TS+TU 6440 vs AI 6440",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 58 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 636 vs 636; UTs 38 vs 38; TS+TU 674 vs AI 674",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 59 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 641 vs 641; UTs 38 vs 38; TS+TU 679 vs AI 679",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 61 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 4143 vs 4143; UTs 556 vs 556; TS+TU 4699 vs AI 4699",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 62 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 4153 vs 4153; UTs 556 vs 556; TS+TU 4709 vs AI 4709",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 64 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 46257 vs 46257; UTs 2255 vs 2255; TS+TU 48512 vs AI 48512",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 65 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 46508 vs 46508; UTs 2265 vs 2265; TS+TU 48773 vs AI 48773",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 67 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 8356 vs 8356; UTs 1379 vs 1379; TS+TU 9735 vs AI 9735",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 68 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 8410 vs 8410; UTs 1386 vs 1386; TS+TU 9796 vs AI 9796",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 70 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 45 vs 45; UTs 12 vs 12; TS+TU 57 vs AI 57",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 71 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 45 vs 45; UTs 15 vs 15; TS+TU 60 vs AI 60",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 73 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 442 vs 442; UTs 27 vs 27; TS+TU 469 vs AI 469",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 74 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 442 vs 442; UTs 27 vs 27; TS+TU 469 vs AI 469",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 76 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 113 vs 113; UTs 8 vs 8; TS+TU 121 vs AI 121",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 77 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 113 vs 113; UTs 8 vs 8; TS+TU 121 vs AI 121",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 79 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 7756 vs 7756; UTs 1332 vs 1332; TS+TU 9088 vs AI 9088",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 80 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 7810 vs 7810; UTs 1336 vs 1336; TS+TU 9146 vs AI 9146",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 82 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 119538 vs 119538; UTs 3339 vs 3339; TS+TU 122877 vs AI 122877",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 83 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 119906 vs 119906; UTs 3339 vs 3339; TS+TU 123245 vs AI 123245",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 85 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 13 vs 13; UTs 0 vs 0; TS+TU 13 vs AI 13",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 86 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 13 vs 13; UTs 0 vs 0; TS+TU 13 vs AI 13",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 88 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 3704 vs 3704; UTs 30 vs 30; TS+TU 3734 vs AI 3734",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 89 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 3717 vs 3717; UTs 30 vs 30; TS+TU 3747 vs AI 3747",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 91 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 10021 vs 10021; UTs 29 vs 29; TS+TU 10050 vs AI 10050",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 92 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 10117 vs 10117; UTs 29 vs 29; TS+TU 10146 vs AI 10146",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 94 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 47 vs 47; UTs 0 vs 0; TS+TU 47 vs AI 47",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 95 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 47 vs 47; UTs 0 vs 0; TS+TU 47 vs AI 47",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 97 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 0 vs 0; UTs 0 vs 0; TS+TU 0 vs AI 0",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 98 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 0 vs 0; UTs 0 vs 0; TS+TU 0 vs AI 0",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 100 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 419 vs 419; UTs 7 vs 7; TS+TU 426 vs AI 426",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 101 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 423 vs 423; UTs 7 vs 7; TS+TU 430 vs AI 430",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 103 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 2052 vs 2052; UTs 18 vs 18; TS+TU 2070 vs AI 2070",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 104 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 2732 vs 2732; UTs 24 vs 24; TS+TU 2756 vs AI 2756",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 106 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 590 vs 590; UTs 15 vs 15; TS+TU 605 vs AI 605",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 107 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 869 vs 869; UTs 21 vs 21; TS+TU 890 vs AI 890",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 109 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 80 vs 80; UTs 1 vs 1; TS+TU 81 vs AI 81",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 110 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 120 vs 120; UTs 1 vs 1; TS+TU 121 vs AI 121",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 112 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 120 vs 120; UTs 0 vs 0; TS+TU 120 vs AI 120",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 113 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 143 vs 143; UTs 0 vs 0; TS+TU 143 vs AI 143",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 115 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 103 vs 103; UTs 1 vs 1; TS+TU 104 vs AI 104",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 116 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 113 vs 113; UTs 1 vs 1; TS+TU 114 vs AI 114",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 118 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 1159 vs 1159; UTs 1 vs 1; TS+TU 1160 vs AI 1160",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 119 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 1487 vs 1487; UTs 1 vs 1; TS+TU 1488 vs AI 1488",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 121 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 321993 vs 321993; UTs 15929 vs 15929; TS+TU 337922 vs AI 337922",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 122 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 324832 vs 324832; UTs 16170 vs 16170; TS+TU 341002 vs AI 341002",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 5888.7 vs 5888.3; UTs 110.4 vs 110.4; TS+TU 5998.7 vs AI 5998.7",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "every rate = cases / female population (lakh), allowing for the population being printed to 0.1 lakh and the rate to 0.1",
+   "pass": true,
+   "detail": "40 rate columns x 39 rows",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.1",
+   "check": "rate col 6 = col 3 / col 5 x 1 (cases per lakh women), allowing for rounding of the printed population",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.1/5.2",
+   "check": "Table 5.1 col 3 = Table 5.2 col 121 (total) for every row",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.1/5.2",
+   "check": "Table 5.1 col 5 = Table 5.2 col 3 (female population)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.1/5.2",
+   "check": "Table 5.1 col 6 (rate) = Table 5.2 col 123",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 4 = Col. 7 + Col. 16",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 5 = Col. 8 + Col. 17",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 7 = Col. 10 + Col. 13",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 8 = Col. 11 + Col. 14",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 16 = Col. 19 + Col. 22",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 17 = Col. 20 + Col. 23",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 28 = Col. 31 + Col. 34 + Col. 37 + Col. 40 + Col. 43",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 29 = Col. 32 + Col. 35 + Col. 38 + Col. 41 + Col. 44",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 49 = Col. 52 + Col. 55 + Col. 58 + Col. 61 + Col. 64",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 50 = Col. 53 + Col. 56 + Col. 59 + Col. 62 + Col. 65",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 67 = Col. 70 + Col. 73 + Col. 76 + Col. 79",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 68 = Col. 71 + Col. 74 + Col. 77 + Col. 80",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 103 = Col. 106 + Col. 109 + Col. 112 + Col. 115 + Col. 118",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 104 = Col. 107 + Col. 110 + Col. 113 + Col. 116 + Col. 119",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 121 = Col. 4 + Col. 25 + Col. 28 + Col. 46 + Col. 49 + Col. 67 + Col. 82 + Col. 85 + Col. 88 + Col. 91 + Col. 94 + Col. 100 + Col. 103",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 122 = Col. 5 + Col. 26 + Col. 29 + Col. 47 + Col. 50 + Col. 68 + Col. 83 + Col. 86 + Col. 89 + Col. 92 + Col. 95 + Col. 101 + Col. 104",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2",
+   "check": "Col. 97 (Sati) is zero in every row, so its omission from the printed Col. 121 formula changes nothing",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 526 vs 526; UTs 148 vs 148; TS+TU 674 vs AI 674",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 4 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 17 vs 17; UTs 6 vs 6; TS+TU 23 vs AI 23",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 66 vs 66; UTs 18 vs 18; TS+TU 84 vs AI 84",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 6 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 169 vs 169; UTs 42 vs 42; TS+TU 211 vs AI 211",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 7 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 91 vs 91; UTs 24 vs 24; TS+TU 115 vs AI 115",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 8 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 159 vs 159; UTs 44 vs 44; TS+TU 203 vs AI 203",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 9 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 48 vs 48; UTs 16 vs 16; TS+TU 64 vs AI 64",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 10 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 6 vs 6; UTs 1 vs 1; TS+TU 7 vs AI 7",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 11 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 5 vs 5; UTs 1 vs 1; TS+TU 6 vs AI 6",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 12 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 561 vs 561; UTs 152 vs 152; TS+TU 713 vs AI 713",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 13 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 34682 vs 34682; UTs 2057 vs 2057; TS+TU 36739 vs AI 36739",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 14 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 453 vs 453; UTs 71 vs 71; TS+TU 524 vs AI 524",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 15 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 1292 vs 1292; UTs 115 vs 115; TS+TU 1407 vs AI 1407",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 16 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 5053 vs 5053; UTs 371 vs 371; TS+TU 5424 vs AI 5424",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 17 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 6328 vs 6328; UTs 419 vs 419; TS+TU 6747 vs AI 6747",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 18 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 15522 vs 15522; UTs 795 vs 795; TS+TU 16317 vs AI 16317",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 19 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 5512 vs 5512; UTs 270 vs 270; TS+TU 5782 vs AI 5782",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 20 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 666 vs 666; UTs 17 vs 17; TS+TU 683 vs AI 683",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 21 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 83 vs 83; UTs 1 vs 1; TS+TU 84 vs AI 84",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 22 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 34909 vs 34909; UTs 2059 vs 2059; TS+TU 36968 vs AI 36968",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 23 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 35208 vs 35208; UTs 2205 vs 2205; TS+TU 37413 vs AI 37413",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 24 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 470 vs 470; UTs 77 vs 77; TS+TU 547 vs AI 547",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 25 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 1358 vs 1358; UTs 133 vs 133; TS+TU 1491 vs AI 1491",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 26 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 5222 vs 5222; UTs 413 vs 413; TS+TU 5635 vs AI 5635",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 27 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 6419 vs 6419; UTs 443 vs 443; TS+TU 6862 vs AI 6862",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 28 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 15681 vs 15681; UTs 839 vs 839; TS+TU 16520 vs AI 16520",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 29 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 5560 vs 5560; UTs 286 vs 286; TS+TU 5846 vs AI 5846",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 30 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 672 vs 672; UTs 18 vs 18; TS+TU 690 vs AI 690",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 31 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 88 vs 88; UTs 2 vs 2; TS+TU 90 vs AI 90",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 32 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 35470 vs 35470; UTs 2211 vs 2211; TS+TU 37681 vs AI 37681",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 12 (total victims) = sum of cols 4-11 (age bands)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 22 (total victims) = sum of cols 14-21 (age bands)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 32 (total victims) = sum of cols 24-31 (age bands)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 23 (total rape) = col 3 (incest) + col 13 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 24 (total rape) = col 4 (incest) + col 14 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 25 (total rape) = col 5 (incest) + col 15 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 26 (total rape) = col 6 (incest) + col 16 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 27 (total rape) = col 7 (incest) + col 17 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 28 (total rape) = col 8 (incest) + col 18 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 29 (total rape) = col 9 (incest) + col 19 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 30 (total rape) = col 10 (incest) + col 20 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 31 (total rape) = col 11 (incest) + col 21 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.3",
+   "check": "col 32 (total rape) = col 12 (incest) + col 22 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2/5.3",
+   "check": "Table 5.3 col 23 (total rape cases) = Table 5.2 col 4 (rape cases)",
+   "pass": false,
+   "detail": "Meghalaya: 5.3=141 5.2=118; Tamil Nadu: 5.3=1110 5.2=455; Total states: 5.3=35208 5.2=34530; All India: 5.3=37413 5.2=36735",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2/5.3",
+   "check": "Table 5.3 col 32 (total rape victims) = Table 5.2 col 5 (rape victims)",
+   "pass": false,
+   "detail": "Haryana: 5.3=1185 5.2=1183; Maharashtra: 5.3=3465 5.2=3463; Meghalaya: 5.3=141 5.2=118; Tamil Nadu: 5.3=1138 5.2=459; Total states: 5.3=35470 5.2=34764; All India: 5.3=37681 5.2=36975",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 237 vs 237; UTs 2 vs 2; TS+TU 239 vs AI 239",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 4 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 274 vs 274; UTs 5 vs 5; TS+TU 279 vs AI 279",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 511 vs 511; UTs 7 vs 7; TS+TU 518 vs AI 518",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 6 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 222 vs 222; UTs 5 vs 5; TS+TU 227 vs AI 227",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 7 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 172 vs 172; UTs 3 vs 3; TS+TU 175 vs AI 175",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 8 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 394 vs 394; UTs 8 vs 8; TS+TU 402 vs AI 402",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 9 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 271 vs 271; UTs 15 vs 15; TS+TU 286 vs AI 286",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 10 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 158 vs 158; UTs 4 vs 4; TS+TU 162 vs AI 162",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 11 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 429 vs 429; UTs 19 vs 19; TS+TU 448 vs AI 448",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 12 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 351 vs 351; UTs 12 vs 12; TS+TU 363 vs AI 363",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 13 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 217 vs 217; UTs 5 vs 5; TS+TU 222 vs AI 222",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 14 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 568 vs 568; UTs 17 vs 17; TS+TU 585 vs AI 585",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 15 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 9379 vs 9379; UTs 234 vs 234; TS+TU 9613 vs AI 9613",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 16 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 3738 vs 3738; UTs 83 vs 83; TS+TU 3821 vs AI 3821",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 17 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 13117 vs 13117; UTs 317 vs 317; TS+TU 13434 vs AI 13434",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 18 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 9992 vs 9992; UTs 182 vs 182; TS+TU 10174 vs AI 10174",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 19 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 3102 vs 3102; UTs 42 vs 42; TS+TU 3144 vs AI 3144",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 20 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 13094 vs 13094; UTs 224 vs 224; TS+TU 13318 vs AI 13318",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 21 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 4181 vs 4181; UTs 54 vs 54; TS+TU 4235 vs AI 4235",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 22 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 1044 vs 1044; UTs 13 vs 13; TS+TU 1057 vs AI 1057",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 23 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 5225 vs 5225; UTs 67 vs 67; TS+TU 5292 vs AI 5292",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 24 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 757 vs 757; UTs 21 vs 21; TS+TU 778 vs AI 778",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 25 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 359 vs 359; UTs 5 vs 5; TS+TU 364 vs AI 364",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 26 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 1116 vs 1116; UTs 26 vs 26; TS+TU 1142 vs AI 1142",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 27 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 25390 vs 25390; UTs 525 vs 525; TS+TU 25915 vs AI 25915",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 28 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 9064 vs 9064; UTs 160 vs 160; TS+TU 9224 vs AI 9224",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 29 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 34454 vs 34454; UTs 685 vs 685; TS+TU 35139 vs AI 35139",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "T = M + F in every age band and in the total",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 27 (total M) = sum of the eight age bands",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 28 (total F) = sum of the eight age bands",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "3.3",
+   "check": "col 29 (total T) = sum of the eight age bands",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "every head = sum of its sub-heads, and the total = sum of the 14 heads, in every count column",
+   "pass": false,
+   "detail": "row 1 col 9: printed 2540, sum of 1.1+1.2 = 2535; row 1 col 11: printed 19, sum of 1.1+1.2 = 24; row 1.2 col 9: printed 2532, sum of 1.2.1+1.2.2 = 2537; row 1.2 col 11: printed 24, sum of 1.2.1+1.2.2 = 19",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.6",
+   "check": "every head = sum of its sub-heads, and the total = sum of the 14 heads, in every count column",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "Col. 7 = Col. 3 + Col. 4 - Col. 5 - Col. 6",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "Col. 14 = Col. 9 + 10 + 11 + 12 + 13 (as printed after the modification note)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "Col. 15 = Col. 7 - Col. 14 (printed formula)",
+   "pass": false,
+   "detail": "1 Rape: printed 16032, formula 16033; 1.2 Rape other than Custodial: printed 16009, formula 16010; 1.2.2 Rape_Others: printed 15457, formula 15458; 3 Kidnapping & Abduction of Women: printed 35533, formula 35535; 3.4 Kidnapping & Abduction of Women to compel her for marriage: printed 19621, formula 19623; 5 Assault on Women with intent to outrage her Modesty_Total: printed 24775, formula 24776; 5.1 Sexual Harassment: printed 5262, formula 5263; 7 Cruelty by Husband or his Relatives: printed 50937, formula 50938; TOTAL Total Crimes against Women: printed 144938, formula 144943",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "Col. 15 = Col. 7 - Col. 8 - Col. 14 (what the printed values satisfy)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "Col. 16 = Col. 12 / (Col. 12 + Col. 13) x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5",
+   "check": "Col. 17 = Col. 15 / (Col. 3 + Col. 4) x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.6",
+   "check": "Col. 7 = Col. 3 + 4 - Col. 5 - Col. 6",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.6",
+   "check": "Col. 9 = Col. 10 + Col. 11",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.6",
+   "check": "Col. 12 = Col. 7 - (Col. 8 + Col. 9)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.6",
+   "check": "Col. 13 = Col. 10 / Col. 9 x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.6",
+   "check": "Col. 14 = Col. 12 / (Col. 3 + Col. 4) x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.2/5.5",
+   "check": "Table 5.5 col 4 (reported) = Table 5.2 All India cases, for all 15 rows",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2014,
+   "table": "5.5/5.6",
+   "check": "Table 5.6 col 4 (sent for trial) = Table 5.5 col 12 (chargesheeted), every row incl. sub-heads",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.1",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 309549 vs 309549; UTs 17845 vs 17845; TS+TU 327394 vs AI 327394",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.1",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 5957.5 vs 5957.4; UTs 113.4 vs 113.4; TS+TU 6070.8 vs AI 6070.8",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 4 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 32328 vs 32328; UTs 2323 vs 2323; TS+TU 34651 vs AI 34651",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 32437 vs 32437; UTs 2334 vs 2334; TS+TU 34771 vs AI 34771",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 7 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 95 vs 95; UTs 0 vs 0; TS+TU 95 vs AI 95",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 8 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 95 vs 95; UTs 0 vs 0; TS+TU 95 vs AI 95",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 10 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 4 vs 4; UTs 0 vs 0; TS+TU 4 vs AI 4",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 11 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 4 vs 4; UTs 0 vs 0; TS+TU 4 vs AI 4",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 13 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 91 vs 91; UTs 0 vs 0; TS+TU 91 vs AI 91",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 14 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 91 vs 91; UTs 0 vs 0; TS+TU 91 vs AI 91",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 16 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 32233 vs 32233; UTs 2323 vs 2323; TS+TU 34556 vs AI 34556",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 17 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 32342 vs 32342; UTs 2334 vs 2334; TS+TU 34676 vs AI 34676",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 19 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 2016 vs 2016; UTs 97 vs 97; TS+TU 2113 vs AI 2113",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 20 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 2028 vs 2028; UTs 97 vs 97; TS+TU 2125 vs AI 2125",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 22 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 30217 vs 30217; UTs 2226 vs 2226; TS+TU 32443 vs AI 32443",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 23 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 30314 vs 30314; UTs 2237 vs 2237; TS+TU 32551 vs AI 32551",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 25 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 4384 vs 4384; UTs 53 vs 53; TS+TU 4437 vs AI 4437",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 26 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 4389 vs 4389; UTs 53 vs 53; TS+TU 4442 vs AI 4442",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 28 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 54754 vs 54754; UTs 4523 vs 4523; TS+TU 59277 vs AI 59277",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 29 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 55901 vs 55901; UTs 4751 vs 4751; TS+TU 60652 vs AI 60652",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 31 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 14216 vs 14216; UTs 3885 vs 3885; TS+TU 18101 vs AI 18101",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 32 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 14916 vs 14916; UTs 4061 vs 4061; TS+TU 18977 vs AI 18977",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 34 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 117 vs 117; UTs 0 vs 0; TS+TU 117 vs AI 117",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 35 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 119 vs 119; UTs 0 vs 0; TS+TU 119 vs AI 119",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 37 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 93 vs 93; UTs 5 vs 5; TS+TU 98 vs AI 98",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 38 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 95 vs 95; UTs 5 vs 5; TS+TU 100 vs AI 100",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 40 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 31715 vs 31715; UTs 63 vs 63; TS+TU 31778 vs AI 31778",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 41 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 31818 vs 31818; UTs 66 vs 66; TS+TU 31884 vs AI 31884",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 43 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 8613 vs 8613; UTs 570 vs 570; TS+TU 9183 vs AI 9183",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 44 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 8953 vs 8953; UTs 619 vs 619; TS+TU 9572 vs AI 9572",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 46 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 7505 vs 7505; UTs 129 vs 129; TS+TU 7634 vs AI 7634",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 47 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 4: states 7517 vs 7517; UTs 129 vs 129; TS+TU 7646 vs AI 7646",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 49 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 76871 vs 76871; UTs 5551 vs 5551; TS+TU 82422 vs AI 82422",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 50 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 77202 vs 77202; UTs 5598 vs 5598; TS+TU 82800 vs AI 82800",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 52 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 22833 vs 22833; UTs 1208 vs 1208; TS+TU 24041 vs AI 24041",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 53 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 5: states 22911 vs 22911; UTs 1213 vs 1213; TS+TU 24124 vs AI 24124",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 55 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 8056 vs 8056; UTs 557 vs 557; TS+TU 8613 vs AI 8613",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 56 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 8101 vs 8101; UTs 563 vs 563; TS+TU 8664 vs AI 8664",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 58 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 768 vs 768; UTs 70 vs 70; TS+TU 838 vs AI 838",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 59 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 775 vs 775; UTs 71 vs 71; TS+TU 846 vs AI 846",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 61 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 5119 vs 5119; UTs 1147 vs 1147; TS+TU 6266 vs AI 6266",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 62 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 5132 vs 5132; UTs 1151 vs 1151; TS+TU 6283 vs AI 6283",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 64 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 40095 vs 40095; UTs 2569 vs 2569; TS+TU 42664 vs AI 42664",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 65 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 6: states 40283 vs 40283; UTs 2600 vs 2600; TS+TU 42883 vs AI 42883",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 67 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 7167 vs 7167; UTs 1518 vs 1518; TS+TU 8685 vs AI 8685",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 68 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 7184 vs 7184; UTs 1523 vs 1523; TS+TU 8707 vs AI 8707",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 70 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 83 vs 83; UTs 36 vs 36; TS+TU 119 vs AI 119",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 71 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 83 vs 83; UTs 36 vs 36; TS+TU 119 vs AI 119",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 73 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 485 vs 485; UTs 229 vs 229; TS+TU 714 vs AI 714",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 74 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 487 vs 487; UTs 229 vs 229; TS+TU 716 vs AI 716",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 76 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 295 vs 295; UTs 20 vs 20; TS+TU 315 vs AI 315",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 77 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 7: states 296 vs 296; UTs 20 vs 20; TS+TU 316 vs AI 316",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 79 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 6304 vs 6304; UTs 1233 vs 1233; TS+TU 7537 vs AI 7537",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 80 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 6318 vs 6318; UTs 1238 vs 1238; TS+TU 7556 vs AI 7556",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 82 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 109731 vs 109731; UTs 3672 vs 3672; TS+TU 113403 vs AI 113403",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 83 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 109876 vs 109876; UTs 3672 vs 3672; TS+TU 113548 vs AI 113548",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 85 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 6 vs 6; UTs 0 vs 0; TS+TU 6 vs AI 6",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 86 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 6 vs 6; UTs 0 vs 0; TS+TU 6 vs AI 6",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 88 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 4027 vs 4027; UTs 33 vs 33; TS+TU 4060 vs AI 4060",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 89 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 8: states 4052 vs 4052; UTs 33 vs 33; TS+TU 4085 vs AI 4085",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 91 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 9862 vs 9862; UTs 32 vs 32; TS+TU 9894 vs AI 9894",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 92 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 9952 vs 9952; UTs 32 vs 32; TS+TU 9984 vs AI 9984",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 94 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 39 vs 39; UTs 1 vs 1; TS+TU 40 vs AI 40",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 95 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 39 vs 39; UTs 1 vs 1; TS+TU 40 vs AI 40",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 97 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 0 vs 0; UTs 0 vs 0; TS+TU 0 vs AI 0",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 98 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 0 vs 0; UTs 0 vs 0; TS+TU 0 vs AI 0",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 100 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 455 vs 455; UTs 6 vs 6; TS+TU 461 vs AI 461",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 101 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 9: states 462 vs 462; UTs 6 vs 6; TS+TU 468 vs AI 468",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 103 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 2420 vs 2420; UTs 4 vs 4; TS+TU 2424 vs AI 2424",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 104 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 3031 vs 3031; UTs 7 vs 7; TS+TU 3038 vs AI 3038",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 106 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 1189 vs 1189; UTs 4 vs 4; TS+TU 1193 vs AI 1193",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 107 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 1797 vs 1797; UTs 7 vs 7; TS+TU 1804 vs AI 1804",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 109 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 79 vs 79; UTs 0 vs 0; TS+TU 79 vs AI 79",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 110 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 109 vs 109; UTs 0 vs 0; TS+TU 109 vs AI 109",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 112 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 176 vs 176; UTs 0 vs 0; TS+TU 176 vs AI 176",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 113 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 10: states 247 vs 247; UTs 0 vs 0; TS+TU 247 vs AI 247",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 115 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 288 vs 288; UTs 0 vs 0; TS+TU 288 vs AI 288",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 116 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 0 vs None; UTs 0 vs None; TS+TU 0 vs AI None",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 118 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 688 vs 688; UTs 0 vs 0; TS+TU 688 vs AI 688",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 119 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 878 vs 878; UTs 0 vs 0; TS+TU 878 vs AI 878",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 121 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 309549 vs 309549; UTs 17845 vs 17845; TS+TU 327394 vs AI 327394",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 122 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 11: states 312048 vs 312048; UTs 18139 vs 18139; TS+TU 330187 vs AI 330187",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 5957.5 vs 5957.4; UTs 113.4 vs 113.4; TS+TU 6070.8 vs AI 6070.8",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "every rate = cases / female population (lakh), allowing for the population being printed to 0.1 lakh and the rate to 0.1",
+   "pass": true,
+   "detail": "40 rate columns x 39 rows",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.1",
+   "check": "rate col 6 = col 3 / col 5 x 1 (cases per lakh women), allowing for rounding of the printed population",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.1/5.2",
+   "check": "Table 5.1 col 3 = Table 5.2 col 121 (total) for every row",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.1/5.2",
+   "check": "Table 5.1 col 5 = Table 5.2 col 3 (female population)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.1/5.2",
+   "check": "Table 5.1 col 6 (rate) = Table 5.2 col 123",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 4 = Col. 7 + Col. 16",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 5 = Col. 8 + Col. 17",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 7 = Col. 10 + Col. 13",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 8 = Col. 11 + Col. 14",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 16 = Col. 19 + Col. 22",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 17 = Col. 20 + Col. 23",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 28 = Col. 31 + Col. 34 + Col. 37 + Col. 40 + Col. 43",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 29 = Col. 32 + Col. 35 + Col. 38 + Col. 41 + Col. 44",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 49 = Col. 52 + Col. 55 + Col. 58 + Col. 61 + Col. 64",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 50 = Col. 53 + Col. 56 + Col. 59 + Col. 62 + Col. 65",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 67 = Col. 70 + Col. 73 + Col. 76 + Col. 79",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 68 = Col. 71 + Col. 74 + Col. 77 + Col. 80",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 103 = Col. 106 + Col. 109 + Col. 112 + Col. 115 + Col. 118",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 104 = Col. 107 + Col. 110 + Col. 113 + Col. 116 + Col. 119",
+   "pass": false,
+   "detail": "Andhra Pradesh: blank (\"-\") in [116]; Arunachal Pradesh: blank (\"-\") in [116]; Assam: blank (\"-\") in [116]; Bihar: blank (\"-\") in [116]; Chhattisgarh: blank (\"-\") in [116]; Goa: blank (\"-\") in [116]; Gujarat: blank (\"-\") in [116]; Haryana: blank (\"-\") in [116]; Himachal Pradesh: blank (\"-\") in [116]; Jammu & Kashmir: blank (\"-\") in [116]; Jharkhand: blank (\"-\") in [116]; Karnataka: blank (\"-\") in [116]; Kerala: blank (\"-\") in [116]; Madhya Pradesh: blank (\"-\") in [116]; Maharashtra: blank (\"-\") in [116]; Manipur: blank (\"-\") in [116]; Meghalaya: blank (\"-\") in [116]; Mizoram: blank (\"-\") in [116]; Nagaland: blank (\"-\") in [116]; Odisha: blank (\"-\") in [116]; Punjab: blank (\"-\") in [116]; Rajasthan: blank (\"-\") in [116]; Sikkim: blank (\"-\") in [116]; Tamil Nadu: blank (\"-\") in [116]; Telangana: blank (\"-\") in [116]; Tripura: blank (\"-\") in [116]; Uttar Pradesh: blank (\"-\") in [116]; Uttarakhand: blank (\"-\") in [116]; West Bengal: blank (\"-\") in [116]; A&N Islands: blank (\"-\") in [116]; Chandigarh: blank (\"-\") in [116]; D&N Haveli: blank (\"-\") in [116]; Daman & Diu: blank (\"-\") in [116]; Delhi: blank (\"-\") in [116]; Lakshadweep: blank (\"-\") in [116]; Puducherry: blank (\"-\") in [116]; Total states: blank (\"-\") in [116]; Total UTs: blank (\"-\") in [116]; All India: blank (\"-\") in [116]",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 121 = Col. 4 + Col. 25 + Col. 28 + Col. 46 + Col. 49 + Col. 67 + Col. 82 + Col. 85 + Col. 88 + Col. 91 + Col. 94 + Col. 100 + Col. 103",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 122 = Col. 5 + Col. 26 + Col. 29 + Col. 47 + Col. 50 + Col. 68 + Col. 83 + Col. 86 + Col. 89 + Col. 92 + Col. 95 + Col. 101 + Col. 104",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 116 (ITP s.8 victims) is printed \"-\" in every row and Col. 104 = Col. 107 + 110 + 113 + 119 holds exactly without it",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2",
+   "check": "Col. 97 (Sati) is zero in every row, so its omission from the printed Col. 121 formula changes nothing",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 469 vs 469; UTs 88 vs 88; TS+TU 557 vs AI 557",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 4 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 9 vs 9; UTs 0 vs 0; TS+TU 9 vs AI 9",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 45 vs 45; UTs 10 vs 10; TS+TU 55 vs AI 55",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 6 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 105 vs 105; UTs 29 vs 29; TS+TU 134 vs AI 134",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 7 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 87 vs 87; UTs 21 vs 21; TS+TU 108 vs AI 108",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 8 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 173 vs 173; UTs 23 vs 23; TS+TU 196 vs AI 196",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 9 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 50 vs 50; UTs 3 vs 3; TS+TU 53 vs AI 53",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 10 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 3 vs 3; UTs 2 vs 2; TS+TU 5 vs AI 5",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 11 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 1 vs 1; UTs 0 vs 0; TS+TU 1 vs AI 1",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 12 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 473 vs 473; UTs 88 vs 88; TS+TU 561 vs AI 561",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 13 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 31859 vs 31859; UTs 2235 vs 2235; TS+TU 34094 vs AI 34094",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 14 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 358 vs 358; UTs 84 vs 84; TS+TU 442 vs AI 442",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 15 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 949 vs 949; UTs 147 vs 147; TS+TU 1096 vs AI 1096",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 16 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 3713 vs 3713; UTs 397 vs 397; TS+TU 4110 vs AI 4110",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 17 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 5130 vs 5130; UTs 309 vs 309; TS+TU 5439 vs AI 5439",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 18 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 15707 vs 15707; UTs 1063 vs 1063; TS+TU 16770 vs AI 16770",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 19 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 5392 vs 5392; UTs 232 vs 232; TS+TU 5624 vs AI 5624",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 20 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 621 vs 621; UTs 11 vs 11; TS+TU 632 vs AI 632",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 21 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 94 vs 94; UTs 3 vs 3; TS+TU 97 vs AI 97",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 22 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 31964 vs 31964; UTs 2246 vs 2246; TS+TU 34210 vs AI 34210",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 23 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 32328 vs 32328; UTs 2323 vs 2323; TS+TU 34651 vs AI 34651",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 24 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 367 vs 367; UTs 84 vs 84; TS+TU 451 vs AI 451",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 25 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 994 vs 994; UTs 157 vs 157; TS+TU 1151 vs AI 1151",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 26 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 3818 vs 3818; UTs 426 vs 426; TS+TU 4244 vs AI 4244",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 27 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 5217 vs 5217; UTs 330 vs 330; TS+TU 5547 vs AI 5547",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 28 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 15880 vs 15880; UTs 1086 vs 1086; TS+TU 16966 vs AI 16966",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 29 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 5442 vs 5442; UTs 235 vs 235; TS+TU 5677 vs AI 5677",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 30 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 624 vs 624; UTs 13 vs 13; TS+TU 637 vs AI 637",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 31 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 95 vs 95; UTs 3 vs 3; TS+TU 98 vs AI 98",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 32 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 32437 vs 32437; UTs 2334 vs 2334; TS+TU 34771 vs AI 34771",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 12 (total victims) = sum of cols 4-11 (age bands)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 22 (total victims) = sum of cols 14-21 (age bands)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 32 (total victims) = sum of cols 24-31 (age bands)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 23 (total rape) = col 3 (incest) + col 13 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 24 (total rape) = col 4 (incest) + col 14 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 25 (total rape) = col 5 (incest) + col 15 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 26 (total rape) = col 6 (incest) + col 16 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 27 (total rape) = col 7 (incest) + col 17 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 28 (total rape) = col 8 (incest) + col 18 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 29 (total rape) = col 9 (incest) + col 19 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 30 (total rape) = col 10 (incest) + col 20 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 31 (total rape) = col 11 (incest) + col 21 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.3",
+   "check": "col 32 (total rape) = col 12 (incest) + col 22 (other than incest)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2/5.3",
+   "check": "Table 5.3 col 23 (total rape cases) = Table 5.2 col 4 (rape cases)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2/5.3",
+   "check": "Table 5.3 col 32 (total rape victims) = Table 5.2 col 5 (rape victims)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 3 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 289 vs 289; UTs 10 vs 10; TS+TU 299 vs AI 299",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 4 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 287 vs 287; UTs 7 vs 7; TS+TU 294 vs AI 294",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 5 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 576 vs 576; UTs 17 vs 17; TS+TU 593 vs AI 593",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 6 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 225 vs 225; UTs 8 vs 8; TS+TU 233 vs AI 233",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 7 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 169 vs 169; UTs 6 vs 6; TS+TU 175 vs AI 175",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 8 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 394 vs 394; UTs 14 vs 14; TS+TU 408 vs AI 408",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 9 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 279 vs 279; UTs 3 vs 3; TS+TU 282 vs AI 282",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 10 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 161 vs 161; UTs 3 vs 3; TS+TU 164 vs AI 164",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 11 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 1: states 440 vs 440; UTs 6 vs 6; TS+TU 446 vs AI 446",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 12 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 276 vs 276; UTs 21 vs 21; TS+TU 297 vs AI 297",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 13 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 186 vs 186; UTs 7 vs 7; TS+TU 193 vs AI 193",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 14 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 462 vs 462; UTs 28 vs 28; TS+TU 490 vs AI 490",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 15 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 8711 vs 8711; UTs 242 vs 242; TS+TU 8953 vs AI 8953",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 16 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 3595 vs 3595; UTs 68 vs 68; TS+TU 3663 vs AI 3663",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 17 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 12306 vs 12306; UTs 310 vs 310; TS+TU 12616 vs AI 12616",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 18 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 9356 vs 9356; UTs 182 vs 182; TS+TU 9538 vs AI 9538",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 19 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 2896 vs 2896; UTs 53 vs 53; TS+TU 2949 vs AI 2949",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 20 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 2: states 12252 vs 12252; UTs 235 vs 235; TS+TU 12487 vs AI 12487",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 21 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 3835 vs 3835; UTs 47 vs 47; TS+TU 3882 vs AI 3882",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 22 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 1058 vs 1058; UTs 10 vs 10; TS+TU 1068 vs AI 1068",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 23 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 4893 vs 4893; UTs 57 vs 57; TS+TU 4950 vs AI 4950",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 24 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 759 vs 759; UTs 11 vs 11; TS+TU 770 vs AI 770",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 25 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 312 vs 312; UTs 10 vs 10; TS+TU 322 vs AI 322",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 26 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 1071 vs 1071; UTs 21 vs 21; TS+TU 1092 vs AI 1092",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 27 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 23730 vs 23730; UTs 524 vs 524; TS+TU 24254 vs AI 24254",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 28 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 8664 vs 8664; UTs 164 vs 164; TS+TU 8828 vs AI 8828",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 29 states/UTs/All India sum",
+   "pass": true,
+   "detail": "page 3: states 32394 vs 32394; UTs 688 vs 688; TS+TU 33082 vs AI 33082",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "T = M + F in every age band and in the total",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 27 (total M) = sum of the eight age bands",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 28 (total F) = sum of the eight age bands",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "3.3",
+   "check": "col 29 (total T) = sum of the eight age bands",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "every head = sum of its sub-heads, and the total = sum of the 14 heads, in every count column",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "every head = sum of its sub-heads, and the total = sum of the 14 heads, in every count column",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "Col. 8 = Col. 3 + 4 - 5 - 6 - 7",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "Col. 14 = Col. 9 + 10 + 11 + 12 + 13",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "Col. 15 = Col. 8 - Col. 14",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "Col. 16 = Col. 12 / (Col. 12 + Col. 13) x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "Col. 17 = Col. 15 / (Col. 3 + Col. 4) x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "Col. 7 = Col. 3 + 4 - Col. 5 - Col. 6",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "Col. 9 = Col. 10 + Col. 11",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "Col. 12 = Col. 7 - (Col. 8 + Col. 9)",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "Col. 13 = Col. 10 / Col. 9 x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "Col. 14 = Col. 12 / (Col. 3 + Col. 4) x 100",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.2/5.5",
+   "check": "Table 5.5 col 4 (reported) = Table 5.2 All India cases, for all 15 rows",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5/5.6",
+   "check": "Table 5.6 col 4 (sent for trial) = Table 5.5 col 12 (chargesheeted), every row incl. sub-heads",
+   "pass": true,
+   "detail": "",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "5.5",
+   "check": "2015 col 3 (pending from previous year) = 2014 col 15 (pending at end of 2014)",
+   "pass": false,
+   "detail": "1: 2014 end 16032 vs 2015 start 16028; 1.2: 2014 end 16009 vs 2015 start 16005; 1.2.1: 2014 end 552 vs 2015 start 553; 1.2.2: 2014 end 15457 vs 2015 start 15452; 2: 2014 end 1303 vs 2015 start 1300; 3: 2014 end 35533 vs 2015 start 35531; 3.1: 2014 end 10213 vs 2015 start 10212; 3.5: 2014 end 5544 vs 2015 start 5543; 5: 2014 end 24775 vs 2015 start 24780; 5.1: 2014 end 5262 vs 2015 start 5279; 5.2: 2014 end 1763 vs 2015 start 1760; 5.4: 2014 end 1293 vs 2015 start 1294; 5.5: 2014 end 16146 vs 2015 start 16136; 6: 2014 end 3893 vs 2015 start 3885; 6.2: 2014 end 236 vs 2015 start 233; 6.4: 2014 end 3608 vs 2015 start 3603; 7: 2014 end 50937 vs 2015 start 50933; 10: 2014 end 5161 vs 2015 start 5153; TOTAL: 2014 end 144938 vs 2015 start 144914",
+   "kind": "comparison"
+  },
+  {
+   "year": 2015,
+   "table": "5.6",
+   "check": "2015 col 3 (pending trial from previous year) = 2014 col 12 (pending at end of 2014)",
+   "pass": false,
+   "detail": "1: 2014 end 107531 vs 2015 start 107477; 1.1: 2014 end 170 vs 2015 start 158; 1.1.2: 2014 end 165 vs 2015 start 153; 1.2: 2014 end 107361 vs 2015 start 107319; 1.2.1: 2014 end 2288 vs 2015 start 2290; 1.2.2: 2014 end 105073 vs 2015 start 105029; 2: 2014 end 3761 vs 2015 start 3767; 3: 2014 end 96857 vs 2015 start 96858; 3.1: 2014 end 22343 vs 2015 start 22344; 3.2: 2014 end 346 vs 2015 start 347; 3.4: 2014 end 58505 vs 2015 start 58495; 3.5: 2014 end 15430 vs 2015 start 15439; 4: 2014 end 35255 vs 2015 start 35260; 5: 2014 end 224350 vs 2015 start 224360; 5.1: 2014 end 41468 vs 2015 start 41474; 5.2: 2014 end 6926 vs 2015 start 6910; 5.4: 2014 end 4603 vs 2015 start 4600; 5.5: 2014 end 170635 vs 2015 start 170658; 6: 2014 end 29223 vs 2015 start 29203; 6.1: 2014 end 198 vs 2015 start 197; 6.2: 2014 end 1493 vs 2015 start 1329; 6.3: 2014 end 410 vs 2015 start 409; 6.4: 2014 end 27122 vs 2015 start 27268; 7: 2014 end 443878 vs 2015 start 444020; 10: 2014 end 26437 vs 2015 start 26425; 14: 2014 end 5662 vs 2015 start 5650; 14.1: 2014 end 1578 vs 2015 start 1567; 14.2: 2014 end 169 vs 2015 start 168; TOTAL: 2014 end 982516 vs 2015 start 982582",
+   "kind": "comparison"
+  },
+  {
+   "year": 2015,
+   "table": "rev",
+   "check": "2016 edition Table 3A.1 parsed for all 39 rows",
+   "pass": true,
+   "detail": "39",
+   "kind": "check"
+  },
+  {
+   "year": 2015,
+   "table": "rev",
+   "check": "2017 edition Table 3A.1 parsed for all 39 rows",
+   "pass": true,
+   "detail": "39",
+   "kind": "check"
+  }
+ ],
+ "revisions": [
+  {
+   "state": "Andhra Pradesh",
+   "2014_ed2014": 16512,
+   "2014_ed2016": 16526,
+   "2015_ed2015": 15931,
+   "2015_ed2016": 15967,
+   "2015_ed2017": 15967
+  },
+  {
+   "state": "Arunachal Pradesh",
+   "2014_ed2014": 351,
+   "2014_ed2016": 351,
+   "2015_ed2015": 384,
+   "2015_ed2016": 384,
+   "2015_ed2017": 384
+  },
+  {
+   "state": "Assam",
+   "2014_ed2014": 19139,
+   "2014_ed2016": 19169,
+   "2015_ed2015": 23258,
+   "2015_ed2016": 23365,
+   "2015_ed2017": 23365
+  },
+  {
+   "state": "Bihar",
+   "2014_ed2014": 15383,
+   "2014_ed2016": 15393,
+   "2015_ed2015": 13891,
+   "2015_ed2016": 13904,
+   "2015_ed2017": 13904
+  },
+  {
+   "state": "Chhattisgarh",
+   "2014_ed2014": 6255,
+   "2014_ed2016": 6301,
+   "2015_ed2015": 5720,
+   "2015_ed2016": 5783,
+   "2015_ed2017": 5783
+  },
+  {
+   "state": "Goa",
+   "2014_ed2014": 488,
+   "2014_ed2016": 508,
+   "2015_ed2015": 365,
+   "2015_ed2016": 392,
+   "2015_ed2017": 392
+  },
+  {
+   "state": "Gujarat",
+   "2014_ed2014": 10837,
+   "2014_ed2016": 10854,
+   "2015_ed2015": 7762,
+   "2015_ed2016": 7777,
+   "2015_ed2017": 7777
+  },
+  {
+   "state": "Haryana",
+   "2014_ed2014": 8974,
+   "2014_ed2016": 9010,
+   "2015_ed2015": 9446,
+   "2015_ed2016": 9511,
+   "2015_ed2017": 9511
+  },
+  {
+   "state": "Himachal Pradesh",
+   "2014_ed2014": 1517,
+   "2014_ed2016": 1529,
+   "2015_ed2015": 1289,
+   "2015_ed2016": 1295,
+   "2015_ed2017": 1295
+  },
+  {
+   "state": "Jammu & Kashmir",
+   "2014_ed2014": 3321,
+   "2014_ed2016": 3327,
+   "2015_ed2015": 3363,
+   "2015_ed2016": 3366,
+   "2015_ed2017": 3366
+  },
+  {
+   "state": "Jharkhand",
+   "2014_ed2014": 5972,
+   "2014_ed2016": 6086,
+   "2015_ed2015": 6518,
+   "2015_ed2016": 6568,
+   "2015_ed2017": 6568
+  },
+  {
+   "state": "Karnataka",
+   "2014_ed2014": 13914,
+   "2014_ed2016": 14004,
+   "2015_ed2015": 12705,
+   "2015_ed2016": 12775,
+   "2015_ed2017": 12775
+  },
+  {
+   "state": "Kerala",
+   "2014_ed2014": 11380,
+   "2014_ed2016": 11451,
+   "2015_ed2015": 9708,
+   "2015_ed2016": 9767,
+   "2015_ed2017": 9767
+  },
+  {
+   "state": "Madhya Pradesh",
+   "2014_ed2014": 28678,
+   "2014_ed2016": 28756,
+   "2015_ed2015": 24135,
+   "2015_ed2016": 24231,
+   "2015_ed2017": 24231
+  },
+  {
+   "state": "Maharashtra",
+   "2014_ed2014": 26693,
+   "2014_ed2016": 26818,
+   "2015_ed2015": 31126,
+   "2015_ed2016": 31216,
+   "2015_ed2017": 31216
+  },
+  {
+   "state": "Manipur",
+   "2014_ed2014": 337,
+   "2014_ed2016": 337,
+   "2015_ed2015": 266,
+   "2015_ed2016": 266,
+   "2015_ed2017": 266
+  },
+  {
+   "state": "Meghalaya",
+   "2014_ed2014": 388,
+   "2014_ed2016": 390,
+   "2015_ed2015": 334,
+   "2015_ed2016": 337,
+   "2015_ed2017": 337
+  },
+  {
+   "state": "Mizoram",
+   "2014_ed2014": 258,
+   "2014_ed2016": 258,
+   "2015_ed2015": 158,
+   "2015_ed2016": 158,
+   "2015_ed2017": 158
+  },
+  {
+   "state": "Nagaland",
+   "2014_ed2014": 67,
+   "2014_ed2016": 68,
+   "2015_ed2015": 90,
+   "2015_ed2016": 91,
+   "2015_ed2017": 91
+  },
+  {
+   "state": "Odisha",
+   "2014_ed2014": 14606,
+   "2014_ed2016": 14651,
+   "2015_ed2015": 17144,
+   "2015_ed2016": 17200,
+   "2015_ed2017": 17200
+  },
+  {
+   "state": "Punjab",
+   "2014_ed2014": 5425,
+   "2014_ed2016": 5481,
+   "2015_ed2015": 5291,
+   "2015_ed2016": 5340,
+   "2015_ed2017": 5340
+  },
+  {
+   "state": "Rajasthan",
+   "2014_ed2014": 31151,
+   "2014_ed2016": 31216,
+   "2015_ed2015": 28165,
+   "2015_ed2016": 28224,
+   "2015_ed2017": 28224
+  },
+  {
+   "state": "Sikkim",
+   "2014_ed2014": 110,
+   "2014_ed2016": 111,
+   "2015_ed2015": 53,
+   "2015_ed2016": 53,
+   "2015_ed2017": 53
+  },
+  {
+   "state": "Tamil Nadu",
+   "2014_ed2014": 6325,
+   "2014_ed2016": 6354,
+   "2015_ed2015": 5847,
+   "2015_ed2016": 5919,
+   "2015_ed2017": 5919
+  },
+  {
+   "state": "Telangana",
+   "2014_ed2014": 14136,
+   "2014_ed2016": 14147,
+   "2015_ed2015": 15135,
+   "2015_ed2016": 15425,
+   "2015_ed2017": 15425
+  },
+  {
+   "state": "Tripura",
+   "2014_ed2014": 1615,
+   "2014_ed2016": 1618,
+   "2015_ed2015": 1267,
+   "2015_ed2016": 1267,
+   "2015_ed2017": 1267
+  },
+  {
+   "state": "Uttar Pradesh",
+   "2014_ed2014": 38467,
+   "2014_ed2016": 38918,
+   "2015_ed2015": 35527,
+   "2015_ed2016": 35908,
+   "2015_ed2017": 35908
+  },
+  {
+   "state": "Uttarakhand",
+   "2014_ed2014": 1395,
+   "2014_ed2016": 1413,
+   "2015_ed2015": 1453,
+   "2015_ed2016": 1465,
+   "2015_ed2017": 1465
+  },
+  {
+   "state": "West Bengal",
+   "2014_ed2014": 38299,
+   "2014_ed2016": 38424,
+   "2015_ed2015": 33218,
+   "2015_ed2016": 33318,
+   "2015_ed2017": 33318
+  },
+  {
+   "state": "A&N Islands",
+   "2014_ed2014": 115,
+   "2014_ed2016": 117,
+   "2015_ed2015": 136,
+   "2015_ed2016": 136,
+   "2015_ed2017": 136
+  },
+  {
+   "state": "Chandigarh",
+   "2014_ed2014": 432,
+   "2014_ed2016": 434,
+   "2015_ed2015": 463,
+   "2015_ed2016": 468,
+   "2015_ed2017": 468
+  },
+  {
+   "state": "D&N Haveli",
+   "2014_ed2014": 21,
+   "2014_ed2016": 21,
+   "2015_ed2015": 25,
+   "2015_ed2016": 25,
+   "2015_ed2017": 25
+  },
+  {
+   "state": "Daman & Diu",
+   "2014_ed2014": 15,
+   "2014_ed2016": 16,
+   "2015_ed2015": 28,
+   "2015_ed2016": 29,
+   "2015_ed2017": 29
+  },
+  {
+   "state": "Delhi",
+   "2014_ed2014": 15265,
+   "2014_ed2016": 15319,
+   "2015_ed2015": 17104,
+   "2015_ed2016": 17222,
+   "2015_ed2017": 17222
+  },
+  {
+   "state": "Lakshadweep",
+   "2014_ed2014": 4,
+   "2014_ed2016": 4,
+   "2015_ed2015": 9,
+   "2015_ed2016": 9,
+   "2015_ed2017": 9
+  },
+  {
+   "state": "Puducherry",
+   "2014_ed2014": 77,
+   "2014_ed2016": 77,
+   "2015_ed2015": 80,
+   "2015_ed2016": 82,
+   "2015_ed2017": 82
+  },
+  {
+   "state": "Total states",
+   "2014_ed2014": 321993,
+   "2014_ed2016": 323469,
+   "2015_ed2015": 309549,
+   "2015_ed2016": 311272,
+   "2015_ed2017": 311272
+  },
+  {
+   "state": "Total UTs",
+   "2014_ed2014": 15929,
+   "2014_ed2016": 15988,
+   "2015_ed2015": 17845,
+   "2015_ed2016": 17971,
+   "2015_ed2017": 17971
+  },
+  {
+   "state": "All India",
+   "2014_ed2014": 337922,
+   "2014_ed2016": 339457,
+   "2015_ed2015": 327394,
+   "2015_ed2016": 329243,
+   "2015_ed2017": 329243
+  }
+ ],
+ "rows": 13368,
+ "sha": {
+  "2014 5.1": [
+   "2014_Table-5.1_2014",
+   "24758026f160ff43c2588866dbf04bde20a83d0a05c99009b14b4e4e9b23251b"
+  ],
+  "2014 5.2": [
+   "2014_Table-5.2_2014",
+   "5bec2ea8a38f5ac4891e7d584126c36f01dd743c8430a639449d1c9028a9f4c8"
+  ],
+  "2014 5.3": [
+   "2014_Table-5.3_2014",
+   "4fa9310b986547e14b5bf9642f3db139b63651f3040cb35a9346dbe310a48fc2"
+  ],
+  "2014 5.5": [
+   "2014_Table-5.5_2014",
+   "4e89f0405d505b02e1924168862a7f8fbc33ba7e0f7c29771f8d5a014a1629d9"
+  ],
+  "2014 5.6": [
+   "2014_Table-5.6_2017",
+   "843b4277dbce897bdb42f181729e20244444499a6a99f0fcfcb7db4be8bce219"
+  ],
+  "2014 3.3": [
+   "2014_Table-3.3_2014",
+   "cea90dfdb52a8ae69ebf7b9be52d2731fd5f645a4a70bc0057c06f51267c2aea"
+  ],
+  "2015 5.1": [
+   "2015_Table-5.1_2015",
+   "2214fdcd63831d9e5f21dc41f289b6943397ef229d39d67d769f71504f6953fa"
+  ],
+  "2015 5.2": [
+   "2015_Table-5.2_2015",
+   "b9236d5a4981f6172fd2d5f9e01c1603c2da1718402c18cf8ff1aa0984ce250b"
+  ],
+  "2015 5.3": [
+   "2015_Table-5.3_2015",
+   "65ecd5122c59f575e72eb0062baf743d845ca478cd4df49ab605f197a5f7409a"
+  ],
+  "2015 5.5": [
+   "2015_Table-5.5_2015",
+   "3768cf1f83612bbae44981f395d68825ef8fcfacc1f0d8c57336236a50ced819"
+  ],
+  "2015 5.6": [
+   "2015_Table-5.6_2015",
+   "5ceaf370aef3b8a9a26955cf29424c3e70c0f84ca686a39bcf35cb65643b3c5e"
+  ],
+  "2015 3.3": [
+   "2015_Table-3.3_2015",
+   "7162c134b602c56a7bd5048cec0a579427a281b9ad029e8927b3cc745b49cf5f"
+  ]
+ }
+}

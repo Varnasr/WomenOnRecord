@@ -2,7 +2,7 @@ kind,item,meaning
 column,state,"State or union territory as NCRB prints it, or a total row (Total states, Total UTs, All India)."
 column,lgd_code,"Local Government Directory state code, for joining to other data. Blank for total rows."
 column,kind,"state, ut (union territory) or total."
-column,year,"Calendar year the cases were recorded, 2020 to 2024."
+column,year,"Calendar year the cases were recorded, 2014 to 2024."
 column,crime_code,Short stable code for the crime head. See the crime codes below.
 column,group,"sexual, killed, home, other, total, outcome or denominator."
 column,crime_head,The crime head in plain words.
@@ -48,7 +48,51 @@ crime_code,RAPE_VICTIMS_AGE,Victims of rape by age (s.376 IPC / BNS 64-70). IPC 
 crime_code,POLICE,"Police disposal, all crimes against women"
 crime_code,COURTS,"Court disposal, all crimes against women"
 crime_code,DECEIT_69,"Sexual intercourse by deceitful means (BNS 69, new offence). BNS/Act 69"
+crime_code,RAPE_CUSTODIAL_2014DEF,Custodial rape. IPC 376(2)
+crime_code,RAPE_CUSTODIAL_GANG_2014DEF,"Custodial gang rape. IPC 376(2), 376D"
+crime_code,RAPE_CUSTODIAL_OTHER_2014DEF,"Custodial rape, other than gang rape. IPC 376(2)"
+crime_code,RAPE_NONCUSTODIAL_2014DEF,Rape other than custodial. IPC 376
+crime_code,RAPE_NONCUSTODIAL_GANG_2014DEF,Gang rape other than custodial. IPC 376D
+crime_code,RAPE_NONCUSTODIAL_OTHER_2014DEF,Rape other than custodial or gang rape. IPC 376
+crime_code,KIDNAP_2014DEF,"Kidnapping and abduction of women, 2014-2015 definition (363, 364, 364A, 366 and others). IPC 363-366"
+crime_code,KIDNAP_363_2014DEF,Kidnapping (s.363). IPC 363
+crime_code,KIDNAP_MURDER_2014DEF,Kidnapping or abduction in order to murder (s.364). IPC 364
+crime_code,KIDNAP_RANSOM_2014DEF,Kidnapping for ransom (s.364A). IPC 364A
+crime_code,KIDNAP_MARRIAGE_2014DEF,Kidnapping or abduction to compel marriage (s.366). IPC 366. BNS/Act 87
+crime_code,KIDNAP_OTHERS_2014DEF,"Kidnapping and abduction, other"
+crime_code,SEXUAL_HARASSMENT_2014DEF,Sexual harassment. IPC 354A. BNS/Act 75
+crime_code,DISROBE_2014DEF,Assault with intent to disrobe. IPC 354B. BNS/Act 76
+crime_code,VOYEURISM_2014DEF,Voyeurism. IPC 354C. BNS/Act 77
+crime_code,STALKING_2014DEF,Stalking. IPC 354D. BNS/Act 78
+crime_code,ASSAULT_MODESTY_OTHERS_2014DEF,"Assault to outrage modesty, other than 354A-D. IPC 354. BNS/Act 74"
+crime_code,INSULT_OFFICE_2014DEF,"Insult to modesty, at the office. IPC 509. BNS/Act 79"
+crime_code,INSULT_WORK_2014DEF,"Insult to modesty, at other work places. IPC 509. BNS/Act 79"
+crime_code,INSULT_TRANSPORT_2014DEF,"Insult to modesty, in public transport. IPC 509. BNS/Act 79"
+crime_code,INSULT_OTHER_2014DEF,"Insult to modesty, other places. IPC 509. BNS/Act 79"
+crime_code,IMPORT_GIRLS_2014DEF,Importation of girls from a foreign country (s.366B). IPC 366B
+crime_code,ABETMENT_SUICIDE_2014DEF,"Abetment of suicide of women, s.306 only. IPC 306"
+crime_code,INDECENT_REP_2014DEF,Indecent Representation of Women (Prohibition) Act. BNS/Act IRWA 1986
+crime_code,SATI_2014DEF,Commission of Sati (Prevention) Act. BNS/Act Sati Act 1987
+crime_code,ITPA_S5_2014DEF,Immoral Traffic (Prevention) Act s.5. BNS/Act ITPA s.5
+crime_code,ITPA_S6_2014DEF,Immoral Traffic (Prevention) Act s.6. BNS/Act ITPA s.6
+crime_code,ITPA_S7_2014DEF,Immoral Traffic (Prevention) Act s.7. BNS/Act ITPA s.7
+crime_code,ITPA_S8_2014DEF,Immoral Traffic (Prevention) Act s.8. BNS/Act ITPA s.8
+crime_code,ITPA_OTHER_2014DEF,"Immoral Traffic (Prevention) Act, other sections. BNS/Act ITPA"
+crime_code,TOTAL_2014DEF,"All crimes against women, 2014-2015 definition (14 heads, no POCSO, cyber, trafficking, acid or murder with rape)"
+crime_code,RAPE_VICTIMS_AGE_2014DEF,"Victims of rape by age, 2014 rows that include POCSO (Tamil Nadu, Meghalaya and the totals). IPC 376"
+crime_code,RAPE_VICTIMS_AGE_INCEST_2014DEF,Victims of incest rape by age. IPC 376
+crime_code,RAPE_VICTIMS_AGE_NONINCEST_2014DEF,"Victims of rape other than incest, by age. IPC 376"
+crime_code,MURDER_WOMEN_2014DEF,"Women murdered, 2014-2015 definition (female column includes transgender victims). IPC 302"
+crime_code,ACID_INCL_ATTEMPT,"Acid attack and attempted acid attack together (2016 heading). IPC 326A, 326B"
+crime_code,RAPE_2016DEF,"Rape, 2016 definition: includes POCSO s.4 and 6 cases booked with s.376. IPC 376. BNS/Act POCSO s.4, 6"
+crime_code,IPC_TOTAL_2016DEF,"All IPC crimes against women, 2016 definition (13 heads)"
+crime_code,CYBER_67A,"Publishing or transmitting sexually explicit material, IT Act s.67A (2016 heading). BNS/Act IT Act s.67A"
+crime_code,SLL_TOTAL_2016DEF,"All special and local law crimes against women, 2016 definition (no POCSO)"
+crime_code,TOTAL_2016DEF,"All crimes against women, 2016 definition (no POCSO, no murder with rape)"
+crime_code,RAPE_VICTIMS_AGE_2016DEF,"Victims of rape by age, 2016 definition (child bands include POCSO s.4 and 6). IPC 376. BNS/Act POCSO s.4, 6"
 flag,PRINCIPAL_OFFENCE,"NCRB counts each FIR once, under its most serious offence. On every row."
 flag,LOCKDOWN_2020,2020: the COVID-19 lockdown kept people from police stations and courts. Counts are lower for that reason.
 flag,CODE_SPLIT_2024,"2024: offences from 1 July 2024 were booked under the BNS, earlier ones under the IPC. NCRB reports both; cases is their sum."
 flag,NOT_REPORTED,NCRB published no figure for this cell.
+flag,BOUNDARIES_PRE_2020,"2014 to 2019: Jammu and Kashmir includes Ladakh, and Dadra and Nagar Haveli and Daman and Diu, which NCRB printed separately, are added together here. Totals for states and for union territories are as NCRB printed them, with Jammu and Kashmir counted as a state."
+flag,WB_2019_REPEATS_2018,"West Bengal, 2019: NCRB received no data in time and printed the 2018 figures again. Rates differ only because the population changed."

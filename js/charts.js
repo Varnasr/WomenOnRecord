@@ -150,7 +150,9 @@
       g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + yy + '" y2="' + yy + '" stroke="var(--thread)" stroke-dasharray="' + (t ? '3 5' : '0') + '"/>' +
            '<text class="tick" x="' + (L - 8) + '" y="' + (yy + 4) + '" text-anchor="end">' + esc(fmt(v, true)) + '</text>';
     }
-    spec.x.forEach(function (lab, i) { g += '<text class="tick" x="' + x(i) + '" y="' + (H - 8) + '" text-anchor="middle">' + esc(lab) + '</text>'; });
+    // on a narrow chart with many years, every other year is labelled, always keeping the last
+    var every = (W - L - R) / Math.max(1, spec.x.length - 1) < 34 ? 2 : 1, lastI = spec.x.length - 1;
+    spec.x.forEach(function (lab, i) { if ((lastI - i) % every) return; g += '<text class="tick" x="' + x(i) + '" y="' + (H - 8) + '" text-anchor="middle">' + esc(lab) + '</text>'; });
     (spec.marks || []).forEach(function (m) {
       g += '<line x1="' + x(m.i) + '" x2="' + x(m.i) + '" y1="' + T + '" y2="' + (H - B) + '" stroke="var(--turmeric)" stroke-width="2" stroke-dasharray="2 4"/>' +
            '<text class="tick mark" x="' + (x(m.i) + (m.i === spec.x.length - 1 ? -6 : 6)) + '" y="' + (narrow && m.i === spec.x.length - 1 ? H - B - 8 : T + 10) + '" text-anchor="' + (m.i === spec.x.length - 1 ? 'end' : 'start') + '">' + esc(m.label) + '</text>';
@@ -159,7 +161,9 @@
     spec.series.forEach(function (s) {
       var pts = s.values.map(function (v, i) { return v == null ? null : [x(i), y(v), v, i]; }).filter(Boolean);
       if (!pts.length) return;
-      var d = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join('');
+      // a missing year breaks the line, so no line joins two years across a gap
+      var d = '', prev = -2;
+      pts.forEach(function (p) { d += (p[3] === prev + 1 ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); prev = p[3]; });
       g += '<path d="' + d + '" fill="none" stroke="' + tok(s.color) + '" stroke-width="' + (s.width || 2.5) + '"' + (s.dash ? ' stroke-dasharray="' + s.dash + '"' : '') + ' stroke-linejoin="round"/>';
       pts.forEach(function (p) {
         g += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="' + (s.dash ? 3 : 4.5) + '" fill="' + tok(s.color) + '" stroke="var(--cloth)" stroke-width="1.5"><title>' +

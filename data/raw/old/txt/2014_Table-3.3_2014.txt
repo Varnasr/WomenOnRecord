@@ -1,0 +1,147 @@
+                                                       TABLE 3.3
+                                  Age-group & Gender-wise Victims of Murder During 2014
+                                                                                    Number Of Victims
+S.No.                  State/UT                       Below 6 yrs              6 yrs & Above – Below 12 yrs 12 yrs & Above –Below 16 yrs
+                                           M               F         T            M         F         T        M          F        T
+    (1)                   (2)              (3)            (4)       (5)           (6)      (7)       (8)       (9)      (10)     (11)
+STATES:
+1         Andhra Pradesh                         12          13           25         7         3        10         3          2              5
+2         Arunachal Pradesh                      0            1           1          0         0         0         3          0              3
+3         Assam                                  0            1           1          0         0         0         6          2              8
+4         Bihar                                  1            2           3          6         0         6        20          3            23
+5         Chhattisgarh                           7            7           14        12         7        19         4          6            10
+6         Goa                                    0            0           0          0         2         2         1          0              1
+7         Gujarat                                29          20           49        11        11        22         4          4              8
+8         Haryana                                6           10           16        13         5        18         5          4              9
+9         Himachal Pradesh                       1            2           3          1         3         4         0          1              1
+10        Jammu & Kashmir                        0            0           0          1         1         2         0          0              0
+11        Jharkhand                              0            0           0          0         0         0         4          2              6
+12        Karnataka                              18          19           37        14        17        31         8          4            12
+13        Kerala                                 17          17           34         9         2        11         3          2              5
+14        Madhya Pradesh                         20          26           46        13        11        24        20         10            30
+15        Maharashtra                            49          62       111           23        26        49        20         10            30
+16        Manipur                                2            2           4          1         1         2         0          0              0
+17        Meghalaya                              0            0           0          0         1         1         1          0              1
+18        Mizoram                                0            0           0          0         0         0         0          0              0
+19        Nagaland                               0            0           0          1         0         1         0          0              0
+20        Odisha                                 1            3           4          5         1         6         3          1              4
+21        Punjab                                 1            3           4          8         5        13         9          6            15
+22        Rajasthan                              10           7           17         9         5        14        15          7            22
+23        Sikkim                                 0            0           0          0         1         1         0          0              0
+24        Tamil Nadu                             24          34           58        10         8        18        12         12            24
+25        Telangana                              9           11           20         7        10        17        10          5            15
+26        Tripura                                0            2           2          1         0         1         2          3              5
+27        Uttar Pradesh                          23          27           50        60        45       105       103         66           169
+28        Uttarakhand                            0            1           1          1         2         3         1          3              4
+29        West Bengal                            7            4           11         9         5        14        14          5            19
+          TOTAL STATE(S)                     237            274       511          222       172       394       271       158            429
+UNION TERRITORIES:
+30        A & N Islands                          0            1           1          0         0         0         0          0              0
+31        Chandigarh                             0            0           0          0         0         0         0          0              0
+32        D&N Haveli                             0            0           0          0         0         0         0          1              1
+33        Daman & Diu                            0            0           0          0         0         0         0          0              0
+34        Delhi UT                               2            4           6          5         3         8        15          3            18
+35        Lakshadweep                            0            0           0          0         0         0         0          0              0
+36        Puducherry                             0            0           0          0         0         0         0          0              0
+          TOTAL UT(S)                            2            5           7          5         3         8        15          4            19
+          TOTAL (ALL INDIA)                  239            279       518          227       175       402       286       162            448
+                                                                                                                        TABLE 3.3 - Page: 1 of 3
+                                               TABLE 3.3 (Continued)
+                                                                     Number Of Victims
+S.No.                  State/UT   16 yrs & Above- Below 18 yrs 18 yrs & Above – Below 30 yrs 30 yrs & Above – Below 45 yrs
+                                     M          F         T        M         F         T        M          F         T
+    (1)                   (2)       (12)      (13)      (14)     (15)      (16)      (17)      (18)      (19)      (20)
+STATES:
+1         Andhra Pradesh                 6         2        8       249       169       418       304        147            451
+2         Arunachal Pradesh              0         1        1        44         2        46        30           7            37
+3         Assam                        11          2       13       730        41       771       492          24           516
+4         Bihar                        26          4       30      1226       145      1371      1398        143          1541
+5         Chhattisgarh                   7         5       12       213       132       345       247        130            377
+6         Goa                            0         0        0         6         3         9         9           3            12
+7         Gujarat                        9         7       16       272        83       355       391        106            497
+8         Haryana                      13          2       15       373        88       461       353          96           449
+9         Himachal Pradesh               1         0        1        37        13        50        31          19            50
+10        Jammu & Kashmir                0         1        1        43        19        62        67          10            77
+11        Jharkhand                      2         0        2       597        95       692       652        110            762
+12        Karnataka                    14          9       23       379       258       637       416        227            643
+13        Kerala                         1         2        3        41        13        54        90          48           138
+14        Madhya Pradesh               22        14        36       545       258       803       666        236            902
+15        Maharashtra                  14        18        32       565       402       967       736        261            997
+16        Manipur                        0         3        3        35         8        43        32          11            43
+17        Meghalaya                      4         1        5        74        14        88        41           3            44
+18        Mizoram                        0         0        0        11         1        12        20           2            22
+19        Nagaland                       0         0        0        10         1        11        38           3            41
+20        Odisha                         8         2       10       339       318       657       342        268            610
+21        Punjab                         7         5       12       205        76       281       234          97           331
+22        Rajasthan                    19          3       22       459       179       638       544        136            680
+23        Sikkim                         0         0        0         3         0         3         6           2              8
+24        Tamil Nadu                     7       12        19       361       169       530       462        170            632
+25        Telangana                    19          5       24       242       113       355       368        193            561
+26        Tripura                      10          3       13        22        30        52        32          12            44
+27        Uttar Pradesh               133       108       241      1684       566      2250      1399        342          1741
+28        Uttarakhand                    5         1        6        88        21       109        71          15            86
+29        West Bengal                  13          7       20       526       521      1047       521        281            802
+          TOTAL STATE(S)              351       217       568      9379      3738     13117      9992      3102         13094
+UNION TERRITORIES:
+30        A & N Islands                  0         0        0         1         1         2         2           1              3
+31        Chandigarh                     0         0        0         8         4        12         4           2              6
+32        D&N Haveli                     0         0        0         1         0         1         2           0              2
+33        Daman & Diu                    0         0        0         1         0         1         4           1              5
+34        Delhi UT                     12          5       17       213        78       291       160          37           197
+35        Lakshadweep                    0         0        0         0         0         0         0           0              0
+36        Puducherry                     0         0        0        10         0        10        10           1            11
+          TOTAL UT(S)                  12          5       17       234        83       317       182          42           224
+          TOTAL (ALL INDIA)           363       222       585      9613      3821     13434     10174      3144         13318
+                                                                                                          TABLE 3.3 - Page: 2 of 3
+                                                      TABLE 3.3 (Concluded)
+                                                                            Number Of Victims
+                                          45 yrs & Above – Below 60
+S.No.                  State/UT                                                  60 yrs & Above               Total Of All Age Groups
+                                                    Years
+                                            M          F         T         M            F           T          M            F             T
+    (1)                   (2)              (21)      (22)      (23)       (24)        (25)        (26)        (27)        (28)          (29)
+STATES:
+1         Andhra Pradesh                       156      70       226             30          35          65     767          441          1208
+2         Arunachal Pradesh                      9       2        11             2           1           3           88          14         102
+3         Assam                                142       0       142             0           0           0     1381              70       1451
+4         Bihar                                581      24       605             13          1           14    3271          322          3593
+5         Chhattisgarh                         133      74       207             40          20          60     663          381          1044
+6         Goa                                    4       2            6          2           2           4           22          12            34
+7         Gujarat                              158      45       203             16          6           22     890          282          1172
+8         Haryana                              127      24       151             30          8           38     920          237          1157
+9         Himachal Pradesh                      18       1        19             3           3           6           92          42         134
+10        Jammu & Kashmir                       19       8        27             0           0           0      130              39         169
+11        Jharkhand                            198      19       217             7           0           7     1460          226          1686
+12        Karnataka                            199      94       293             21          20          41    1069          648          1717
+13        Kerala                                73      33       106             18          19          37     252          136            388
+14        Madhya Pradesh                       269      83       352             82          35     117        1637          673          2310
+15        Maharashtra                          346      80       426        130              40     170        1883          899          2782
+16        Manipur                                5       3            8          2           1           3           77          29         106
+17        Meghalaya                             20       1        21             1           0           1      141              20         161
+18        Mizoram                                4       2            6          3           0           3           38          5             43
+19        Nagaland                              13       0        13             0           0           0           62          4             66
+20        Odisha                               129      52       181             5           4           9      832          649          1481
+21        Punjab                                92      24       116             23          9           32     579          225            804
+22        Rajasthan                            218      49       267             20          8           28    1294          394          1688
+23        Sikkim                                 1       0            1          0           0           0           10          3             13
+24        Tamil Nadu                           311     103       414        100              73     173        1287          581          1868
+25        Telangana                            171      87       258             54          23          77     880          447          1327
+26        Tripura                               20       7        27             1           0           1           88          57         145
+27        Uttar Pradesh                        522      81       603        140              34     174        4064        1269           5333
+28        Uttarakhand                           11       5        16             0           0           0      177              48         225
+29        West Bengal                          232      71       303             14          17          31    1336          911          2247
+          TOTAL STATE(S)                       4181   1044      5225        757         359        1116       25390        9064         34454
+UNION TERRITORIES:
+30        A & N Islands                          1       0            1          1           0           1           5           3             8
+31        Chandigarh                             3       0            3          1           2           3           16          8             24
+32        D&N Haveli                             0       0            0          0           0           0           3           1             4
+33        Daman & Diu                            1       0            1          0           0           0           6           1             7
+34        Delhi UT                              45      12        57             19          3           22     471          145            616
+35        Lakshadweep                            0       0            0          0           0           0           0           0             0
+36        Puducherry                             4       1            5          0           0           0           24          2             26
+          TOTAL UT(S)                           54      13        67             21          5           26     525          160            685
+          TOTAL (ALL INDIA)                    4235   1057      5292        778         364        1142       25915        9224         35139
+                                                                                                                          TABLE 3.3 - Page: 3 of 3
+M-Male; F- Female; T-Total
+Note: Transgender is also included in Female
+

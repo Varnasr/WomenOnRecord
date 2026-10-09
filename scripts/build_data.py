@@ -1,4 +1,8 @@
-"""Build She Counts' dataset from NCRB Crime in India, Volume 1, 2020 to 2024.
+"""Build She Counts' dataset from NCRB Crime in India, 2014 to 2024.
+
+2020 to 2024 are parsed here from data/raw/cii<year>_v1.txt. 2014 to 2019 come
+from data/raw/old/, extracted once from NCRB's per-table PDFs and checked
+(see scripts/old_extract/README.md); old_rows() below adds them.
 
 Reads the text NCRB's tables were extracted to (`pdftotext -layout`, one file
 per edition, kept in data/raw/) and writes data/shecounts.csv in long format:
@@ -10,7 +14,7 @@ Every value is checked before it is written: the 28 states must add to NCRB's
 
 Usage: python3 scripts/build_data.py [--check]
 """
-import csv, io, json, os, sys
+import csv, io, json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 import ncrb_parse as P
@@ -104,17 +108,17 @@ ROWKEYS = P.STATES + ['Total states', 'Total UTs', 'All India']
 
 def rows():
     out = []
-    def add(state, year, code, group, label, ipc, bns, measure, value, unit, table, note=''):
-        src = SOURCE[str(year)]
+    def add(state, year, code, group, label, ipc, bns, measure, value, unit, table, note='', src=None, extra=()):
+        src = src or SOURCE[str(year)]
         out.append({
             'state': state, 'lgd_code': LGD.get(state, ''),
             'kind': 'state' if state in P.STATES[:28] else ('ut' if state in P.STATES else 'total'),
             'year': year, 'crime_code': code, 'group': group, 'crime_head': label,
             'ipc_section': ipc or '', 'bns_section_or_act': bns or '',
             'measure': measure, 'value': '' if value is None else (int(value) if float(value).is_integer() and unit != 'rate' else value),
-            'unit': unit, 'source_edition': f'Crime in India {year}, Volume 1',
+            'unit': unit, 'source_edition': src.get('edition', f'Crime in India {year}, Volume 1'),
             'table_no': table, 'source_url': src['url'], 'source_sha256': src['sha256'],
-            'flag': ';'.join(flags_for(year) + (['NOT_REPORTED'] if value is None else [])),
+            'flag': ';'.join(flags_for(year) + list(extra) + (['NOT_REPORTED'] if value is None else [])),
             'note': note})
     for y in YEARS:
         t32 = load(y, '3A.2')
@@ -225,7 +229,145 @@ def rows():
             for c, m, u in crt:
                 add('All India', y, code, 'outcome', head[2], head[3], head[4], 'court_' + m,
                     t37[c][lc], u, '3A.7', 'India as a whole. Trials completed in a year mostly began in earlier years.')
+    old_rows(add)
     return out
+
+# ---------- 2014 to 2019 ----------
+OLD = os.path.join(RAW, 'old')
+# Headings that exist only in the older tables, or whose definition differs
+# from the 2020-2024 one, keep a code of their own so no series joins
+# figures that count different things. (group, label, ipc, act)
+OLD_HEADS = {
+ 'RAPE_2016DEF': ('sexual', 'Rape, 2016 definition: includes POCSO s.4 and 6 cases booked with s.376', '376', 'POCSO s.4, 6'),
+ 'IPC_TOTAL_2016DEF': ('total', 'All IPC crimes against women, 2016 definition (13 heads)', None, None),
+ 'SLL_TOTAL_2016DEF': ('total', 'All special and local law crimes against women, 2016 definition (no POCSO)', None, None),
+ 'TOTAL_2016DEF': ('total', 'All crimes against women, 2016 definition (no POCSO, no murder with rape)', None, None),
+ 'RAPE_VICTIMS_AGE_2016DEF': ('sexual', 'Victims of rape by age, 2016 definition (child bands include POCSO s.4 and 6)', '376', 'POCSO s.4, 6'),
+ 'ACID_INCL_ATTEMPT': ('other', 'Acid attack and attempted acid attack together (2016 heading)', '326A, 326B', None),
+ 'CYBER_67A': ('other', 'Publishing or transmitting sexually explicit material, IT Act s.67A (2016 heading)', None, 'IT Act s.67A'),
+ 'TOTAL_2014DEF': ('total', 'All crimes against women, 2014-2015 definition (14 heads, no POCSO, cyber, trafficking, acid or murder with rape)', None, None),
+ 'KIDNAP_2014DEF': ('other', 'Kidnapping and abduction of women, 2014-2015 definition (363, 364, 364A, 366 and others)', '363-366', None),
+ 'ABETMENT_SUICIDE_2014DEF': ('killed', 'Abetment of suicide of women, s.306 only', '306', None),
+ 'MURDER_WOMEN_2014DEF': ('killed', 'Women murdered, 2014-2015 definition (female column includes transgender victims)', '302', None),
+ 'RAPE_VICTIMS_AGE_2014DEF': ('sexual', 'Victims of rape by age, 2014 rows that include POCSO (Tamil Nadu, Meghalaya and the totals)', '376', None),
+ 'RAPE_VICTIMS_AGE_INCEST_2014DEF': ('sexual', 'Victims of incest rape by age', '376', None),
+ 'RAPE_VICTIMS_AGE_NONINCEST_2014DEF': ('sexual', 'Victims of rape other than incest, by age', '376', None),
+ 'RAPE_CUSTODIAL_2014DEF': ('sexual', 'Custodial rape', '376(2)', None),
+ 'RAPE_CUSTODIAL_GANG_2014DEF': ('sexual', 'Custodial gang rape', '376(2), 376D', None),
+ 'RAPE_CUSTODIAL_OTHER_2014DEF': ('sexual', 'Custodial rape, other than gang rape', '376(2)', None),
+ 'RAPE_NONCUSTODIAL_2014DEF': ('sexual', 'Rape other than custodial', '376', None),
+ 'RAPE_NONCUSTODIAL_GANG_2014DEF': ('sexual', 'Gang rape other than custodial', '376D', None),
+ 'RAPE_NONCUSTODIAL_OTHER_2014DEF': ('sexual', 'Rape other than custodial or gang rape', '376', None),
+ 'SEXUAL_HARASSMENT_2014DEF': ('sexual', 'Sexual harassment', '354A', '75'),
+ 'DISROBE_2014DEF': ('sexual', 'Assault with intent to disrobe', '354B', '76'),
+ 'VOYEURISM_2014DEF': ('sexual', 'Voyeurism', '354C', '77'),
+ 'STALKING_2014DEF': ('sexual', 'Stalking', '354D', '78'),
+ 'ASSAULT_MODESTY_OTHERS_2014DEF': ('sexual', 'Assault to outrage modesty, other than 354A-D', '354', '74'),
+ 'INSULT_OFFICE_2014DEF': ('sexual', 'Insult to modesty, at the office', '509', '79'),
+ 'INSULT_WORK_2014DEF': ('sexual', 'Insult to modesty, at other work places', '509', '79'),
+ 'INSULT_TRANSPORT_2014DEF': ('sexual', 'Insult to modesty, in public transport', '509', '79'),
+ 'INSULT_OTHER_2014DEF': ('sexual', 'Insult to modesty, other places', '509', '79'),
+ 'KIDNAP_363_2014DEF': ('other', 'Kidnapping (s.363)', '363', None),
+ 'KIDNAP_MURDER_2014DEF': ('other', 'Kidnapping or abduction in order to murder (s.364)', '364', None),
+ 'KIDNAP_RANSOM_2014DEF': ('other', 'Kidnapping for ransom (s.364A)', '364A', None),
+ 'KIDNAP_MARRIAGE_2014DEF': ('other', 'Kidnapping or abduction to compel marriage (s.366)', '366', '87'),
+ 'KIDNAP_OTHERS_2014DEF': ('other', 'Kidnapping and abduction, other', None, None),
+ 'IMPORT_GIRLS_2014DEF': ('other', 'Importation of girls from a foreign country (s.366B)', '366B', None),
+ 'INDECENT_REP_2014DEF': ('other', 'Indecent Representation of Women (Prohibition) Act', None, 'IRWA 1986'),
+ 'SATI_2014DEF': ('other', 'Commission of Sati (Prevention) Act', None, 'Sati Act 1987'),
+ 'ITPA_S5_2014DEF': ('other', 'Immoral Traffic (Prevention) Act s.5', None, 'ITPA s.5'),
+ 'ITPA_S6_2014DEF': ('other', 'Immoral Traffic (Prevention) Act s.6', None, 'ITPA s.6'),
+ 'ITPA_S7_2014DEF': ('other', 'Immoral Traffic (Prevention) Act s.7', None, 'ITPA s.7'),
+ 'ITPA_S8_2014DEF': ('other', 'Immoral Traffic (Prevention) Act s.8', None, 'ITPA s.8'),
+ 'ITPA_OTHER_2014DEF': ('other', 'Immoral Traffic (Prevention) Act, other sections', None, 'ITPA'),
+}
+FIXED = {'FEMALE_POP': ('denominator', 'Female population, mid-year projection', None, None),
+         'MURDER_WOMEN': ('killed', 'Women and girls murdered (all motives)', '302', '103'),
+         'MURDER_ALL': ('killed', 'All murder victims', '302', '103'),
+         'RAPE_VICTIMS_AGE': ('sexual', 'Victims of rape by age (s.376 IPC / BNS 64-70)', '376', '64-70'),
+         'POLICE': ('outcome', 'Police disposal, all crimes against women', None, None),
+         'COURTS': ('outcome', 'Court disposal, all crimes against women', None, None)}
+RENAME_2016 = {'RAPE': 'RAPE_2016DEF', 'IPC_TOTAL': 'IPC_TOTAL_2016DEF', 'SLL_TOTAL': 'SLL_TOTAL_2016DEF',
+               'TOTAL': 'TOTAL_2016DEF', 'ABETMENT_SUICIDE': 'ABETMENT_SUICIDE_2014DEF', 'RAPE_VICTIMS_AGE': 'RAPE_VICTIMS_AGE_2016DEF'}
+EDITION = {2014: 'Crime in India 2014, chapter 5 tables', 2015: 'Crime in India 2015, chapter 5 tables',
+           2016: 'Crime in India 2016, complete publication', 2017: 'Crime in India 2017, Volume 1',
+           2018: 'Crime in India 2018, Volume 1', 2019: 'Crime in India 2019, Volume 1'}
+OLD_STATES = P.STATES[:28] + ['Jammu & Kashmir']
+OLD_UTS = ['A&N Islands', 'Chandigarh', 'D&N Haveli', 'Daman & Diu', 'Delhi', 'Lakshadweep', 'Puducherry']
+
+def unit_of(measure):
+    if measure == 'population_lakh': return 'lakh women'
+    if measure == 'rate': return 'rate'
+    if 'rate' in measure or 'pendency' in measure: return 'percent'
+    return 'count'
+
+def old_rows(add):
+    srcs = {m['file']: m for m in json.load(open(os.path.join(OLD, 'sources.json')))}
+    raw = []
+    for f in ('ncrb_2014_2015.csv', 'ncrb_2016_2019.csv'):
+        raw += list(csv.DictReader(open(os.path.join(OLD, f), encoding='utf-8')))
+    cell, chk = {}, {}
+    for r in raw:
+        cell[(int(r['year']), r['code'], r['measure'], r['state'])] = r
+        # 2014 rape survivors by age are split over two codes by NCRB's own footnote
+        # (Tamil Nadu, Meghalaya and the totals include POCSO), so they are checked together
+        cc = 'RAPE_VICTIMS_AGE' if r['code'] == 'RAPE_VICTIMS_AGE_2014DEF' else r['code']
+        chk[(int(r['year']), cc, r['measure'], r['state'])] = r
+    # The states and UTs as printed must add to NCRB's totals before anything is merged.
+    keys = {(y, c, m) for (y, c, m, s) in chk}
+    for y, c, m in sorted(keys):
+        if unit_of(m) != 'count' and m != 'population_lakh':
+            continue
+        if (y, c, m, 'Total states') not in chk:
+            continue
+        val = lambda s: float(chk[(y, c, m, s)]['value'] or 0) if (y, c, m, s) in chk else 0.0
+        tol = 0.05 * 29 if m == 'population_lakh' else 0.5
+        for part, total in ((OLD_STATES, 'Total states'), (OLD_UTS, 'Total UTs')):
+            if (y, c, m, total) in chk and chk[(y, c, m, total)]['value'] != '' and abs(sum(val(s) for s in part) - val(total)) > tol:
+                raise SystemExit(f'{y} {c} {m}: rows do not add to {total}')
+    done = set()
+    for r in raw:
+        y, c, m, s = int(r['year']), r['code'], r['measure'], r['state']
+        if y == 2016 and c in RENAME_2016:
+            c = RENAME_2016[c]
+        meta = OLD_HEADS.get(c) or FIXED.get(c) or next(((h[1], h[2], h[3], h[4]) for h in HEADS if h[0] == c), None)
+        if meta is None:
+            raise SystemExit(f'no label for {c}')
+        group, label, ipc, bns = meta
+        f = srcs[os.path.basename(r['source_file'])]
+        src = {'url': f['url'], 'sha256': f['sha256'], 'edition': EDITION[y]}
+        u = unit_of(m)
+        extra = ['BOUNDARIES_PRE_2020']
+        note = re.sub(r'^Col\. ?[\dA-Za-z]+\.?\s*', '', r['note']).strip()
+        if s == 'Jammu & Kashmir':
+            note = ('Includes Ladakh, which NCRB counted with Jammu and Kashmir until 2019. ' + note).strip()
+        if s == 'West Bengal' and y == 2019:
+            extra.append('WB_2019_REPEATS_2018')
+        if s in ('D&N Haveli', 'Daman & Diu'):
+            key = (y, c, m)
+            if key in done:
+                continue
+            done.add(key)
+            a, b = cell.get((int(r['year']), r['code'], m, 'D&N Haveli')), cell.get((int(r['year']), r['code'], m, 'Daman & Diu'))
+            if u == 'rate':
+                ca = (cell.get((int(r['year']), r['code'], 'cases', 'D&N Haveli')) or {}).get('value')
+                cb = (cell.get((int(r['year']), r['code'], 'cases', 'Daman & Diu')) or {}).get('value')
+                pa = (cell.get((int(r['year']), 'FEMALE_POP', 'population_lakh', 'D&N Haveli')) or {}).get('value')
+                pb = (cell.get((int(r['year']), 'FEMALE_POP', 'population_lakh', 'Daman & Diu')) or {}).get('value')
+                v = round((float(ca) + float(cb)) / (float(pa) + float(pb)), 1) if ca not in (None, '') and cb not in (None, '') and pa and pb else None
+                note = 'Computed here: cases per lakh women for Dadra and Nagar Haveli and Daman and Diu together, which NCRB printed separately before 2020.'
+            elif u == 'percent':
+                v = None
+                note = 'Not computed: NCRB printed Dadra and Nagar Haveli and Daman and Diu separately before 2020, and a percentage cannot be added.'
+            else:
+                va = a['value'] if a else ''
+                vb = b['value'] if b else ''
+                v = None if va == '' and vb == '' else float(va or 0) + float(vb or 0)
+                note = 'Sum of Dadra and Nagar Haveli and of Daman and Diu, which NCRB printed separately before 2020.'
+            add('D&N Haveli and Daman & Diu', y, c, group, label, ipc, bns, m, v, u, r['table_no'], note, src, extra)
+            continue
+        v = None if r['value'] == '' else float(r['value'])
+        add(s, y, c, group, label, ipc, bns, m, v, u, r['table_no'], note, src, extra)
 
 def re_top(label):
     import re

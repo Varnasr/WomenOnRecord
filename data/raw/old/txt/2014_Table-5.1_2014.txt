@@ -1,0 +1,57 @@
+                                                             TABLE 5.1
+                                 Incidence & Rate of Crime Committed Against Women During 2014
+                                                                                                            Mid-year Projected
+ S.                                                                    Percentage Contribution                                            Rate of Total Cognizable
+               State/UT                        Incidence                                                   Female Population +
+ No                                                                       To All-India Total                                                       Crimes
+                                                                                                                (in Lakhs)
+ (1)               (2)                             (3)                               (4)                            (5)                                 (6)
+STATES:
+1   Andhra Pradesh                                          16512                                 4.9                          253.5*                               65.1
+2   Arunachal Pradesh                                         351                                 0.1                             6.1                               57.4
+3   Assam                                                   19139                                 5.7                           155.1                              123.4
+4   Bihar                                                   15383                                 4.6                           492.2                               31.3
+5   Chhattisgarh                                             6255                                 1.9                           126.2                               49.6
+6   Goa                                                       488                                 0.1                             9.1                               53.9
+7   Gujarat                                                 10837                                 3.2                           291.4                               37.2
+8   Haryana                                                  8974                                 2.7                           122.9                               73.0
+9   Himachal Pradesh                                         1517                                 0.4                            34.2                               44.4
+10 Jammu & Kashmir                                           3321                                 1.0                            58.3                               57.0
+11 Jharkhand                                                 5972                                 1.8                           159.8                               37.4
+12 Karnataka                                                13914                                 4.1                           302.8                               46.0
+13 Kerala                                                   11380                                 3.4                           180.7                               63.0
+14 Madhya Pradesh                                           28678                                 8.5                           363.2                               79.0
+15 Maharashtra                                              26693                                 7.9                           561.3                               47.6
+16 Manipur                                                    337                                 0.1                            12.6                               26.7
+17 Meghalaya                                                  388                                 0.1                            13.5                               28.8
+18 Mizoram                                                    258                                 0.1                             5.1                               51.0
+19 Nagaland                                                    67                                 0.0                            11.1                                6.0
+20 Odisha                                                   14606                                 4.3                           207.5                               70.4
+21 Punjab                                                    5425                                 1.6                           132.1                               41.1
+22 Rajasthan                                                31151                                 9.2                           340.9                               91.4
+23 Sikkim                                                     110                                 0.0                             3.0                               36.9
+24 Tamil Nadu                                                6325                                 1.9                           342.9                               18.4
+25 Telangana                                                14136                                 4.2                          180.6*                               78.3
+26 Tripura                                                   1615                                 0.5                            18.4                               88.0
+27 Uttar Pradesh                                            38467                                11.4                          1004.8                               38.3
+28 Uttarakhand                                               1395                                 0.4                            51.0                               27.4
+29 West Bengal                                              38299                                11.3                           448.4                               85.4
+    TOTAL STATE(S)                                         321993                                95.3                          5888.3                               54.7
+UNION TERRITORIES:
+30 A & N Islands                                              115                                0.0                               2.6                              44.2
+31 Chandigarh                                                 432                                0.1                               6.9                              62.3
+32 D&N Haveli                                                  21                                0.0                               1.9                              11.1
+33 Daman & Diu                                                 15                                0.0                               1.0                              14.6
+34 Delhi UT                                                 15265                                4.5                              90.3                             169.1
+35 Lakshadweep                                                  4                                0.0                               0.4                              10.0
+36 Puducherry                                                  77                                0.0                               7.3                              10.6
+    TOTAL UT(S)                                             15929                                4.7                             110.4                             144.3
+    TOTAL ALL INDIA                                        337922                              100.0                            5998.7                              56.3
+Source: ‘+’ RGI/Census Commissioner, MHA                                                                                                                          TABLE 5.1 -
+Note: Rate of Total Cog. Crime = (Incidences of Crimes against Women/Female Population) x 100000 i.e., Incidence of Crime per one lakh of Female Population       Page: 1 of 1
+Note: (*) Adjusted figures of population were used due to absence of projected population for newly created states namely 'Telangana' and 'Andhra Pradesh'
+Crime Against Women consist of crime heads namely Rape, Attempt to Commit Rape, Kidnapping & Abduction of Women, Dowry Deaths, Assault on Women with
+intent to Outrage her Modesty, Insult to Modesty of Women, Cruelty by Husband or his Relatives, Importation of Girls from Foreign Country, Abetment of Suicides
+of Women(Sec 306 IPC), Dowry Prohibition Act, Indecent Representation of Women (P) Act, Commission of Sati (P) Act, Protection of Women from Domestic
+Violence Act and Immoral Traffic (P) Act
+

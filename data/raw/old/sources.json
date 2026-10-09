@@ -1,0 +1,322 @@
+[
+ {
+  "file": "2016_1679982722Table3A3.pdf",
+  "year": 2016,
+  "sha256": "f256c01d1dfd654682ec82a8183e676e2e9fc9577a4e14ad5d9637a9e7897a40",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679982722Table3A3.pdf",
+  "bytes": 92579
+ },
+ {
+  "file": "2016_1679982966Table3A5.pdf",
+  "year": 2016,
+  "sha256": "632c9ce1281273e888c900c0a5f8fc51f79f1f696e0900193cc2f0c2ece1e151",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679982966Table3A5.pdf",
+  "bytes": 106158
+ },
+ {
+  "file": "2016_1679983444Table3A6.pdf",
+  "year": 2016,
+  "sha256": "ee4cdb60c175291c8946db15dad50415dc47e65e64fbc7f3518b6f6913505e65",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679983444Table3A6.pdf",
+  "bytes": 105098
+ },
+ {
+  "file": "2016_1679983481Table3A7.pdf",
+  "year": 2016,
+  "sha256": "83304acb9ae801609b03e0ab9faab9ca29dff824d56ef02a024f27e10d9174a8",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679983481Table3A7.pdf",
+  "bytes": 101804
+ },
+ {
+  "file": "2016_1679983519Table3A8.pdf",
+  "year": 2016,
+  "sha256": "dc6bcb3cc36dd5a4d1fb3ebb53e49ac4ebe29e1003de04d78d134164d88b58ce",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/post/1679983519Table3A8.pdf",
+  "bytes": 99527
+ },
+ {
+  "file": "2016_full.pdf",
+  "year": 2016,
+  "sha256": "e23f9c0c06c3fe11a453714b3a5880bb673ab3d31c5e10568a93a0496346ee31",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1653886924_Crime in India - 2016 Complete PDF 291117.pdf",
+  "bytes": 25497663
+ },
+ {
+  "file": "2017_Table-3A.1_1.pdf",
+  "year": 2017,
+  "sha256": "9aee8bc7bc9d10bcfdc78f2dbf24a2cedda6b3fb158591af87e1064e96af5172",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.1_1.pdf",
+  "bytes": 82795
+ },
+ {
+  "file": "2017_Table-3A.2_1.pdf",
+  "year": 2017,
+  "sha256": "3bd6b654e8ca4f9904deed8505878f93285d48e6ea44298ec35d23a71ab0a8be",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.2_1.pdf",
+  "bytes": 375020
+ },
+ {
+  "file": "2017_Table-3A.3_1.pdf",
+  "year": 2017,
+  "sha256": "ce21fee27aa516cc915cd051cb0b47a30b93cf4c0d2391e837b99db799a7a7af",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.3_1.pdf",
+  "bytes": 110379
+ },
+ {
+  "file": "2017_Table-3A.5_1.pdf",
+  "year": 2017,
+  "sha256": "8a8e393a1850f950cd477b3d7d767ad51c2c5b059ab8f42cd46cf8aec7204d91",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.5_1.pdf",
+  "bytes": 172317
+ },
+ {
+  "file": "2017_Table-3A.6_1.pdf",
+  "year": 2017,
+  "sha256": "5fb91f193361d7719812c2736fdeaae93983531439615c610d647c8906f12e6c",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.6_1.pdf",
+  "bytes": 139577
+ },
+ {
+  "file": "2017_Table-3A.7_1.pdf",
+  "year": 2017,
+  "sha256": "10835c86401099c06eb580068f4a698b4f829e606a035e5d0d21953a0539ea1d",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.7_1.pdf",
+  "bytes": 166043
+ },
+ {
+  "file": "2017_Table-3A.8_1.pdf",
+  "year": 2017,
+  "sha256": "f5dcfbeac7ff10b257d79f0d0718c0ececff589a02bd7b8052766a5ee64081d6",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.8_1.pdf",
+  "bytes": 135009
+ },
+ {
+  "file": "2017_table-2A.3_1-2007.pdf",
+  "year": 2017,
+  "sha256": "62227cdf00eb906da47fbe55a197d02270853b7b202ae8b56b79b553df4976a2",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/table-2A.3_1-2007.pdf",
+  "bytes": 164412
+ },
+ {
+  "file": "2018_Table-3A.1_0.pdf",
+  "year": 2018,
+  "sha256": "752f07f0eb2e75fd66b4c0be96b321bbec4cc734b29e87e733654da3a56cb5c9",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.1_0.pdf",
+  "bytes": 83540
+ },
+ {
+  "file": "2018_Table-3A.2_0.pdf",
+  "year": 2018,
+  "sha256": "97247969b1b9c1d9d03f481a28e5fa9737e33467d1630704830bbb3a3b32ae3d",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.2_0.pdf",
+  "bytes": 383247
+ },
+ {
+  "file": "2018_Table-3A.3_0.pdf",
+  "year": 2018,
+  "sha256": "16ea26b0c76e6ab5ff1ee051b0fb5adec0866c0a122f3f5d128235ee3dfa814d",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.3_0.pdf",
+  "bytes": 110307
+ },
+ {
+  "file": "2018_Table-3A.5_0.pdf",
+  "year": 2018,
+  "sha256": "79c4802b9dd489c242f73ab750f4ed743b62a6b8c0a8f40adfea3acbc68e3757",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.5_0.pdf",
+  "bytes": 175731
+ },
+ {
+  "file": "2018_Table-3A.6_0.pdf",
+  "year": 2018,
+  "sha256": "2676e3005f8d8d87e43c1464b81a7bceb341bad80a0af807b763b2fbbb473968",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.6_0.pdf",
+  "bytes": 140979
+ },
+ {
+  "file": "2018_Table-3A.7_0.pdf",
+  "year": 2018,
+  "sha256": "090024ddb56f840a8149f22fb960cdde774ba1685ff15cdc7445e28a52aaba31",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.7_0.pdf",
+  "bytes": 169466
+ },
+ {
+  "file": "2018_Table-3A.8_0.pdf",
+  "year": 2018,
+  "sha256": "84758762bd3397893fe6b77995508f429a4ca128013e428e139376fe0dc4871a",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.8_0.pdf",
+  "bytes": 136276
+ },
+ {
+  "file": "2018_table-2A.3_0-2018.pdf",
+  "year": 2018,
+  "sha256": "f24a2ebf78e876af5938f32f48bf2e6e2c16845eb83e9f94870956ecb7a02414",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/table-2A.3_0-2018.pdf",
+  "bytes": 165736
+ },
+ {
+  "file": "2019_1681276651Table2A32.pdf",
+  "year": 2019,
+  "sha256": "a04e635e3e9c226a64f7d925f5bdcb1839a86c16a36f0c5c1efdc96c680ec912",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1681276651Table2A32.pdf",
+  "bytes": 429964
+ },
+ {
+  "file": "2019_Table-3A.1_2.pdf",
+  "year": 2019,
+  "sha256": "31ca54ebef652ff5576470af495e738a87bda218e7137097046b7725ac2e946c",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.1_2.pdf",
+  "bytes": 275026
+ },
+ {
+  "file": "2019_Table-3A.2_2.pdf",
+  "year": 2019,
+  "sha256": "ebf89cd6073f2ee1fe26824c7b69cd8595c2eaf1f8dc2696997097da12afbff9",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.2_2.pdf",
+  "bytes": 936850
+ },
+ {
+  "file": "2019_Table-3A.3_2.pdf",
+  "year": 2019,
+  "sha256": "06f700e054ed373c79a138013d712e35bc84b73e6c8fdacfcfdc6dae68583c41",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.3_2.pdf",
+  "bytes": 297243
+ },
+ {
+  "file": "2019_Table-3A.5_2.pdf",
+  "year": 2019,
+  "sha256": "dade539f33380c0dd09f243bc0f7e982055c1369dce01ae39d01c0133cdc4b2d",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.5_2.pdf",
+  "bytes": 416824
+ },
+ {
+  "file": "2019_Table-3A.6_2.pdf",
+  "year": 2019,
+  "sha256": "3ab577f568bce606ce100fd487ddb76805f21268f279e0cff9c94471151b59d7",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.6_2.pdf",
+  "bytes": 357833
+ },
+ {
+  "file": "2019_Table-3A.7_2.pdf",
+  "year": 2019,
+  "sha256": "8dd291e06ee4446ee1eb69a888e4db8f00e12c04b5d00ac7c2a6b6ead828da77",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.7_2.pdf",
+  "bytes": 404392
+ },
+ {
+  "file": "2019_Table-3A.8_2.pdf",
+  "year": 2019,
+  "sha256": "8b16c20795c0781c93f5615c357b17e33e8cfa973936fa21630c83a45dde8aad",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3A.8_2.pdf",
+  "bytes": 348355
+ },
+ {
+  "file": "2014_Table-3.3_2014.pdf",
+  "year": 2014,
+  "sha256": "cea90dfdb52a8ae69ebf7b9be52d2731fd5f645a4a70bc0057c06f51267c2aea",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3.3_2014.pdf",
+  "bytes": 230637
+ },
+ {
+  "file": "2014_Table-5.2_2014.pdf",
+  "year": 2014,
+  "sha256": "5bec2ea8a38f5ac4891e7d584126c36f01dd743c8430a639449d1c9028a9f4c8",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.2_2014.pdf",
+  "bytes": 782411
+ },
+ {
+  "file": "2014_Table-5.3_2014.pdf",
+  "year": 2014,
+  "sha256": "4fa9310b986547e14b5bf9642f3db139b63651f3040cb35a9346dbe310a48fc2",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.3_2014.pdf",
+  "bytes": 244644
+ },
+ {
+  "file": "2014_Table-5.5_2014.pdf",
+  "year": 2014,
+  "sha256": "4e89f0405d505b02e1924168862a7f8fbc33ba7e0f7c29771f8d5a014a1629d9",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.5_2014.pdf",
+  "bytes": 1038765
+ },
+ {
+  "file": "2014_Table-5.6_2017.pdf",
+  "year": 2014,
+  "sha256": "843b4277dbce897bdb42f181729e20244444499a6a99f0fcfcb7db4be8bce219",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.6_2017.pdf",
+  "bytes": 137931
+ },
+ {
+  "file": "2015_Table-3.3_2015.pdf",
+  "year": 2015,
+  "sha256": "7162c134b602c56a7bd5048cec0a579427a281b9ad029e8927b3cc745b49cf5f",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-3.3_2015.pdf",
+  "bytes": 229116
+ },
+ {
+  "file": "2015_Table-5.2_2015.pdf",
+  "year": 2015,
+  "sha256": "b9236d5a4981f6172fd2d5f9e01c1603c2da1718402c18cf8ff1aa0984ce250b",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.2_2015.pdf",
+  "bytes": 773266
+ },
+ {
+  "file": "2015_Table-5.3_2015.pdf",
+  "year": 2015,
+  "sha256": "65ecd5122c59f575e72eb0062baf743d845ca478cd4df49ab605f197a5f7409a",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.3_2015.pdf",
+  "bytes": 244468
+ },
+ {
+  "file": "2015_Table-5.5_2015.pdf",
+  "year": 2015,
+  "sha256": "3768cf1f83612bbae44981f395d68825ef8fcfacc1f0d8c57336236a50ced819",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.5_2015.pdf",
+  "bytes": 170544
+ },
+ {
+  "file": "2015_Table-5.6_2015.pdf",
+  "year": 2015,
+  "sha256": "5ceaf370aef3b8a9a26955cf29424c3e70c0f84ca686a39bcf35cb65643b3c5e",
+  "sha_matches_rows": true,
+  "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/crime-in-india/Table-5.6_2015.pdf",
+  "bytes": 147493
+ }
+]

@@ -1,0 +1,113 @@
+                                                    TABLE 3A.6
+                       Police Disposal of Crime Against Women Cases (State/UT-wise) - 2016
+                            Cases                                                                            Final Report
+                                                                           Cases
+                           Pending                    Total                        Cases Not
+                                          Cases                           Trans-
+                           Investi-                Cases for Cases With-            Investi-    True but
+                                        Reported                         ferred to
+ Sl         State/UT        gation                  Investi-  drawn by             gated U/S     insuffi-                    Mistake of
+                                        During the                       other PS/                              False
+                             from                    gation     Govt               157(1) (b)     cient                         Fact
+                                          Year                            Magist-
+                           Previous                (Col.3+4)                        of Cr.PC    Evidence
+                                                                            rate
+                             Year
+ 1          2                 3             4          5          6         7          8           9             10             11
+STATES:
+ 1 Andhra Pradesh              9349        16362       25711           0         66         0          153         1323              226
+ 2 Arunachal Pradesh              153           367        520         0          0         0          74               8            28
+ 3 Assam                     20964         20869       41833           0         54         0       7878                 1            30
+ 4 Bihar                     11156         13400       24556           0          1         0          789            430         1661
+ 5 Chhattisgarh                1089         5947        7036           0          1         0          148            532            118
+ 6 Goa                            335           371        706         0          3         0          53               2            35
+ 7 Gujarat                     1515         8532       10047          27          5         1          326              33           295
+ 8 Haryana                     1912         9839       11751           0          4         0          523         3776               0
+ 9 Himachal Pradesh               347       1222        1569           0          0         0          20             207            44
+10 Jammu & Kashmir             1140         2850        3990           0          0         0          63             720             0
+11 Jharkhand                   4452         5453        9905           0          0         0          755            148            154
+12 Karnataka                   5656        14131       19787           0        202         4          178         1461              449
+13 Kerala                      4321        10034       14355           1         38         1          233            286             61
+14 Madhya Pradesh              4364        26604       30968           2         15         2          381         1420              513
+15 Maharashtra               17795         31388       49183           0         76         5          836            502         3730
+16 Manipur                     1385             253     1638           0          0         0           86               0             0
+17 Meghalaya                      785           372     1157           0          0         0          137               8            17
+18 Mizoram                         40           120        160         0          0         0            2               0             1
+19 Nagaland                       40            105        145         0          0         0          41               0             0
+20 Odisha                      7832        17837       25669           0          7         0          216            463         1172
+21 Punjab                      4293         5105        9398           0          0         0          278            896            220
+22 Rajasthan                   2522        27422       29944           0         19         0          222         9549           3460
+23 Sikkim                         37            153        190         0          0         0          12               0             0
+24 Tamil Nadu                  3712         4463        8175           0         26         0          748              0            258
+25 Telangana                   6585        15374       21959           0         50         0          569            642            438
+26 Tripura                        330       1013        1343           0          0         0          63               17           116
+27 Uttar Pradesh             10024         49262       59286           0          1         0      12642           1731               0
+28 Uttarakhand                    533       1588        2121           0          1         1          451              84             0
+29 West Bengal               15954         32513       48467           0         61         0       1206                0             0
+    TOTAL STATE(S)          138620        322949      461569          30        630        14      29083         24239          13026
+UNION TERRITORIES:
+30     A & N Islands              41            108        149         0          0         0           5               1            12
+31     Chandigarh                 323           414        737         0          0         0          19               0            113
+32     D&N Haveli                 27            28         55          1          0         0           1               2             0
+33     Daman & Diu                20            41         61          0          0         0           2               0             5
+34     Delhi UT              19459         15310       34769           4         14         0       2379              378         2043
+35     Lakshadweep                13             9         22          0          0         0            0               0             0
+36     Puducherry                  25            95        120         0          0         0           10               0             1
+      TOTAL UT(S)            19908         16005       35913           5         14         0       2416              381         2174
+      TOTAL (ALL INDIA)     158528        338954      497482          35        644        14      31499         24620          15200
+                                                                                                   TABLE 3A.6 - PAGE 1 OF 2
+                                                     TABLE 3A.6
+                  Police Disposal of Crime Against Women Cases (State/UT-wise) - 2016 (Concluded)
+                                    Final Report
+                                                                         Total Cases Cases Pending
+                                                              Cases in   Disposed off Investigation      Charge-       Pendency
+                                             Total (Col.9+ Which Charge-   by Police   at the End of Sheeting Rate Percentage
+            State/UT           Non             Col.10 +     sheets were   (Col. 7+8+     the Year        (Col.14/       (Col.16/
+Sl
+                            Cognizable         Col.11+       Submitted      Col.13+   (Col. 5 - (Col.6 Col.15) * 100 (Col.5)) * 100
+                                               Col.12)                      Col.14)      + Col.15))
+
+                               12                  13           14             15            16              17            18
+
+  1 Andhra Pradesh                       8              1710      14774          16550            9161            89.3          35.6
+  2 Arunachal Pradesh                    1               111          239           350           170             68.3          32.7
+  3 Assam                                0              7909      11004          18967         22866              58.0          54.7
+  4 Bihar                            117                2997      13951          16949            7607            82.3          31.0
+  5 Chhattisgarh                         0               798         5114           5913          1123            86.5          16.0
+  6 Goa                                  0                90          236           329           377             71.7          53.4
+  7 Gujarat                              5               659         7676           8341          1679            92.0          16.7
+  8 Haryana                           68                4367         5603           9974          1777            56.2          15.1
+  9 Himachal Pradesh                     0               271          947           1218          351             77.8          22.4
+ 10 Jammu & Kashmir                      0               783         1823           2606          1384            70.0          34.7
+ 11 Jharkhand                         91                1148         4136           5284          4621            78.3          46.7
+ 12 Karnataka                            0              2088         9936        12230            7557            81.2          38.2
+ 13 Kerala                            12                 592         9408        10039            4315            93.7          30.1
+ 14 Madhya Pradesh                   302                2616      23606          26239            4727            90.0          15.3
+ 15 Maharashtra                      166                5234      26231          31546         17637              83.2          35.9
+ 16 Manipur                              0                86          165            251          1387            65.7          84.7
+ 17 Meghalaya                            1               163          262            425           732            61.6          63.3
+ 18 Mizoram                              0                 3          116            119            41            97.5          25.6
+ 19 Nagaland                             0                41           61           102            43             59.8          29.7
+ 20 Odisha                            11                1862      15610          17479            8190            89.3          31.9
+ 21 Punjab                               0              1394         2995           4389          5009            68.2          53.3
+ 22 Rajasthan                         45            13276         14493          27788            2156            52.2           7.2
+ 23 Sikkim                               0                12          113           125            65             90.4          34.2
+ 24 Tamil Nadu                           5              1011         3166           4203          3972            75.3          48.6
+ 25 Telangana                         14                1663      12185          13898            8061            87.7          36.7
+ 26 Tripura                              7               203          862           1065          278             80.9          20.7
+ 27 Uttar Pradesh                        0          14373         32032          46406         12880              69.0          21.7
+ 28 Uttarakhand                          6               541          990           1533           588            64.6          27.7
+ 29 West Bengal                      123                1329      33539          34929         13538              96.0          27.9
+   TOTAL STATE(S)                    982            67330       251273         319247         142292              78.7          30.8
+UNION TERRITORIES:
+ 30    A & N Islands                     1                19           77            96            53             80.2          35.6
+ 31    Chandigarh                        0               132          280           412           325             68.0          44.1
+ 32    D&N Haveli                        0                 3           30            33            21             90.9          38.2
+ 33    Daman & Diu                       0                 7           28            35            26             80.0          42.6
+ 34    Delhi UT                          0              4800         8542        13356         21409              64.0          61.6
+ 35    Lakshadweep                       0                 0            8             8            14          100.0            63.6
+ 36    Puducherry                        2                13           66            79            41             83.5          34.2
+      TOTAL UT(S)                        3              4974         9031       14019          21889              64.4          61.0
+      TOTAL (ALL INDIA)              985            72304       260304         333266         164181              78.1          33.0
+                                                                                                         TABLE 3A.6 - PAGE 2 OF 2
+

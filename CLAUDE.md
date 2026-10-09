@@ -1,6 +1,6 @@
 # She Counts
 
-Crimes against women in India, as police and courts recorded them, 2020 to
+Crimes against women in India, as police and courts recorded them, 2014 to
 2024, at shecounts.netlify.app. Static HTML, no framework. Data from NCRB Crime
 in India, Volume 1, read by script, and eight context sources beside it.
 
@@ -162,6 +162,28 @@ Western digits with Indian grouping in every language, and `check.py` fails on
 Devanagari, Bengali, Tamil or Arabic-Indic digits (fourteen Bengali strings
 had them until October 2026). In Urdu, India is
 بھارت everywhere (the owner's rule), and `check.py` fails on ہندوستان.
+
+## Years
+
+The dataset runs from 2014 to 2024. The site's charts run from 2017
+(`SITE_FROM` in `scripts/build_site_data.py`), the first year NCRB used the
+crime headings and table layout it still uses. Before 2017 only India is
+shown, only on the crime pages' trend line, and only for the headings in
+`LONG`, which NCRB defined the same way throughout. Rape is in `LONG` for 2014
+and 2015 and has a gap at 2016, because NCRB's 2016 rape figure included POCSO
+cases. A line never joins two years across a gap (`lines` in `charts.js`).
+
+2014 to 2019 were extracted once from NCRB's per-table PDFs by the scripts in
+`scripts/old_extract/` and are read from `data/raw/old/`, where the sources,
+checksums, every check and every definition difference are written down.
+Do not add a pre-2017 heading to `LONG` unless its definition is the same; a
+heading defined differently keeps its own code (`_2014DEF`, `_2016DEF`,
+`OLD_HEADS` and `RENAME_2016` in `build_data.py`). Before 2020, Dadra and Nagar
+Haveli and Daman and Diu are added together, Jammu and Kashmir includes Ladakh,
+and West Bengal's 2019 figures are NCRB's repeat of 2018 (flag
+`WB_2019_REPEATS_2018`). The population behind the rates changes in 2018 and
+2020. NCRB's 2016 rate for trafficking in Uttarakhand is a misprint, kept as
+printed and named in `MISPRINTS` in `check.py`.
 
 ## Data
 

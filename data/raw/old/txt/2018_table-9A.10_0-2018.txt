@@ -1,0 +1,65 @@
+                                                 TABLE 9A.10
+                              Cyber Crimes against Women (State/UT-wise) - 2018
+                                                   Cyber                     Defamation/
+                                                                    Cyber
+                                              Pornography/                    Morphing
+                                 Cyber                            Stalking/                                        Total
+                                                 Hosting/                    (Sec.469  IPC
+                             Blackmailing/                          Cyber                    Fake        Other
+                                                Publishing                   r/w  IPC and                          Cyber
+                              Threatening                        Bullying of                Profile     Crimes
+S. No       State/UT                         Obscene Sexual                    Indecent                           Crimes
+                             (Sec.506, 503,      Materials
+                                                                   Women                     (r/w       against
+                                                                             Represetnati                         against
+                             384 IPC r/w IT (Sec.67A/67B(Girl (Sec.354D                    IPC/SLL)     Women
+                                                                                 on of                            Women
+                                  Act)      Child) of IT act r/w IPC) r/w IT
+                                                                              Women (P)
+                                              other IPC/SLL          Act
+                                                                                Act
+  1           2                    3                4              5             6            7           8          9
+STATES:
+1   Andhra Pradesh                      12                5             82             6           16        96       217
+2   Arunachal Pradesh                    0                0              0             0            0         1         1
+3   Assam                               29              172             18             0           94       357       670
+4   Bihar                                3                2              2             0            1         6        14
+5   Chhattisgarh                         2               15             14             0            0        33        64
+6   Goa                                  0                3              0             0            0        18        21
+7   Gujarat                              1               11             11             4            6       151       184
+8   Haryana                              5               34              5             0            4        64       112
+9   Himachal Pradesh                     0               27              1             0            6        18        52
+10 Jammu & Kashmir                       4                6              0             2            1        10        23
+11 Jharkhand                             0                8              0             0            0         5        13
+12 Karnataka                             2               42              4             1            3      1322      1374
+13 Kerala                                6               53              8             1            8        84       160
+14 Madhya Pradesh                        4               52             36             1            0       183       276
+15 Maharashtra                           5               31            398             0           13       815      1262
+16 Manipur                               0                1              3             0            0         5         9
+17 Meghalaya                             3                1              0             0            0        28        32
+18 Mizoram                               0                0              0             0            0         4         4
+19 Nagaland                              0                0              0             0            1         1         2
+20 Odisha                                0              172              7            36            0        13       228
+21 Punjab                                6               26             16             0            5        44        97
+22 Rajasthan                             2               10             30             9            6        59       116
+23 Sikkim                                0                1              0             0            0         0         1
+24 Tamil Nadu                            2               26              1             0            1        47        77
+25 Telangana                            10               42             18             0           12       254       336
+26 Tripura                               0                4              0             0            1         0         5
+27 Uttar Pradesh                         2               91             24             0            6       217       340
+28 Uttarakhand                           9               10              9             2           13        35        78
+29 West Bengal                           6                2             18             0            5       139       170
+    TOTAL STATE(S)                     113              847            705            62          202      4009      5938
+UNION TERRITORIES:
+30 A&N Islands                           0                1              0             0            0        4           5
+31 Chandigarh                            0                0              5             0            0        0           5
+32 D&N Haveli                            0                0              0             0            0        0           0
+33 Daman & Diu                           0                0              0             0            0        0           0
+34 Delhi                                 0               13             28             0            5       33         79
+35 Lakshadweep                           0                1              0             0            0        2           3
+36 Puducherry                            0                0              0             0            0        0           0
+    TOTAL STATE(S)                       0               15             33             0            5       39         92
+    TOTAL ALL INDIA                    113              862            738            62          207     4048       6030
+● As per data provided by States/UTs                                                               TABLE 9A.10 Page 1 of 1
+# Clarifications are pending from West Bengal, Assam, Arunachal Pradesh, Meghalaya & Sikkim
+

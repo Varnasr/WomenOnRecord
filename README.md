@@ -1,8 +1,9 @@
 # She Counts
 
-Crimes against women in India, as police and courts recorded them, 2020 to 2024.
-Every state and union territory, from the National Crime Records Bureau's
-*Crime in India* reports, with a free dataset in CSV and Excel.
+Crimes against women in India, as police and courts recorded them, 2014 to 2024.
+Every state and union territory from 2017, and India as a whole from 2014
+wherever NCRB counted a crime the same way, from the National Crime Records
+Bureau's *Crime in India* reports, with a free dataset in CSV and Excel.
 
 Live at https://shecounts.netlify.app
 
@@ -23,7 +24,18 @@ Live at https://shecounts.netlify.app
 
 Home, Protests, Police and courts, States (with a page for each of the 36
 states and union territories), Crimes (with a page for each of 17 crimes),
-Context and Data and method.
+Context, Explore (every figure in a table that can be filtered, sorted and
+downloaded) and Data and method.
+
+## Years
+
+The dataset holds every year from 2014 to 2024, as NCRB printed it. The charts
+start in 2017, because NCRB changed its crime headings that year. Before then,
+the total for crimes against women left out POCSO and several other headings,
+and in 2016 the rape figure included POCSO cases. Headings defined differently
+before 2017 carry codes of their own ending in `_2014DEF` or `_2016DEF`.
+For 2014 and 2015 NCRB published police and court outcomes for India only.
+How each older year was read and checked is in `data/raw/old/`.
 
 ## Context
 
