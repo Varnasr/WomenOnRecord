@@ -25,7 +25,7 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.SC_BUILD = "791617d96d"; window.SC_V = {"css/site.css":"2efb1a82a9","data/context.json":"4efb3fb68d","data/geo/india.json":"f82dbbe582","data/site.json":"6acb7593e8","js/app.js":"8a45ba9d6b","js/charts.js":"7dfb1452cb","js/i18n.js":"a527d7d7ef"};
+  window.SC_BUILD = "cc6c77a88f"; window.SC_V = {"css/site.css":"2efb1a82a9","data/context.csv":"c4c676784e","data/context.json":"4efb3fb68d","data/geo/india.json":"f82dbbe582","data/shecounts.csv":"eb84607428","data/site.json":"6acb7593e8","downloads/codebook.csv":"0577778935","downloads/context.xlsx":"a85d040438","downloads/shecounts.xlsx":"e76e373d9b","js/app.js":"8a45ba9d6b","js/charts.js":"7dfb1452cb","js/i18n.js":"a527d7d7ef"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -172,8 +172,8 @@
   <section class="sec" id="cx-data" aria-labelledby="h-cxdata">
     <h2 id="h-cxdata" data-i18n="cx.dl.h">The context data</h2>
     <ul class="downloads">
-      <li><a href="/downloads/context.xlsx" download><b data-i18n="dl.cx.t">Context workbook</b><span data-i18n="dl.cx">Eight other sources, from the household survey to election affidavits, one sheet each, with the source, table and page on every row.</span></a></li>
-      <li><a href="/data/context.csv" download><b data-i18n="dl.cxcsv.t">Context CSV</b><span data-i18n="dl.cxcsv">The same rows as the context workbook, in one file, with a column that names the source.</span></a></li>
+      <li><a href="/downloads/context.xlsx?v=a85d040438" download><b data-i18n="dl.cx.t">Context workbook</b><span data-i18n="dl.cx">Eight other sources, from the household survey to election affidavits, one sheet each, with the source, table and page on every row.</span></a></li>
+      <li><a href="/data/context.csv?v=c4c676784e" download><b data-i18n="dl.cxcsv.t">Context CSV</b><span data-i18n="dl.cxcsv">The same rows as the context workbook, in one file, with a column that names the source.</span></a></li>
     </ul>
   </section>
 </main>

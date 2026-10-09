@@ -22,7 +22,10 @@ CRIMES = ['RAPE', 'POCSO_RAPE', 'ATTEMPT_RAPE', 'ASSAULT_MODESTY', 'INSULT_MODES
 # Every file a page loads. Each gets ?v=<hash of its contents> in its address,
 # so a changed file has a new address and no browser can serve an old copy.
 ASSETS = ['css/site.css', 'js/i18n.js', 'js/charts.js', 'js/app.js',
-          'data/site.json', 'data/context.json', 'data/geo/india.json']
+          'data/site.json', 'data/context.json', 'data/geo/india.json',
+          # the downloads, so a new file is a new link the moment it is deployed
+          'data/shecounts.csv', 'data/context.csv', 'downloads/shecounts.xlsx',
+          'downloads/context.xlsx', 'downloads/codebook.csv']
 
 def digest(b):
     return hashlib.sha256(b).hexdigest()[:10]

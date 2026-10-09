@@ -16,7 +16,7 @@ territory (`states/<slug>/`, 36) and `crime.html` once per crime
 attribute on `<body>`. The slug rule is in both `build_pages.py` and `js/app.js`
 (`&` becomes "and"); change both or links break. CI runs `--check`.
 
-Every file a page loads carries `?v=<hash of its contents>`, and each page
+Every file a page loads or offers for download carries `?v=<hash of its contents>`, and each page
 carries the build it came from (`SC_BUILD`); `build_pages.py` writes both, and
 `version.json` with the live build. So build pages last, after `build_i18n.py`
 and any data build, or the fingerprints describe old files. `netlify.toml`
