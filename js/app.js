@@ -72,7 +72,8 @@
       [fmt(pocso, 0), t('hero.f3', { y: y })],
       [t('field.big', { share: Math.round(pend / before * 100) }), t('hero.f4', { y: y })]
     ];
-    $('heroFigs').innerHTML = out.map(function (f) { return '<div class="fig"><b>' + f[0] + '</b><span>' + f[1] + '</span></div>'; }).join('');
+    var htips = [null, 'tip.ipc', 'tip.pocso', 'tip.pend'];
+    $('heroFigs').innerHTML = out.map(function (f, i) { return '<div class="fig"><b>' + f[0] + '</b><span' + (htips[i] ? ' data-tip="' + htips[i] + '"' : '') + '>' + f[1] + '</span></div>'; }).join('');
   }
 
   // ---------- dot field ----------
@@ -141,6 +142,9 @@
     });
   }
 
+  var TIPS = { 'fir.c2': 'tip.cs', 'fir.c3': 'tip.inv', 'fir.c4': 'tip.court', 'fir.c5': 'tip.trials', 'fir.c7': 'tip.cr', 'fir.c8': 'tip.pend',
+               'o.cs': 'tip.cs', 'o.pinv': 'tip.inv', 'o.trial': 'tip.court', 'o.cr': 'tip.cr', 'o.ptrial': 'tip.pend', 'o.cp': 'tip.cp',
+               'rate24': 'tip.rate', 'india24': 'tip.rate' };
   // ---------- after the FIR ----------
   var FIR = ['RAPE', 'POCSO_RAPE', 'MURDER_RAPE', 'DOWRY_DEATH', 'CRUELTY', 'TOTAL'];
   function fir() {
@@ -150,7 +154,7 @@
       ['court_total_for_trial', 'fir.c4', 0], ['court_trials_completed', 'fir.c5', 0], ['court_convicted', 'fir.c6', 0],
       ['court_conviction_rate', 'fir.c7', 1], ['court_pending_trial_end_of_year', 'fir.c8', 0]];
     var h = '<caption class="sr">' + head(c) + '</caption><thead><tr><th scope="col">' + t('year') + '</th>' +
-      cols.map(function (x) { return '<th scope="col">' + t(x[1]) + '</th>'; }).join('') + '</tr></thead><tbody>';
+      cols.map(function (x) { return '<th scope="col"' + (TIPS[x[1]] ? ' data-tip="' + TIPS[x[1]] + '"' : '') + '>' + t(x[1]) + '</th>'; }).join('') + '</tr></thead><tbody>';
     D.years.forEach(function (y) {
       h += '<tr><th scope="row">' + y + '</th>' + cols.map(function (x) {
         var v = S(c, x[0], 'All India', y), pct = x[0].indexOf('rate') > 0;
@@ -275,7 +279,7 @@
     var tot = S('TOTAL', 'cases', p, 2024), r = S('TOTAL', 'rate', p, 2024), ri = S('TOTAL', 'rate', 'All India', 2024);
     $('stateIntro').textContent = t('state.intro', { s: place(p), pop: fmt(pop, 1), tot: fmt(tot, 0), r: fmt(r, 1), ri: fmt(ri, 1) });
     var h = '<thead><tr><th scope="col">' + t('crime') + '</th>' + D.years.map(function (y, i) { return '<th scope="col"' + (i < D.years.length - 1 ? ' class="old"' : '') + '>' + y + '</th>'; }).join('') +
-      '<th scope="col">' + t('trend') + '</th><th scope="col">' + t('rate24') + '</th><th scope="col" class="ind">' + t('india24') + '</th></tr></thead><tbody>';
+      '<th scope="col">' + t('trend') + '</th><th scope="col" data-tip="tip.rate">' + t('rate24') + '</th><th scope="col" class="ind">' + t('india24') + '</th></tr></thead><tbody>';
     GROUPS.forEach(function (g) {
       h += '<tr class="group"><th colspan="9" scope="rowgroup">' + t('group.' + g[0]) + '</th></tr>';
       g[1].forEach(function (code) {
@@ -290,7 +294,7 @@
     var oc = [['POLICE', 'reported', 'o.reported', 0], ['POLICE', 'chargesheeting_rate', 'o.cs', 1], ['POLICE', 'pending_investigation_end_of_year', 'o.pinv', 0],
               ['COURTS', 'total_for_trial', 'o.trial', 0], ['COURTS', 'convicted', 'o.conv', 0], ['COURTS', 'conviction_rate', 'o.cr', 1],
               ['COURTS', 'pending_trial_end_of_year', 'o.ptrial', 0], ['COURTS', 'court_pendency', 'o.cp', 1]];
-    var o = '<thead><tr><th scope="col">' + t('year') + '</th>' + oc.map(function (x) { return '<th scope="col">' + t(x[2]) + '</th>'; }).join('') + '</tr></thead><tbody>';
+    var o = '<thead><tr><th scope="col">' + t('year') + '</th>' + oc.map(function (x) { return '<th scope="col"' + (TIPS[x[2]] ? ' data-tip="' + TIPS[x[2]] + '"' : '') + '>' + t(x[2]) + '</th>'; }).join('') + '</tr></thead><tbody>';
     D.years.forEach(function (y) {
       o += '<tr><th scope="row">' + y + '</th>' + oc.map(function (x) {
         var v = S(x[0], x[1], p, y), pct = /rate|pendency/.test(x[1]);
@@ -333,7 +337,69 @@
     }).join('');
   }
 
-  function renderAll() { hero(); field(); fir(); map(); renderState(false); multiples(); sources(); }
+  function protests() {
+    var y = 2024, ri = S('RAPE', 'rate', 'All India', y);
+    ['Delhi', 'Bihar'].forEach(function (p) {
+      $(p === 'Delhi' ? 'prDelhi' : 'prBihar').textContent = t(p === 'Delhi' ? 'pr.delhi' : 'pr.bihar', {
+        rape: fmt(S('RAPE', 'cases', p, y), 0), pocso: fmt(S('POCSO_RAPE', 'cases', p, y), 0),
+        rate: fmt(S('RAPE', 'rate', p, y), 1), india: fmt(ri, 1) });
+    });
+    var before = S('RAPE', 'court_total_for_trial', 'All India', y), pend = S('RAPE', 'court_pending_trial_end_of_year', 'All India', y);
+    $('prIndia').textContent = t('pr.india', { pend: Math.round(pend / before * 100), conv: Math.round(S('RAPE', 'court_conviction_rate', 'All India', y)) });
+  }
+
+  // ---------- tooltips ----------
+  var tipEl = null, tipFor = null;
+  function showTip(el) {
+    tipEl = tipEl || $('tip');
+    tipEl.textContent = t(el.getAttribute('data-tip'));
+    tipEl.hidden = false; tipFor = el;
+    var r = el.getBoundingClientRect(), w = Math.min(300, window.innerWidth - 24);
+    tipEl.style.maxWidth = w + 'px';
+    var x = Math.max(12, Math.min(r.left, window.innerWidth - w - 12));
+    var below = r.bottom + 8 + tipEl.offsetHeight < window.innerHeight;
+    tipEl.style.left = x + 'px';
+    tipEl.style.top = (below ? r.bottom + 8 : r.top - tipEl.offsetHeight - 8) + 'px';
+  }
+  function hideTip() { if (tipEl) tipEl.hidden = true; tipFor = null; }
+  function wireTips(root) {
+    (root || document).querySelectorAll('[data-tip]').forEach(function (el) {
+      if (el.dataset.tipWired) return;
+      el.dataset.tipWired = '1';
+      el.classList.add('has-tip');
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-describedby', 'tip');
+      el.addEventListener('mouseenter', function () { showTip(el); });
+      el.addEventListener('mouseleave', hideTip);
+      el.addEventListener('focus', function () { showTip(el); });
+      el.addEventListener('blur', hideTip);
+      el.addEventListener('click', function (e) { if (tipFor === el) hideTip(); else showTip(el); e.stopPropagation(); });
+    });
+  }
+  document.addEventListener('click', hideTip);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideTip(); });
+  window.addEventListener('scroll', hideTip, { passive: true });
+
+  // ---------- tour ----------
+  var TOUR = [['.figs', 'tour.1'], ['#protests', 'tour.2'], ['.field', 'tour.3'], ['#fir', 'tour.4'], ['#states', 'tour.5'], ['#data', 'tour.6']];
+  var step = -1;
+  function tourShow(i) {
+    document.querySelectorAll('.tour-on').forEach(function (e) { e.classList.remove('tour-on'); });
+    if (i < 0 || i >= TOUR.length) { $('tour').hidden = true; step = -1; $('tourBtn').focus(); return; }
+    step = i;
+    var target = document.querySelector(TOUR[i][0]);
+    target.classList.add('tour-on');
+    target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
+    $('tourN').textContent = t('tour.n', { i: i + 1, n: TOUR.length });
+    $('tourTitle').textContent = t(TOUR[i][1] + '.t');
+    $('tourText').textContent = t(TOUR[i][1]);
+    $('tourBack').disabled = i === 0;
+    $('tourNext').textContent = t(i === TOUR.length - 1 ? 'tour.done' : 'tour.next');
+    $('tour').hidden = false;
+    $('tourNext').focus();
+  }
+
+  function renderAll() { hero(); protests(); field(); fir(); map(); renderState(false); multiples(); sources(); wireTips(); }
 
   // ---------- start ----------
   function init() {
@@ -343,6 +409,11 @@
     Array.prototype.slice.call($('lang').options).forEach(function (o) { if (!ready(o.value)) o.remove(); });
     lang = ready(q) ? q : (ready(saved) ? saved : 'en');
     $('lang').addEventListener('change', function () { setLang(this.value); });
+    $('tourBtn').addEventListener('click', function () { tourShow(0); });
+    $('tourNext').addEventListener('click', function () { tourShow(step + 1); });
+    $('tourBack').addEventListener('click', function () { tourShow(step - 1); });
+    $('tourClose').addEventListener('click', function () { tourShow(-1); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && step >= 0) tourShow(-1); });
     var mb = $('menuBtn'), nav = $('nav');
     function setMenu(open) { nav.classList.toggle('open', open); mb.setAttribute('aria-expanded', String(open)); }
     mb.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });

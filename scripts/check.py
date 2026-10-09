@@ -25,7 +25,8 @@ for ref in re.findall(r"fetch\('([^']+)'\)", app):
 toml = open(os.path.join(ROOT, 'netlify.toml'), encoding='utf-8').read()
 csp = re.search(r'Content-Security-Policy = "([^"]+)"', toml).group(1)
 i18n = open(os.path.join(ROOT, 'js', 'i18n.js'), encoding='utf-8').read()
-for origin in set(re.findall(r'https://[a-z0-9.-]+', page + i18n)) - {'https://github.com', 'https://shecounts.netlify.app'}:
+loaded = re.sub(r'<a\s[^>]*>', '', page)  # a link is navigation, which the CSP does not govern
+for origin in set(re.findall(r'https://[a-z0-9.-]+', loaded + i18n)) - {'https://github.com', 'https://shecounts.netlify.app'}:
     if origin not in csp:
         fail.append(f'{origin} is loaded but not allowed by the CSP')
 

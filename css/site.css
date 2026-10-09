@@ -12,8 +12,9 @@
   --knot-open: #9aa3c6;
   --focus: #a3243b;
   --q1: #dfe3f2; --q2: #b3bbe0; --q3: #7d89c4; --q4: #4b589f; --q5: #1f2a5c;
-  --display: "Rozha One", "Noto Serif Devanagari", Georgia, serif;
-  --text: "Mukta", "Noto Sans Devanagari", system-ui, sans-serif;
+  --display: "IBM Plex Serif", "IBM Plex Sans Devanagari", Georgia, serif;
+  --text: "IBM Plex Sans", "IBM Plex Sans Devanagari", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -31,14 +32,14 @@
   color-scheme: dark;
 }
 
-html[lang="ta"] { --text: "Noto Sans Tamil", "Mukta", system-ui, sans-serif; --display: "Noto Serif Tamil", "Noto Sans Tamil", serif; }
-html[lang="bn"] { --text: "Noto Sans Bengali", "Mukta", system-ui, sans-serif; --display: "Noto Serif Bengali", "Noto Sans Bengali", serif; }
-html[lang="ur"] { --text: "Noto Nastaliq Urdu", "Mukta", serif; --display: "Noto Nastaliq Urdu", serif; }
+html[lang="ta"] { --text: "Noto Sans Tamil", "IBM Plex Sans", system-ui, sans-serif; --display: "Noto Serif Tamil", "Noto Sans Tamil", serif; }
+html[lang="bn"] { --text: "Noto Sans Bengali", "IBM Plex Sans", system-ui, sans-serif; --display: "Noto Serif Bengali", "Noto Sans Bengali", serif; }
+html[lang="ur"] { --text: "Noto Nastaliq Urdu", "IBM Plex Sans", serif; --display: "Noto Nastaliq Urdu", serif; }
 html[lang="ur"] body { line-height: 2.05; }
 
 * { box-sizing: border-box; }
 html { overflow-x: clip; scroll-padding-top: 80px; }
-body { margin: 0; background: var(--ground); color: var(--ink); font: 17px/1.6 var(--text); overflow-x: clip; }
+body { margin: 0; background: var(--ground); color: var(--ink); font: 16.5px/1.62 var(--text); overflow-x: clip; }
 .wrap { max-width: 1120px; margin-inline: auto; padding-inline: 16px; }
 @media (min-width: 720px) { .wrap { padding-inline: 28px; } }
 a { color: var(--ink); text-underline-offset: 3px; }
@@ -56,8 +57,8 @@ a { color: var(--ink); text-underline-offset: 3px; }
 
 .top { position: sticky; top: 0; z-index: 5; background: var(--ground); border-bottom: 2px dashed var(--thread); }
 .top-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding-block: 10px; }
-.mark { font: 400 26px/1 var(--display); text-decoration: none; letter-spacing: .01em; }
-html[lang="ur"] .mark { font-family: "Rozha One", serif; }
+.mark { font: 600 25px/1 var(--display); letter-spacing: -.01em; text-decoration: none; letter-spacing: .01em; }
+html[lang="ur"] .mark { font-family: "IBM Plex Serif", serif; }
 .nav { display: flex; flex-wrap: wrap; gap: 4px 16px; font-weight: 600; font-size: 16px; }
 .nav a { text-decoration: none; padding: 4px 0; }
 .nav a:hover { text-decoration: underline; }
@@ -73,19 +74,19 @@ html[lang="ur"] .mark { font-family: "Rozha One", serif; }
 .stitch { height: 3px; margin-block: 8px; background: repeating-linear-gradient(90deg, var(--red) 0 10px, transparent 10px 17px); background-clip: content-box; }
 
 .hero { padding-block: 40px 20px; display: grid; gap: 14px; }
-.kicker { margin: 0; font: 600 13.5px/1.4 ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+.kicker { margin: 0; font: 500 13px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
 html[lang='ur'] .kicker, html[lang='ta'] .kicker, html[lang='bn'] .kicker, html[lang='hi'] .kicker, html[lang='mr'] .kicker { font-family: var(--text); letter-spacing: 0; }
-h1 { margin: 0; font: 400 clamp(32px, 6vw, 60px)/1.08 var(--display); max-width: 20ch; text-wrap: balance; }
+h1 { margin: 0; font: 600 clamp(30px, 5.2vw, 54px)/1.12 var(--display); letter-spacing: -.015em; max-width: 22ch; text-wrap: balance; }
 html[lang="ur"] h1 { line-height: 1.6; }
 .lead { margin: 0; font-size: clamp(18px, 2.3vw, 21px); max-width: 60ch; color: var(--soft); }
 .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 10px; }
 .fig { background: var(--cloth); padding: 20px 20px 16px; border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; display: grid; gap: 4px; align-content: start; }
-.fig b { font: 400 clamp(32px, 4.4vw, 44px)/1.05 var(--display); color: var(--red); font-variant-numeric: tabular-nums; }
+.fig b { font: 600 clamp(30px, 4vw, 40px)/1.05 var(--display); letter-spacing: -.01em; color: var(--red); font-variant-numeric: tabular-nums; }
 .fig span { color: var(--soft); font-size: 15.5px; }
 
 .sec { padding-block: 34px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
 .sec > * { min-width: 0; }
-h2 { margin: 0; font: 400 clamp(26px, 3.8vw, 38px)/1.15 var(--display); text-wrap: balance; }
+h2 { margin: 0; font: 600 clamp(24px, 3.4vw, 34px)/1.2 var(--display); letter-spacing: -.01em; text-wrap: balance; }
 h3 { margin: 10px 0 0; font-size: 19px; font-weight: 700; }
 html[lang="ur"] h2 { line-height: 1.7; }
 .intro { margin: 0; max-width: 68ch; }
@@ -145,7 +146,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .mult h3 { margin: 0; font-size: 16px; line-height: 1.3; }
 .mult .law { font-size: 13px; color: var(--soft); }
 .mult svg { width: 100%; height: auto; display: block; }
-.mult .last { font: 400 26px/1 var(--display); color: var(--red); font-variant-numeric: tabular-nums; }
+.mult .last { font: 600 24px/1 var(--display); color: var(--red); font-variant-numeric: tabular-nums; }
 .mult p { margin: 0; font-size: 13.5px; color: var(--soft); }
 
 .read .limits { margin: 0; padding-inline-start: 1.3em; display: grid; gap: 10px; max-width: 72ch; }
@@ -173,7 +174,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
 
 /* Big figure inside the stitched field */
 .fieldbig { margin: 0; display: grid; gap: 2px; }
-.fieldbig b { font: 400 clamp(44px, 8vw, 76px)/1 var(--display); color: var(--red); font-variant-numeric: tabular-nums; }
+.fieldbig b { font: 600 clamp(40px, 7vw, 68px)/1 var(--display); letter-spacing: -.02em; color: var(--red); font-variant-numeric: tabular-nums; }
 .fieldbig span { font-size: clamp(17px, 2.2vw, 20px); font-weight: 600; }
 .glyph { vertical-align: -3px; margin-inline-end: 6px; }
 .cta { display: inline-block; margin-top: 4px; padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--cloth); font-weight: 700; text-decoration: none; min-height: 44px; }
@@ -213,7 +214,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
   .grid.stack thead { display: none; }
   .grid.stack, .grid.stack tbody { display: block; }
   .grid.stack tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; padding: 10px 12px; border-bottom: 1px dashed var(--thread); }
-  .grid.stack th[scope="row"] { grid-column: 1 / -1; border: 0; padding: 2px 0 6px; font: 400 22px/1.1 var(--display); min-width: 0; }
+  .grid.stack th[scope="row"] { grid-column: 1 / -1; border: 0; padding: 2px 0 6px; font: 600 20px/1.1 var(--display); min-width: 0; }
   .grid.stack td { display: flex; flex-direction: column; align-items: flex-start; text-align: start; white-space: normal; border: 0; padding: 4px 0; }
   .grid.stack td::before { content: attr(data-label); font-size: 12.5px; color: var(--soft); font-weight: 600; }
   .rank { max-height: 420px; }
@@ -223,3 +224,34 @@ html[lang="ur"] h2 { line-height: 1.7; }
   .mult .last { font-size: 22px; }
 }
 @media (max-width: 380px) { .multiples { grid-template-columns: 1fr; } }
+
+html[lang="hi"], html[lang="mr"] { --display: "IBM Plex Sans Devanagari", "IBM Plex Serif", serif; }
+
+/* Protest context */
+.events { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 72ch; border-inline-start: 2px dashed var(--red); }
+.events li { padding: 4px 0 18px 22px; position: relative; }
+.events li::before { content: ""; position: absolute; inset-inline-start: -7px; top: 9px; width: 12px; height: 12px; border-radius: 50%; background: var(--cloth); border: 2px solid var(--red); }
+.events .when { font: 500 13px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
+html:not([lang="en"]) .events .when { font-family: var(--text); letter-spacing: 0; text-transform: none; font-weight: 600; }
+.events p { margin: 4px 0 0; }
+.events .src { font-size: 14px; color: var(--soft); }
+.prdata { padding: 20px 22px; display: grid; gap: 8px; max-width: 72ch; }
+.prdata h3 { margin: 0; }
+.prdata p { margin: 0; }
+
+/* Tooltips */
+.has-tip { text-decoration: underline dotted var(--soft); text-underline-offset: 4px; cursor: help; }
+.tip { position: fixed; z-index: 30; pointer-events: none; background: var(--ink); color: var(--cloth); padding: 9px 12px; border-radius: 6px; font: 400 14px/1.45 var(--text); box-shadow: 0 6px 20px rgba(15, 20, 45, .25); }
+
+/* Tour */
+.ctas { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.cta.ghost { background: transparent; color: var(--ink); border: 1.5px dashed var(--soft); font: 700 16px/1.2 var(--text); cursor: pointer; }
+.tour { position: fixed; z-index: 40; inset-inline: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); max-width: 440px; margin-inline: auto; background: var(--cloth); color: var(--ink); padding: 18px 20px; border-radius: 8px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; box-shadow: 0 12px 40px rgba(15, 20, 45, .3); }
+.tour h2 { font-size: 21px; margin: 2px 0 6px; }
+.tour p { margin: 0; }
+.tour-n { font: 500 12.5px/1.4 var(--mono); color: var(--soft); text-transform: uppercase; letter-spacing: .06em; }
+.tour-b { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.tour-b button { font: 700 15px/1.2 var(--text); padding: 9px 16px; border-radius: 999px; border: 1.5px dashed var(--soft); background: transparent; color: var(--ink); cursor: pointer; min-height: 40px; }
+.tour-b #tourNext { background: var(--ink); color: var(--cloth); border-style: solid; border-color: var(--ink); }
+.tour-b button:disabled { opacity: .45; cursor: default; }
+.tour-on { outline: 3px solid var(--red) !important; outline-offset: 6px !important; border-radius: 6px; }

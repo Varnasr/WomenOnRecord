@@ -1,2 +1,3 @@
-Fonts for the link-preview image: Rozha One and Mukta (SemiBold), Latin
-subsets, from Google Fonts, both under the SIL Open Font Licence 1.1.
+Fonts for the link-preview image: IBM Plex Serif and IBM Plex Sans (SemiBold), Latin
+subset, from Google Fonts. Both are under the SIL Open Font Licence 1.1, which
+allows embedding them in an image.

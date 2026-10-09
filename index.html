@@ -19,7 +19,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Sans+Devanagari:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="css/site.css">
 <script>
   // Theme before first paint, so a dark-mode reader never sees a light flash.
@@ -49,6 +49,7 @@
       <span class="sr" data-i18n="menu">Menu</span>
     </button>
     <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#protests" data-i18n="nav.protests">Protests</a>
       <a href="#courts" data-i18n="nav.courts">Courts</a>
       <a href="#states" data-i18n="nav.states">States</a>
       <a href="#crimes" data-i18n="nav.crimes">Crimes</a>
@@ -81,7 +82,34 @@
     <h1 data-i18n="hero.title">Crimes against women in India, as police and courts recorded them</h1>
     <p class="lead" data-i18n="hero.lead">This site covers every state and union territory from 2020 to 2024, using the National Crime Records Bureau's Crime in India reports. It counts the cases that reached a police station and were written down there, and many crimes against women never reach a police station.</p>
     <div class="figs" id="heroFigs"></div>
-    <p><a class="cta" href="#states" data-i18n="hero.explore">Explore the data</a></p>
+    <p class="ctas"><a class="cta" href="#states" data-i18n="hero.explore">Explore the data</a>
+      <button class="cta ghost" id="tourBtn" type="button" data-i18n="tour.start">Take the tour</button></p>
+  </section>
+
+  <div class="stitch wrap" aria-hidden="true"></div>
+
+  <section class="wrap sec" id="protests" aria-labelledby="h-protests">
+    <h2 id="h-protests" data-i18n="pr.h">The protests of September 2026</h2>
+    <p class="intro" data-i18n="pr.intro">In the third week of September 2026, cases of sexual violence against girls in Bihar and Delhi, reported days apart, brought students and women's groups onto the streets. This section sets out what was reported and names the outlet that reported it. It leaves out any detail that could identify the girls.</p>
+    <ol class="events">
+      <li><span class="when" data-i18n="pr.1.when">19 September · Jamui, Bihar</span><p data-i18n="pr.1">A schoolgirl and a schoolboy, both minors, were stopped by a group of men on a road in Jamui district in the evening. The men groped and harassed the girl and beat the boy. A video of the assault circulated two days later, and the police registered a case under the POCSO Act on their own initiative. The Hindu reported that all seven accused had been arrested.</p>
+        <p class="src"><a href="https://www.thehindu.com/news/national/bihar/two-class-10-students-a-girl-and-a-boy-groped-and-harassed-in-bihars-jamui-sparking-a-political-row/article71491560.ece">The Hindu</a> · <a href="https://indianexpress.com/article/india/bihar-boy-girl-coaching-assault-molested-10887006/">The Indian Express</a> · <a href="https://www.bbc.com/news/articles/cmz6z2vx65jeo">BBC</a></p></li>
+      <li><span class="when" data-i18n="pr.2.when">September · Samastipur, Bihar</span><p data-i18n="pr.2">Days later a second video, from Samastipur district, showed a group of young men surrounding and harassing a girl who appeared to be a minor. The Times of India reported that the police arrested four men.</p>
+        <p class="src"><a href="https://timesofindia.indiatimes.com/city/patna/after-jamui-another-girl-molested-on-camera-in-samastipur-4-nabbed/articleshow/134450762.cms">The Times of India</a></p></li>
+      <li><span class="when" data-i18n="pr.3.when">September · South Delhi</span><p data-i18n="pr.3">In the same week a girl of 17 was allegedly gang-raped by three men in a park in south Delhi, near Lady Shri Ram College. The News Mill, reporting with ANI, said that arrests were made.</p>
+        <p class="src"><a href="https://thenewsmill.com/2026/09/students-demand-better-safety-and-education-after-kalkaji-gang-rape/">The News Mill and ANI</a></p></li>
+      <li><span class="when" data-i18n="pr.4.when">25 September · Delhi University</span><p data-i18n="pr.4">Students of Lady Shri Ram College, Gargi College, Miranda House and Kamala Nehru College marched for the second time in a week. About 200 students marched near August Kranti Marg and then met on Siri Fort Road to draft a charter of demands, The Indian Express reported.</p>
+        <p class="src"><a href="https://indianexpress.com/article/cities/delhi/du-students-protest-womens-safety-delhi-10894166/">The Indian Express</a></p></li>
+      <li><span class="when" data-i18n="pr.5.when">What the students asked for</span><p data-i18n="pr.5">Lady Shri Ram College briefly moved its classes online. The organisers criticised a reported move by the Delhi Development Authority to bar women from public parks after sunset, and stricter hostel and PG curfews. They asked for working street lights, more patrolling, accessible bus and metro passes, the education of men and boys, and the punishment of offenders.</p>
+        <p class="src"><a href="https://indianexpress.com/article/cities/delhi/du-students-protest-womens-safety-delhi-10894166/">The Indian Express</a> · <a href="https://thenewsmill.com/2026/09/students-demand-better-safety-and-education-after-kalkaji-gang-rape/">The News Mill and ANI</a> · <a href="https://www.theguardian.com/world/2026/sep/28/this-is-india-violence-against-women">The Guardian</a></p></li>
+    </ol>
+    <div class="cloth prdata">
+      <h3 data-i18n="pr.data.h">What the police and court records say about Delhi, Bihar and India</h3>
+      <p id="prDelhi"></p>
+      <p id="prBihar"></p>
+      <p id="prIndia"></p>
+    </div>
+    <p class="note" data-i18n="pr.note">The reports above come from the outlets named, and She Counts has not confirmed them independently. NCRB publishes each year's figures well over a year later, so none of these cases is in the data on this site.</p>
   </section>
 
   <div class="stitch wrap" aria-hidden="true"></div>
@@ -209,6 +237,17 @@
   </div>
 </footer>
 
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<div class="tour" id="tour" role="dialog" aria-modal="false" aria-labelledby="tourTitle" hidden>
+  <p class="tour-n" id="tourN"></p>
+  <h2 id="tourTitle"></h2>
+  <p id="tourText"></p>
+  <div class="tour-b">
+    <button type="button" id="tourBack" data-i18n="tour.back">Back</button>
+    <button type="button" id="tourNext" data-i18n="tour.next">Next</button>
+    <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
+  </div>
+</div>
 <script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 </body>
