@@ -1,11 +1,13 @@
-/* She Counts. Kantha: indigo thread on cloth, madder red for the outcome that
-   matters, turmeric only as a fill. Running stitch is every rule and gridline. */
+/* She Counts. A plain report: white paper, near-black ink, grey hairlines.
+   Indigo is the data, madder red the outcome that matters, turmeric only a
+   fill. The kantha stitch survives in one place, the field of cases before
+   the courts, where each stitch is a count. */
 :root {
-  --ground: #eef0f6;
+  --ground: #fafaf8;
   --cloth: #ffffff;
-  --ink: #1f2a5c;
-  --soft: #4a557f;
-  --thread: #8a93b8;
+  --ink: #17191e;
+  --soft: #4d5260;
+  --thread: #d4d6dc;
   --red: #a3243b;
   --turmeric: #d99a00;
   --knot: #3c4a8a;
@@ -19,14 +21,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ground: #12172e; --cloth: #1a2142; --ink: #e7e9f5; --soft: #aeb6d8; --thread: #5d679a;
+    --ground: #121316; --cloth: #1a1c20; --ink: #eceef2; --soft: #aab0bd; --thread: #383c45;
     --red: #f08a9b; --turmeric: #e6b234; --knot: #8f9ddd; --knot-open: #4b5587; --focus: #f08a9b;
     --q1: #2a3263; --q2: #3f4c8f; --q3: #6474bd; --q4: #9aa7e0; --q5: #dfe4fb;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --ground: #12172e; --cloth: #1a2142; --ink: #e7e9f5; --soft: #aeb6d8; --thread: #5d679a;
+  --ground: #121316; --cloth: #1a1c20; --ink: #eceef2; --soft: #aab0bd; --thread: #383c45;
   --red: #f08a9b; --turmeric: #e6b234; --knot: #8f9ddd; --knot-open: #4b5587; --focus: #f08a9b;
   --q1: #2a3263; --q2: #3f4c8f; --q3: #6474bd; --q4: #9aa7e0; --q5: #dfe4fb;
   color-scheme: dark;
@@ -55,7 +57,7 @@ a { color: var(--ink); text-underline-offset: 3px; }
 .band-hatch { stroke: var(--ink); stroke-width: 1.4; }
 .band-line { stroke: var(--ink); stroke-width: 2; }
 
-.top { position: sticky; top: 0; z-index: 5; background: var(--ground); border-bottom: 2px dashed var(--thread); }
+.top { position: sticky; top: 0; z-index: 5; background: var(--ground); border-bottom: 1px solid var(--thread); }
 .top-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding-block: 10px; }
 .mark { font: 600 25px/1 var(--display); letter-spacing: -.01em; text-decoration: none; letter-spacing: .01em; }
 html[lang="ur"] .mark { font-family: "IBM Plex Serif", serif; }
@@ -65,9 +67,9 @@ html[lang="ur"] .mark { font-family: "IBM Plex Serif", serif; }
 .controls { margin-inline-start: auto; display: flex; gap: 8px; align-items: center; }
 .lang, .pick select, .state-head select {
   font: 600 15px/1.2 var(--text); color: var(--ink); background: var(--cloth);
-  border: 1.5px dashed var(--soft); border-radius: 6px; padding: 7px 10px; min-height: 40px;
+  border: 1px solid var(--thread); border-radius: 3px; padding: 7px 10px; min-height: 40px;
 }
-.theme { display: inline-grid; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--cloth); border: 1.5px dashed var(--soft); border-radius: 50%; cursor: pointer; }
+.theme { display: inline-grid; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--cloth); border: 1px solid var(--thread); border-radius: 3px; cursor: pointer; }
 .tnote { margin-block: 12px 0; padding: 10px 14px; background: var(--cloth); border-inline-start: 4px solid var(--turmeric); font-size: 15px; }
 
 /* Running stitch */
@@ -80,7 +82,7 @@ h1 { margin: 0; font: 600 clamp(30px, 5.2vw, 54px)/1.12 var(--display); letter-s
 html[lang="ur"] h1 { line-height: 1.6; }
 .lead { margin: 0; font-size: clamp(18px, 2.3vw, 21px); max-width: 60ch; color: var(--soft); }
 .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 10px; }
-.fig { background: var(--cloth); padding: 20px 20px 16px; border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; display: grid; gap: 4px; align-content: start; }
+.fig { background: var(--cloth); padding: 20px 20px 16px; border-radius: 3px; border: 1px solid var(--thread); display: grid; gap: 4px; align-content: start; }
 .fig b { font: 600 clamp(30px, 4vw, 40px)/1.05 var(--display); letter-spacing: -.01em; color: var(--red); font-variant-numeric: tabular-nums; }
 .fig span { color: var(--soft); font-size: 15.5px; }
 
@@ -91,10 +93,10 @@ h3 { margin: 10px 0 0; font-size: 19px; font-weight: 700; }
 html[lang="ur"] h2 { line-height: 1.7; }
 .intro { margin: 0; max-width: 68ch; }
 .note { margin: 0; max-width: 68ch; color: var(--soft); font-size: 15.5px; }
-.cloth { background: var(--cloth); border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; }
+.cloth { background: var(--cloth); border-radius: 3px; border: 1px solid var(--thread); }
 
 .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
-.tabs button { font: 600 15px/1.2 var(--text); color: var(--ink); background: transparent; border: 1.5px dashed var(--soft); border-radius: 999px; padding: 8px 14px; cursor: pointer; min-height: 40px; }
+.tabs button { font: 600 15px/1.2 var(--text); color: var(--ink); background: transparent; border: 1px solid var(--thread); border-radius: 4px; padding: 8px 14px; cursor: pointer; min-height: 40px; }
 .tabs button[aria-selected="true"] { background: var(--ink); color: var(--cloth); border-style: solid; border-color: var(--ink); }
 
 .field { margin: 0; padding: 20px; display: grid; gap: 12px; }
@@ -106,9 +108,9 @@ html[lang="ur"] h2 { line-height: 1.7; }
 
 .table-wrap { overflow-x: auto; background: var(--cloth); border-radius: 4px; }
 .grid { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 15.5px; }
-.grid th, .grid td { padding: 9px 12px; text-align: end; white-space: nowrap; border-bottom: 1px dashed var(--thread); }
+.grid th, .grid td { padding: 9px 12px; text-align: end; white-space: nowrap; border-bottom: 1px solid var(--thread); }
 .grid th:first-child, .grid td:first-child { text-align: start; white-space: normal; min-width: 14em; }
-.grid thead th { font-weight: 700; color: var(--soft); border-bottom: 2px dashed var(--soft); }
+.grid thead th { font-weight: 700; color: var(--soft); border-bottom: 1px solid var(--soft); }
 .grid tbody th { font-weight: 600; }
 .grid td.hl { color: var(--red); font-weight: 700; }
 .grid .sub { display: block; font-weight: 400; color: var(--soft); font-size: 13.5px; }
@@ -152,7 +154,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .read .limits { margin: 0; padding-inline-start: 1.3em; display: grid; gap: 10px; max-width: 72ch; }
 
 .downloads { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-.downloads a { display: grid; gap: 4px; padding: 20px; background: var(--cloth); border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; text-decoration: none; height: 100%; }
+.downloads a { display: grid; gap: 4px; padding: 20px; background: var(--cloth); border-radius: 3px; border: 1px solid var(--thread); text-decoration: none; height: 100%; }
 .downloads a:hover b { text-decoration: underline; }
 .downloads b { font-size: 19px; }
 .downloads span { color: var(--soft); font-size: 15px; }
@@ -162,7 +164,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .srclist { margin: 10px 0 0; padding-inline-start: 1.2em; font-size: 15px; display: grid; gap: 4px; }
 .srclist code { font-size: 12.5px; word-break: break-all; color: var(--soft); }
 
-.foot { margin-top: 30px; border-top: 2px dashed var(--thread); background: var(--cloth); }
+.foot { margin-top: 30px; border-top: 1px solid var(--thread); background: var(--cloth); }
 .foot-in { padding-block: 22px 34px; display: grid; gap: 6px; font-size: 15px; color: var(--soft); }
 .foot-in p { margin: 0; }
 .foot-in b { color: var(--ink); }
@@ -177,15 +179,15 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .fieldbig b { font: 600 clamp(40px, 7vw, 68px)/1 var(--display); letter-spacing: -.02em; color: var(--red); font-variant-numeric: tabular-nums; }
 .fieldbig span { font-size: clamp(17px, 2.2vw, 20px); font-weight: 600; }
 .glyph { vertical-align: -3px; margin-inline-end: 6px; }
-.cta { display: inline-block; margin-top: 4px; padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--cloth); font-weight: 700; text-decoration: none; min-height: 44px; }
+.cta { display: inline-block; margin-top: 4px; padding: 12px 22px; border-radius: 4px; background: var(--ink); color: var(--cloth); font-weight: 700; text-decoration: none; min-height: 44px; }
 .cta:hover { text-decoration: underline; }
-.menu { display: none; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--cloth); border: 1.5px dashed var(--soft); border-radius: 8px; cursor: pointer; }
+.menu { display: none; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--cloth); border: 1px solid var(--thread); border-radius: 3px; cursor: pointer; }
 @media (max-width: 720px) {
   .top-in { flex-wrap: nowrap; }
   .mark { font-size: 24px; }
   .menu { display: inline-grid; order: 3; }
   .controls { order: 2; }
-  .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 2px dashed var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
+  .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 1px solid var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
   .nav.open { display: flex; }
   .nav a { padding: 10px 0; font-size: 18px; }
   .top { position: sticky; }
@@ -213,7 +215,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
   /* tables of outcomes become one card per year */
   .grid.stack thead { display: none; }
   .grid.stack, .grid.stack tbody { display: block; }
-  .grid.stack tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; padding: 10px 12px; border-bottom: 1px dashed var(--thread); }
+  .grid.stack tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; padding: 10px 12px; border-bottom: 1px solid var(--thread); }
   .grid.stack th[scope="row"] { grid-column: 1 / -1; border: 0; padding: 2px 0 6px; font: 600 20px/1.1 var(--display); min-width: 0; }
   .grid.stack td { display: flex; flex-direction: column; align-items: flex-start; text-align: start; white-space: normal; border: 0; padding: 4px 0; }
   .grid.stack td::before { content: attr(data-label); font-size: 12.5px; color: var(--soft); font-weight: 600; }
@@ -228,7 +230,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
 html[lang="hi"], html[lang="mr"] { --display: "IBM Plex Sans Devanagari", "IBM Plex Serif", serif; }
 
 /* Protest context */
-.events { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 72ch; border-inline-start: 2px dashed var(--red); }
+.events { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; max-width: 72ch; border-inline-start: 2px solid var(--thread); }
 .events li { padding: 4px 0 18px 22px; position: relative; }
 .events li::before { content: ""; position: absolute; inset-inline-start: -7px; top: 9px; width: 12px; height: 12px; border-radius: 50%; background: var(--cloth); border: 2px solid var(--red); }
 .events .when { font: 500 13px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
@@ -241,20 +243,20 @@ html:not([lang="en"]) .events .when { font-family: var(--text); letter-spacing: 
 
 /* Tooltips */
 .has-tip { text-decoration: underline dotted var(--soft); text-underline-offset: 4px; cursor: help; }
-.tip { position: fixed; z-index: 30; pointer-events: none; background: var(--ink); color: var(--cloth); padding: 9px 12px; border-radius: 6px; font: 400 14px/1.45 var(--text); box-shadow: 0 6px 20px rgba(15, 20, 45, .25); }
+.tip { position: fixed; z-index: 30; pointer-events: none; background: var(--ink); color: var(--cloth); padding: 9px 12px; border-radius: 3px; font: 400 14px/1.45 var(--text); box-shadow: 0 6px 20px rgba(15, 20, 45, .25); }
 
 /* Tour */
 .ctas { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
-.cta.ghost { background: transparent; color: var(--ink); border: 1.5px dashed var(--soft); font: 700 16px/1.2 var(--text); cursor: pointer; }
-.tour { position: fixed; z-index: 40; inset-inline: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); max-width: 440px; margin-inline: auto; background: var(--cloth); color: var(--ink); padding: 18px 20px; border-radius: 8px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; box-shadow: 0 12px 40px rgba(15, 20, 45, .3); }
+.cta.ghost { background: transparent; color: var(--ink); border: 1px solid var(--thread); font: 700 16px/1.2 var(--text); cursor: pointer; }
+.tour { position: fixed; z-index: 40; inset-inline: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); max-width: 440px; margin-inline: auto; background: var(--cloth); color: var(--ink); padding: 18px 20px; border-radius: 3px; border: 1px solid var(--thread); box-shadow: 0 12px 40px rgba(15, 20, 45, .3); }
 .tour h2 { font-size: 21px; margin: 2px 0 6px; }
 .tour p { margin: 0; }
 .tour-n { font: 500 12.5px/1.4 var(--mono); color: var(--soft); text-transform: uppercase; letter-spacing: .06em; }
 .tour-b { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
-.tour-b button { font: 700 15px/1.2 var(--text); padding: 9px 16px; border-radius: 999px; border: 1.5px dashed var(--soft); background: transparent; color: var(--ink); cursor: pointer; min-height: 40px; }
+.tour-b button { font: 700 15px/1.2 var(--text); padding: 9px 16px; border-radius: 4px; border: 1px solid var(--thread); background: transparent; color: var(--ink); cursor: pointer; min-height: 40px; }
 .tour-b #tourNext { background: var(--ink); color: var(--cloth); border-style: solid; border-color: var(--ink); }
 .tour-b button:disabled { opacity: .45; cursor: default; }
-.tour-on { outline: 3px solid var(--red) !important; outline-offset: 6px !important; border-radius: 6px; }
+.tour-on { outline: 3px solid var(--red) !important; outline-offset: 6px !important; border-radius: 3px; }
 
 /* ---------- pages ---------- */
 .page { display: block; }
@@ -267,7 +269,7 @@ html:not([lang="en"]) .events .when { font-family: var(--text); letter-spacing: 
   body.has-toc .toc { display: block; grid-column: 1; grid-row: 1; position: sticky; top: 92px; align-self: start; margin-top: 44px; font-size: 14.5px; }
   .toc p { margin: 0 0 8px; font: 500 12.5px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--soft); }
   html:not([lang="en"]) .toc p { font-family: var(--text); text-transform: none; letter-spacing: 0; }
-  .toc ol { list-style: none; margin: 0; padding: 0 0 0 12px; border-inline-start: 2px dashed var(--thread); display: grid; gap: 8px; }
+  .toc ol { list-style: none; margin: 0; padding: 0 0 0 12px; border-inline-start: 1px solid var(--thread); display: grid; gap: 8px; }
   .toc a { text-decoration: none; color: var(--soft); }
   .toc a:hover { color: var(--ink); text-decoration: underline; }
 }
@@ -283,7 +285,7 @@ main > .stitch { margin-block: 4px; }
 
 /* home cards */
 .cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-.card a { display: grid; gap: 6px; align-content: start; height: 100%; padding: 22px 22px 20px; background: var(--cloth); border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; text-decoration: none; }
+.card a { display: grid; gap: 6px; align-content: start; height: 100%; padding: 22px 22px 20px; background: var(--cloth); border-radius: 3px; border: 1px solid var(--thread); text-decoration: none; }
 .card a:hover b { text-decoration: underline; }
 .card .kick { font: 500 12.5px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--soft); }
 html:not([lang="en"]) .card .kick { font-family: var(--text); text-transform: none; letter-spacing: 0; font-weight: 600; }
@@ -305,7 +307,7 @@ html:not([lang="en"]) .card .kick { font-family: var(--text); text-transform: no
 .chart .band:hover { fill-opacity: .55; }
 .chart .legend li { display: inline-flex; align-items: center; }
 .flowkey { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 10px; counter-reset: st; }
-.flowkey > li { border-top: 1px dashed var(--thread); padding-top: 8px; }
+.flowkey > li { border-top: 1px solid var(--thread); padding-top: 8px; }
 .flowkey ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
 .flowkey ul li { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; font-size: 14.5px; }
 .flowkey i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
@@ -322,7 +324,7 @@ html:not([lang="en"]) .card .kick { font-family: var(--text); text-transform: no
 .slope .lab { font-size: 12.5px; font-weight: 700; }
 
 .placelist { list-style: none; margin: 0; padding: 0; columns: 3 220px; column-gap: 28px; }
-.placelist li { padding: 5px 0; border-bottom: 1px dashed var(--thread); break-inside: avoid; }
+.placelist li { padding: 5px 0; border-bottom: 1px solid var(--thread); break-inside: avoid; }
 .placelist a { text-decoration: none; font-weight: 600; }
 .placelist a:hover { text-decoration: underline; }
 .rank .row { box-sizing: border-box; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; align-items: center; width: 100%; padding: 5px 6px; border-radius: 4px; font-size: 15.5px; text-decoration: none; }
@@ -337,7 +339,7 @@ a.mult:hover h3 { text-decoration: underline; }
 .sortable thead button { all: unset; cursor: pointer; font: inherit; color: inherit; }
 .sortable thead button:focus-visible { outline: 3px solid var(--focus); }
 .sortable thead th[aria-sort] button { color: var(--ink); text-decoration: underline; }
-.grid tr.total th, .grid tr.total td { font-weight: 700; border-top: 2px dashed var(--soft); }
+.grid tr.total th, .grid tr.total td { font-weight: 700; border-top: 1px solid var(--soft); }
 @media (max-width: 600px) {
   .chart { padding: 14px 12px 12px; }
   .phead { padding-block: 24px 4px; }
@@ -354,3 +356,14 @@ details.every[open] summary { margin-bottom: 8px; }
    page an SVG inherits direction: rtl, which reverses text-anchor and pushes
    labels off the chart. Text inside still shapes in its own script. */
 .chart svg, .slope svg, .mult svg, .cardviz, .map svg { direction: ltr; }
+
+/* Plain report: no hatched strip, no running-stitch rules between sections. */
+svg.band { display: none; }
+.stitch { height: 0; margin-block: 8px; background: none; border-top: 1px solid var(--thread); }
+.top { box-shadow: none; }
+.mark { white-space: nowrap; }
+@media (max-width: 720px) { .mark { font-size: 22px; } .lang { padding: 7px 8px; } }
+.fig b, .card b { letter-spacing: -.01em; }
+.cloth, .fig, .card a, .downloads a { box-shadow: none; }
+.tabs button[aria-selected="true"] { border-color: var(--ink); }
+.tour { box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }

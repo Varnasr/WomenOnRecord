@@ -127,7 +127,7 @@
     var o = pc('RAPE', 'All India', 2024);
     $('homeCourts').textContent = t('home.courts.t', { conv: Math.round(o.cr), y: 2024 });
     // a strip of every rape case before the courts in 2024, split by outcome
-    var parts = [['conv', '--red'], ['acq', '--turmeric'], ['dis', '--q2'], ['othc', '--thread'], ['ptr', '--knot-open']], x = 0, g = '';
+    var parts = [['conv', '--red'], ['acq', '--turmeric'], ['dis', '--q2'], ['othc', '--soft'], ['ptr', '--knot-open']], x = 0, g = '';
     parts.forEach(function (p) { var w = o[p[0]] / o.ct * 300; g += '<rect x="' + x.toFixed(1) + '" y="0" width="' + Math.max(1, w).toFixed(1) + '" height="14" fill="var(' + p[1] + ')"/>'; x += w; });
     $('vizCourts').setAttribute('viewBox', '0 0 300 14'); $('vizCourts').innerHTML = g;
     var v = cases('TOTAL', 'All India'), mx = Math.max.apply(null, v);
@@ -164,15 +164,15 @@
       { id: 'pol', col: 1, value: o.inv, label: t('flow.police'), color: '--knot' },
       { id: 'cs', col: 2, value: o.cs, label: t('flow.cs'), color: '--q4' },
       { id: 'earl', col: 2, value: o.earl, label: t('flow.earlier'), color: '--knot-open' },
-      { id: 'fal', col: 2, value: o.fal, label: t('flow.false'), color: '--thread' },
-      { id: 'ins', col: 2, value: o.ins, label: t('flow.insuff'), color: '--thread' },
-      { id: 'othp', col: 2, value: o.othp, label: t('flow.otherp'), color: '--thread' },
+      { id: 'fal', col: 2, value: o.fal, label: t('flow.false'), color: '--soft' },
+      { id: 'ins', col: 2, value: o.ins, label: t('flow.insuff'), color: '--soft' },
+      { id: 'othp', col: 2, value: o.othp, label: t('flow.otherp'), color: '--soft' },
       { id: 'pinv', col: 2, value: o.pinv, label: t('flow.pinv'), color: '--knot-open' },
       { id: 'crt', col: 3, value: o.ct, label: t('flow.court'), color: '--knot' },
       { id: 'conv', col: 4, value: o.conv, label: t('flow.conv'), color: '--red' },
       { id: 'acq', col: 4, value: o.acq, label: t('flow.acq'), color: '--turmeric' },
       { id: 'dis', col: 4, value: o.dis, label: t('flow.dis'), color: '--q2' },
-      { id: 'othc', col: 4, value: o.othc, label: t('flow.otherc'), color: '--thread' },
+      { id: 'othc', col: 4, value: o.othc, label: t('flow.otherc'), color: '--soft' },
       { id: 'ptr', col: 4, value: o.ptr, label: t('flow.ptrial'), color: '--knot-open' }],
       links: [{ s: 'carry', t: 'pol', v: o.carry }, { s: 'new', t: 'pol', v: o.rep },
         { s: 'pol', t: 'cs', v: o.cs }, { s: 'pol', t: 'fal', v: o.fal }, { s: 'pol', t: 'ins', v: o.ins }, { s: 'pol', t: 'othp', v: o.othp }, { s: 'pol', t: 'pinv', v: o.pinv },
@@ -252,7 +252,7 @@
     var share = st.ob === 'done';
     var keys = [{ key: 'conv', label: t('flow.conv'), color: '--red' }, { key: 'acq', label: t('flow.acq'), color: '--turmeric' },
                 { key: 'dis', label: t('flow.dis'), color: '--q2' }];
-    if (!share) keys = keys.concat([{ key: 'othc', label: t('flow.otherc'), color: '--thread' }, { key: 'ptr', label: t('flow.ptrial'), color: '--knot-open' }]);
+    if (!share) keys = keys.concat([{ key: 'othc', label: t('flow.otherc'), color: '--soft' }, { key: 'ptr', label: t('flow.ptrial'), color: '--knot-open' }]);
     var rows = D.years.map(function (y) {
       var o = pc(code, p, y);
       return { label: String(y), parts: keys.map(function (k) { return { key: k.key, value: o[k.key] }; }) };

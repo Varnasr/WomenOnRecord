@@ -31,21 +31,21 @@ html = f"""<!doctype html><meta charset="utf-8"><style>
 @font-face{{font-family:R;font-weight:600;src:url(data:font/woff2;base64,{font('plexserif600-latin.woff2')})}}
 @font-face{{font-family:M;font-weight:600;src:url(data:font/woff2;base64,{font('plexsans600-latin.woff2')})}}
 *{{box-sizing:border-box;margin:0}}
-body{{width:1200px;height:630px;background:#eef0f6;color:#1f2a5c;font-family:M;font-weight:600;position:relative;overflow:hidden}}
-.band{{height:24px;background:#fff repeating-linear-gradient(120deg,transparent 0 6px,#1f2a5c 6px 7.5px,transparent 7.5px 10px);border-top:3px solid #1f2a5c;border-bottom:3px solid #1f2a5c}}
+body{{width:1200px;height:630px;background:#fafaf8;color:#17191e;font-family:M;font-weight:600;position:relative;overflow:hidden}}
+.band{{height:6px;background:#a3243b}}
 .in{{display:grid;grid-template-columns:600px 1fr;gap:56px;padding:44px 64px 0}}
 .mark{{font:600 40px/1 R}}
 h1{{font:600 50px/1.1 R;margin-top:26px}}
-.big{{margin-top:30px;font-size:25px;line-height:1.35;color:#4a557f}}
+.big{{margin-top:30px;font-size:25px;line-height:1.35;color:#4d5260}}
 .big b{{font:600 56px/1 R;color:#a3243b;display:block;margin-bottom:6px}}
-.cloth{{background:#fff;outline:2px dashed #8a93b8;outline-offset:-10px;padding:26px 30px 22px;border-radius:4px;align-self:start;margin-top:4px;justify-self:end}}
+.cloth{{background:#fff;border:1px solid #d4d6dc;padding:26px 30px 22px;border-radius:4px;align-self:start;margin-top:4px;justify-self:end}}
 .grid{{display:grid;grid-template-columns:repeat(10,22px);gap:9px}}
 i{{display:block;width:22px;height:22px;border-radius:50%;background:#3c4a8a}}
 i.conv{{background:#a3243b}} i.acq{{background:none;box-shadow:inset 0 0 0 3px #a3243b}} i.other{{background:#9aa3c6}}
-.leg{{margin-top:14px;font-size:17px;max-width:300px;line-height:1.35;line-height:1.5;color:#4a557f}}
+.leg{{margin-top:14px;font-size:17px;max-width:300px;line-height:1.35;line-height:1.5;color:#4d5260}}
 .leg em{{font-style:normal;color:#a3243b}}
-.foot{{position:absolute;left:64px;right:64px;z-index:2;background:#eef0f6;bottom:30px;display:flex;justify-content:space-between;font-size:21px;color:#4a557f;border-top:3px dashed #a3243b;padding-top:14px}}
-.foot b{{color:#1f2a5c}}
+.foot{{position:absolute;left:64px;right:64px;z-index:2;background:#fafaf8;bottom:30px;display:flex;justify-content:space-between;font-size:21px;color:#4d5260;border-top:1px solid #d4d6dc;padding-top:14px}}
+.foot b{{color:#17191e}}
 </style>
 <div class="band"></div>
 <div class="in"><div>
@@ -54,7 +54,7 @@ i.conv{{background:#a3243b}} i.acq{{background:none;box-shadow:inset 0 0 0 3px #
 <p class="big"><b>{n['pend']} in every 100</b>rape cases before the courts in 2024 were still waiting for a verdict when the year ended.</p>
 </div>
 <div class="cloth"><div class="grid">{knots}</div>
-<p class="leg">1 knot = 1 in 100 cases.<br><em>{n['conv']} convicted</em>, {n['acq']} acquitted or discharged.</p></div></div>
+<p class="leg">Each dot is 1 in 100 cases.<br><em>{n['conv']} convicted</em>, {n['acq']} acquitted or discharged.</p></div></div>
 <div class="foot"><span><b>shecounts.netlify.app</b> · every state, 2020 to 2024</span><span>Source: NCRB, Crime in India 2024</span></div>
 """
 out = os.path.join(HERE, 'card.html')
