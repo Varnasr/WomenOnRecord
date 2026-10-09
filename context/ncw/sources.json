@@ -1,0 +1,810 @@
+{
+ "retrieved_on": "2026-10-09",
+ "documents": [
+  {
+   "id": "ncw_portal",
+   "title": "Statistical Overview of Received Complaints (प्राप्त शिकायतों का सांख्यिकीय अवलोकन)",
+   "publisher": "National Commission for Women, Government of India",
+   "url": "https://ncwapps.nic.in/frmComp_Stat_Overview.aspx",
+   "retrieved_on": "2026-10-09",
+   "method": "ASP.NET form driven by script (work/ncw_fetch.py): Year option (calendar year, not financial year), Report Type 'State Wise' for state totals and 'Nature Wise' with each State selected for categories. Each server response was saved as HTML.",
+   "definitions": {
+    "page_heading": "प्राप्त शिकायतों का सांख्यिकीय अवलोकन / Statistical Overview of Received Complaints",
+    "state_table_heading": "State-Wise Report of the Complaints Received by NCW in the Year : 2024",
+    "nature_table_heading": "Nature-Wise Report of the Complaints Received by NCW in the Year : 2024 from the State Tamil Nadu",
+    "year_selector": "वर्ष / Year (radio option; the alternative is वित्तीय वर्ष / Financial Year)"
+   },
+   "saved_responses": {
+    "ncw_2020_type0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0.html",
+     "sha256": "8d781ed29343aa216590be7be86fec90ea25c433df38e3b910a77fb09d35ba7a"
+    },
+    "ncw_2020_type0_st0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st0.html",
+     "sha256": "0f61150ea26855844fa2e1794131fb3302394ec0c7a816eb9ab5e215debe3c56"
+    },
+    "ncw_2020_type0_st1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st1.html",
+     "sha256": "23fdccb97afb2aa6fcd36b25d6ad139e094da5cd67caf03ceff62649f80bb57b"
+    },
+    "ncw_2020_type0_st10.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st10.html",
+     "sha256": "c9f1e92633644168bfde407ac288c40116f15c62b49362e3cc02122f45fb3600"
+    },
+    "ncw_2020_type0_st11.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st11.html",
+     "sha256": "59c4e70b0c569a239b6f08fda9943b8a13aeacfe82624d066f5e85a34259f0f1"
+    },
+    "ncw_2020_type0_st12.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st12.html",
+     "sha256": "981d193887a9f7b867fe18535d7459a402ffb3c078fa8aed56831587472fb43a"
+    },
+    "ncw_2020_type0_st13.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st13.html",
+     "sha256": "58a8751b44b1ce6690520f6a16b0db75385610b47f1a027f970056bc5712d71a"
+    },
+    "ncw_2020_type0_st14.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st14.html",
+     "sha256": "04d10a7b21cf5e9c2410597426a55371f8f37def82eca2927e78f95db65ccce0"
+    },
+    "ncw_2020_type0_st15.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st15.html",
+     "sha256": "90ddcb0dc5effb7420a6590a27d53d70afce4287fa8e9ac8a0d5f950d5d9cca0"
+    },
+    "ncw_2020_type0_st16.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st16.html",
+     "sha256": "76c4e1425d6e2f32626c9722006e2fabd1f7ae6240b72a4d9c4a3b506b731b56"
+    },
+    "ncw_2020_type0_st17.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st17.html",
+     "sha256": "b41d3341f0158f8f54577ed4b31d882d732050e8703153ad9d3c4c8dd8f47dff"
+    },
+    "ncw_2020_type0_st18.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st18.html",
+     "sha256": "0d7d763ec7d907a4f129210a30da44e690fa2cc9b9aa0e6d2a7a48debfcab7b1"
+    },
+    "ncw_2020_type0_st19.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st19.html",
+     "sha256": "220ebfbcb815e9f7f14abb7eeaffd74dccc98adcf71a507a2ecb7841fc1b3414"
+    },
+    "ncw_2020_type0_st2.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st2.html",
+     "sha256": "d250855153595128d1d0c202b5747166456a60f169ccb8bb06cef392bba78319"
+    },
+    "ncw_2020_type0_st20.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st20.html",
+     "sha256": "5da1a2b76b881b20fc4f7f4081968d382e73a9ad00d6f6514a514d4723eb1a04"
+    },
+    "ncw_2020_type0_st21.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st21.html",
+     "sha256": "a07849baf69b765e2da492009540e8ac328974306bc0ee631c465c75cddb9521"
+    },
+    "ncw_2020_type0_st22.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st22.html",
+     "sha256": "930d529ea964686c6cc4ba1237e993827ae6b1cec42bd6318cf3e80bd58379a5"
+    },
+    "ncw_2020_type0_st23.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st23.html",
+     "sha256": "9e89f58df1d33b76938d73b0d802bfc3c3fa2a99829294e29b948c74881329ab"
+    },
+    "ncw_2020_type0_st24.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st24.html",
+     "sha256": "a089f0e7803795432abf6666b28449ae5afcc6f682b9aa0e6d65199fe28b4210"
+    },
+    "ncw_2020_type0_st25.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st25.html",
+     "sha256": "0cfeef935835e087eb5f33891e36221faf4e47934880cee1d40ad53bd1df8e56"
+    },
+    "ncw_2020_type0_st26.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st26.html",
+     "sha256": "9c8f7d2b2204f54e8e2228360c61fba67f9b5575b520dd0c4746a2a96fcf5041"
+    },
+    "ncw_2020_type0_st27.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st27.html",
+     "sha256": "37a4a1a70e71548c198b120b27e3f8a1ec11bf215664ff79114b2bfe3ee7759e"
+    },
+    "ncw_2020_type0_st28.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st28.html",
+     "sha256": "00540764a96fa503578d04d87d821671f1a2dac65d87ae2b8d7994ec7834b03e"
+    },
+    "ncw_2020_type0_st29.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st29.html",
+     "sha256": "7720bb1a8c6d13c48e01c11468793d73a1e699dd9e3a1e0de5b33d210ab524fb"
+    },
+    "ncw_2020_type0_st3.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st3.html",
+     "sha256": "eb8c99dfaf2ac13e2b078721ab67c0f88a87ab9b2fd85451053acd3e46940c85"
+    },
+    "ncw_2020_type0_st30.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st30.html",
+     "sha256": "59fcdc4978edba751337bff08c2f2aa8c5ba2e8f6b159a8a65c1209105b96258"
+    },
+    "ncw_2020_type0_st31.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st31.html",
+     "sha256": "72ad20d86e3a0ab548f86963847041635f56aaaf12ff34869949fdeb3f70efab"
+    },
+    "ncw_2020_type0_st32.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st32.html",
+     "sha256": "f2baab4add2527338ae37db6173d8be177c99f228923b190a42c0c56f87ef83a"
+    },
+    "ncw_2020_type0_st33.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st33.html",
+     "sha256": "d27d8a2f4dbf3c01cbc37c20e7d32947142f8dad2dc5349dc6df585ff27246a8"
+    },
+    "ncw_2020_type0_st34.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st34.html",
+     "sha256": "480ee3b3c512825bfd90942a52de13208da674a14a412c65260d54d02946588d"
+    },
+    "ncw_2020_type0_st35.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st35.html",
+     "sha256": "9405a04c9c4a94042719841f1f7e95de409dcd20912f0600b4673626dd99e289"
+    },
+    "ncw_2020_type0_st38.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st38.html",
+     "sha256": "ad9f32f50447b6cbeb76bdca232ee5bd9e903b47f9116467e0b2be9493a42a7b"
+    },
+    "ncw_2020_type0_st4.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st4.html",
+     "sha256": "16da0c8723dd8f959e8fd0d02d078fde8be50fcdeb294013c88ed55172f0c65e"
+    },
+    "ncw_2020_type0_st4565.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st4565.html",
+     "sha256": "cdd15d54cebd206baf5b855f9083e5b3397bdd7a55a3e7cbe279f866f9d56320"
+    },
+    "ncw_2020_type0_st5.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st5.html",
+     "sha256": "348fc2044dd8bbe275e459ac2f0985755a3315751e8af43c77e63564b39984e2"
+    },
+    "ncw_2020_type0_st6.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st6.html",
+     "sha256": "77dcafee79e069d84c4bef0e5c80490adb21aaf4333672013a5064a1deac5e8c"
+    },
+    "ncw_2020_type0_st7.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st7.html",
+     "sha256": "d6927223ba9eb1591de364bbf0639be72fcfb986db1820b6235b120772e237b5"
+    },
+    "ncw_2020_type0_st8.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type0_st8.html",
+     "sha256": "6581b0f437f385749a19d151e472095fffa30f81f80d37942328d7ddec440352"
+    },
+    "ncw_2020_type1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2020_type1.html",
+     "sha256": "ed82eea537cad804947e70b6369802f8c7e1ff725b2e35959b8283bb68beec1c"
+    },
+    "ncw_2021_type0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0.html",
+     "sha256": "2f66e47d67eb00e6f280ecf8927b699351105b7f52048514e01ed7061f48db27"
+    },
+    "ncw_2021_type0_st0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st0.html",
+     "sha256": "99ebac4336189602699f11123f181fc452a8bcf9307ad24dcae2117a926cd8d2"
+    },
+    "ncw_2021_type0_st1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st1.html",
+     "sha256": "d34670129f94514c8c82da50055a6b5709168e3a96346b818043e26a9346755c"
+    },
+    "ncw_2021_type0_st10.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st10.html",
+     "sha256": "9f85c03a26164e689be8fb36dd6e1aee3e25507c4417d72920af140c81a81e0a"
+    },
+    "ncw_2021_type0_st11.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st11.html",
+     "sha256": "2a92ef49a7dd339d22b091dd02c22f52a8644e957dc45d5b15898d3a677a416c"
+    },
+    "ncw_2021_type0_st12.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st12.html",
+     "sha256": "5abcdade2cb3974c6470a313adf6344c27af146eb33cf7f5b5ca29e18c857add"
+    },
+    "ncw_2021_type0_st13.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st13.html",
+     "sha256": "37637ca27535fb16ee07a5751cf319e7493b09c7bd26ed391f9453ca0b484f8f"
+    },
+    "ncw_2021_type0_st14.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st14.html",
+     "sha256": "a6caba7b3e88368ccd5b8f434f0d24180c0701aa832fa9c5ded1ca80dfd01bb8"
+    },
+    "ncw_2021_type0_st15.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st15.html",
+     "sha256": "1c989d29d759c1309092caf641bd741ed033210fb83a426d5d0f1c2882fb3cf6"
+    },
+    "ncw_2021_type0_st16.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st16.html",
+     "sha256": "6fd29062db86dae47ab151509feb7473b407f3072076068d356a491b05a35793"
+    },
+    "ncw_2021_type0_st17.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st17.html",
+     "sha256": "ffcda0b22c367007f95d6aece54c40c4f81c7b21472088e4391df21c6d163e02"
+    },
+    "ncw_2021_type0_st18.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st18.html",
+     "sha256": "892119f4d768c8271349f3121f6a7e5adb10d0cff0947af013aaafb44e24e1bc"
+    },
+    "ncw_2021_type0_st19.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st19.html",
+     "sha256": "08a40f0580960ac8cf2063f762d072609c155aee14883c8611d787e940d347c4"
+    },
+    "ncw_2021_type0_st2.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st2.html",
+     "sha256": "8eb5cdc36952f97d8900ffc872262ce3ec82f9664bf15fe98da3ccecf5512393"
+    },
+    "ncw_2021_type0_st20.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st20.html",
+     "sha256": "0b96a49c95ccb2eebadfc15deb5b6daa5d53369f9c6bcfb0446b85ae62064478"
+    },
+    "ncw_2021_type0_st21.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st21.html",
+     "sha256": "e6171299072e6a4767d11965dc5f6437499f5c5e16f3fab4e13ab00ba6d876d5"
+    },
+    "ncw_2021_type0_st22.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st22.html",
+     "sha256": "62f552ce41e265e2ff3a1b1fdc9beb6f1a99029ebf18a2eaadfc463a98d716de"
+    },
+    "ncw_2021_type0_st23.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st23.html",
+     "sha256": "854da496c55e5eddafb89de54dfe66a9e7951fc827c6982003ba803c0ccf2346"
+    },
+    "ncw_2021_type0_st24.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st24.html",
+     "sha256": "2386580d5ece9c32ab2ca66a31ab1686d26b58400e2c6a0d13eb569aaa24f911"
+    },
+    "ncw_2021_type0_st25.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st25.html",
+     "sha256": "554a616eb24f025dc654c6265800d63114674b6232c440c652c0aeabe6f27c47"
+    },
+    "ncw_2021_type0_st26.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st26.html",
+     "sha256": "c97454f61e46a84454a00d9311b88ff8fb4c284e554cad28e9990f4fef40dc45"
+    },
+    "ncw_2021_type0_st27.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st27.html",
+     "sha256": "4f61aedf7635f980de0e6fdaed552e3e275e26560ff93e80ece0e155075a7f1d"
+    },
+    "ncw_2021_type0_st28.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st28.html",
+     "sha256": "deff42e807896050d69f5ec97106ff72e5dd2a7f43c6ef3a10f1d91935115d47"
+    },
+    "ncw_2021_type0_st29.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st29.html",
+     "sha256": "4c204dbcbef9821c27b6e00bf936130823fc717b6bebf666f9ed2a457c4da51f"
+    },
+    "ncw_2021_type0_st3.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st3.html",
+     "sha256": "80db05f62bb278f25181e808673bcb2387d186b7e7f9226d9cbbcfdf63f5af12"
+    },
+    "ncw_2021_type0_st30.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st30.html",
+     "sha256": "144a37d06fecc647a02c9ad5f5dbc9b259ef45e8d89eced9aadf6d577b11681a"
+    },
+    "ncw_2021_type0_st31.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st31.html",
+     "sha256": "75a40b692b9c9567fbe47847296dd497e2aebf9aef572e72462bc43a3192064c"
+    },
+    "ncw_2021_type0_st32.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st32.html",
+     "sha256": "61e41d0437f64bce7edadb83f2aff5040e483613629ea52f9f4ee34b4d00147c"
+    },
+    "ncw_2021_type0_st33.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st33.html",
+     "sha256": "2a8ca7e314d4fd73513d783cd210d77f4f3d9a330beef613f4912d5a739b9f4c"
+    },
+    "ncw_2021_type0_st34.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st34.html",
+     "sha256": "d06099360a35223b38acf1696b2efa72983cc5005e4cf717a992faaab652ab41"
+    },
+    "ncw_2021_type0_st35.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st35.html",
+     "sha256": "53c8ecef4da897557a792940c975f55762bc53de60c4e683a14c9c0fa91c3e36"
+    },
+    "ncw_2021_type0_st38.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st38.html",
+     "sha256": "7db5610e85b3a75603c3d518ae6c4e37cab5d49e368ec1983f6ba78adaf93bc1"
+    },
+    "ncw_2021_type0_st4.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st4.html",
+     "sha256": "90d142245ac5e28cca07fc6d23847b9a0d839bf1966d2b9266df6ba3f3274347"
+    },
+    "ncw_2021_type0_st4565.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st4565.html",
+     "sha256": "11ca0176052f77a6c69b83b7bf80676f1add89e83f59f13f09d3b3f6dcfdb552"
+    },
+    "ncw_2021_type0_st5.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st5.html",
+     "sha256": "a79439619a514b07f6863af2292c1fa47233c8a9534809fbe4586e72eb2ebad3"
+    },
+    "ncw_2021_type0_st6.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st6.html",
+     "sha256": "dbea772b4896d7e322d669c81eddce891d0493022beb56622fe571f8649f58a5"
+    },
+    "ncw_2021_type0_st7.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st7.html",
+     "sha256": "274a14e3e6d13a44e58576ba1b5a55e530bc2f430ed3a336d4b35f59701e3ce0"
+    },
+    "ncw_2021_type0_st8.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type0_st8.html",
+     "sha256": "f6e3bd21bc640a2653903afd92a4c122ee1e813d6af6a277e53cde1bb8893ca7"
+    },
+    "ncw_2021_type1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2021_type1.html",
+     "sha256": "31d4bed3749ac7ffbaf0c10fd0df126923c98cd88124d5d09612052323df886d"
+    },
+    "ncw_2022_type0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0.html",
+     "sha256": "f210978caa14e102addf2c49880d24ad302ac21ef29079895f346a3cc92ff10c"
+    },
+    "ncw_2022_type0_st0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st0.html",
+     "sha256": "d2abfa1e3fa4d0d026c3e27d723dc9f9729dbfebef28e95dd5657d50d4cfdcce"
+    },
+    "ncw_2022_type0_st1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st1.html",
+     "sha256": "98524472e208a79cb725a32187b310455588a45df06e85b441c693c8c38f7136"
+    },
+    "ncw_2022_type0_st10.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st10.html",
+     "sha256": "381964fc55f2ab284d2edca8f93ae0a4f5e702d2932a58b9b80c2d3acb12135e"
+    },
+    "ncw_2022_type0_st11.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st11.html",
+     "sha256": "db58bea057d48c9fb0a06575d7b946ca8d325604a4ce970d92703575ffee0b99"
+    },
+    "ncw_2022_type0_st12.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st12.html",
+     "sha256": "cfc3c930424e20006b794f99aa76a7ebe9cb92d265e9cb1bc8261ad035aab44c"
+    },
+    "ncw_2022_type0_st13.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st13.html",
+     "sha256": "975441850ebd88e7ed56013079eec2c27917f1f91ab460db89688aa7e42058ca"
+    },
+    "ncw_2022_type0_st14.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st14.html",
+     "sha256": "bb3cf15378b42f913d89cdf2c7d36f53837fefcc4433a212e8c3e4ec56062cca"
+    },
+    "ncw_2022_type0_st15.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st15.html",
+     "sha256": "af542440153e4607cf060b43e2cdb15266faa6bf1bc07effec9376176aa91233"
+    },
+    "ncw_2022_type0_st16.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st16.html",
+     "sha256": "da0f396c990e146fcbb9d8230dc9a221a709418ebac161093100ab6e7d99d639"
+    },
+    "ncw_2022_type0_st17.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st17.html",
+     "sha256": "f6db0679533cb436ea90b33cd42a59c363598f34b69092f2a6a680852ff13c3d"
+    },
+    "ncw_2022_type0_st18.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st18.html",
+     "sha256": "8cbab8ac99d14c3801cdd74ced032fbeb5bdf467e9e369cddde1b178bb969501"
+    },
+    "ncw_2022_type0_st19.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st19.html",
+     "sha256": "a7300fef07b4ebe0e8d225d1735c12bf69e85443a2a4f611c43622f3504efade"
+    },
+    "ncw_2022_type0_st2.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st2.html",
+     "sha256": "3c60f01c7f2a1595bb36f91c33c4768b931b76214a12a1ddd241b9d2200fdd28"
+    },
+    "ncw_2022_type0_st20.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st20.html",
+     "sha256": "8e94aa5ccfe21ceb07cd062fcac12a3deefabeb78dbb1117c8f5e6ce7df58a60"
+    },
+    "ncw_2022_type0_st21.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st21.html",
+     "sha256": "fb46f6eca48a9f2aefce85687b010d76f10b639f9db7323d4801e4eff8afb221"
+    },
+    "ncw_2022_type0_st22.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st22.html",
+     "sha256": "82452b9a9b08e52414ef21270a24f8f96d897f9abc8dea144c04ab31d6ba4fe0"
+    },
+    "ncw_2022_type0_st23.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st23.html",
+     "sha256": "08faa5172daa25d625d2d45da51c3964c5e4cefc8c26b3117efee55677401e91"
+    },
+    "ncw_2022_type0_st24.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st24.html",
+     "sha256": "d5a5893d6d4ddf8a312f0a56e4633e29fea5f4baf182352205f5cb93eb6395c1"
+    },
+    "ncw_2022_type0_st25.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st25.html",
+     "sha256": "a1ec7dcd3b154e90a6839be14db548842fa28a320427b1af2a9a7b6d82a01ce9"
+    },
+    "ncw_2022_type0_st26.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st26.html",
+     "sha256": "230b066b250045ccb80ec567c849db583b01ddd174d3abdfb428c5a5c7c9d5fa"
+    },
+    "ncw_2022_type0_st27.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st27.html",
+     "sha256": "67977e3e59ab0e83a24bca2bdc9494af26aa551986471f45c614e1f68ee86b70"
+    },
+    "ncw_2022_type0_st28.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st28.html",
+     "sha256": "0f328da19b228ed4aec11def1989c1eaaac4c07aa3d81f12aec628e157589d47"
+    },
+    "ncw_2022_type0_st29.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st29.html",
+     "sha256": "ca3e73fa8582b767f91e7af7cc9a3368aed843fa88f7d6a99f71874408b93737"
+    },
+    "ncw_2022_type0_st3.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st3.html",
+     "sha256": "3fd51b30ca812efb9034b4c40d97ceb901a5849117f8ad87e4bb807aaf88895d"
+    },
+    "ncw_2022_type0_st30.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st30.html",
+     "sha256": "f135d96c943d1b0e2b0ce7d144caffcb1425c02038bd6e0f7859fa9f905de5fa"
+    },
+    "ncw_2022_type0_st31.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st31.html",
+     "sha256": "9302131a562e02aefe6c7b83e94be1791958019c4bb518b24b95f9213953d9b6"
+    },
+    "ncw_2022_type0_st32.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st32.html",
+     "sha256": "1cb247dd10dce0676c90d8b4ebe3c30c5c190f23f252661ef6cbed3b822cb463"
+    },
+    "ncw_2022_type0_st33.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st33.html",
+     "sha256": "ba22b9fb984dfb76a7e3e26e13342b8f3f9f3582f588ff444a754bcf7df5c762"
+    },
+    "ncw_2022_type0_st34.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st34.html",
+     "sha256": "24c0ebdf40f47cf59214683630ceefeffc36640cbb838ade47778e90624fa477"
+    },
+    "ncw_2022_type0_st35.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st35.html",
+     "sha256": "9bef64e9659a7384f6d828b3fbe82fc7cce4935f46f0f16dbf1e814c52bb783c"
+    },
+    "ncw_2022_type0_st38.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st38.html",
+     "sha256": "36c5983343ea19538e1cbebc4e6dfeee236130e63405fca7cae7634284ba2bbd"
+    },
+    "ncw_2022_type0_st4.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st4.html",
+     "sha256": "312822ccccbc354b7829955ddc422bd2fac0d1c2099804dc2fc34b27fdf9da51"
+    },
+    "ncw_2022_type0_st4565.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st4565.html",
+     "sha256": "1ef733c9d33e2aaacfe7f285d100a3f81b295943a67123b3a62a10d8a37ef930"
+    },
+    "ncw_2022_type0_st5.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st5.html",
+     "sha256": "0cf41bc249312ff137633e267aa9322d08665edd7696708019edabb27d91167d"
+    },
+    "ncw_2022_type0_st6.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st6.html",
+     "sha256": "b65f7227f7534d1c762060419e65e7ab11c8cc2e483ef7e67e975648c0f25bd3"
+    },
+    "ncw_2022_type0_st7.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st7.html",
+     "sha256": "6e840072dd83e2c9a67d7f12b922c140be46d08c1ee1a694d0478ee8c548d150"
+    },
+    "ncw_2022_type0_st8.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type0_st8.html",
+     "sha256": "a8354b6e7254aaefedf564cc98d4d029f928bfd39486ba32c076237a17364139"
+    },
+    "ncw_2022_type1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2022_type1.html",
+     "sha256": "8e13ee830a38914fcac45d2de995e8c916672ae0f6993d402aec5c859c915c6a"
+    },
+    "ncw_2023_type0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0.html",
+     "sha256": "b72a2e61bca12422c31d20e9c382d4d8b12611da45be597c82e5a101ad97f898"
+    },
+    "ncw_2023_type0_st0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st0.html",
+     "sha256": "8ab21d9915fc09b593a786f1e573cf9697fcf53ee495c43ca12fdaf78da60926"
+    },
+    "ncw_2023_type0_st1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st1.html",
+     "sha256": "6704c5d0f937abb9eeb7e4eec5ea29ce97d1d69cdfd877ebfbc1fcac954b4e3f"
+    },
+    "ncw_2023_type0_st10.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st10.html",
+     "sha256": "0027b72a5b28c0583fb6e7ef9e34a8211d7502865758c5fae88c1dcd086548d7"
+    },
+    "ncw_2023_type0_st11.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st11.html",
+     "sha256": "5a71044b8fe516498d616ec2acd3a00ba78e187ea994ec3ccb978506ad1f76ec"
+    },
+    "ncw_2023_type0_st12.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st12.html",
+     "sha256": "e7b30fc0be618cdf4af941bd1d0017c4248e4f092e48bf2410821e3d71786878"
+    },
+    "ncw_2023_type0_st13.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st13.html",
+     "sha256": "be4359d4b090d6dc25372dff00f858fc79a375e7fc33506dcc346b16ff4e6ee1"
+    },
+    "ncw_2023_type0_st14.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st14.html",
+     "sha256": "d27b9a90251368001b554115bd1aeab363efad3d197c648671c548c81802dcbb"
+    },
+    "ncw_2023_type0_st15.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st15.html",
+     "sha256": "75e5ece3d979a33967d9eca6f218d1ad13f1779ba251e8d2b9cf74ec85f90315"
+    },
+    "ncw_2023_type0_st16.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st16.html",
+     "sha256": "ba02d854b7fa845af0cd924077a0e3446d504fb687ffe92075e85bea0a2ce193"
+    },
+    "ncw_2023_type0_st17.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st17.html",
+     "sha256": "4b459d1af3f7008a4f91b8f614d9a1c197273280e870e747f96c083fe91d4d51"
+    },
+    "ncw_2023_type0_st18.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st18.html",
+     "sha256": "7c7c5efdc47a87f4038bd1bd0b3c096f8eb6f80e61314f1ac73b8e49c25f466e"
+    },
+    "ncw_2023_type0_st19.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st19.html",
+     "sha256": "7cc2f259f7496de9d6a1b321d78b5b6eeb827d205f5e12f240890168b6a61b41"
+    },
+    "ncw_2023_type0_st2.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st2.html",
+     "sha256": "3fbeb12bad79c50b7ffd43822abde8186feb8e0f1d1a48b9daf1b3615b599427"
+    },
+    "ncw_2023_type0_st20.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st20.html",
+     "sha256": "d432c045b589d460d98490683633c35b3aa8cf4668aab7ad7e74543f9c56ed35"
+    },
+    "ncw_2023_type0_st21.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st21.html",
+     "sha256": "469d57c5a4f4b8bfbe2901af66ad69b3d77928b25b3e8718faa86a668e544777"
+    },
+    "ncw_2023_type0_st22.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st22.html",
+     "sha256": "da47abf8f02947f7951c75d6ee20f4a433b278b8c975551430c73940373c9245"
+    },
+    "ncw_2023_type0_st23.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st23.html",
+     "sha256": "d5b767c778d0f30c8eeed239553103d5c381453aa06db7588a144bf4b7e69c51"
+    },
+    "ncw_2023_type0_st24.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st24.html",
+     "sha256": "083043e2f2e2221b3eeffb29ae98409b255fa24986209f84ccec172ece753e6f"
+    },
+    "ncw_2023_type0_st25.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st25.html",
+     "sha256": "26291b332073cf3dd4bff834b58e824fb6516023f0f3bb78d43aaddb5faaae13"
+    },
+    "ncw_2023_type0_st26.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st26.html",
+     "sha256": "d2153d7d2e952853b3b4f190948a3fff926ab731c747b30254f866e329960498"
+    },
+    "ncw_2023_type0_st27.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st27.html",
+     "sha256": "728052140e9eb4928bb9c3c261fd628e2c30a5a849e601fcaa45781cae27dcfa"
+    },
+    "ncw_2023_type0_st28.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st28.html",
+     "sha256": "9bb2a9dd288c85b0e82ab287badb348d6c95dd406502ecfe68c53676ebe56fdd"
+    },
+    "ncw_2023_type0_st29.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st29.html",
+     "sha256": "4568de9d49b764e9c217f7c9dacfce6e7e3e7fc22d0c27481942df1277a01dbd"
+    },
+    "ncw_2023_type0_st3.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st3.html",
+     "sha256": "d0af23ca395753a329ab20fea18522857c45f5fba5174704912c89de74bf41af"
+    },
+    "ncw_2023_type0_st30.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st30.html",
+     "sha256": "68a915dafe3958c26dcd316bd8fa9465aeece81eeee33cf6c09dd2eb8b1b8020"
+    },
+    "ncw_2023_type0_st31.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st31.html",
+     "sha256": "c3ed9cdc0bc07b6f747b7eda523cc9fddcc7c85fa918f96ff91f8b4cb98f8fdf"
+    },
+    "ncw_2023_type0_st32.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st32.html",
+     "sha256": "32edc113e26ef2e9927bc317a7900b73d0f36d14a3ebebbaf01306e8c6c93f9b"
+    },
+    "ncw_2023_type0_st33.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st33.html",
+     "sha256": "634de9231207502f8042a6d58604c2a849335be60ee1f72f3d100df87cde3490"
+    },
+    "ncw_2023_type0_st34.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st34.html",
+     "sha256": "a8cd5ed38af24497f8bdaf7c0bfb1bc123f41ab549d216e4a2d517cd0f1b7e33"
+    },
+    "ncw_2023_type0_st35.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st35.html",
+     "sha256": "92ccd87239bb0a488a37b22df107fc7f2e97a11847066d940afc99ca7dd02d67"
+    },
+    "ncw_2023_type0_st38.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st38.html",
+     "sha256": "e8956fba693ba5c8980574ebddca513d1fa8ac729783ef0d85b890a2edd87c3a"
+    },
+    "ncw_2023_type0_st4.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st4.html",
+     "sha256": "5fac44c598251749379eafa98c36d220838520e52cae94b4411dbc43c94957dd"
+    },
+    "ncw_2023_type0_st4565.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st4565.html",
+     "sha256": "1faf599a23c4254a3b84f79b7df97233aa152244f223104dba4942e365b4c896"
+    },
+    "ncw_2023_type0_st5.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st5.html",
+     "sha256": "fe21f1e674baf9235c04c2f7dff5d476150c40b8bd76c3e457c0a2d94e01ae2f"
+    },
+    "ncw_2023_type0_st6.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st6.html",
+     "sha256": "9a6e6dd1e367449d71d0cd49e648578272e8e79f7bfbc8620c093f8897c27cff"
+    },
+    "ncw_2023_type0_st7.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st7.html",
+     "sha256": "58f790930ffce84518fd224bf402746cb160a97d69d1ab18556c07e175a60044"
+    },
+    "ncw_2023_type0_st8.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type0_st8.html",
+     "sha256": "30a73f57cf9024bd750be60262f9112a70c8d52d810e7e0d4f30e70db1f7b3ac"
+    },
+    "ncw_2023_type1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2023_type1.html",
+     "sha256": "37a14df347bb7fab4bdf00bc2918825d35841d4653621485e20c1ce1418b6c76"
+    },
+    "ncw_2024_type0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0.html",
+     "sha256": "025a51e17ec44eee3583f55b004d12cd0458e16facbfa07e3cf83c5ff39fbb2a"
+    },
+    "ncw_2024_type0_st0.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st0.html",
+     "sha256": "5f1c7299a8484ad012dbfc91b7ffc65b0bf31f172baeac7a253628e4235fdd76"
+    },
+    "ncw_2024_type0_st1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st1.html",
+     "sha256": "eb066836613a50c11ad72e3c07e6d7344f4669e1bbb44050db48cda68524efb3"
+    },
+    "ncw_2024_type0_st10.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st10.html",
+     "sha256": "efe3f5774efe34808ada32c73238bc5e95ac20961c29cf1e7e7c7fd07ab22c78"
+    },
+    "ncw_2024_type0_st11.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st11.html",
+     "sha256": "1d2cbf8cd52c3d95ed7e6bed00730ce2ea9e088e538544b4c8394791153d6266"
+    },
+    "ncw_2024_type0_st12.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st12.html",
+     "sha256": "5c0858e35edcdfeccf7fb99f61fd25df6eab688e2cdce8d7c7b6a6c40d15a7c7"
+    },
+    "ncw_2024_type0_st13.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st13.html",
+     "sha256": "e3f28d02f85c1bc5c594cef21fa800b03beb714d34509e7a4dd78818fddd688d"
+    },
+    "ncw_2024_type0_st14.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st14.html",
+     "sha256": "4cf8e3beec04bb05f7cca139fdbad3ab858ad3ccdca2a2ce2d71136730b35a60"
+    },
+    "ncw_2024_type0_st15.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st15.html",
+     "sha256": "e7f7a71451951f3ae412f7db0ba098d27c3f68eb17c7ab9edea7a14f1aff4653"
+    },
+    "ncw_2024_type0_st16.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st16.html",
+     "sha256": "1ad204e735d1abfa99bd121dad23f114e3de9191dca8fe2728f62327ded887a6"
+    },
+    "ncw_2024_type0_st17.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st17.html",
+     "sha256": "3da4b616a0879a33a6a1d70ee1937c602644a918da15275c8eb0b77eddddad1c"
+    },
+    "ncw_2024_type0_st18.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st18.html",
+     "sha256": "f7bbb3d9d88fe81b4a0520ba852ada8d15d2e26e36b47b54e9a2df5577091dd3"
+    },
+    "ncw_2024_type0_st19.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st19.html",
+     "sha256": "54f30279bccf35b5c4e86d8016a6f3681a2bc2cf6b178ba0764d5b879d175394"
+    },
+    "ncw_2024_type0_st2.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st2.html",
+     "sha256": "90a36913de6b01b1869eee1b498803854dcc0cc4806bf8d0554216da13bc581e"
+    },
+    "ncw_2024_type0_st20.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st20.html",
+     "sha256": "51c39c80e76eea6e542851cda91d4cc0de1a15ee53c415f74d288bcd3f1ef3da"
+    },
+    "ncw_2024_type0_st21.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st21.html",
+     "sha256": "29db6bb74ca9a55c8e7381d5a189cd33d3fc2c3dc54d49232c245853fc4463f6"
+    },
+    "ncw_2024_type0_st22.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st22.html",
+     "sha256": "9c8abb6cb3bbd5515e7f8ebd57da51910c59476c893802dc0366a0664691ce00"
+    },
+    "ncw_2024_type0_st23.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st23.html",
+     "sha256": "c02d4c1837310591a764930c4fc2080c9487ac4439c6fbc053c0ea951bd7d354"
+    },
+    "ncw_2024_type0_st24.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st24.html",
+     "sha256": "05cdff92dca50a09a3413afacf37c21fba94c7ea8570d27406e0f3f4d4648360"
+    },
+    "ncw_2024_type0_st25.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st25.html",
+     "sha256": "33f09612a4223c069ac2b7ab186051cd17132798d8bc60601075f01ceca22787"
+    },
+    "ncw_2024_type0_st26.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st26.html",
+     "sha256": "ac5c7cea932525390f2109c9d421f444791fb763e6043b428abf94743dbea8a2"
+    },
+    "ncw_2024_type0_st27.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st27.html",
+     "sha256": "d09dbee931805ea3139e15b34a7cebd112d154d4ed21dcefef683dcbd760db3f"
+    },
+    "ncw_2024_type0_st28.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st28.html",
+     "sha256": "590e3f33f8c8775f56b08e963bac9ef6cd64f6cc3f155e282287a5d3b44d5fc6"
+    },
+    "ncw_2024_type0_st29.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st29.html",
+     "sha256": "f64de2391d92d1e2594c3bc8dc52e9da8dc77afcd2439e724e3f5c78848debc0"
+    },
+    "ncw_2024_type0_st3.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st3.html",
+     "sha256": "2c84f1ff6e7b2b8755a302dd2c95b24db5b9c8e203baa917b7ca496b214d07a3"
+    },
+    "ncw_2024_type0_st30.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st30.html",
+     "sha256": "5c7ae5af973b455654393cf402c681907a4bab1b17e228e18acd3134ea423ac3"
+    },
+    "ncw_2024_type0_st31.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st31.html",
+     "sha256": "e1dcfa48ad402d8d51d644e959d0783d598504121eb621d84ef9791d8a7d418b"
+    },
+    "ncw_2024_type0_st32.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st32.html",
+     "sha256": "0efeadad91acf9481973898064d3b8ec1bd96c1b1776bda198d1f0353a83ad81"
+    },
+    "ncw_2024_type0_st33.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st33.html",
+     "sha256": "bd9f8290347dfecf654fc5456218d6aac64f398ecbe03b847abf002b7555f3d9"
+    },
+    "ncw_2024_type0_st34.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st34.html",
+     "sha256": "340d81044df8d0b704a1dc0587a785f660042d29ccdf79baa535bc244f828a4f"
+    },
+    "ncw_2024_type0_st35.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st35.html",
+     "sha256": "311066eec6dc25bebece70c138d3a67c91adabf9b709e2cabd915b00fad69dd7"
+    },
+    "ncw_2024_type0_st38.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st38.html",
+     "sha256": "cd50ce74e35bc0c3655e3cdfcc8cc8f5771f4f5fa0b9453f1777a2052972b26f"
+    },
+    "ncw_2024_type0_st4.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st4.html",
+     "sha256": "fcbdf15243c7a7434215541aa403e4d31ef8fac39afe9da35ac3f069d00944cf"
+    },
+    "ncw_2024_type0_st4565.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st4565.html",
+     "sha256": "a5a206ccd9711b06ead919626913afab32dfeb832ebe2c8285691c7ef0ce59a2"
+    },
+    "ncw_2024_type0_st5.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st5.html",
+     "sha256": "fcb50855a294be3e14f9124a31e212690cef39e1613c12ccdce901c55a08815f"
+    },
+    "ncw_2024_type0_st6.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st6.html",
+     "sha256": "59fb512fe97fa5723b1907965065e7795329947dec3637d57eec7b63e10ac974"
+    },
+    "ncw_2024_type0_st7.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st7.html",
+     "sha256": "fe15f11fecc5e95c5365ac8ffc858a5f17944a5404422db3fa4edf38698993fe"
+    },
+    "ncw_2024_type0_st8.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type0_st8.html",
+     "sha256": "a0c00d86b40525930eb87fec019958bbea0576e72aacc68b312913c25f7c32ba"
+    },
+    "ncw_2024_type1.html": {
+     "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type1.html",
+     "sha256": "0fea99cf0601f22b78691a823aab32d8b131fcea817dd1c336bf5058c7ef2eef"
+    }
+   }
+  },
+  {
+   "id": "ncw_annual_reports_not_used",
+   "title": "NCW Annual Reports 2023-24 and 2024-25",
+   "url": [
+    "https://cdn.ncw.gov.in/wp-content/uploads/2025/03/NCWAnnualReport20232024Eng.pdf",
+    "https://cdn.ncw.gov.in/wp-content/uploads/2026/05/NCW-2024-25Eng.pdf"
+   ],
+   "status": "Not retrieved: cdn.ncw.gov.in answered 403 (CloudFront 'Request blocked') to this sandbox. They report financial years, so they are not a drop-in for the calendar-year portal figures."
+  }
+ ]
+}

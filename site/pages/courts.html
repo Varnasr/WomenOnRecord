@@ -1,0 +1,41 @@
+<!--page {"url": "/courts/", "out": "courts/index.html", "title_key": "nav.pc", "title": "Police and courts", "desc": "What police and courts in India did with rape, POCSO, dowry death and other cases of crimes against women, 2020 to 2024, from NCRB's tables."} -->
+  <header class="phead">
+    <p class="kicker" data-i18n="nav.pc">Police and courts</p>
+    <h1 data-i18n="pc.h">From the FIR to the verdict</h1>
+    <p class="intro" data-i18n="pc.intro">This page follows cases from the police station to the court, for India as a whole. NCRB publishes these steps for each crime only for the country. For states it publishes them for all crimes against women together, and each state's page shows those figures.</p>
+    <div class="pick">
+      <div class="tabs" role="tablist" aria-label="Crime" id="pcTabs"></div>
+      <label class="yearpick"><span data-i18n="pick.year">Year</span><select id="pcYear"></select></label>
+    </div>
+  </header>
+
+  <section class="sec" id="flow" aria-labelledby="h-flow">
+    <h2 id="h-flow" data-i18n="flow.h">Where the cases went</h2>
+    <p class="intro" id="flowIntro"></p>
+    <figure class="chart cloth"><div id="flowChart" class="flow"></div><figcaption id="flowCap"></figcaption></figure>
+    <p class="note" data-i18n="flow.note">The width of each band is the number of cases. Cases waiting in court from earlier years are NCRB's own count of cases pending trial at the start of the year. A case reaches trial years after it was filed, so this year's verdicts are mostly for cases filed in earlier years.</p>
+  </section>
+
+  <section class="sec" id="courts" aria-labelledby="h-courts">
+    <h2 id="h-courts"></h2>
+    <p class="intro" id="courtsIntro"></p>
+    <figure class="field cloth">
+      <p class="fieldbig" id="fieldBig"></p>
+      <canvas id="field" role="img" aria-labelledby="fieldCap"></canvas>
+      <figcaption id="fieldCap"></figcaption>
+      <ul class="legend" id="fieldLegend"></ul>
+    </figure>
+  </section>
+
+  <section class="sec" id="years" aria-labelledby="h-years">
+    <h2 id="h-years" data-i18n="ob.h">Verdicts, year by year</h2>
+    <div class="tabs" role="tablist" aria-label="Show" id="obMode"></div>
+    <figure class="chart cloth"><div id="obChart"></div><figcaption id="obCap"></figcaption></figure>
+  </section>
+
+  <section class="sec" id="fir" aria-labelledby="h-fir">
+    <h2 id="h-fir" data-i18n="fir.h">After the FIR</h2>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-fir">
+      <table class="grid" id="firTable"></table>
+    </div>
+  </section>

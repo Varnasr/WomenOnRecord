@@ -1,0 +1,40 @@
+[
+ {
+  "title": "Analysis of sitting MPs/MLAs with Declared Cases Related to Crimes against Women 2024",
+  "publisher": "Association for Democratic Reforms (ADR) and National Election Watch (NEW)",
+  "url": "https://adrindia.org/sites/default/files/Analysis_of_Sitting_MPs_and_MLAs_with_Declared_Cases_Related_to_Crimes_against_Women_2024_FinalVer_English.pdf",
+  "landing_page": "https://adrindia.org/Analysis_of_Sitting_MPs_and_MLAs_with_Declared_Cases_Related_to_Crimes_against_Women_2024",
+  "date": "2024-08-21",
+  "retrieved_on": "2026-10-09",
+  "local_file": "downloads/adr/adr_caw_2024.pdf",
+  "sha256": "9aa176e5fe386427b5a4bfbd477889c4b0d1faa213fb8d625909ee64a50c275d",
+  "landing_page_sha256": "caa09edc442427ee422cf45a18d2ce005e1e0747c63be42f82c2bae01090ad91",
+  "pages": 300,
+  "used_for": "adr2024_* rows (state and party tables, pp.7, 9, 10, 11-12)",
+  "quotes": {
+   "basis": "This report analyses 755 out of 776 affidavits of sitting MPs and 3938 out of 4033 sitting MLAs from all the 28 states and 8 union territories of India in the last 5 years.",
+   "affidavits": "This data has been extracted from the affidavits (Form 26) submitted with the ECI and filed by the candidates i.e MP and MLAs in the present report at the time elections held in the years 2019 to 2024.",
+   "status_caveat": "The current status of the criminal cases taken from these affidavits and given the present report is not known and may vary from case to case basis.",
+   "definition_scope": "For the report, ADR has covered following IPC sections under crime against women:",
+   "sections_listed": "326A, 326B (acid attack); 375, 376, 376A, 376B, 376C, 376D, 376E & 376(2)(n) (rape); 354, 354A, 354B, 354C, 354D, 366B, 509, 372, 373, 498A, 498, 493, 304B, 494 (table on pp.3-4)",
+   "rape_definition": "16 sitting MPs/MLAs have declared cases related to rape (IPC Section-376) and Whoever commits rape repeatedly on the same woman ... (IPC Section-376(2)(n)).",
+   "headline": "Out of 755 sitting MPs and 3938 sitting MLAs analysed, 151 sitting MPs/MLAs have declared cases related to crimes against women."
+  }
+ },
+ {
+  "title": "Analysis of Sitting MLAs from 28 State Assemblies and 3 Union Territories of India 2025",
+  "publisher": "Association for Democratic Reforms (ADR) and National Election Watch (NEW)",
+  "url": "https://adrindia.org/sites/default/files/All_India_Sitting_MLAs_Report_2025_English.pdf",
+  "date": "2025-03-17",
+  "retrieved_on": "2026-10-09",
+  "local_file": "downloads/adr/adr_all_india_mlas_2025.pdf",
+  "sha256": "37439cf1b7a0d99d21eb4ba303796b8bed040f0f16893b408aca6a7e94dd79c1",
+  "pages": 373,
+  "used_for": "adr2025_* rows (state table, pp.10-11); MLAs only",
+  "quotes": {
+   "basis": "A total of 4092 MLAs out of 4123 have been analysed across 28 State Assemblies and 3 Union Territories.",
+   "affidavits": "This data has been extracted from affidavits filed by the MLAs prior to contesting their last elections.",
+   "caw": "127 MLAs have declared cases related to crimes against women. Out of 127 MLAs, 13 MLAs have declared cases related to rape (IPC Section-376) and Whoever commits rape repeatedly on the same woman ... (IPC Section-376(2)(n))."
+  }
+ }
+]

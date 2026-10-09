@@ -1,8 +1,51 @@
 # She Counts
 
 Crimes against women in India, as police and courts recorded them, 2020 to
-2024, at shecounts.netlify.app. Static HTML, no framework, no build step for
-the page. Data from NCRB Crime in India, Volume 1, read by script.
+2024, at shecounts.netlify.app. Static HTML, no framework. Data from NCRB Crime
+in India, Volume 1, read by script, and eight context sources beside it.
+
+## Pages
+
+Never edit a built page. `scripts/build_pages.py` writes every page from
+`site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
+first line is `<!--page {json} -->`. Seven pages: home (`index.html`),
+`protests/`, `courts/`, `states/`, `crimes/`, `context/`, `method/`. Two
+sources are templates: `state.html` is written once per state and union
+territory (`states/<slug>/`, 36) and `crime.html` once per crime
+(`crimes/<slug>/`, the 17 in `CRIMES`), with the place or crime in a `data-`
+attribute on `<body>`. The slug rule is in both `build_pages.py` and `js/app.js`
+(`&` becomes "and"); change both or links break. CI runs `--check`.
+
+`js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
+the charts, all plain SVG: `flow` (the sankey on the police and courts page),
+`lines`, `stack` and `slope`. Every chart redraws when its box changes width.
+
+The flow joins the police stage to the court stage through "waiting in court
+from earlier years", computed as cases before the courts less that year's
+charge-sheets. That equals NCRB's own count of cases pending trial from the
+year before, to the case in most years and within 0.1% in the rest; checked for
+every crime and year before the chart was drawn. Do not draw a flow for a crime
+or year where it goes negative.
+
+States are listed alphabetically on every page and never ranked by rate.
+NCRB warns against comparing states on these figures, and the state pages show
+each state against itself (2020 against 2024) and against India.
+
+## Context sources
+
+`context/<source>/` holds each of the eight sources as collected: `data.csv`,
+`sources.json` (addresses, dates, checksums) and `notes.md` (definitions,
+limits and every check run). `scripts/build_context.py` writes
+`data/context.json` for the page and `data/context.csv` for download, changing
+no figure; `build_xlsx.py` writes `downloads/context.xlsx`. Limits each page
+must keep saying: NFHS spousal violence is ever-married women 18 to 49; NCW
+counts complaints, half from Uttar Pradesh; ADSI does not say why anyone died;
+BPR&D is 1 January 2023 (the 2024 edition, about 60 MB, could not be fetched
+from the sandbox); the FTSC conviction rate has no stated denominator and the
+dashboard's undated figure is never shown with a date; NJDG counts cases a
+woman filed, which are not crimes against women; Nirbhaya state figures are
+released and used combined; ADR counts declared pending cases, never
+convictions, and no legislator is named anywhere on the site.
 
 ## Writing rules for everything on this site
 
@@ -36,8 +79,8 @@ preview image, and commit messages.
 
 ## Translations
 
-`i18n/<lang>.json` for hi, ur, ta, bn, mr. English comes from `index.html`
-(the `data-i18n` text) and `i18n/en.json`. Change an English string, then
+`i18n/<lang>.json` for hi, ur, ta, bn, mr. English comes from the page sources
+(the `data-i18n` text in `site/`) and `i18n/en.json`. Change an English string, then
 change all five translations in the same commit; `build_i18n.py --check`
 fails on a missing key or a changed placeholder. No native speaker has read
 the translations yet, and every translated page says so. Numbers stay in
@@ -72,7 +115,9 @@ Traps already met, so nobody meets them again:
 
 ```bash
 python3 scripts/build_data.py && python3 scripts/build_site_data.py
+python3 scripts/build_context.py
 python3 scripts/build_xlsx.py
+python3 scripts/build_pages.py
 python3 scripts/build_i18n.py
 python3 scripts/check.py
 PLAYWRIGHT_CORE=... CHROME=... python3 scripts/og/make_card.py   # preview image

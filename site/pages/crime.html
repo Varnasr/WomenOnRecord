@@ -1,0 +1,31 @@
+<!--page {"template": "crime", "title": "{crime}", "desc": "{crime}: cases recorded in India and in each state, 2020 to 2024, from NCRB's Crime in India."} -->
+  <header class="phead">
+    <p class="kicker"><a href="/crimes/" data-i18n="nav.crimes">Crimes</a> · <span id="crimeLaw"></span></p>
+    <div class="state-head">
+      <h1 id="h-crime"></h1>
+      <label><span class="sr" data-i18n="pick.crime">Crime</span><select id="crimePick"></select></label>
+    </div>
+    <p class="intro" id="crimeIntro"></p>
+  </header>
+
+  <section class="sec" id="trend" aria-labelledby="h-trend">
+    <h2 id="h-trend" data-i18n="trend.h">India, 2020 to 2024</h2>
+    <div class="tabs" role="tablist" aria-label="Show" id="trendMode"></div>
+    <figure class="chart cloth"><div id="trendChart"></div><figcaption id="trendCap"></figcaption></figure>
+    <p class="note" id="crimeNote"></p>
+  </section>
+
+  <section class="sec" id="pc" aria-labelledby="h-pc" hidden>
+    <h2 id="h-pc" data-i18n="flow.h">Where the cases went</h2>
+    <p class="intro" id="flowIntro"></p>
+    <figure class="chart cloth"><div id="flowChart" class="flow"></div><figcaption id="flowCap"></figcaption></figure>
+    <p class="note"><a href="/courts/" data-i18n="crime.more">See every year on the police and courts page</a></p>
+  </section>
+
+  <section class="sec" id="bystate" aria-labelledby="h-bystate">
+    <h2 id="h-bystate" data-i18n="crime.states">In each state</h2>
+    <p class="intro" data-i18n="crime.states.p">States are listed in alphabetical order. Select a column heading to sort by it.</p>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-bystate">
+      <table class="grid sortable" id="crimeStates"></table>
+    </div>
+  </section>

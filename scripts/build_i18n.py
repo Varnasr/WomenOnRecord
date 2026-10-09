@@ -1,7 +1,7 @@
 """Write js/i18n.js from i18n/<lang>.json.
 
-i18n/en.json is the reference. Keys used in index.html (data-i18n) are read
-from the page itself, so the English shown without JavaScript and the English
+i18n/en.json is the reference. Keys used in the pages (data-i18n) are read
+from site/shell.html and site/pages/, so the English shown without JavaScript and the English
 the script applies cannot drift. Every other language must carry every key,
 with the same {placeholders}. Usage: python3 scripts/build_i18n.py [--check]
 """
@@ -36,17 +36,25 @@ class Grab(html.parser.HTMLParser):
 VOID = re.compile(r'<(meta|link|br|img|input|source|line|rect|path|circle)\b[^>]*?>')
 
 def page_keys():
-    src = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
-    src = VOID.sub('', src)
-    g = Grab(); g.feed(src)
-    return g.out
+    """Keys and English text from the shell and every page source. A key used
+    on two pages must carry the same English on both."""
+    out = {}
+    files = [os.path.join(ROOT, 'site', 'shell.html')] + sorted(
+        os.path.join(ROOT, 'site', 'pages', f) for f in os.listdir(os.path.join(ROOT, 'site', 'pages')))
+    for f in files:
+        g = Grab(); g.feed(VOID.sub('', open(f, encoding='utf-8').read()))
+        for k, v in g.out.items():
+            if k in out and out[k] != v:
+                raise SystemExit(f'{os.path.basename(f)} and another page disagree on the English for {k}')
+            out[k] = v
+    return out
 
 def build():
     en = json.load(open(os.path.join(ROOT, 'i18n', 'en.json'), encoding='utf-8'))
     pk = page_keys()
     for k, v in pk.items():
         if k in en and en[k] != v:
-            raise SystemExit(f'en.json and index.html disagree on {k}')
+            raise SystemExit(f'en.json and the pages disagree on {k}')
         en[k] = v
     dicts = {'en': en}
     probs = []

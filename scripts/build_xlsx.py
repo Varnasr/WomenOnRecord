@@ -140,3 +140,38 @@ with open(os.path.join(ROOT, 'downloads', 'codebook.csv'), 'w', newline='', enco
     for k, (lab, ipc, bns) in seen.items(): w.writerow(['crime_code', k, lab + (f'. IPC {ipc}' if ipc else '') + (f'. BNS/Act {bns}' if bns else '')])
     for k, v in FLAGS: w.writerow(['flag', k, v])
 print('wrote downloads/shecounts.xlsx and downloads/codebook.csv')
+
+# The eight context sources, in a workbook of their own: an About sheet, then
+# each source's rows exactly as collected (context/<source>/data.csv).
+CX = [('nfhs', 'NFHS-5', 'National Family Health Survey 2019-21: violence by a husband, sexual violence, and whether women sought help. Percentages of women surveyed.'),
+      ('ncw', 'NCW complaints', 'Complaints received by the National Commission for Women, 2020 to 2024, by state and category. Complaints, not crimes.'),
+      ('adsi', 'ADSI suicides', 'NCRB Accidental Deaths and Suicides in India, 2020 to 2024: suicides of women and of housewives, by state.'),
+      ('bprd', 'BPR&D police', 'Data on Police Organisations as on 1 January 2020 and 2023: strength, women police and women police stations.'),
+      ('ftsc', 'Fast track courts', 'Fast track special courts: courts working, cases pending and decided, conviction rate and central funds, from answers in Parliament.'),
+      ('njdg', 'NJDG', 'National Judicial Data Grid, 9 October 2026: pending cases in district and taluka courts and those filed by a woman. Not crimes against women.'),
+      ('nirbhaya', 'Nirbhaya Fund', 'Nirbhaya Fund allocated and released or used, from answers in Parliament of 12 August 2026.'),
+      ('adr', 'ADR legislators', 'Sitting MPs and MLAs who declared pending cases of crimes against women in election affidavits. Counts only, no names. Not convictions.')]
+cw = Workbook()
+ws = cw.active; ws.title = 'About'
+ws.append(['She Counts: context sources beside the NCRB figures'])
+ws['A1'].font = Font(bold=True, size=14)
+ws.append([])
+ws.append(['Read first', 'Each source measures something different from NCRB recorded crime, so none can be added to NCRB figures or set against them as a rate. Every row carries its source, table and page. The checks run on each source are in context/<source>/notes.md in the repository.'])
+for key, name, what in CX: ws.append([name, what])
+ws.column_dimensions['A'].width = 24; ws.column_dimensions['B'].width = 120
+for r in ws.iter_rows(min_row=3):
+    r[0].font = bold
+    for c in r: c.alignment = Alignment(wrap_text=True, vertical='top')
+for key, name, what in CX:
+    rd = list(csv.reader(open(os.path.join(ROOT, 'context', key, 'data.csv'), encoding='utf-8')))
+    ws = cw.create_sheet(name[:31])
+    header(ws, rd[0])
+    vi = rd[0].index('value')
+    for r in rd[1:]:
+        v = r[vi].replace(',', '')
+        try: r[vi] = float(v) if v not in ('', 'NA') else (None if v == '' else v)
+        except ValueError: pass
+        ws.append(r)
+    ws.auto_filter.ref = ws.dimensions
+    for i in range(1, len(rd[0]) + 1): ws.column_dimensions[get_column_letter(i)].width = 22
+cw.save(os.path.join(ROOT, 'downloads', 'context.xlsx'))

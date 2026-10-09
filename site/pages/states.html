@@ -1,0 +1,35 @@
+<!--page {"url": "/states/", "out": "states/index.html", "title_key": "states.h", "title": "State by state", "desc": "Crimes against women recorded in each Indian state and union territory, 2020 to 2024, with a map for each crime and year."} -->
+  <header class="phead">
+    <p class="kicker" data-i18n="nav.states">States</p>
+    <h1 data-i18n="states.h">State by state</h1>
+    <p class="intro" data-i18n="states.intro">The map shows cases recorded for every lakh women, so that a large state and a small one can be read on the same scale. NCRB warns that states should not be compared on these figures alone, because a high rate can come from more crime or from police who record more of the crime that happens.</p>
+  </header>
+
+  <section class="sec" id="map-sec" aria-labelledby="h-map">
+    <h2 id="h-map" data-i18n="map.h">The map</h2>
+    <div class="pick">
+      <label><span data-i18n="pick.crime">Crime</span>
+        <select id="mapHead"></select></label>
+      <label><span data-i18n="pick.year">Year</span>
+        <select id="mapYear"></select></label>
+      <label><span data-i18n="pick.measure">Show</span>
+        <select id="mapMeasure">
+          <option value="rate" data-i18n="m.rate">Per lakh women</option>
+          <option value="cases" data-i18n="m.cases">Cases</option>
+        </select></label>
+    </div>
+    <div class="maprow">
+      <figure class="map cloth">
+        <svg id="map" role="img" aria-labelledby="mapCap"></svg>
+        <figcaption id="mapCap"></figcaption>
+        <div class="scale" id="mapScale"></div>
+      </figure>
+      <ol class="rank cloth" id="rank" aria-label="States in alphabetical order"></ol>
+    </div>
+    <p class="credit"><span data-i18n="map.credit">Map: DataMeet, CC BY 4.0, following India's official boundary.</span></p>
+  </section>
+
+  <section class="sec" id="all" aria-labelledby="h-all">
+    <h2 id="h-all" data-i18n="states.all">A page for each state and union territory</h2>
+    <ul class="placelist" id="placeList"></ul>
+  </section>

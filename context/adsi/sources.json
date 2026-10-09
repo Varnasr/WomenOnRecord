@@ -1,0 +1,104 @@
+{
+ "sources": [
+  {
+   "title": "Accidental Deaths & Suicides in India 2020: Table 2.7 Profession-wise Distribution of Suicides (State & UT-wise)",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/adsi/sii-table-2.7-state-ut_2020.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb2020/sii-table-2.7-state-ut_2020.pdf",
+   "sha256": "98a5900bb20d2c2d7c286f6fbfd80b97b8d5a15d230ba34c8aa6c2b073892bd5",
+   "note": "Listed on https://www.ncrb.gov.in/accidental-deaths-suicides-in-india-table-content.html?year=2020"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2020: Table 2.9 Social Status-wise Distribution of Suicides (State & UT-wise)",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/adsi/sii-table-2.9-state-ut_2020.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb2020/sii-table-2.9-state-ut_2020.pdf",
+   "sha256": "717c92ba346f016e18cb9635a72ea37b0d6bf685f82775daa218b5d7028ed90b"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2020: Table 2.2 Incidence and Rate of Suicides (State/UT/City-wise)",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/adsi/sii-table-2.2-state-ut-city_2020.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb2020/sii-table-2.2-state-ut-city_2020.pdf",
+   "sha256": "c5d675fe16e8e8ae74ec7658b78b65ece4b8da0368578cfa6bf27b0215da8861"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2020: Table 2.1 Incidence and Rate of Suicides 2010-2020 (All India)",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/adsi/sii-table-2.1_2020.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb2020/sii-table-2.1_2020.pdf",
+   "sha256": "73a16115af1d620102faf35bbcac16f73791e82699675181b64d2a5c6d56761b",
+   "note": "Downloaded, not used for figures."
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2020: Table 2.10 (State & UT-wise)",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/2022/July/11/custom/adsi/sii-table-2.10-state-ut_2020.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb2020/sii-table-2.10-state-ut_2020.pdf",
+   "sha256": "bc237800d31664f040b05817ecc211a8b2dd6c468b09eec793a95164aa47beee",
+   "note": "Downloaded, not used for figures."
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2021 (full report), via OpenCity package national-crime-data-2021",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India; hosted by OpenCity (data.opencity.in)",
+   "url": "https://data.opencity.in/dataset/5a788d6e-5db6-46ae-bd4b-eab8966bd24b/resource/ff42277e-df3b-4e69-a806-915e5bbf19ea/download/15778552-ee18-4fe2-9714-9b4a00169ebc.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ADSI2021.pdf",
+   "sha256": "c939e6bd8e4faeac2f53601d5fa344ef7013aa3580b2578791ead0959fdb24b4"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2022 (full report), via OpenCity package accidental-deaths-and-suicides-in-india-2022",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India; hosted by OpenCity",
+   "url": "https://data.opencity.in/dataset/34d15c0b-11b1-4a7e-ac07-2f13d2345afa/resource/d2a5d256-c128-4d5c-8f57-5fa2d115475b/download/493c904b-d83b-48bc-bf55-678594ffffff.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ADSI2022.pdf",
+   "sha256": "2e5b0658bfc60cfb96eae1bf85f7bac4ff5de6bbfd28c604c182713d9ce2f0bd"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2023 (full report), via OpenCity package accidental-deaths-and-suicides-in-india-2023",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India; hosted by OpenCity",
+   "url": "https://data.opencity.in/dataset/358dab4c-c375-45de-b3a3-68f727badd2b/resource/8643241a-fd14-4526-aadb-ef1e8d3a661a/download/67c48ce7-cfff-4a44-b11a-404fa9708da5.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ADSI2023.pdf",
+   "sha256": "b41d956d80b2e8e46ee70e7b81eb6e39d8e9a156d3455a1e7fe8d50508db2bdb"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2024 (full report), via OpenCity package accidental-deaths-and-suicides-in-india-2024",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India; hosted by OpenCity",
+   "url": "https://data.opencity.in/dataset/70aabcb9-d126-492b-8a84-316f87f31598/resource/5c4317ef-58a4-4c43-85fc-5579eca0fa75/download/1adsipublication-2024.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ADSI2024.pdf",
+   "sha256": "05ac362b7d58d5326c397b9ff3d02ce526218dab39d784cce724f6d58bf0d603"
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2021: Table 2.7 (State & UT-wise), NCRB site copy",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1670845343_Table%202.7%20state-ut.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb_other/ncrb2021_table2.7.pdf",
+   "sha256": "d9acf68bd4baa30a45b4ce09928ab856e6fb63682acd450502e1e748270e2441",
+   "note": "Used to confirm the OpenCity copy of the 2021 report: parsed values identical."
+  },
+  {
+   "title": "Accidental Deaths & Suicides in India 2022: Table 2.7 (State & UT-wise), NCRB site copy",
+   "publisher": "National Crime Records Bureau (NCRB), Ministry of Home Affairs, Government of India",
+   "url": "https://www.ncrb.gov.in/uploads/nationalcrimerecordsbureau/custom/1702020621Table27state-ut.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "adsi/ncrb_other/ncrb2022_table27.pdf",
+   "sha256": "cf12bfdae2ef37a05fdcbee1d19da1417ff4ace69f42cd2e41324655b7ffd486",
+   "note": "Used to confirm the OpenCity copy of the 2022 report: parsed values identical."
+  },
+  {
+   "title": "OpenCity CKAN package metadata (package_show) for the four packages above",
+   "publisher": "OpenCity (data.opencity.in)",
+   "url": "https://data.opencity.in/api/3/action/package_show?id=<name>",
+   "retrieved_on": "2026-10-09",
+   "note": "Packages queried: accidental-deaths-and-suicides-in-india-2022, -2023, -2024, national-crime-data-2021. accidental-deaths-and-suicides-in-india-2020 and -2021 do not exist (Not found)."
+  }
+ ]
+}

@@ -1,0 +1,415 @@
+{
+ "sources": [
+  {
+   "title": "National Family Health Survey (NFHS-5), 2019-21: India (Final Report, FR375)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://dhsprogram.com/pubs/pdf/FR375/FR375.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/FR375.pdf",
+   "sha256": "ce1fa5e3c93e5f0019583688e0431c9ec1c2c028b624a4dd76f07c5f5e81128a",
+   "note": "Chapter 15 Domestic Violence. Table 15.13 (printed p.668, pdf p.704), Table 15.4 (printed p.654, pdf p.690), Table 15.17 (printed p.673-674, pdf p.709-710). PDF ModDate 2023-07-26."
+  },
+  {
+   "title": "National Family Health Survey (NFHS-4), 2015-16: India (Final Report, FR339)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://dhsprogram.com/pubs/pdf/FR339/FR339.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/FR339.pdf",
+   "sha256": "ae829501207767caf54c935f696bb4a39c4ee763f2261d2c1a87ded89cc1e19d",
+   "note": "Section 16.9 text on printed p.572 (pdf p.604); Table 16.17 Total row printed p.596."
+  },
+  {
+   "title": "The DHS Program API: indicator data for IA2020DHS and IA2015DHS (national)",
+   "publisher": "ICF, The DHS Program (USAID)",
+   "url": "https://api.dhsprogram.com/rest/dhs/data?surveyIds=IA2020DHS,IA2015DHS&indicatorIds=DV_SPVL_W_ANY,DV_SPVL_W_POS,DV_SPVL_W_EMT,DV_SPVL_W_PHS,DV_SPVL_W_SEX,DV_SPVL_W_NUM,DV_SPVL_W_UNW,DV_EXSV_W_EVR,DV_EXSV_W_NUM,DV_EXSV_W_UNW,DV_STPV_W_HLP,DV_STPV_W_TLD,DV_STPV_W_NTL,DV_STPV_W_DKM,DV_STPV_W_NUM,DV_EXPV_W_EVR&breakdown=national&perpage=5000&f=json",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/dhs_national.json",
+   "sha256": "6138ad200404286036fc6cb50bbdb1306eab6da25074dbdcc3ef54633682f470",
+   "note": "API responses change when DHS revises data; the hash is of the response saved on the retrieval date."
+  },
+  {
+   "title": "The DHS Program API: indicator data for IA2020DHS and IA2015DHS (subnational)",
+   "publisher": "ICF, The DHS Program (USAID)",
+   "url": "https://api.dhsprogram.com/rest/dhs/data?surveyIds=IA2020DHS,IA2015DHS&indicatorIds=DV_SPVL_W_ANY,DV_SPVL_W_POS,DV_SPVL_W_EMT,DV_SPVL_W_PHS,DV_SPVL_W_SEX,DV_SPVL_W_NUM,DV_SPVL_W_UNW,DV_EXSV_W_EVR,DV_EXSV_W_NUM,DV_EXSV_W_UNW,DV_STPV_W_HLP,DV_STPV_W_TLD,DV_STPV_W_NTL,DV_STPV_W_DKM,DV_STPV_W_NUM,DV_EXPV_W_EVR&breakdown=subnational&perpage=5000&f=json",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/dhs_subnational.json",
+   "sha256": "990cf7755915c798f2d6c591d69f03ad8ee0698c5357819d78e69a620b871042"
+  },
+  {
+   "title": "The DHS Program API: unweighted denominators DV_STPV_W_UNW, DV_SPVL_W_UNW for IA2020DHS",
+   "publisher": "ICF, The DHS Program (USAID)",
+   "url": "https://api.dhsprogram.com/rest/dhs/data?surveyIds=IA2020DHS&indicatorIds=DV_STPV_W_UNW,DV_SPVL_W_UNW&breakdown=all&perpage=5000&f=json",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/dhs_unw.json",
+   "sha256": "8dc172e41f578c1250bf588cc509c4ec8dd35174070bd6dc192f4ba56376abc6"
+  },
+  {
+   "title": "The DHS Program API: indicator catalogue",
+   "publisher": "ICF, The DHS Program (USAID)",
+   "url": "https://api.dhsprogram.com/rest/dhs/indicators?returnFields=IndicatorId,Label,Definition&f=json&perpage=5000",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/indicators.json",
+   "sha256": "e6ac6fc0cd5b05e61077d82716a5bf2055e951c364297519c30923ab59707787"
+  },
+  {
+   "title": "NFHS-5 State Report: Karnataka (FR374)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/FR374/FR374_Karnataka.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/state/FR374_Karnataka.pdf",
+   "sha256": "542fb4cf328c4e14f1fc2683ee771ccc616d28491e04436d1e8b9e05b57fda3b",
+   "note": "Used for cross-checks only: Table 104, Table 106, Table 110."
+  },
+  {
+   "title": "NFHS-5 State Report: Bihar (FR374)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/FR374/FR374_Bihar.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/state/FR374_Bihar.pdf",
+   "sha256": "2aa30b7ea08d2bcc879f41cac52291f27945d018b6fb13f8935dbc952d6715f6",
+   "note": "Used for cross-checks only: Table 104, Table 106, Table 110."
+  },
+  {
+   "title": "NFHS-5 State Report: TamilNadu (FR374)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/FR374/FR374_TamilNadu.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/state/FR374_TamilNadu.pdf",
+   "sha256": "1890888caf1d311d711809068827b32e2ccd6b35b46f278d388f99ff10598a6a",
+   "note": "Used for cross-checks only: Table 104, Table 106, Table 110."
+  },
+  {
+   "title": "NFHS-5 State Report: Assam (FR374)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/FR374/FR374_Assam.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/state/FR374_Assam.pdf",
+   "sha256": "37b6da1c1e8d841921efc2ea84026fb5c681db9bc75e731da021806dd2e5e32d",
+   "note": "Used for cross-checks only: Table 104, Table 106, Table 110."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Andaman & Nicobar Islands (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.AN.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.AN.pdf",
+   "sha256": "304b805d8c7c22968c599b6001b17a8dd6be7b44c5b7ac16e2cf933279515667",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Andhra Pradesh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.AP.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.AP.pdf",
+   "sha256": "e731d8544a25b63cd8d4e9de12ed0743808436555d9b1df3eb573c08417285a0",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Arunachal Pradesh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.AR.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.AR.pdf",
+   "sha256": "82f6923161e02d09d86c2b4e3345d13ec1a25a6bf329991b7cf362e0cc5c0a5a",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Assam (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.AS.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.AS.pdf",
+   "sha256": "f73d1e691a3e433c7e64f1b0b49b731cc7a63437c8b6e8dace48aa802af645b2",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Bihar (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.BR.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.BR.pdf",
+   "sha256": "6d77e029a806e146c53ee3333ff67e5012a78126e3400a68b506fb3182c29ec9",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Chandigarh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.CH.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.CH.pdf",
+   "sha256": "cbc5e8b2d9299f221b1e679d23663f0686b125bc7c752d0fc34ee5f916a2b21a",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Chhattisgarh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.CT.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.CT.pdf",
+   "sha256": "b49f75625e92521da9726cc948af9f98dbdace3a16d562e03ea687e1bc6d2606",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Dadra & Nagar Haveli and Daman & Diu (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.DD.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.DD.pdf",
+   "sha256": "f9de241dca132164a3261e0a3e1f0644ceff46b9b350b194200e2869c681d0f8",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: NCT Delhi (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.DL.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.DL.pdf",
+   "sha256": "bcb8de8aaddd2e217fb268ee19ef32a0f51a498a5473e95403a564b85e83513b",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Goa (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.GA.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.GA.pdf",
+   "sha256": "d6718dcbdf2a03f2f76f3b2d2d97a26a16896df4a1e95b3aebd57b835c9578e9",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Gujarat (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.GJ.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.GJ.pdf",
+   "sha256": "ffa11706e9d6a641979bbcb82eb357a00b66e2a0dcbaaec686706b979906ee8e",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Himachal Pradesh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.HP.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.HP.pdf",
+   "sha256": "2acb4cd5ceba7c7ad701e5c78f9a2de9861b3f7f046a9e48854e4789531b85e5",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Haryana (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.HR.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.HR.pdf",
+   "sha256": "eff971340826b9e86679fe0a76999db9864a1051193353a0b5f4a43cb26155eb",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Jharkhand (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.JH.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.JH.pdf",
+   "sha256": "d858b85f0d20b7c481871045ae0100d6efb0020c8045b1edd1d7a49eee4c7e9c",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Jammu & Kashmir (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.JK.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.JK.pdf",
+   "sha256": "06ad44282997dee42d796feed058cf20217efcc4d72f1ab46f06865734873da0",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Karnataka (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.KA.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.KA.pdf",
+   "sha256": "26842c2fee78202556c9644bd72cd932d430c50f8f23772783cd6efb657d29bd",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Kerala (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.KL.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.KL.pdf",
+   "sha256": "d67cf12494b2f283895d68da843162b9e2c469f9c4f1de3dca3b32b3ea6dc8cb",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Lakshadweep (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.LD.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.LD.pdf",
+   "sha256": "d75b36db408343f3f6cce7128b8c23f17554c708378fb096a44b5d6b9aa7b16e",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Ladakh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.LH.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.LH.pdf",
+   "sha256": "db7de35c025ced867856a088695a046ab66ff31014cdce4e315965d19f27b31b",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Maharashtra (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.MH.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.MH.pdf",
+   "sha256": "8bd73863885f2d3d318c97debc822862315a0a78d6880901dd6ded3384f50d0d",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Meghalaya (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.ML.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.ML.pdf",
+   "sha256": "ed7ab82e54aad1f996ac98e22a75a3bf9fff17155583931807f4b00dd66f631a",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Manipur (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.MN.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.MN.pdf",
+   "sha256": "d3c45dccc3f3ca6fa2e36c93ed9dd1e00801a1bcd29be7deea5d6e6124a72af2",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Madhya Pradesh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.MP.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.MP.pdf",
+   "sha256": "63c735cac966f266e585004d670cc454154e52c557e7bfea73660835bfa2ec6b",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Mizoram (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.MZ.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.MZ.pdf",
+   "sha256": "ef7677138261de62e036c81de6d19f4c7f12684f11f3003edcf6bc12b92f1df2",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Nagaland (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.NL.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.NL.pdf",
+   "sha256": "4cbade7158b0e4f4f98236d81d55f143642c372ee96982f9a52210a2eb27cb95",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Odisha (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.OR.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.OR.pdf",
+   "sha256": "115b2aabde5fd6e639afa7370f7b5a18d2d48b9062012ef48ec639e003d391dd",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Punjab (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.PB.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.PB.pdf",
+   "sha256": "3fcecad151897d38f3598630b6ce471b71b274e85d7133597cd06e5acdbf69e3",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Puducherry (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.PY.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.PY.pdf",
+   "sha256": "1dc36070dcb6e5ef9b4aa296bf4cb861665a28032e865f21b4304780571041d0",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Rajasthan (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.RJ.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.RJ.pdf",
+   "sha256": "3716e4d184c1c7d14e4d44368d4cb9e943abb76bd8d4eaf502961644f9e3ed29",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Sikkim (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.SK.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.SK.pdf",
+   "sha256": "dc18bcb9c96f8905a73d90aa3a879cc145b1370a55793f63de6c48aec6285902",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Telangana (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.TG.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.TG.pdf",
+   "sha256": "0e49a7ffb0495f7726e87a85d7d0ccec3fa494b3941d121c6eba1966761676ec",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Tamil Nadu (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.TN.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.TN.pdf",
+   "sha256": "54ef4c863ccc13fbf2cec08232c00c305e9ef13b6674812e2523febdf33315aa",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Tripura (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.TR.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.TR.pdf",
+   "sha256": "3d1eb34559c4435052d15b638b6fe77f09e147033fbaa45c4ab0ee38577bd746",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Uttar Pradesh (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.UP.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.UP.pdf",
+   "sha256": "4f3546213e18274cbc0b1a41da5746a5a30c9b30406c9ace71b97c2e2395d50e",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: Uttarakhand (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.UT.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.UT.pdf",
+   "sha256": "2e9e352c775212128f531398aff6e268f786f9aac29a12ddd1844530984e7650",
+   "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "NFHS-5 State/UT Fact Sheet: West Bengal (OF43)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai, and ICF; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.dhsprogram.com/pubs/pdf/OF43/OF43.WB.pdf",
+   "retrieved_on": "2026-10-09",
+   "local_file": "nfhs/fs/OF43.WB.pdf",
+   "sha256": "c29b9167911c13e8022e97a9ed44d9cbb14e5a84d5958f40c5e315941d33a0e3",
+   "note": "Indicator 125 (spousal violence)."
+  }
+ ]
+}

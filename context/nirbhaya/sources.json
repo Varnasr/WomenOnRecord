@@ -1,0 +1,71 @@
+{
+  "retrieved_on": "2026-10-09",
+  "sources": [
+    {
+      "id": "RS2873_2026",
+      "title": "Allocation and Utilization of Nirbhaya Fund",
+      "house": "Rajya Sabha",
+      "ministry": "Ministry of Women and Child Development",
+      "question": "Unstarred Question No. 2873",
+      "date": "2026-08-12",
+      "minister": "Smt. Savitri Thakur, Minister of State, MWCD",
+      "url": "https://sansad.in/getFile/annex/271/AU2873_r9rZkQ.pdf?source=pqars",
+      "local_file": "dl/nirbhaya/AU2873_r9rZkQ.pdf",
+      "retrieved_on": "2026-10-09",
+      "sha256": "c8b1e0c5666d20e00dc06aa387caf3c53dc8b9911a02c80c9867d2da64b88d06",
+      "annexure": "Annexure-I, page 3",
+      "used_for": "NIR_CUM_REL_UTIL (36 States/UTs), NIR_ALLOC_ALL, NIR_REL_UTIL_ALL",
+      "quote": "Upto Financial Year 2025-26, an amount of Rs. 7990.85 Cr. has been allocated by competent financial authorities in different ministries and departments under Nirbhaya Fund. Out of this, amount of Rs. 6703.02 Cr. has been released/utilised for the approved projects. ... State-wise amount released/utilised for the projects since inception of the Nirbhaya fund is at Annexure-I."
+    },
+    {
+      "id": "RS2870_2026",
+      "title": "Nirbhaya Fund Utilisation",
+      "house": "Rajya Sabha",
+      "ministry": "Ministry of Women and Child Development",
+      "question": "Unstarred Question No. 2870",
+      "date": "2026-08-12",
+      "minister": "Smt. Savitri Thakur, Minister of State, MWCD",
+      "url": "https://sansad.in/getFile/annex/271/AU2870_fKZVJ9.pdf?source=pqars",
+      "local_file": "dl/nirbhaya/AU2870_fKZVJ9.pdf",
+      "retrieved_on": "2026-10-09",
+      "sha256": "1882cebe2ebd0dea8f67cd6bcb7421c469f5202319c5024e7270a9cfe9c63216",
+      "annexure": "Annexure, page 3",
+      "used_for": "NIR_FY2526_REL_UTIL (36 States/UTs)",
+      "quote": "DETAILS OF THE STATE-WISE AMOUNT RELEASED/ UTILISED FROM THE NIRBHAYA FUND DURING FINANCIAL YEAR 2025-26 ... Amount in Rs Crores"
+    },
+    {
+      "id": "LS3294_2026",
+      "title": "Safety and Security of Women through the Nirbhaya Fund",
+      "house": "Lok Sabha",
+      "ministry": "Ministry of Women and Child Development",
+      "question": "Unstarred Question No. 3294",
+      "date": "2026-08-07",
+      "minister": "Smt. Savitri Thakur, Minister of State, MWCD",
+      "url": "https://sansad.in/getFile/lsapps/loksabhaquestions/annex/188/AU3294_m3Btys.pdf?source=lsapps",
+      "local_file": "dl/nirbhaya/AU3294_m3Btys.pdf",
+      "retrieved_on": "2026-10-09",
+      "sha256": "512c22cc6ca881008b95b9ce83d250ae69cd6d9b360eab70d340fbb6e62cf894",
+      "annexure": "Annexure (project-wise for Madhya Pradesh), page 3",
+      "used_for": "Cross-check of the Madhya Pradesh row in RS 2873",
+      "quote": "Under the Nirbhaya Fund, upto the financial year 2025-26, a total amount of Rs. 320.71 Crore has been released/utilized for projects implemented through different implementing agencies in the State of Madhya Pradesh"
+    }
+  ],
+  "other_documents_considered": [
+    {
+      "title": "Nirbhaya fund allocation and utilisation (MHA schemes only)",
+      "house": "Lok Sabha",
+      "ministry": "Ministry of Home Affairs",
+      "question": "Unstarred Question No. 1271",
+      "date": "2024-07-30",
+      "url": "https://xn--i1b5bzbybhfo5c8b4bxh.xn--11b7cb3a6a.xn--h2brj9c/MHA1/Par2017/pdfs/par2024-pdfs/LS30072024/1271.pdf",
+      "status": "Found in search, not downloaded or used: older, and covers only MHA projects"
+    },
+    {
+      "title": "Status of Nirbhaya Fund (PIB 1776818)",
+      "house": "PIB",
+      "date": "2021",
+      "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1776818",
+      "status": "Found in search, not used: superseded by RS 2873 (2026)"
+    }
+  ]
+}

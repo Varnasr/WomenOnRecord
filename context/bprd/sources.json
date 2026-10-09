@@ -1,0 +1,80 @@
+{
+ "retrieved_on": "2026-10-09",
+ "documents": [
+  {
+   "id": "dopo_2024",
+   "title": "Data on Police Organizations (as on January 01, 2024)",
+   "publisher": "Bureau of Police Research and Development (BPR&D), Ministry of Home Affairs, Government of India",
+   "url": "https://bprd.nic.in/uploads/pdf/Data%20on%20Police%20Organizations%20(2024)_%20(14-07-25)%20All.pdf",
+   "archived_copy": "https://web.archive.org/web/20251108082249/https://bprd.nic.in/uploads/pdf/Data%20on%20Police%20Organizations%20(2024)_%20(14-07-25)%20All.pdf",
+   "retrieved_on": "2026-10-09",
+   "status": "NOT RETRIEVED. Latest edition, launched 1 July 2025. bprd.nic.in and web.archive.org refused connections from this sandbox, and the file (about 60 MB) exceeds the 50 MiB limit of the only working fetch route (Firecrawl). No figure from it is in data.csv.",
+   "sha256": null,
+   "wayback_sha1_base32": "SZBJFBIFOKGTYXKBTNFOW3WQO7MJUY2Z",
+   "wayback_length_bytes_compressed": 60751403
+  },
+  {
+   "id": "dopo_2023",
+   "title": "Data on Police Organizations (as on January 01, 2023)",
+   "publisher": "Bureau of Police Research and Development (BPR&D), Ministry of Home Affairs, Government of India",
+   "url": "https://bprd.nic.in/uploads/pdf/1716639795_d6fce11ed56a985b635c.pdf",
+   "fetched_via": "https://web.archive.org/web/20240712110152id_/https://bprd.nic.in/uploads/pdf/1716639795_d6fce11ed56a985b635c.pdf (Wayback Machine capture of the BPR&D file, read through Firecrawl's PDF text extraction; the raw PDF bytes could not be downloaded)",
+   "retrieved_on": "2026-10-09",
+   "pages": 316,
+   "sha256": null,
+   "sha256_note": "Raw PDF not downloadable here, so no sha256 of the PDF. Wayback's SHA-1 of the archived payload is given instead, plus sha256 of the text extraction used.",
+   "wayback_sha1_base32": "IC2EH2H67CY5UDVIFKVQ6VTKN2XBONTW",
+   "text_extraction": {
+    "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/bprd/fc/dopo2023_full.md",
+    "sha256": "1f45eb2d7f13d20e06210074e6aef1dfb390fb3f579a954e90f39101682837fb"
+   },
+   "tables_used": {
+    "2.1.2": "p.52",
+    "2.1.3": "p.54",
+    "3.1.1": "p.56",
+    "3.2.1": "p.94",
+    "5.1.4": "p.153",
+    "6.2.4": "p.206"
+   },
+   "definitions": {
+    "disclaimer": "The information published in this report has only been collected and compiled at BPR&D as per the information obtained from the Police forces of the States/UTs/CAPFs/CPOs.",
+    "women_pct_column": "PERCENTAGE OF WOMEN POLICE (CIVIL + DISTRICT ARMED RESERVE (DAR) + ARMED + IRB)",
+    "ppr": "Police per lakh of Population Ratio (PPR) against the total sanctioned Police strength (Civil + DAR + Special Armed + IRB) during the year 2022 is 196.88",
+    "population_column": "POPULATION IN THOUSAND (AS ON 1ST OCTOBER, 2022) BASED ON 2011 CENSUS",
+    "population_source": "Registrar General & Census Commissioner of India, Projected Mid year Population",
+    "women_ps_table": "TABLE 6.2.4 STATE/UT WISE NUMBER OF WOMEN POLICE STATIONS & THEIR LOCATION"
+   }
+  },
+  {
+   "id": "dopo_2020",
+   "title": "Data on Police Organizations (as on 01.01.2020)",
+   "publisher": "Bureau of Police Research and Development (BPR&D), Ministry of Home Affairs, Government of India",
+   "url": "https://bprd.nic.in/WriteReadData/userfiles/file/202101011201011648364DOPO01012020.pdf",
+   "fetched_via": "https://web.archive.org/web/20210105053311id_/https://bprd.nic.in/WriteReadData/userfiles/file/202101011201011648364DOPO01012020.pdf (Wayback capture, read through Firecrawl's PDF text extraction)",
+   "retrieved_on": "2026-10-09",
+   "pages": 258,
+   "sha256": null,
+   "text_extraction": {
+    "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/bprd/fc/dopo2020_full.md",
+    "sha256": "13dc6a1a495ea2594e7c83e999c8d4b858e61ae67e5ea0296a115074aa4de2ee"
+   },
+   "tables_used": {
+    "2.1.2": "p.62",
+    "2.1.3": "p.64",
+    "3.1.1": "p.66",
+    "3.2.1": "p.106",
+    "5.1.4": "p.162"
+   },
+   "definitions": {
+    "population_column": "POPULATION IN THOUSAND (AS ON 1ST OCTOBER, 2019) BASED ON 2011 CENSUS",
+    "dnh_footnote": "@ Data of Daman & Diu is included in D & N Haveli, as combined data provided by both the UTs"
+   }
+  },
+  {
+   "id": "dopo_2022_not_used",
+   "title": "Data on Police Organizations (as on 01.01.2022)",
+   "url": "https://bprd.nic.in/uploads/pdf/202301110504030641146DataonPoliceOrganizations.pdf",
+   "status": "Located in the Wayback index (about 4 MB) but not used; 2023 and 2020 editions were taken instead."
+  }
+ ]
+}

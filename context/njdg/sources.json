@@ -1,0 +1,85 @@
+[
+ {
+  "title": "National Judicial Data Grid (District and Taluka Courts), dashboard home (All India)",
+  "publisher": "eCourts Services, e-Committee Supreme Court of India / National Informatics Centre",
+  "url": "https://njdg.ecourts.gov.in/njdg_v3/",
+  "date": "2026-10-09 (page shows 'Last Updated : 09-10-2026')",
+  "retrieved_on": "2026-10-09",
+  "retrieved_at_utc": "13:07 and 13:10:16",
+  "local_files": {
+   "downloads/njdg/njdg_home.html": "acf8e99fc5d697a6fc1bf2c1fc4a4b4b1b13bd1b0547f89edd241c6064a9a28e",
+   "downloads/njdg/states/all_india.html": "acf8e99fc5d697a6fc1bf2c1fc4a4b4b1b13bd1b0547f89edd241c6064a9a28e"
+  },
+  "quotes": {
+   "page_meta": "NJDG - National Judicial Data Grid - District Court",
+   "women_card": "Cases Filed By Woman 8% of Total Pending Cases 18,69,079 20,87,744 39,56,823",
+   "alerts_row": "Filed Cases By Woman 1869079 2087744 3956823",
+   "pending_header": "Civil Cases 1,12,24,133 Criminal Cases 4,03,81,424 Total Cases 5,16,05,557",
+   "definition": "NJDG gives no written definition of 'Filed Cases By Woman' on the dashboard; the label is all it shows."
+  }
+ },
+ {
+  "title": "National Judicial Data Grid, state-filtered dashboard pages (36 states and UTs)",
+  "publisher": "eCourts Services / NIC",
+  "url": "https://njdg.ecourts.gov.in/njdg_v3/?p=home/index&state_code=<code>",
+  "date": "2026-10-09",
+  "retrieved_on": "2026-10-09",
+  "retrieved_at_utc": "13:08:59 to 13:10:10",
+  "local_files": {
+   "njdg/states/st_10_8.html": "f6b21cd370ba157a0c6dc73caed49df5459c1783d9e78e3ded52356973051fd4",
+   "njdg/states/st_11_24.html": "e80140805dc720f819cbad2b020d71dac076eb2f7a087258494e80b8fbc76055",
+   "njdg/states/st_12_36.html": "7d74ae5b73f2cb253edad013cf8c53bb2e5f2216305f81d72b7baa57f1168ea5",
+   "njdg/states/st_13_34.html": "2d913b1c2e4fc8991009f7561418ab132d01d093c0b0de119b154262d0038fc8",
+   "njdg/states/st_14_25.html": "bf146393e81264eeb4cc1b716297335a9a0fc3294c7cc86d4aa7ac6c917d8186",
+   "njdg/states/st_15_19.html": "64d263afdec886551004e560afe80c98f5092b12ac2974308a5cfa504d6cf512",
+   "njdg/states/st_16_20.html": "a3c9eb1709fd0972a04b19b6de457240ba589d75f449b97029242d841d030fa1",
+   "njdg/states/st_17_21.html": "886e75483b077c6205988ff508765af2a96ab6ec85810b0db5243cb3beb4060c",
+   "njdg/states/st_18_6.html": "29c307e9ad340d0c324f8ed02f059f7bf6fd812505793dca2d1f82b54918a4fe",
+   "njdg/states/st_19_16.html": "5dca587777dd3260579c61c030d60d12c2452cb035d0911835154ae1b09f1b8a",
+   "njdg/states/st_1_12.html": "b0f383dae644c880fb3b7c59759b77f654d66d7fc02beecba4f27df204d660aa",
+   "njdg/states/st_20_7.html": "0499886ff86bed01580d21b1d486f2d0148e685bbabe5b3755a8d7a1dc55da99",
+   "njdg/states/st_21_11.html": "1af71681eb2dac2cc05f02d080fb13c84559e34fbebd0f5740b7c827ad75c2ae",
+   "njdg/states/st_22_18.html": "bb4426814e6ae7cad0264b34decd0149b9e14b01804bef2d7e7c2f8a21762f02",
+   "njdg/states/st_23_23.html": "e429de0f5660282e6503d621c7ee580582da97b6ac53f35247618fce8a9ae707",
+   "njdg/states/st_24_17.html": "58f98d3b3ffd149b2ff025869f60b82401762268a907249ea42fd7eb1b8fd2cd",
+   "njdg/states/st_27_1.html": "1a95a59f82410ef24764ac41503636ba231c603e2496b69e267dcc20f533f745",
+   "njdg/states/st_28_2.html": "55677d56c38e9a1b3856d850901a8642a17557206da6af3af73ec4e25433909c",
+   "njdg/states/st_29_3.html": "2c25318ce4cec6a083687f32984b88546983e051c100fb7275e92968b3c7f52c",
+   "njdg/states/st_2_5.html": "1c5114fb26532403e3614581b72d70fac16070a7ca16e99c630b745a34d14859",
+   "njdg/states/st_30_30.html": "3ed0af024e0db0b5b6cfd3daebcbb2546ac9dbd6a68c7c67bc0e436148632aed",
+   "njdg/states/st_31_37.html": "bab90cbac3ff5e55b1ec2cfa8be0f8eaf4e935c0cdb80cb03eeeb00c5a85db2b",
+   "njdg/states/st_32_4.html": "ec20437b59680a017c86e82804a707e0cb8c0c796bc5b174f0cbe91605da2748",
+   "njdg/states/st_33_10.html": "7093ba0908b1af1d083bd3e23fe5e1a65cef5de90b1045cee0884a0fe4d95fc9",
+   "njdg/states/st_34_35.html": "5a1ff6180375bfd40a77d5df703e96140ce60b56d63b64815e32a539c899b1fb",
+   "njdg/states/st_35_28.html": "8f5a438484c848dd038500847d116912e532f766a539e31053b93c252e1f693c",
+   "njdg/states/st_36_29.html": "662f6eb5fc5a3b03c442c839b24933bb62fffd42c2c79b4ec8bb04946846165e",
+   "njdg/states/st_37_33.html": "937455abb8f8d1e95cca07d7a1b092c130aa900fb6ff96650d8b3ae3a0fa16ef",
+   "njdg/states/st_38_38.html": "355d589cadfbc2fafa4bb61dfc6edc035826983608d0b99ef9a2268a242f3978",
+   "njdg/states/st_3_22.html": "fc9350f3e9b2bc1edaad2d4cefc3e7d441fc3e1a6231e4a2d21d6935ce29a36b",
+   "njdg/states/st_4_27.html": "f8e3b8d1d4fa8d90d965b9349136141e05ec3647fa0e687d1d20fd1dbba21d1b",
+   "njdg/states/st_5_15.html": "44b64a7a8054b44c3b3113fb0830fdda1d00cbcb8032705c9e8fdfe2db140a54",
+   "njdg/states/st_6_14.html": "d516d523fb8a6e81341c9530d5445952303f84352721326890e383851ac27616",
+   "njdg/states/st_7_26.html": "8ab453a091c1b47e69e7d9cf7ea5f68d37aa34a887f6223a20ba02b47184f07f",
+   "njdg/states/st_8_9.html": "6c549b70ed4a9e1605bb7f4d951c164e0f88331516c29b9e99e00f7bb97ca687",
+   "njdg/states/st_9_13.html": "48e318d79887a74815eaeb33c23d0d02e382879d33d82f422c58569de9be71e2"
+  }
+ },
+ {
+  "title": "National Judicial Data Grid, state-wise 'Filed Cases By Woman' table (AJAX endpoint home/fetchStateData, flag=women, ci_cri=1,2,3)",
+  "publisher": "eCourts Services / NIC",
+  "url": "https://njdg.ecourts.gov.in/njdg_v3/?p=home/fetchStateData",
+  "date": "2026-10-09",
+  "retrieved_on": "2026-10-09",
+  "retrieved_at_utc": "13:10:12 to 13:10:15",
+  "local_files": {
+   "downloads/njdg/states/women_1.json": "da34768df5b45318d23b12009b9267b40c14585f118daf069173b6cc75503ebb",
+   "downloads/njdg/states/women_2.json": "fef946c33170926ea4a345e8e47806db23c0974df538802662e341ca65932c2c",
+   "downloads/njdg/states/women_3.json": "59b0cf3fc0051ff023784261ea39c997a6d36dda2f443e69a2ec0aec8489ce29"
+  },
+  "quotes": {
+   "modal_title": "Filed Cases By Woman",
+   "footer_total": "Total: 39,56,823"
+  },
+  "used_for": "cross-check only; values equal the state pages"
+ }
+]

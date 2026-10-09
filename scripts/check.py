@@ -13,14 +13,27 @@ import csv, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 fail = []
 
-page = open(os.path.join(ROOT, 'index.html'), encoding='utf-8').read()
-for ref in re.findall(r'(?:src|href)="([^"#:]+)"', page):
-    if not os.path.exists(os.path.join(ROOT, ref)):
-        fail.append(f'index.html loads {ref}, which does not exist')
+# Every page the site serves, written by scripts/build_pages.py.
+PAGES = sorted(os.path.relpath(os.path.join(d, f), ROOT) for d, _, fs in os.walk(ROOT) for f in fs
+               if f == 'index.html' and not set(os.path.relpath(d, ROOT).split(os.sep)) & {'.git', 'site', 'node_modules'})
+def exists(ref, base):
+    path = ref.lstrip('/') if ref.startswith('/') else os.path.join(os.path.dirname(base), ref)
+    path = path.split('?')[0]
+    return os.path.exists(os.path.join(ROOT, path, 'index.html') if path.endswith('/') or path == '' else os.path.join(ROOT, path))
+page = ''
+for f in PAGES:
+    src = open(os.path.join(ROOT, f), encoding='utf-8').read()
+    page += src
+    for ref in re.findall(r'(?:src|href)="([^"#:]*)"', src):
+        if not exists(ref or '/', f):
+            fail.append(f'{f} links to {ref}, which does not exist')
 app = open(os.path.join(ROOT, 'js', 'app.js'), encoding='utf-8').read()
 for ref in re.findall(r"fetch\('([^']+)'\)", app):
-    if not os.path.exists(os.path.join(ROOT, ref)):
+    if not exists(ref, 'index.html'):
         fail.append(f'app.js fetches {ref}, which does not exist')
+# Every page link the script writes must point at a page that exists.
+for kind in ('states', 'crimes'):
+    if not os.path.isdir(os.path.join(ROOT, kind)): fail.append(f'{kind}/ has not been built')
 
 toml = open(os.path.join(ROOT, 'netlify.toml'), encoding='utf-8').read()
 csp = re.search(r'Content-Security-Policy = "([^"]+)"', toml).group(1)
@@ -66,8 +79,8 @@ BANNED = r'\b(delve\w*|certainly|utilise|leverage|robust|streamline|harness|fost
 TURNS = [r',\s*not\s+(?:a |an |the )?\w+\.', r'\bnot only\b', r'\bnot just\b', r"\bit'?s not\b.*\bit'?s\b"]
 en = json.load(open(os.path.join(ROOT, 'i18n', 'en.json'), encoding='utf-8'))
 readme = open(os.path.join(ROOT, 'README.md'), encoding='utf-8').read()
-for where, s in [('index.html', text), ('README.md', readme)] + [(f'en.json {k}', v) for k, v in en.items()]:
-    if ';' in s and where != 'index.html':
+for where, s in [('the pages', text), ('README.md', readme)] + [(f'en.json {k}', v) for k, v in en.items()]:
+    if ';' in s and where != 'the pages':
         fail.append(f'semicolon in {where}')
     if '\u2014' in s or ' -- ' in s:
         fail.append(f'em dash in {where}')
