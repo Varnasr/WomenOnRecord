@@ -1,0 +1,54 @@
+kind,item,meaning
+column,state,"State or union territory as NCRB prints it, or a total row (Total states, Total UTs, All India)."
+column,lgd_code,"Local Government Directory state code, for joining to other data. Blank for total rows."
+column,kind,"state, ut (union territory) or total."
+column,year,"Calendar year the cases were recorded, 2020 to 2024."
+column,crime_code,Short stable code for the crime head. See the crime codes below.
+column,group,"sexual, killed, home, other, total, outcome or denominator."
+column,crime_head,The crime head in plain words.
+column,ipc_section,"Indian Penal Code section(s), where the head is an IPC offence."
+column,bns_section_or_act,"Bharatiya Nyaya Sanhita section(s), or the special law, that the head covers."
+column,measure,What the value counts. cases: FIRs recorded. victims: persons. rate: cases per lakh women. Police and court measures are named in full.
+column,value,The figure. Blank where NCRB published no figure (flag NOT_REPORTED); a blank is never a zero.
+column,unit,"count, rate, percent or lakh women."
+column,source_edition,The Crime in India edition the figure was read from.
+column,table_no,NCRB table number in Volume 1.
+column,source_url,Where the PDF was downloaded from.
+column,source_sha256,"SHA-256 of that PDF, so anyone can confirm they hold the same file."
+column,flag,"Coded caveats, separated by semicolons. See the flags below."
+column,note,Plain-words note where the figure needs one.
+crime_code,FEMALE_POP,"Female population, mid-year projection"
+crime_code,RAPE,"Rape. IPC 376. BNS/Act 63-64, 66-68, 70-71"
+crime_code,RAPE_WOMEN,"Rape of women (18 and above). IPC 376. BNS/Act 63-64, 66-68, 70-71"
+crime_code,RAPE_GIRLS_IPC,"Rape of girls under 18, booked under the IPC/BNS. IPC 376. BNS/Act 63-64, 66-68, 70-71"
+crime_code,ATTEMPT_RAPE,Attempt to rape. IPC 376/511. BNS/Act 64 r/w 62
+crime_code,POCSO_TOTAL,"POCSO Act, girl victims (all sections). BNS/Act POCSO Act"
+crime_code,POCSO_RAPE,"POCSO: penetrative sexual assault of girls (s.4 and 6). BNS/Act POCSO s.4, 6"
+crime_code,POCSO_ASSAULT,"POCSO: sexual assault of girls (s.8 and 10). BNS/Act POCSO s.8, 10"
+crime_code,ASSAULT_MODESTY,"Assault with intent to outrage modesty (incl. sexual harassment, disrobing, voyeurism, stalking). IPC 354, 354A-D. BNS/Act 74-78"
+crime_code,INSULT_MODESTY,Insult to the modesty of women. IPC 509. BNS/Act 79
+crime_code,MURDER_RAPE,Murder with rape or gang rape. IPC 302 r/w 376. BNS/Act 103 r/w 64-70
+crime_code,DOWRY_DEATH,Dowry deaths. IPC 304B. BNS/Act 80
+crime_code,ABETMENT_SUICIDE,"Abetment of suicide of women. IPC 305, 306. BNS/Act 107, 108"
+crime_code,CRUELTY,"Cruelty by husband or his relatives. IPC 498A. BNS/Act 85, 86"
+crime_code,DOWRY_ACT,"Dowry Prohibition Act, 1961. BNS/Act Dowry Prohibition Act"
+crime_code,PWDVA,"Protection of Women from Domestic Violence Act, 2005. BNS/Act PWDVA"
+crime_code,KIDNAP,"Kidnapping and abduction of women. IPC 363-369. BNS/Act 87, 96, 137-140, 142"
+crime_code,ACID,Acid attack. IPC 326A. BNS/Act 124(1)
+crime_code,ACID_ATTEMPT,Attempted acid attack. IPC 326B. BNS/Act 124(2)
+crime_code,TRAFFICKING,"Human trafficking. IPC 370, 370A"
+crime_code,ITPA,"Immoral Traffic (Prevention) Act, women victims. BNS/Act ITPA 1956"
+crime_code,CYBER,Cyber crimes against women (IT Act). BNS/Act IT Act
+crime_code,IPC_TOTAL,All IPC/BNS crimes against women
+crime_code,SLL_TOTAL,All special and local law crimes against women
+crime_code,TOTAL,All crimes against women
+crime_code,MURDER_WOMEN,Women and girls murdered (all motives). IPC 302. BNS/Act 103
+crime_code,MURDER_ALL,All murder victims. IPC 302. BNS/Act 103
+crime_code,RAPE_VICTIMS_AGE,Victims of rape by age (s.376 IPC / BNS 64-70). IPC 376. BNS/Act 64-70
+crime_code,POLICE,"Police disposal, all crimes against women"
+crime_code,COURTS,"Court disposal, all crimes against women"
+crime_code,DECEIT_69,"Sexual intercourse by deceitful means (BNS 69, new offence). BNS/Act 69"
+flag,PRINCIPAL_OFFENCE,"NCRB counts each FIR once, under its most serious offence. On every row."
+flag,LOCKDOWN_2020,2020: the COVID-19 lockdown kept people from police stations and courts. Counts are lower for that reason.
+flag,CODE_SPLIT_2024,"2024: offences from 1 July 2024 were booked under the BNS, earlier ones under the IPC. NCRB reports both; cases is their sum."
+flag,NOT_REPORTED,NCRB published no figure for this cell.

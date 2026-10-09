@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>She Counts</title>
+<meta name="description" content="Crimes against women in India, as police and courts recorded them, 2020 to 2024. Every state and union territory, from NCRB's Crime in India, with sources and a free dataset.">
+<meta property="og:title" content="She Counts">
+<meta property="og:description" content="Crimes against women in India, as police and courts recorded them, 2020 to 2024.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script>
+  // Theme before first paint, so a dark-mode reader never sees a light flash.
+  try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to the figures</a>
+
+<svg class="band" aria-hidden="true" focusable="false" preserveAspectRatio="none" viewBox="0 0 900 22">
+  <defs>
+    <pattern id="mithila" width="9" height="22" patternUnits="userSpaceOnUse">
+      <line x1="1.5" y1="16.5" x2="7.5" y2="5.5" class="band-hatch"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="22" class="band-cloth"/>
+  <rect y="4" width="900" height="14" fill="url(#mithila)"/>
+  <line x1="0" y1="2" x2="900" y2="2" class="band-line"/>
+  <line x1="0" y1="20" x2="900" y2="20" class="band-line"/>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="#main" aria-label="She Counts, home">She Counts</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#courts" data-i18n="nav.courts">Courts</a>
+      <a href="#states" data-i18n="nav.states">States</a>
+      <a href="#crimes" data-i18n="nav.crimes">Crimes</a>
+      <a href="#data" data-i18n="nav.data">Data</a>
+      <a href="#method" data-i18n="nav.method">Method</a>
+    </nav>
+    <div class="controls">
+      <label class="sr" for="lang" data-i18n="lang.label">Language</label>
+      <select id="lang" class="lang">
+        <option value="en">English</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ur" lang="ur">اردو</option>
+        <option value="ta" lang="ta">தமிழ்</option>
+        <option value="bn" lang="bn">বাংলা</option>
+        <option value="mr" lang="mr">मराठी</option>
+      </select>
+      <button id="theme" class="theme" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+        <span class="sr" data-i18n="theme">Dark theme</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<p class="wrap tnote" id="tnote" hidden data-i18n="tnote">This page has been translated by machine and has not yet been checked by a native speaker. Where the translation and the English differ, the English page governs.</p>
+
+<main id="main">
+  <section class="hero wrap">
+    <p class="kicker" data-i18n="hero.kicker">India · 2020 to 2024 · National Crime Records Bureau</p>
+    <h1 data-i18n="hero.title">Crimes against women in India, as police and courts recorded them</h1>
+    <p class="lead" data-i18n="hero.lead">Every state and union territory, five years, from the Crime in India reports. These are the cases that reached a police station and were written down. Many never do.</p>
+    <div class="figs" id="heroFigs"></div>
+  </section>
+
+  <div class="stitch wrap" aria-hidden="true"></div>
+
+  <section class="wrap sec" id="courts" aria-labelledby="h-courts">
+    <h2 id="h-courts" data-i18n="courts.h">Before the courts in 2024</h2>
+    <p class="intro" id="courtsIntro"></p>
+    <div class="tabs" role="tablist" aria-label="Crime" id="fieldTabs"></div>
+    <figure class="field cloth">
+      <canvas id="field" role="img" aria-labelledby="fieldCap"></canvas>
+      <figcaption id="fieldCap"></figcaption>
+      <ul class="legend" id="fieldLegend"></ul>
+    </figure>
+    <p class="note" data-i18n="courts.note">A case reaches trial years after it was filed. The convictions in 2024 are mostly for cases filed in earlier years, so they cannot be set against the cases recorded in 2024.</p>
+  </section>
+
+  <section class="wrap sec" id="fir" aria-labelledby="h-fir">
+    <h2 id="h-fir" data-i18n="fir.h">After the FIR</h2>
+    <p class="intro" data-i18n="fir.intro">What police and courts did with rape cases, India as a whole. NCRB publishes these steps for each crime only for the whole country. By state, it publishes them for all crimes against women together, which is what the state pages below show.</p>
+    <div class="tabs" role="tablist" aria-label="Crime" id="firTabs"></div>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-fir">
+      <table class="grid" id="firTable"></table>
+    </div>
+  </section>
+
+  <div class="stitch wrap" aria-hidden="true"></div>
+
+  <section class="wrap sec" id="states" aria-labelledby="h-states">
+    <h2 id="h-states" data-i18n="states.h">State by state</h2>
+    <p class="intro" data-i18n="states.intro">Cases recorded per lakh women, so that a large state and a small one can be read on the same scale. NCRB's own caution belongs here: states should not be compared on these figures alone. A high rate can mean more crime, or police who record more of it.</p>
+    <div class="pick">
+      <label><span data-i18n="pick.crime">Crime</span>
+        <select id="mapHead"></select></label>
+      <label><span data-i18n="pick.year">Year</span>
+        <select id="mapYear"></select></label>
+      <label><span data-i18n="pick.measure">Show</span>
+        <select id="mapMeasure">
+          <option value="rate" data-i18n="m.rate">Per lakh women</option>
+          <option value="cases" data-i18n="m.cases">Cases</option>
+        </select></label>
+    </div>
+    <div class="maprow">
+      <figure class="map cloth">
+        <svg id="map" role="img" aria-labelledby="mapCap"></svg>
+        <figcaption id="mapCap"></figcaption>
+        <div class="scale" id="mapScale"></div>
+      </figure>
+      <ol class="rank cloth" id="rank" aria-label="States ranked"></ol>
+    </div>
+    <p class="credit"><span data-i18n="map.credit">Map: DataMeet, CC BY 4.0, following India's official boundary.</span></p>
+  </section>
+
+  <section class="wrap sec" id="state" aria-labelledby="h-state">
+    <div class="state-head">
+      <h2 id="h-state"></h2>
+      <label><span class="sr" data-i18n="pick.state">State or union territory</span>
+        <select id="statePick"></select></label>
+    </div>
+    <p class="intro" id="stateIntro"></p>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-state">
+      <table class="grid" id="stateTable"></table>
+    </div>
+    <h3 data-i18n="state.after">What police and courts did, all crimes against women together</h3>
+    <div class="table-wrap" tabindex="0" role="region" aria-label="Police and courts">
+      <table class="grid" id="stateOutcomes"></table>
+    </div>
+  </section>
+
+  <div class="stitch wrap" aria-hidden="true"></div>
+
+  <section class="wrap sec" id="crimes" aria-labelledby="h-crimes">
+    <h2 id="h-crimes" data-i18n="crimes.h">Each crime, five years, India</h2>
+    <p class="intro" data-i18n="crimes.intro">Cases recorded each year. The first year is 2020, when the lockdown kept people from police stations and counts fell everywhere. In 2024 the new criminal laws came into force half way through the year, and the counts here add the cases booked under each.</p>
+    <div class="multiples" id="multiples"></div>
+  </section>
+
+  <section class="wrap sec read" id="read" aria-labelledby="h-read">
+    <h2 id="h-read" data-i18n="read.h">Read this before quoting a number</h2>
+    <ol class="limits">
+      <li data-i18n="read.1">These are cases recorded by police. They are not a count of how often these crimes happen. The National Family Health Survey asks women directly: in its 2015-16 round, 77 per cent of women who had experienced physical or sexual violence had never sought help or told anyone (NFHS-4 India report, p. 572).</li>
+      <li data-i18n="read.2">Each FIR is counted once, under its most serious offence. A rape that ended in murder is counted as murder with rape, not twice.</li>
+      <li data-i18n="read.3">Rape of girls under 18 is mostly booked under the POCSO Act. The rape figures and the POCSO figures are separate series and should be read together.</li>
+      <li data-i18n="read.4">From 1 July 2024 offences were booked under the Bharatiya Nyaya Sanhita. NCRB reports 2024 under both codes; this site adds them. Where NCRB split one older heading into several, the parts are added back so the five years compare. Each such sum is named in the dataset.</li>
+      <li data-i18n="read.5">Dadra and Nagar Haveli and Daman and Diu merged in January 2020. Ladakh became a union territory in 2019. All five years use today's 36 states and union territories.</li>
+    </ol>
+  </section>
+
+  <div class="stitch wrap" aria-hidden="true"></div>
+
+  <section class="wrap sec" id="data" aria-labelledby="h-data">
+    <h2 id="h-data" data-i18n="data.h">The data, free to use</h2>
+    <p class="intro" data-i18n="data.intro">Every number on this page, with the NCRB table it came from, the section of law, and a note where it needs one. Use it, cite NCRB, and link here.</p>
+    <ul class="downloads">
+      <li><a href="downloads/shecounts.xlsx" download><b>Excel workbook</b><span data-i18n="dl.xlsx">About, codebook, sources, all rows, and one sheet per crime with states down and years across.</span></a></li>
+      <li><a href="data/shecounts.csv" download><b>CSV</b><span data-i18n="dl.csv">One row per state, year, crime and measure. The same rows as the workbook.</span></a></li>
+      <li><a href="downloads/codebook.csv" download><b>Codebook</b><span data-i18n="dl.code">What every column, crime code, measure and flag means.</span></a></li>
+    </ul>
+    <p class="note" data-i18n="data.lic">The figures are NCRB's. The compilation, codes and notes are released under CC BY 4.0; the code under the MIT licence.</p>
+  </section>
+
+  <section class="wrap sec" id="method" aria-labelledby="h-method">
+    <h2 id="h-method" data-i18n="method.h">Sources and method</h2>
+    <div class="cols">
+      <div>
+        <h3 data-i18n="method.src">Where every number comes from</h3>
+        <p data-i18n="method.src.p">National Crime Records Bureau, Crime in India, Volume 1, for 2020, 2021, 2022, 2023 and 2024: tables 2A.3 (murder victims by sex), 3A.1 to 3A.3 (crimes against women and rape victims by age), 3A.5 to 3A.8 (police and court disposal).</p>
+        <ul class="srclist" id="srcList"></ul>
+      </div>
+      <div>
+        <h3 data-i18n="method.check">How it is checked</h3>
+        <p data-i18n="method.check.p">The tables were read from the PDFs by a script, not typed. For every count, the 28 states must add up to NCRB's own total for states, the 8 union territories to its total for union territories, and both to the all-India total. They do, in every table and every year. The figures headline numbers rest on were also compared with NCRB's published summaries.</p>
+        <h3 data-i18n="method.privacy">No one is named</h3>
+        <p data-i18n="method.privacy.p">This site holds counts only. It does not name, picture or describe any survivor, including in the cases that started the protests. Section 72 of the Bharatiya Nyaya Sanhita, earlier section 228A of the IPC, makes disclosing a rape survivor's identity an offence.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><b>She Counts</b> · <span data-i18n="foot.what">Crimes against women in India, as police and courts recorded them, 2020 to 2024.</span></p>
+    <p data-i18n="foot.ind">Independent. Not affiliated with NCRB, the Government of India, or any party.</p>
+    <p><a href="https://github.com/Varnasr/SheCounts">GitHub</a> · <span data-i18n="foot.lic">Data CC BY 4.0 · Code MIT</span></p>
+  </div>
+</footer>
+
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

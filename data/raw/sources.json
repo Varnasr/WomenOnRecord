@@ -1,0 +1,47 @@
+{
+ "2020": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2020, Volume 1",
+  "url": "https://production.ruralindiaonline.org/uploads/Crime_in_India_2020_Volume_I_0dc3ce72a9.pdf",
+  "mirror": "People's Archive of Rural India (PARI) library",
+  "sha256": "6c9679d089b6ac384fbd61beeea25026ba4bd78be563df35af591de7f7aaf193",
+  "retrieved_on": "2026-10-09",
+  "pages_kept": 46
+ },
+ "2021": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2021, Volume 1",
+  "url": "https://data.opencity.in/dataset/5a788d6e-5db6-46ae-bd4b-eab8966bd24b/resource/c14b3e6b-825a-460d-8b3f-03a3f3bf917e/download/b3bbdf99-4679-444c-9d49-880f509141e1.pdf",
+  "mirror": "OpenCity",
+  "sha256": "d0b191b8a623ed31b26cdeb1b0983ce8f055f3c0aa7af7da86b8a709ac263d60",
+  "retrieved_on": "2026-10-09",
+  "pages_kept": 46
+ },
+ "2022": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2022, Volume 1",
+  "url": "https://data.opencity.in/dataset/b2d3ff5c-b109-42ad-afe0-b244c26505cd/resource/b70cf1ea-442a-4b23-9216-399f07e6379b/download/2f0461a6-7f09-47f1-ae1e-43b68d888599.pdf",
+  "mirror": "OpenCity",
+  "sha256": "7c5ee3128b0b6bc7c068f986961eaf40bb383d9f241ff75ad3a38e4ab3c23e8d",
+  "retrieved_on": "2026-10-09",
+  "pages_kept": 46
+ },
+ "2023": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2023, Volume 1",
+  "url": "https://data.opencity.in/dataset/40449a25-7fb3-4e38-91b9-f834af6078e2/resource/b7c71212-9463-4407-ab63-f349403a75b6/download/4f02eaf8-5d55-43d9-9a23-09cd724b5566.pdf",
+  "mirror": "OpenCity",
+  "sha256": "553ac8b2eadfe9e2f3e3b80688fb3ced884dde4c1ddb5ba18077ca7432289661",
+  "retrieved_on": "2026-10-09",
+  "pages_kept": 46
+ },
+ "2024": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2024, Volume 1",
+  "url": "https://data.opencity.in/dataset/7d883875-921a-4820-b298-713c6219bd90/resource/46f760f4-dcf4-4f95-85c9-2225e2f7bbe8/download/vol1-crimeinindia2024.pdf",
+  "mirror": "OpenCity",
+  "sha256": "75b827bdcfcd5e641984d7fb549aaa2f3cdf030caace2d93853e450ee236bb4c",
+  "retrieved_on": "2026-10-09",
+  "pages_kept": 58
+ }
+}

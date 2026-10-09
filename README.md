@@ -1,0 +1,51 @@
+# She Counts
+
+Crimes against women in India, as police and courts recorded them, 2020 to 2024.
+Every state and union territory, from the National Crime Records Bureau's
+*Crime in India* reports, with a free dataset in CSV and Excel.
+
+Live at **https://shecounts.netlify.app**
+
+## What it shows
+
+- Cases recorded each year for thirteen groups of crime: rape, POCSO sexual
+  offences against girls, attempt to rape, assault and harassment, insult to
+  modesty, murder with rape, dowry deaths, abetment of suicide, women murdered,
+  cruelty by husband or relatives, the Dowry Prohibition Act, the Domestic
+  Violence Act, kidnapping, acid attacks, trafficking and cyber crimes.
+- Rates per lakh women, using the female population NCRB itself uses.
+- What police and courts did: charge-sheeting, convictions, and the cases still
+  waiting. By state for all crimes against women together; for single crimes
+  such as rape, for India as a whole, because that is all NCRB publishes.
+
+## What it cannot show
+
+These are cases that reached a police station and were written down. They are
+not a measure of how often the crimes happen. A higher rate in one state can
+mean more crime or more recording, and NCRB itself warns against comparing
+states on these figures alone. The site says this where the numbers are.
+
+## The data
+
+| File | What it is |
+|---|---|
+| `data/shecounts.csv` | One row per state, year, crime and measure, with the IPC and BNS sections, the NCRB table, the source PDF's address and SHA-256, and coded flags. |
+| `downloads/shecounts.xlsx` | The same rows, plus About, Codebook and Sources sheets and one wide sheet per crime. |
+| `downloads/codebook.csv` | Every column, crime code and flag explained. |
+| `data/raw/` | The NCRB pages the figures were read from, as extracted text, and `sources.json` with each PDF's address and checksum. |
+
+Licence: figures are NCRB's; the compilation, codes and notes are CC BY 4.0;
+the code is MIT. The state map is DataMeet's (CC BY 4.0), following India's
+official boundary.
+
+## Rebuilding
+
+```bash
+python3 scripts/build_data.py        # data/raw -> data/shecounts.csv, with total checks
+python3 scripts/build_site_data.py   # -> data/site.json, which the page reads
+python3 scripts/build_xlsx.py        # -> downloads/
+python3 scripts/build_i18n.py        # i18n/*.json -> js/i18n.js
+python3 -m http.server 8000
+```
+
+No one is named on this site. It holds counts only.

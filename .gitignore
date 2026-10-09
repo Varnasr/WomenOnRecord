@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+# Source PDFs are large; data/raw keeps the extracted pages and their checksums.
+*.pdf

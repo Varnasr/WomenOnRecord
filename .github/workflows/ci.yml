@@ -1,0 +1,13 @@
+name: checks
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: python3 scripts/build_data.py --check
+      - run: python3 scripts/build_site_data.py --check
+      - run: python3 scripts/build_i18n.py --check
+      - run: python3 scripts/check.py

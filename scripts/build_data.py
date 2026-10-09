@@ -1,0 +1,253 @@
+"""Build She Counts' dataset from NCRB Crime in India, Volume 1, 2020 to 2024.
+
+Reads the text NCRB's tables were extracted to (`pdftotext -layout`, one file
+per edition, kept in data/raw/) and writes data/shecounts.csv in long format:
+one row per state, year, crime head and measure.
+
+Every value is checked before it is written: the 28 states must add to NCRB's
+"Total State(s)" row, the 8 union territories to "Total UT(s)", and both to
+"Total All India", for every count column. A mismatch stops the build.
+
+Usage: python3 scripts/build_data.py [--check]
+"""
+import csv, io, json, os, sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+import ncrb_parse as P
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RAW = os.path.join(ROOT, 'data', 'raw')
+OUT = os.path.join(ROOT, 'data', 'shecounts.csv')
+YEARS = [2020, 2021, 2022, 2023, 2024]
+
+# LGD state codes (Local Government Directory, Ministry of Panchayati Raj).
+LGD = {"Andhra Pradesh": 28, "Arunachal Pradesh": 12, "Assam": 18, "Bihar": 10,
+       "Chhattisgarh": 22, "Goa": 30, "Gujarat": 24, "Haryana": 6, "Himachal Pradesh": 2,
+       "Jharkhand": 20, "Karnataka": 29, "Kerala": 32, "Madhya Pradesh": 23,
+       "Maharashtra": 27, "Manipur": 14, "Meghalaya": 17, "Mizoram": 15, "Nagaland": 13,
+       "Odisha": 21, "Punjab": 3, "Rajasthan": 8, "Sikkim": 11, "Tamil Nadu": 33,
+       "Telangana": 36, "Tripura": 16, "Uttar Pradesh": 9, "Uttarakhand": 5,
+       "West Bengal": 19, "A&N Islands": 35, "Chandigarh": 4,
+       "D&N Haveli and Daman & Diu": 38, "Delhi": 7, "Jammu & Kashmir": 1, "Ladakh": 37,
+       "Lakshadweep": 31, "Puducherry": 34}
+
+# Crime heads in table 3A.2. Each maps to the column holding the number of
+# cases: one column in the 2020-2023 layout (I, V, R), the Total column in the
+# 2024 layout (IPC, BNS, Total, V, R). Victims and rate follow it.
+# (code, group, label, ipc, bns_or_act, col_2020_23, col_2024)
+HEADS = [
+ ("RAPE", "sexual", "Rape", "376", "63-64, 66-68, 70-71", 63, 5),
+ ("RAPE_WOMEN", "sexual", "Rape of women (18 and above)", "376", "63-64, 66-68, 70-71", 66, 10),
+ ("RAPE_GIRLS_IPC", "sexual", "Rape of girls under 18, booked under the IPC/BNS", "376", "63-64, 66-68, 70-71", 69, 15),
+ ("ATTEMPT_RAPE", "sexual", "Attempt to rape", "376/511", "64 r/w 62", 72, 30),
+ ("POCSO_TOTAL", "sexual", "POCSO Act, girl victims (all sections)", None, "POCSO Act", 135, 258),
+ ("POCSO_RAPE", "sexual", "POCSO: penetrative sexual assault of girls (s.4 and 6)", None, "POCSO s.4, 6", 138, 261),
+ ("POCSO_ASSAULT", "sexual", "POCSO: sexual assault of girls (s.8 and 10)", None, "POCSO s.8, 10", 141, 264),
+ ("ASSAULT_MODESTY", "sexual", "Assault with intent to outrage modesty (incl. sexual harassment, disrobing, voyeurism, stalking)", "354, 354A-D", "74-78", 81, None),
+ ("INSULT_MODESTY", "sexual", "Insult to the modesty of women", "509", "79", 90, 120),
+ ("MURDER_RAPE", "killed", "Murder with rape or gang rape", "302 r/w 376", "103 r/w 64-70", 3, 25),
+ ("DOWRY_DEATH", "killed", "Dowry deaths", "304B", "80", 6, 135),
+ ("ABETMENT_SUICIDE", "killed", "Abetment of suicide of women", "305, 306", "107, 108", 9, 180),
+ ("CRUELTY", "home", "Cruelty by husband or his relatives", "498A", "85, 86", 21, 140),
+ ("DOWRY_ACT", "home", "Dowry Prohibition Act, 1961", None, "Dowry Prohibition Act", 102, 228),
+ ("PWDVA", "home", "Protection of Women from Domestic Violence Act, 2005", None, "PWDVA", 123, 249),
+ ("KIDNAP", "other", "Kidnapping and abduction of women", "363-369", "87, 96, 137-140, 142", 24, None),
+ ("ACID", "other", "Acid attack", "326A", "124(1)", 15, 185),
+ ("ACID_ATTEMPT", "other", "Attempted acid attack", "326B", "124(2)", 18, 190),
+ ("TRAFFICKING", "other", "Human trafficking", "370, 370A", None, 54, None),
+ ("ITPA", "other", "Immoral Traffic (Prevention) Act, women victims", None, "ITPA 1956", 105, 231),
+ ("CYBER", "other", "Cyber crimes against women (IT Act)", None, "IT Act", 126, 252),
+ ("IPC_TOTAL", "total", "All IPC/BNS crimes against women", None, None, 99, 225),
+ ("SLL_TOTAL", "total", "All special and local law crimes against women", None, None, 159, 279),
+ ("TOTAL", "total", "All crimes against women", None, None, 162, 282),
+]
+# 2024 splits some heads that 2020-2023 report as one. Their sum is the
+# comparable figure: s.354 into five heads, and kidnapping into a total that
+# leaves out marriage (s.366) and procuration of minor girls (s.366A).
+SUMS_2024 = {'ASSAULT_MODESTY': ([45, 60, 75, 90, 105], ['bns74', 'bns75', 'bns76', 'bns77', 'bns78']),
+             'KIDNAP': ([195, 145, 165], ['bns137_142', 'bns87_marriage', 'bns96_procuration'])}
+SLL_2024 = {228, 231, 249, 252, 258, 261, 264, 279, 282}
+
+PAGES = {2020: "199-215", 2021: "211-227", 2022: "211-227", 2023: "211-227", 2024: "281-309"}
+SOURCE = json.load(open(os.path.join(RAW, 'sources.json')))
+
+def note_for(code, year):
+    if code == 'ASSAULT_MODESTY' and year == 2024:
+        return 'Sum of BNS 74-78 / IPC 354, 354A, 354B, 354C, 354D, which 2024 reports separately.'
+    if code == 'KIDNAP' and year == 2024:
+        return 'Sum of three 2024 heads: kidnapping (BNS 137-140, 142), to compel marriage (BNS 87 / IPC 366) and procuration of minor girls (BNS 96 / IPC 366A). 2020-2023 totals include all three.'
+    if code == 'RAPE_GIRLS_IPC':
+        return 'Most rape of girls is booked under POCSO s.4 and 6. See POCSO_RAPE.'
+    if code == 'TRAFFICKING' and year == 2024:
+        return 'Not in table 3A.2 for 2024.'
+    return ''
+
+def flags_for(year):
+    f = ['PRINCIPAL_OFFENCE']
+    if year == 2020:
+        f.append('LOCKDOWN_2020')
+    if year == 2024:
+        f.append('CODE_SPLIT_2024')
+    return f
+
+def load(year, table):
+    txt = open(os.path.join(RAW, f'cii{year}_v1.txt'), encoding='utf-8').read()
+    data, _ = P.parse_table(txt, table)
+    for n, col in data.items():
+        if all(v is None or float(v).is_integer() for v in col.values()):
+            bad = P.check_totals(col)
+            if bad and not (year == 2023 and table == '3A.2' and n == 158):
+                raise SystemExit(f'{year} {table} col {n}: rows do not add to totals: {bad}')
+    return data
+
+ROWKEYS = P.STATES + ['Total states', 'Total UTs', 'All India']
+
+def rows():
+    out = []
+    def add(state, year, code, group, label, ipc, bns, measure, value, unit, table, note=''):
+        src = SOURCE[str(year)]
+        out.append({
+            'state': state, 'lgd_code': LGD.get(state, ''),
+            'kind': 'state' if state in P.STATES[:28] else ('ut' if state in P.STATES else 'total'),
+            'year': year, 'crime_code': code, 'group': group, 'crime_head': label,
+            'ipc_section': ipc or '', 'bns_section_or_act': bns or '',
+            'measure': measure, 'value': '' if value is None else (int(value) if float(value).is_integer() and unit != 'rate' else value),
+            'unit': unit, 'source_edition': f'Crime in India {year}, Volume 1',
+            'table_no': table, 'source_url': src['url'], 'source_sha256': src['sha256'],
+            'flag': ';'.join(flags_for(year) + (['NOT_REPORTED'] if value is None else [])),
+            'note': note})
+    for y in YEARS:
+        t32 = load(y, '3A.2')
+        t31 = load(y, '3A.1')
+        popcol = 6
+        for s in ROWKEYS:
+            pop = t31[popcol].get(s)
+            add(s, y, 'FEMALE_POP', 'denominator', 'Female population, mid-year projection', None, None,
+                'population_lakh', pop, 'lakh women', '3A.1',
+                'Technical Group on Population Projections (July 2020), as printed by NCRB.')
+        for code, group, label, ipc, bns, c_old, c_new in HEADS:
+            for s in ROWKEYS:
+                note = note_for(code, y)
+                if y < 2024:
+                    i, v, r = (t32[c_old].get(s), t32[c_old + 1].get(s), t32[c_old + 2].get(s))
+                    add(s, y, code, group, label, ipc, bns, 'cases', i, 'count', '3A.2', note)
+                    add(s, y, code, group, label, ipc, bns, 'victims', v, 'count', '3A.2', note)
+                    add(s, y, code, group, label, ipc, bns, 'rate', r, 'rate', '3A.2', 'Cases per lakh women, as printed by NCRB. ' + note)
+                    continue
+                if code in SUMS_2024:
+                    cols, parts = SUMS_2024[code]
+                    i = sum(t32[c][s] for c in cols)
+                    v = sum(t32[c + 1][s] for c in cols)
+                    pop = t31[popcol].get(s)
+                    r = round(i / pop, 1) if pop else None
+                    add(s, y, code, group, label, ipc, bns, 'cases', i, 'count', '3A.2', note)
+                    add(s, y, code, group, label, ipc, bns, 'victims', v, 'count', '3A.2', note)
+                    add(s, y, code, group, label, ipc, bns, 'rate', r, 'rate', '3A.2', 'Computed here: cases per lakh women. ' + note)
+                    for c, part in zip(cols, parts):
+                        add(s, y, code, group, label, ipc, bns, f'cases_{part}', t32[c][s], 'count', '3A.2', f'One of the 2024 heads summed into {code}.')
+                    continue
+                if c_new is None:
+                    add(s, y, code, group, label, ipc, bns, 'cases', None, 'count', '3A.2', note)
+                    continue
+                if c_new in SLL_2024:
+                    i, v, r = (t32[c_new].get(s), t32[c_new + 1].get(s), t32[c_new + 2].get(s))
+                else:
+                    add(s, y, code, group, label, ipc, bns, 'cases_ipc', t32[c_new - 2].get(s), 'count', '3A.2', 'Offences committed before 1 July 2024, booked under the IPC.')
+                    add(s, y, code, group, label, ipc, bns, 'cases_bns', t32[c_new - 1].get(s), 'count', '3A.2', 'Offences from 1 July 2024, booked under the BNS.')
+                    i, v, r = (t32[c_new].get(s), t32[c_new + 1].get(s), t32[c_new + 2].get(s))
+                add(s, y, code, group, label, ipc, bns, 'cases', i, 'count', '3A.2', note)
+                add(s, y, code, group, label, ipc, bns, 'victims', v, 'count', '3A.2', note)
+                add(s, y, code, group, label, ipc, bns, 'rate', r, 'rate', '3A.2', 'Cases per lakh women, as printed by NCRB. ' + note)
+        # BNS 69, new in 2024
+        if y == 2024:
+            for s in ROWKEYS:
+                add(s, y, 'DECEIT_69', 'sexual', 'Sexual intercourse by deceitful means (BNS 69, new offence)', None, '69',
+                    'cases', t32[20][s], 'count', '3A.2', 'No IPC equivalent. Not counted in RAPE.')
+        # Women murdered: table 2A.3
+        t23 = load(y, '2A.3')
+        for s in ROWKEYS:
+            add(s, y, 'MURDER_WOMEN', 'killed', 'Women and girls murdered (all motives)', '302', '103',
+                'victims', t23[44].get(s), 'count', '2A.3', 'Female victims of murder, child and adult. Counts victims, not cases.')
+            add(s, y, 'MURDER_WOMEN', 'killed', 'Women and girls murdered (all motives)', '302', '103',
+                'victims_girls', t23[20].get(s), 'count', '2A.3', 'Female victims under 18.')
+            add(s, y, 'MURDER_ALL', 'killed', 'All murder victims', '302', '103',
+                'victims', t23[46].get(s), 'count', '2A.3', 'Male, female and transgender victims together.')
+        # Rape victims by age: table 3A.3
+        t33 = load(y, '3A.3')
+        bands = [(4, 'victims_under6'), (5, 'victims_6_12'), (6, 'victims_12_16'), (7, 'victims_16_18'),
+                 (8, 'victims_girls'), (9, 'victims_18_30'), (10, 'victims_30_45'), (11, 'victims_45_60'),
+                 (12, 'victims_60plus'), (13, 'victims_women'), (14, 'victims')]
+        for s in ROWKEYS:
+            for c, m in bands:
+                add(s, y, 'RAPE_VICTIMS_AGE', 'sexual', 'Victims of rape by age (s.376 IPC / BNS 64-70)', '376', '64-70',
+                    m, t33[c].get(s), 'count', '3A.3', 'Excludes POCSO cases.')
+        # What police did: table 3A.6 (all crimes against women together)
+        t36 = load(y, '3A.6')
+        pol = [(4, 'reported', 'count'), (6, 'total_for_investigation', 'count'), (11, 'final_report_false', 'count'),
+               (13, 'final_report_true_insufficient_evidence', 'count'), (18, 'chargesheeted', 'count'),
+               (19, 'disposed_by_police', 'count'), (22, 'pending_investigation_end_of_year', 'count'),
+               (23, 'chargesheeting_rate', 'percent'), (24, 'police_pendency', 'percent')]
+        for s in ROWKEYS:
+            for c, m, u in pol:
+                add(s, y, 'POLICE', 'outcome', 'Police disposal, all crimes against women', None, None,
+                    m, t36[c].get(s), u, '3A.6', 'All crime heads together. NCRB does not publish this by state for each crime.')
+        # What courts did: table 3A.8
+        t38 = load(y, '3A.8')
+        crt = [(5, 'total_for_trial', 'count'), (15, 'convicted', 'count'), (16, 'discharged', 'count'),
+               (17, 'acquitted', 'count'), (18, 'trials_completed', 'count'), (20, 'pending_trial_end_of_year', 'count'),
+               (21, 'conviction_rate', 'percent'), (22, 'court_pendency', 'percent')]
+        for s in ROWKEYS:
+            for c, m, u in crt:
+                add(s, y, 'COURTS', 'outcome', 'Court disposal, all crimes against women', None, None,
+                    m, t38[c].get(s), u, '3A.8', 'All crime heads together. Trials completed in a year mostly began in earlier years.')
+        # National outcomes for single crime heads: tables 3A.5 and 3A.7.
+        # NCRB publishes these for India as a whole only.
+        txt = open(os.path.join(RAW, f'cii{y}_v1.txt'), encoding='utf-8').read()
+        t35 = P.parse_heads_table(txt, '3A.5')
+        t37 = P.parse_heads_table(txt, '3A.7')
+        def find(tab, test):
+            labs = [l for l in tab[3] if test(l)]
+            if len(labs) != 1:
+                raise SystemExit(f'{y}: expected one row, found {labs}')
+            return labs[0]
+        top = lambda name: (lambda l: re_top(l) == name)
+        pick = {'RAPE': top('Rape'), 'MURDER_RAPE': top('Murder with Rape/Gang Rape'),
+                'DOWRY_DEATH': top('Dowry Deaths'), 'CRUELTY': top('Cruelty by Husband or his relatives'),
+                'POCSO_TOTAL': lambda l: re_top(l).startswith('Protection of Children from Sexual'),
+                'POCSO_RAPE': lambda l: l.split(' ', 1)[0].endswith('.1') and 'POCSO Act Section 4' in l,
+                'TOTAL': lambda l: l == 'Total Crime against Women'}
+        for code, test in pick.items():
+            head = next(h for h in HEADS if h[0] == code)
+            lp, lc = find(t35, test), find(t37, test)
+            for c, m, u in pol:
+                add('All India', y, code, 'outcome', head[2], head[3], head[4], 'police_' + m,
+                    t35[c][lp], u, '3A.5', 'India as a whole. NCRB does not publish this by state for each crime.')
+            for c, m, u in crt:
+                add('All India', y, code, 'outcome', head[2], head[3], head[4], 'court_' + m,
+                    t37[c][lc], u, '3A.7', 'India as a whole. Trials completed in a year mostly began in earlier years.')
+    return out
+
+def re_top(label):
+    import re
+    return re.sub(r'^\d+\s+', '', label) if re.match(r'^\d+\s', label) else ''
+
+FIELDS = ['state', 'lgd_code', 'kind', 'year', 'crime_code', 'group', 'crime_head', 'ipc_section',
+          'bns_section_or_act', 'measure', 'value', 'unit', 'source_edition', 'table_no',
+          'source_url', 'source_sha256', 'flag', 'note']
+
+def render(rs):
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, FIELDS, lineterminator='\n')
+    w.writeheader()
+    w.writerows(rs)
+    return buf.getvalue()
+
+if __name__ == '__main__':
+    text = render(rows())
+    if '--check' in sys.argv:
+        if open(OUT, encoding='utf-8').read() != text:
+            raise SystemExit('data/shecounts.csv is stale: run python3 scripts/build_data.py')
+        print('PASS: data/shecounts.csv is current')
+    else:
+        open(OUT, 'w', encoding='utf-8').write(text)
+        print('wrote', OUT, text.count('\n') - 1, 'rows')
