@@ -70,7 +70,7 @@
       [fmt(tot, 0), t('hero.f1', { y: y })],
       [fmt(rape, 0), t('hero.f2', { y: y })],
       [fmt(pocso, 0), t('hero.f3', { y: y })],
-      [Math.round(pend / before * 100) + ' / 100', t('hero.f4', { y: y })]
+      [t('field.big', { share: Math.round(pend / before * 100) }), t('hero.f4', { y: y })]
     ];
     $('heroFigs').innerHTML = out.map(function (f) { return '<div class="fig"><b>' + f[0] + '</b><span>' + f[1] + '</span></div>'; }).join('');
   }
@@ -104,39 +104,40 @@
     $('courtsIntro').textContent = t('courts.intro', { n: fmt(total, 0), crime: t('tab.' + c).toLowerCase(), y: y });
     $('fieldCap').innerHTML = t('field.cap', { per: fmt(per, 0), crime: t('tab.' + c).toLowerCase(), conv: '<b>' + fmt(conv, 0) + '</b>', pend: fmt(pend, 0), share: Math.round(pend / total * 100), y: y });
     $('field').setAttribute('aria-label', $('fieldCap').textContent);
-    var leg = [['conv', t('leg.conv'), 'var(--red)', fmt(conv, 0)], ['acq', t('leg.acq'), 'transparent', fmt(acq, 0)],
-               ['other', t('leg.other'), 'var(--knot-open)', fmt(other, 0)], ['pend', t('leg.pend'), 'var(--knot)', fmt(pend, 0)]];
+    $('fieldBig').innerHTML = '<b>' + t('field.big', { share: Math.round(pend / total * 100) }) + '</b><span>' + t('field.bigsub', { crime: t('tab.' + c).toLowerCase(), y: y }) + '</span>';
+    var leg = [['conv', t('leg.conv'), fmt(conv, 0)], ['acq', t('leg.acq'), fmt(acq, 0)],
+               ['other', t('leg.other'), fmt(other, 0)], ['pend', t('leg.pend'), fmt(pend, 0)]];
     $('fieldLegend').innerHTML = leg.map(function (l) {
-      var ring = l[0] === 'acq' ? ';box-shadow:inset 0 0 0 2px var(--red)' : '';
-      return '<li><i style="background:' + l[2] + ring + '"></i>' + l[1] + ' · ' + l[3] + '</li>';
+      return '<li>' + glyph(l[0]) + l[1] + ' · ' + l[2] + '</li>';
     }).join('') + '<li>' + t('leg.per', { per: fmt(per, 0) }) + '</li>';
     drawField(knots);
   }
+  // One stitch per knot. Shape as well as colour tells them apart:
+  // a full cross for pending and convicted, a half cross for acquitted or
+  // discharged, a small pale cross for cases that ended without a trial.
+  var STITCH = { pend: ['--knot', 1, 1.9], conv: ['--red', 1, 2.4], acq: ['--red', 0, 1.9], other: ['--knot-open', 0.7, 1.6] };
+  function glyph(k) {
+    var s = STITCH[k], c = 'var(' + s[0] + ')', a = 6 * (s[1] || 1);
+    var d = 'M' + (8 - a) + ' ' + (8 + a) + 'L' + (8 + a) + ' ' + (8 - a) + (s[1] ? 'M' + (8 - a) + ' ' + (8 - a) + 'L' + (8 + a) + ' ' + (8 + a) : '');
+    return '<svg class="glyph" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="' + d + '" stroke="' + c + '" stroke-width="' + s[2] + '" stroke-linecap="round" fill="none"/></svg>';
+  }
   function drawField(knots) {
     var cv = $('field'), w = cv.clientWidth || 900, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var gap = w < 520 ? 9.5 : 12, r = gap * 0.3;
-    var cols = Math.max(10, Math.floor((w - gap) / gap)), rows = Math.ceil(knots.length / cols);
-    var h = rows * gap + gap * 0.6;
+    var gap = w < 520 ? 9 : 11.5, half = gap * 0.32;
+    // every case is drawn: the column count leaves room for the offset rows
+    var cols = Math.max(10, Math.floor((w - gap * 1.2) / gap)), rows = Math.ceil(knots.length / cols);
+    var h = rows * gap + gap * 0.5;
     cv.width = w * dpr; cv.height = h * dpr; cv.style.height = h + 'px';
     var g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
-    var col = { conv: cssv('--red'), pend: cssv('--knot'), other: cssv('--knot-open'), thread: cssv('--thread') };
-    // running stitch under every row, as on kantha cloth
-    g.strokeStyle = col.thread; g.lineWidth = 1; g.setLineDash([5, 4]);
-    for (var rr = 0; rr < rows; rr++) {
-      var yy = rr * gap + gap * 0.55 + gap * 0.42;
-      g.beginPath(); g.moveTo(gap * 0.2, yy); g.lineTo(w - gap * 0.2, yy); g.stroke();
-    }
-    g.setLineDash([]);
+    g.lineCap = 'round';
     knots.forEach(function (k, i) {
-      var rr = Math.floor(i / cols), cc = i % cols;
-      var x = cc * gap + gap * 0.6 + (rr % 2 ? gap * 0.35 : 0), y = rr * gap + gap * 0.55;
-      if (x > w - r) return;
-      g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2);
-      if (k === 'acq') { g.lineWidth = 1.6; g.strokeStyle = col.conv; g.stroke(); return; }
-      g.fillStyle = col[k]; g.fill();
-      // the turn of thread in a French knot
-      g.beginPath(); g.arc(x - r * 0.25, y - r * 0.25, r * 0.38, 0, Math.PI * 1.4);
-      g.strokeStyle = 'rgba(255,255,255,0.35)'; g.lineWidth = 0.8; g.stroke();
+      var rr = Math.floor(i / cols), cc = i % cols, s = STITCH[k];
+      var x = cc * gap + gap * 0.6 + (rr % 2 ? gap * 0.3 : 0), y = rr * gap + gap * 0.6;
+      var a = half * (s[1] || 1);
+      g.strokeStyle = cssv(s[0]); g.lineWidth = s[2] * (w < 520 ? 0.8 : 1);
+      g.beginPath(); g.moveTo(x - a, y + a); g.lineTo(x + a, y - a);
+      if (s[1]) { g.moveTo(x - a, y - a); g.lineTo(x + a, y + a); }
+      g.stroke();
     });
   }
 
@@ -153,10 +154,11 @@
     D.years.forEach(function (y) {
       h += '<tr><th scope="row">' + y + '</th>' + cols.map(function (x) {
         var v = S(c, x[0], 'All India', y), pct = x[0].indexOf('rate') > 0;
-        return '<td' + (x[0] === 'court_conviction_rate' ? ' class="hl"' : '') + '>' + fmt(v, x[2]) + (pct && v != null ? '%' : '') + '</td>';
+        return '<td data-label="' + t(x[1]) + '"' + (x[0] === 'court_conviction_rate' ? ' class="hl"' : '') + '>' + fmt(v, x[2]) + (pct && v != null ? '%' : '') + '</td>';
       }).join('') + '</tr>';
     });
     $('firTable').innerHTML = h + '</tbody>';
+    $('firTable').classList.add('stack');
   }
 
   // ---------- map and ranking ----------
@@ -272,16 +274,16 @@
     var pop = S('FEMALE_POP', 'population_lakh', p, 2024);
     var tot = S('TOTAL', 'cases', p, 2024), r = S('TOTAL', 'rate', p, 2024), ri = S('TOTAL', 'rate', 'All India', 2024);
     $('stateIntro').textContent = t('state.intro', { s: place(p), pop: fmt(pop, 1), tot: fmt(tot, 0), r: fmt(r, 1), ri: fmt(ri, 1) });
-    var h = '<thead><tr><th scope="col">' + t('crime') + '</th>' + D.years.map(function (y) { return '<th scope="col">' + y + '</th>'; }).join('') +
-      '<th scope="col">' + t('trend') + '</th><th scope="col">' + t('rate24') + '</th><th scope="col">' + t('india24') + '</th></tr></thead><tbody>';
+    var h = '<thead><tr><th scope="col">' + t('crime') + '</th>' + D.years.map(function (y, i) { return '<th scope="col"' + (i < D.years.length - 1 ? ' class="old"' : '') + '>' + y + '</th>'; }).join('') +
+      '<th scope="col">' + t('trend') + '</th><th scope="col">' + t('rate24') + '</th><th scope="col" class="ind">' + t('india24') + '</th></tr></thead><tbody>';
     GROUPS.forEach(function (g) {
       h += '<tr class="group"><th colspan="9" scope="rowgroup">' + t('group.' + g[0]) + '</th></tr>';
       g[1].forEach(function (code) {
         var vals = cases(code, p); if (!vals) return;
         var law = [D.heads[code].ipc ? 'IPC ' + D.heads[code].ipc : '', D.heads[code].bns || ''].filter(Boolean).join(' · ');
         h += '<tr><th scope="row">' + head(code) + (law ? '<span class="sub">' + law + '</span>' : '') + '</th>' +
-          vals.map(function (v) { return '<td>' + fmt(v, 0) + '</td>'; }).join('') + '<td>' + spark(vals) + '</td>' +
-          '<td class="hl">' + fmt(rate(code, p, 2024), 2) + '</td><td>' + fmt(rate(code, 'All India', 2024), 2) + '</td></tr>';
+          vals.map(function (v, i) { return '<td' + (i < vals.length - 1 ? ' class="old"' : '') + '>' + fmt(v, 0) + '</td>'; }).join('') + '<td>' + spark(vals) + '</td>' +
+          '<td class="hl">' + fmt(rate(code, p, 2024), 2) + '</td><td class="ind">' + fmt(rate(code, 'All India', 2024), 2) + '</td></tr>';
       });
     });
     $('stateTable').innerHTML = h + '</tbody>';
@@ -292,10 +294,11 @@
     D.years.forEach(function (y) {
       o += '<tr><th scope="row">' + y + '</th>' + oc.map(function (x) {
         var v = S(x[0], x[1], p, y), pct = /rate|pendency/.test(x[1]);
-        return '<td' + (x[1] === 'conviction_rate' ? ' class="hl"' : '') + '>' + fmt(v, x[3]) + (pct && v != null ? '%' : '') + '</td>';
+        return '<td data-label="' + t(x[2]) + '"' + (x[1] === 'conviction_rate' ? ' class="hl"' : '') + '>' + fmt(v, x[3]) + (pct && v != null ? '%' : '') + '</td>';
       }).join('') + '</tr>';
     });
     $('stateOutcomes').innerHTML = o + '</tbody>';
+    $('stateOutcomes').classList.add('stack');
     if (scroll) { $('state').scrollIntoView({ behavior: 'smooth', block: 'start' }); history.replaceState(null, '', '#s-' + slug(p)); }
   }
   function slug(s) { return s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
@@ -340,6 +343,11 @@
     Array.prototype.slice.call($('lang').options).forEach(function (o) { if (!ready(o.value)) o.remove(); });
     lang = ready(q) ? q : (ready(saved) ? saved : 'en');
     $('lang').addEventListener('change', function () { setLang(this.value); });
+    var mb = $('menuBtn'), nav = $('nav');
+    function setMenu(open) { nav.classList.toggle('open', open); mb.setAttribute('aria-expanded', String(open)); }
+    mb.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); mb.focus(); } });
     var th = $('theme');
     function dark() { var d = document.documentElement.dataset.theme; return d ? d === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches; }
     th.setAttribute('aria-pressed', String(dark()));

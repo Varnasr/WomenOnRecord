@@ -73,12 +73,13 @@ html[lang="ur"] .mark { font-family: "Rozha One", serif; }
 .stitch { height: 3px; margin-block: 8px; background: repeating-linear-gradient(90deg, var(--red) 0 10px, transparent 10px 17px); background-clip: content-box; }
 
 .hero { padding-block: 40px 20px; display: grid; gap: 14px; }
-.kicker { margin: 0; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 14px; color: var(--soft); }
+.kicker { margin: 0; font: 600 13.5px/1.4 ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--soft); }
+html[lang='ur'] .kicker, html[lang='ta'] .kicker, html[lang='bn'] .kicker, html[lang='hi'] .kicker, html[lang='mr'] .kicker { font-family: var(--text); letter-spacing: 0; }
 h1 { margin: 0; font: 400 clamp(32px, 6vw, 60px)/1.08 var(--display); max-width: 20ch; text-wrap: balance; }
 html[lang="ur"] h1 { line-height: 1.6; }
 .lead { margin: 0; font-size: clamp(18px, 2.3vw, 21px); max-width: 60ch; color: var(--soft); }
 .figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 10px; }
-.fig { background: var(--cloth); padding: 18px 18px 14px; border-radius: 4px; outline: 1.5px dashed var(--thread); outline-offset: -7px; display: grid; gap: 4px; align-content: start; }
+.fig { background: var(--cloth); padding: 20px 20px 16px; border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; display: grid; gap: 4px; align-content: start; }
 .fig b { font: 400 clamp(32px, 4.4vw, 44px)/1.05 var(--display); color: var(--red); font-variant-numeric: tabular-nums; }
 .fig span { color: var(--soft); font-size: 15.5px; }
 
@@ -89,7 +90,7 @@ h3 { margin: 10px 0 0; font-size: 19px; font-weight: 700; }
 html[lang="ur"] h2 { line-height: 1.7; }
 .intro { margin: 0; max-width: 68ch; }
 .note { margin: 0; max-width: 68ch; color: var(--soft); font-size: 15.5px; }
-.cloth { background: var(--cloth); border-radius: 4px; outline: 1.5px dashed var(--thread); outline-offset: -7px; }
+.cloth { background: var(--cloth); border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; }
 
 .tabs { display: flex; flex-wrap: wrap; gap: 8px; }
 .tabs button { font: 600 15px/1.2 var(--text); color: var(--ink); background: transparent; border: 1.5px dashed var(--soft); border-radius: 999px; padding: 8px 14px; cursor: pointer; min-height: 40px; }
@@ -150,7 +151,7 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .read .limits { margin: 0; padding-inline-start: 1.3em; display: grid; gap: 10px; max-width: 72ch; }
 
 .downloads { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
-.downloads a { display: grid; gap: 4px; padding: 18px; background: var(--cloth); border-radius: 4px; outline: 1.5px dashed var(--thread); outline-offset: -7px; text-decoration: none; height: 100%; }
+.downloads a { display: grid; gap: 4px; padding: 20px; background: var(--cloth); border-radius: 6px; border: 1.5px dashed var(--soft); outline: 1.5px dashed var(--red); outline-offset: -8px; text-decoration: none; height: 100%; }
 .downloads a:hover b { text-decoration: underline; }
 .downloads b { font-size: 19px; }
 .downloads span { color: var(--soft); font-size: 15px; }
@@ -169,3 +170,56 @@ html[lang="ur"] h2 { line-height: 1.7; }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
 @media print { .top, .band, .tabs, .pick, .controls { display: none; } body { background: #fff; } }
+
+/* Big figure inside the stitched field */
+.fieldbig { margin: 0; display: grid; gap: 2px; }
+.fieldbig b { font: 400 clamp(44px, 8vw, 76px)/1 var(--display); color: var(--red); font-variant-numeric: tabular-nums; }
+.fieldbig span { font-size: clamp(17px, 2.2vw, 20px); font-weight: 600; }
+.glyph { vertical-align: -3px; margin-inline-end: 6px; }
+.cta { display: inline-block; margin-top: 4px; padding: 12px 22px; border-radius: 999px; background: var(--ink); color: var(--cloth); font-weight: 700; text-decoration: none; min-height: 44px; }
+.cta:hover { text-decoration: underline; }
+.menu { display: none; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--cloth); border: 1.5px dashed var(--soft); border-radius: 8px; cursor: pointer; }
+@media (max-width: 720px) {
+  .top-in { flex-wrap: nowrap; }
+  .mark { font-size: 24px; }
+  .menu { display: inline-grid; order: 3; }
+  .controls { order: 2; }
+  .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 2px dashed var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
+  .nav.open { display: flex; }
+  .nav a { padding: 10px 0; font-size: 18px; }
+  .top { position: sticky; }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  body { font-size: 16.5px; }
+  .hero { padding-block: 26px 12px; }
+  .figs { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fig { padding: 14px 14px 12px; outline-offset: -6px; }
+  .fig b { font-size: 27px; }
+  .fig span { font-size: 13.5px; line-height: 1.4; }
+  .sec { padding-block: 24px; }
+  .field { padding: 16px 14px; }
+  .field figcaption { font-size: 16.5px; }
+  .pick label { flex: 1 1 130px; }
+  .pick label:first-child { flex-basis: 100%; }
+  .grid th:first-child, .grid td:first-child { min-width: 9.5em; }
+  .grid .old, .grid .ind { display: none; }
+  .grid .spark { width: 48px; }
+  .grid thead th { white-space: normal; font-size: 13px; line-height: 1.25; }
+  #stateTable th:first-child, #stateTable td:first-child { min-width: 0; width: 46%; }
+  .grid th, .grid td { padding: 8px 8px; }
+  /* tables of outcomes become one card per year */
+  .grid.stack thead { display: none; }
+  .grid.stack, .grid.stack tbody { display: block; }
+  .grid.stack tr { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; padding: 10px 12px; border-bottom: 1px dashed var(--thread); }
+  .grid.stack th[scope="row"] { grid-column: 1 / -1; border: 0; padding: 2px 0 6px; font: 400 22px/1.1 var(--display); min-width: 0; }
+  .grid.stack td { display: flex; flex-direction: column; align-items: flex-start; text-align: start; white-space: normal; border: 0; padding: 4px 0; }
+  .grid.stack td::before { content: attr(data-label); font-size: 12.5px; color: var(--soft); font-weight: 600; }
+  .rank { max-height: 420px; }
+  .multiples { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .mult { padding: 12px 12px 10px; }
+  .mult h3 { font-size: 14px; }
+  .mult .last { font-size: 22px; }
+}
+@media (max-width: 380px) { .multiples { grid-template-columns: 1fr; } }

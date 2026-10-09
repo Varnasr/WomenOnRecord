@@ -10,12 +10,12 @@
  "tab.DOWRY_DEATH": "Dowry deaths",
  "tab.CRUELTY": "Cruelty by husband or relatives",
  "courts.intro": "In {y}, {n} cases of {crime} were before the courts: cases sent for trial that year, and every case still waiting from earlier years.",
- "field.cap": "Each knot is {per} cases of {crime}. {conv} ended in a conviction in {y}. {pend}, or {share} in every 100, were still waiting for a verdict when the year ended.",
+ "field.cap": "Each stitch is {per} cases of {crime}. {conv} ended in a conviction in {y}. {pend}, or {share} in every 100, were still waiting for a verdict when the year ended.",
  "leg.conv": "Conviction",
  "leg.acq": "Acquitted or discharged",
  "leg.other": "Ended without a trial (withdrawn, compounded, quashed, abated)",
  "leg.pend": "Still pending at the end of the year",
- "leg.per": "One knot = {per} cases",
+ "leg.per": "One stitch = {per} cases",
  "year": "Year",
  "fir.c1": "Cases reported",
  "fir.c2": "Charge-sheeted",
@@ -120,5 +120,7 @@
  "st.Total states": "Total states",
  "st.Total UTs": "Total UTs",
  "st.All India": "All India",
- "range": "{a} to {b}"
+ "range": "{a} to {b}",
+ "field.big": "{share} in 100",
+ "field.bigsub": "cases of {crime} before the courts were still waiting for a verdict at the end of {y}"
 }
