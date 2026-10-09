@@ -305,6 +305,8 @@ html:not([lang="en"]) .card .kick { font-family: var(--text); text-transform: no
 .chart .tick.mark { fill: var(--ink); font-weight: 600; }
 .chart .lab { font-size: 13.5px; font-weight: 600; paint-order: stroke; stroke: var(--cloth); stroke-width: 4px; stroke-linejoin: round; }
 .chart .lab.num { font-weight: 700; font-variant-numeric: tabular-nums; }
+.chart .lab.part { font-size: 14.5px; font-weight: 400; }
+.chart .lab.hub { font-size: 17px; font-weight: 700; }
 .chart .inbar { font-size: 12.5px; font-weight: 700; fill: #fff; }
 .chart .band:hover { fill-opacity: .55; }
 .chart .legend li { display: inline-flex; align-items: center; }

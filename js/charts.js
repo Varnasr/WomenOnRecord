@@ -45,67 +45,92 @@
   // spec.links: [{s, t, v}] in the order bands leave a node.
   function flow(el, spec, o) {
     o = o || {};
-    var W = width(el), wide = W >= 700, fmt = o.fmt || String;
+    var W = width(el);
+    if (W < 700) return steps(el, spec, o, W);
+    var fmt = o.fmt || String;
     var nodes = {}, cols = [];
     spec.nodes.forEach(function (n) { n.inV = 0; n.outV = 0; nodes[n.id] = n; (cols[n.col] = cols[n.col] || []).push(n); });
     spec.links.forEach(function (l) { nodes[l.s].outV += l.v; nodes[l.t].inV += l.v; });
-    var gap = wide ? 16 : 10, nodeW = wide ? 12 : 10;
-    var H = wide ? 440 : 0, padR = wide ? 175 : 0, padT = 10;
-    var breadth = wide ? H - padT * 2 : W - 4;
-    var k = Infinity;
+    var gap = 16, nodeW = 12, H = 440, padR = 175, padT = 10, breadth = H - padT * 2, k = Infinity;
     cols.forEach(function (c) {
       var sum = c.reduce(function (a, n) { return a + n.value; }, 0);
       k = Math.min(k, (breadth - gap * (c.length - 1)) / sum);
     });
-    var minH = 1.5, step = wide ? (W - padR - nodeW) / (cols.length - 1) : 0, rowH = 86;
-    if (!wide) H = (cols.length - 1) * rowH + nodeW + 8;
+    var minH = 1.5, step = (W - padR - nodeW) / (cols.length - 1);
     cols.forEach(function (c, ci) {
-      var pos = wide ? padT : 2;
-      c.forEach(function (n) {
-        n.len = Math.max(minH, n.value * k);
-        n.at = pos; n.depth = wide ? ci * step : ci * rowH + 4;
-        pos += n.len + gap;
-        n.so = 0; n.to = 0;
-      });
+      var pos = padT;
+      c.forEach(function (n) { n.len = Math.max(minH, n.value * k); n.at = pos; n.depth = ci * step; pos += n.len + gap; n.so = 0; n.to = 0; });
     });
     var g = '';
     spec.links.forEach(function (l) {
       var a = nodes[l.s], b = nodes[l.t], h = Math.max(minH * 0.6, l.v * k);
       var a0 = a.at + a.so, b0 = b.at + b.to; a.so += l.v * k; b.to += l.v * k;
-      var d0 = a.depth + nodeW, d1 = b.depth, dm = (d0 + d1) / 2, p;
-      if (wide) p = 'M' + d0 + ' ' + a0 + 'C' + dm + ' ' + a0 + ' ' + dm + ' ' + b0 + ' ' + d1 + ' ' + b0 +
+      var d0 = a.depth + nodeW, d1 = b.depth, dm = (d0 + d1) / 2;
+      var p = 'M' + d0 + ' ' + a0 + 'C' + dm + ' ' + a0 + ' ' + dm + ' ' + b0 + ' ' + d1 + ' ' + b0 +
         'L' + d1 + ' ' + (b0 + h) + 'C' + dm + ' ' + (b0 + h) + ' ' + dm + ' ' + (a0 + h) + ' ' + d0 + ' ' + (a0 + h) + 'Z';
-      else p = 'M' + a0 + ' ' + d0 + 'C' + a0 + ' ' + dm + ' ' + b0 + ' ' + dm + ' ' + b0 + ' ' + d1 +
-        'L' + (b0 + h) + ' ' + d1 + 'C' + (b0 + h) + ' ' + dm + ' ' + (a0 + h) + ' ' + dm + ' ' + (a0 + h) + ' ' + d0 + 'Z';
       g += '<path class="band" d="' + p + '" fill="' + tok(b.color) + '" fill-opacity=".32"><title>' + esc(a.label + ' → ' + b.label + ': ' + fmt(l.v)) + '</title></path>';
     });
     spec.nodes.forEach(function (n) {
-      var r = wide ? [n.depth, n.at, nodeW, n.len] : [n.at, n.depth, n.len, nodeW];
-      g += '<rect x="' + r[0].toFixed(1) + '" y="' + r[1].toFixed(1) + '" width="' + r[2].toFixed(1) + '" height="' + r[3].toFixed(1) +
+      g += '<rect x="' + n.depth.toFixed(1) + '" y="' + n.at.toFixed(1) + '" width="' + nodeW + '" height="' + n.len.toFixed(1) +
         '" fill="' + tok(n.color) + '"><title>' + esc(n.label + ': ' + fmt(n.value)) + '</title></rect>';
     });
-    var legend = '';
-    if (wide) {
-      cols.forEach(function (c) {
-        var wrapped = c.map(function (n) { return wrap(n.label, 22); });
-        var sizes = wrapped.map(function (w) { return w.length * 16 + 22; });
-        var ys = spread(c.map(function (n) { return n.at + n.len / 2; }), sizes, 14, null);
-        c.forEach(function (n, i) {
-          var x = n.depth + nodeW + 7, lines = wrapped[i], top = ys[i] - (lines.length * 16 + 16) / 2 + 12, cy = n.at + n.len / 2;
-          if (Math.abs(ys[i] - cy) > 3) g += '<path d="M' + (n.depth + nodeW + 1) + ' ' + cy + 'L' + (x - 2) + ' ' + ys[i] + '" stroke="var(--soft)" fill="none"/>';
-          lines.forEach(function (ln, j) { g += '<text class="lab" x="' + x + '" y="' + (top + j * 16) + '">' + esc(ln) + '</text>'; });
-          g += '<text class="lab num" x="' + x + '" y="' + (top + lines.length * 16 + 1) + '">' + esc(fmt(n.value)) + '</text>';
-          H = Math.max(H, top + lines.length * 16 + 10);
-        });
+    cols.forEach(function (c) {
+      var wrapped = c.map(function (n) { return wrap(n.label, 22); });
+      var sizes = wrapped.map(function (w) { return w.length * 16 + 22; });
+      var ys = spread(c.map(function (n) { return n.at + n.len / 2; }), sizes, 14, null);
+      c.forEach(function (n, i) {
+        var x = n.depth + nodeW + 7, lines = wrapped[i], top = ys[i] - (lines.length * 16 + 16) / 2 + 12, cy = n.at + n.len / 2;
+        if (Math.abs(ys[i] - cy) > 3) g += '<path d="M' + (n.depth + nodeW + 1) + ' ' + cy + 'L' + (x - 2) + ' ' + ys[i] + '" stroke="var(--soft)" fill="none"/>';
+        lines.forEach(function (ln, j) { g += '<text class="lab" x="' + x + '" y="' + (top + j * 16) + '">' + esc(ln) + '</text>'; });
+        g += '<text class="lab num" x="' + x + '" y="' + (top + lines.length * 16 + 1) + '">' + esc(fmt(n.value)) + '</text>';
+        H = Math.max(H, top + lines.length * 16 + 10);
       });
-    } else {
-      legend = '<ol class="flowkey">' + cols.map(function (c) {
-        return '<li><ul>' + c.map(function (n) {
-          return '<li><i style="background:' + tok(n.color) + '"></i><span>' + esc(n.label) + '</span><b>' + esc(fmt(n.value)) + '</b></li>';
-        }).join('') + '</ul></li>';
-      }).join('') + '</ol>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + Math.ceil(H) + '" width="' + W + '" height="' + Math.ceil(H) + '" role="img" aria-label="' + esc(o.label || '') + '">' + g + '</svg>';
+    el.__csv = [['stage', 'cases']].concat(spec.nodes.map(function (n) { return [n.label, n.value]; }));
+  }
+  // The same flow on a narrow screen, read top to bottom. Each stage where
+  // cases gather (the police, the courts) is a heading with its total, a bar of
+  // where its cases came from, and a bar of what became of them, each bar with
+  // its parts named and counted directly beneath it.
+  function steps(el, spec, o, W) {
+    var fmt = o.fmt || String, nodes = {};
+    spec.nodes.forEach(function (n) { nodes[n.id] = n; });
+    var ins = {}, outs = {};
+    spec.links.forEach(function (l) { (ins[l.t] = ins[l.t] || []).push(l); (outs[l.s] = outs[l.s] || []).push(l); });
+    var hubs = spec.nodes.filter(function (n) { return (ins[n.id] || []).length > 1 && (outs[n.id] || []).length > 1; });
+    var y = 4, g = '', room = Math.floor((W - 96) / 7.4);
+    function bar(list, end, total) {
+      var x = 0;
+      list.forEach(function (l) {
+        var n = nodes[l[end]], w = l.v / total * W;
+        g += '<rect x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(1.5, w).toFixed(1) + '" height="16" fill="' + tok(n.color) + '"><title>' + esc(n.label + ': ' + fmt(l.v)) + '</title></rect>';
+        x += w;
+      });
+      y += 30;
+      list.forEach(function (l) {
+        var n = nodes[l[end]], lines = wrap(n.label, room);
+        g += '<rect x="0" y="' + (y - 11) + '" width="11" height="11" rx="2" fill="' + tok(n.color) + '"/>';
+        lines.forEach(function (ln, j) { g += '<text class="lab part" x="20" y="' + (y + j * 18) + '">' + esc(ln) + '</text>'; });
+        g += '<text class="lab num" x="' + W + '" y="' + y + '" text-anchor="end">' + esc(fmt(l.v)) + '</text>';
+        y += lines.length * 18 + 8;
+      });
     }
-    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + Math.ceil(H) + '" width="' + W + '" height="' + Math.ceil(H) + '" role="img" aria-label="' + esc(o.label || '') + '">' + g + '</svg>' + legend;
+    hubs.forEach(function (h, i) {
+      if (i) { g += '<line x1="0" x2="' + W + '" y1="' + (y + 4) + '" y2="' + (y + 4) + '" stroke="var(--thread)"/>'; y += 30; }
+      else y += 18;
+      wrap(h.label, Math.floor((W - 90) / 9)).forEach(function (ln, j, a) {
+        g += '<text class="lab hub" x="0" y="' + y + '">' + esc(ln) + '</text>';
+        if (j === a.length - 1) g += '<text class="lab num hub" x="' + W + '" y="' + y + '" text-anchor="end">' + esc(fmt(h.value)) + '</text>';
+        y += 22;
+      });
+      bar(ins[h.id], 's', ins[h.id].reduce(function (a, l) { return a + l.v; }, 0));
+      g += '<path d="M' + (W / 2 - 7) + ' ' + (y - 2) + 'l7 9 7-9" fill="none" stroke="var(--soft)" stroke-width="2"/>';
+      y += 18;
+      bar(outs[h.id], 't', outs[h.id].reduce(function (a, l) { return a + l.v; }, 0));
+    });
+    var H = Math.ceil(y);
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(o.label || '') + '">' + g + '</svg>';
     el.__csv = [['stage', 'cases']].concat(spec.nodes.map(function (n) { return [n.label, n.value]; }));
   }
 
@@ -176,7 +201,11 @@
     spec.keys.forEach(function (k) { color[k.key] = k.color; label[k.key] = k.label; });
     spec.rows.forEach(function (r, i) {
       var y = T + i * (rowH + 8), x = L, full = spec.share ? r.sum : max;
-      if (r.label) g += '<text class="tick" x="' + (L - 10) + '" y="' + (y + rowH / 2 + 5) + '" text-anchor="end">' + esc(r.label) + '</text>';
+      if (r.label) {
+        // a name too long for the label column is shortened, with the whole name in its tooltip
+        var room = Math.floor((L - 12) / 6.6), lab = String(r.label), short = lab.length > room ? lab.slice(0, room - 1).replace(/\s+\S*$/, '') + '…' : lab;
+        g += '<text class="tick" x="' + (L - 10) + '" y="' + (y + rowH / 2 + 5) + '" text-anchor="end"><title>' + esc(lab) + '</title>' + esc(short) + '</text>';
+      }
       r.parts.forEach(function (p) {
         if (!p.value) return;
         var w = p.value / full * (W - L - R);
@@ -200,6 +229,12 @@
   // columns from zero, values written over each column when there is room.
   function columns(el, spec) {
     var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
+    // Many single columns on a phone leave no room for their labels, so they lie on their side.
+    if (narrow && spec.x.length > 5 && spec.series.length === 1) {
+      var z = spec.series[0];
+      return stack(el, { rows: spec.x.map(function (x, i) { return { label: x, parts: [{ key: 'v', value: z.values[i] }] }; }),
+        keys: [{ key: 'v', label: z.label, color: z.color }], values: true, fmt: function (v) { return fmt(v); }, label: spec.label });
+    }
     var H = narrow ? 250 : 300, L = narrow ? 44 : 56, R = 8, T = 22, B = spec.xWrap ? 44 : 30;
     var max = 0;
     spec.series.forEach(function (z) { z.values.forEach(function (v) { if (v > max) max = v; }); });
@@ -266,13 +301,15 @@
   // own scale from zero, because the crimes differ by orders of magnitude.
   function dumbbell(el, spec) {
     var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
-    var L = Math.min(narrow ? 140 : 230, W * 0.42), R = 54, rh = narrow ? 34 : 30, T = 8;
+    // On a phone the name sits on its own line above its row, so it is never cut.
+    var L = narrow ? 8 : Math.min(230, W * 0.42), R = 54, rh = narrow ? 50 : 30, T = 8;
     var H = T + spec.rows.length * rh + 6, g = '';
     spec.rows.forEach(function (r, i) {
-      var y = T + i * rh + rh / 2, mx = Math.max(r.a || 0, r.b || 0) * 1.12 || 1;
+      var y = T + i * rh + (narrow ? 34 : rh / 2), mx = Math.max(r.a || 0, r.b || 0) * 1.12 || 1;
       var x = function (v) { return L + (W - L - R) * v / mx; };
       g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" stroke="var(--thread)"/>';
-      g += '<text class="tick rowlab" x="' + (L - 10) + '" y="' + (y + 4) + '" text-anchor="end">' + esc(r.label) + '</text>';
+      if (narrow) g += '<text class="tick rowlab" x="0" y="' + (y - 14) + '">' + esc(r.label) + '</text>';
+      else g += '<text class="tick rowlab" x="' + (L - 10) + '" y="' + (y + 4) + '" text-anchor="end">' + esc(r.label) + '</text>';
       if (r.a != null && r.b != null) g += '<line x1="' + x(r.a).toFixed(1) + '" x2="' + x(r.b).toFixed(1) + '" y1="' + y + '" y2="' + y + '" stroke="var(--soft)" stroke-width="3"/>';
       if (r.b != null) g += '<circle cx="' + x(r.b).toFixed(1) + '" cy="' + y + '" r="5.5" fill="var(--cloth)" stroke="var(--soft)" stroke-width="2"><title>' + esc(spec.bLabel + ': ' + fmt(r.b)) + '</title></circle>';
       if (r.a != null) g += '<circle cx="' + x(r.a).toFixed(1) + '" cy="' + y + '" r="6.5" fill="var(--red)"><title>' + esc(spec.aLabel + ': ' + fmt(r.a)) + '</title></circle>';

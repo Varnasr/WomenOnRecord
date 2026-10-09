@@ -145,7 +145,7 @@
     var o = pc('RAPE', 'All India', 2024);
     $('homeCourts').textContent = t('home.courts.t', { conv: Math.round(o.cr), y: 2024 });
     // a strip of every rape case before the courts in 2024, split by outcome
-    var parts = [['conv', '--red'], ['acq', '--turmeric'], ['dis', '--q2'], ['othc', '--soft'], ['ptr', '--knot-open']], x = 0, g = '';
+    var parts = [['conv', '--red'], ['acq', '--turmeric'], ['dis', '--q4'], ['othc', '--soft'], ['ptr', '--knot-open']], x = 0, g = '';
     parts.forEach(function (p) { var w = o[p[0]] / o.ct * 300; g += '<rect x="' + x.toFixed(1) + '" y="0" width="' + Math.max(1, w).toFixed(1) + '" height="14" fill="var(' + p[1] + ')"/>'; x += w; });
     $('vizCourts').setAttribute('viewBox', '0 0 300 14'); $('vizCourts').innerHTML = g;
     var v = cases('TOTAL', 'All India'), mx = Math.max.apply(null, v);
@@ -189,7 +189,7 @@
       { id: 'crt', col: 3, value: o.ct, label: t('flow.court'), color: '--knot' },
       { id: 'conv', col: 4, value: o.conv, label: t('flow.conv'), color: '--red' },
       { id: 'acq', col: 4, value: o.acq, label: t('flow.acq'), color: '--turmeric' },
-      { id: 'dis', col: 4, value: o.dis, label: t('flow.dis'), color: '--q2' },
+      { id: 'dis', col: 4, value: o.dis, label: t('flow.dis'), color: '--q4' },
       { id: 'othc', col: 4, value: o.othc, label: t('flow.otherc'), color: '--soft' },
       { id: 'ptr', col: 4, value: o.ptr, label: t('flow.ptrial'), color: '--knot-open' }],
       links: [{ s: 'carry', t: 'pol', v: o.carry }, { s: 'new', t: 'pol', v: o.rep },
@@ -249,7 +249,7 @@
     tabs($('obMode'), ['all', 'done'], 'ob', function (m) { return t('ob.' + m); }, function () { outcomes(code, p); });
     var share = st.ob === 'done';
     var keys = [{ key: 'conv', label: t('flow.conv'), color: '--red' }, { key: 'acq', label: t('flow.acq'), color: '--turmeric' },
-                { key: 'dis', label: t('flow.dis'), color: '--q2' }];
+                { key: 'dis', label: t('flow.dis'), color: '--q4' }];
     if (!share) keys = keys.concat([{ key: 'othc', label: t('flow.otherc'), color: '--soft' }, { key: 'ptr', label: t('flow.ptrial'), color: '--knot-open' }]);
     var rows = D.years.map(function (y) {
       var o = pc(code, p, y);
@@ -383,7 +383,7 @@
     $('ageCap').textContent = t('age.cap', { y: y, place: p === 'All India' ? t('india') : place(p), girls: fmt(S('RAPE_VICTIMS_AGE', 'victims_girls', p, y), 0), women: fmt(S('RAPE_VICTIMS_AGE', 'victims_women', p, y), 0) });
     C.watch($('ageChart'), function () {
       C.columns($('ageChart'), { x: AGES.map(function (g) { return g[1].indexOf('age.') === 0 ? t(g[1]) : g[1]; }), xWrap: true, label: $('ageCap').textContent,
-        fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, 0) + 'k' : fmt(v, 0); },
+        fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); },
         series: [{ label: t('age.h'), values: vals, color: '--knot' }] });
     });
   }
@@ -588,7 +588,7 @@
     $('ncwLead').textContent = t('cx.ncw.lead', { n: fmt(nt[4], 0), y: 2024, up: fmt(up / nt[4] * 100, 0), rape: fmt(cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', '2024'), 0), dv: fmt(cv('ncw', 'ncw_nature_domestic_violence', 'All India', '2024'), 0) });
     $('ncwCap').textContent = t('cx.ncw.cap');
     C.watch($('ncwChart'), function () {
-      C.columns($('ncwChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
+      C.columns($('ncwChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
         { label: t('cx.ncw.all'), values: nt, color: '--knot', width: 3 },
         { label: t('cx.ncw.dv'), values: D.years.map(function (y) { return cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(y)); }), color: '--turmeric' },
         { label: t('cx.ncw.rape'), values: D.years.map(function (y) { return cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(y)); }), color: '--red' }] });
@@ -599,7 +599,7 @@
     $('adsiLead').textContent = t('cx.adsi.lead', { f: fmt(af[4], 0), hw: fmt(ah[4], 0), share: fmt(ah[4] / af[4] * 100, 0), y: 2024 });
     $('adsiCap').textContent = t('cx.adsi.cap');
     C.watch($('adsiChart'), function () {
-      C.columns($('adsiChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, 0) + 'k' : fmt(v, 0); }, label: $('adsiCap').textContent, series: [
+      C.columns($('adsiChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('adsiCap').textContent, series: [
         { label: t('cx.adsi.f'), values: af, color: '--knot', width: 3 }, { label: t('cx.adsi.hw'), values: ah, color: '--red' }] });
     });
     placeTable($('adsiTable'), [
