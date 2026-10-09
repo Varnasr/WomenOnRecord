@@ -350,3 +350,7 @@ a.mult:hover h3 { text-decoration: underline; }
 .src { margin: 0; max-width: 72ch; font-size: 14px; color: var(--soft); }
 details.every summary { cursor: pointer; font-weight: 600; padding: 6px 0; }
 details.every[open] summary { margin-bottom: 8px; }
+/* Charts are laid out left to right in every language. In a right-to-left
+   page an SVG inherits direction: rtl, which reverses text-anchor and pushes
+   labels off the chart. Text inside still shapes in its own script. */
+.chart svg, .slope svg, .mult svg, .cardviz, .map svg { direction: ltr; }

@@ -164,7 +164,8 @@
   function stack(el, spec) {
     var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
     var blank = spec.rows.every(function (r) { return !r.label; });
-    var L = blank ? 0 : spec.labelW ? Math.min(spec.labelW, W * 0.38) : (narrow ? 44 : 64), R = spec.values ? 70 : 8, rowH = narrow ? 30 : 34, T = 6;
+    var longest = Math.max.apply(null, spec.rows.map(function (r) { return String(r.label || '').length; }));
+    var L = blank ? 0 : Math.min(W * 0.38, spec.labelW || Math.max(narrow ? 44 : 64, longest * 7.5 + 16)), R = spec.values ? 70 : 8, rowH = narrow ? 30 : 34, T = 6;
     if (spec.rows.length > 12) rowH = 22;
     var H = T + spec.rows.length * (rowH + 8) + 4;
     var max = 0;
