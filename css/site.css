@@ -492,3 +492,19 @@ html[dir="rtl"] .findings a::after { content: " \2190"; }
   #stateIso { display: grid; grid-template-columns: minmax(0, 1fr) 330px; grid-template-areas: "big iso" "leg iso" "note iso"; grid-template-rows: auto auto 1fr; gap: 14px 36px; align-items: start; }
   #stateIso .isobig { grid-area: big; } #stateIso .iso { grid-area: iso; margin: 0; } #stateIso .legend { grid-area: leg; flex-direction: column; } #stateIso .isonote { grid-area: note; }
 }
+
+/* the law page: prose in every cell, and one card per crime on a phone */
+.lawtable th, .lawtable td { white-space: normal; text-align: start; vertical-align: top; }
+.lawtable td:last-child { min-width: 18em; }
+.law [id] { scroll-margin-top: 80px; }
+@media (max-width: 699px) {
+  .lawtable, .lawtable tbody, .lawtable tr, .lawtable th, .lawtable td { display: block; width: auto; min-width: 0 !important; }
+  .lawtable thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .lawtable tr { padding: 10px 0; border-bottom: 1px solid var(--thread); }
+  .lawtable th, .lawtable td { padding: 3px 0; border: 0; }
+  .lawtable tbody th { font-size: 17px; }
+  .lawtable td::before { display: block; font-size: 13px; color: var(--soft); }
+  .lawtable td:nth-child(2)::before { content: "IPC, before 1 July 2024"; }
+  .lawtable td:nth-child(3)::before { content: "BNS, from 1 July 2024"; }
+  .lawtable td:nth-child(4)::before { content: "What changed"; }
+}

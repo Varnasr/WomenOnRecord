@@ -13,6 +13,10 @@
   var NS = 'http://www.w3.org/2000/svg';
   var CRIMES = ['RAPE', 'POCSO_RAPE', 'ATTEMPT_RAPE', 'ASSAULT_MODESTY', 'INSULT_MODESTY', 'MURDER_WOMEN', 'MURDER_RAPE', 'DOWRY_DEATH',
                 'ABETMENT_SUICIDE', 'CRUELTY', 'DOWRY_ACT', 'PWDVA', 'KIDNAP', 'ACID', 'ITPA', 'CYBER', 'TOTAL'];
+  // the row of the law page that gives each crime's sections
+  var LAW_ROW = { RAPE: 'rape', POCSO_RAPE: 'pocso', ATTEMPT_RAPE: 'rape', ASSAULT_MODESTY: 'assault-modesty', INSULT_MODESTY: 'insult-modesty',
+    MURDER_WOMEN: 'murder', MURDER_RAPE: 'murder', DOWRY_DEATH: 'dowry-death', ABETMENT_SUICIDE: 'abetment-suicide', CRUELTY: 'cruelty',
+    KIDNAP: 'kidnap', ACID: 'acid' };
   var FIR = ['RAPE', 'POCSO_RAPE', 'MURDER_RAPE', 'DOWRY_DEATH', 'CRUELTY', 'TOTAL'];
 
   // ---------- language ----------
@@ -579,7 +583,7 @@
     pk.value = c;
     $('h-crime').textContent = head(c);
     document.title = head(c) + ' · She Counts';
-    $('crimeLaw').textContent = law(c);
+    var la = $('crimeLaw'); la.textContent = law(c); la.href = '/law/#' + (LAW_ROW[c] || 'crimes');
     var v = cases(c, 'All India'), y0 = D.years[0], y1 = D.years[D.years.length - 1];
     $('crimeIntro').textContent = t('crime.intro', { b: fmt(v[v.length - 1], 0), y1: y1, a: fmt(v[0], 0), y0: y0, r: fmt(rate(c, 'All India', y1), 2) });
     var note = (D.notes[c] || {})[String(D.years[D.years.length - 1])];

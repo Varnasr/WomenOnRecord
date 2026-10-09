@@ -9,8 +9,8 @@ in India, Volume 1, read by script, and eight context sources beside it.
 Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
 first line is `<!--page {json} -->`. Pages: home (`index.html`),
-`protests/`, `courts/`, `states/`, `crimes/`, `context/`, `explore/`, `method/`
-and `terms/`. Two
+`protests/`, `courts/`, `states/`, `crimes/`, `context/`, `explore/`, `method/`,
+`law/` and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
 (`crimes/<slug>/`, the 17 in `CRIMES`), with the place or crime in a `data-`
@@ -83,6 +83,16 @@ or year where it goes negative.
 States are listed alphabetically on every page and never ranked by rate.
 NCRB warns against comparing states on these figures, and the state pages show
 each state against itself (2020 against 2024) and against India.
+
+`law/` sets each crime's IPC section against its BNS section and lists what the
+BNSS requires when a woman reports a sexual offence, with the section for every
+line. It is English only, because the English text of an Act is the
+authoritative one. Each row of its table has an id, and the law line on every
+crime page links to it through `LAW_ROW` in `js/app.js`; rename a row and
+change both. Two checks are still owed: the quotations from the IPC, CrPC and
+POCSO Act against India Code, and Imran Pratapgadhi v State of Gujarat
+(2025 INSC 410) read from the judgment itself before anything in it is quoted.
+Add a line to it only from the text of the Act, the Gazette or a judgment.
 
 ## Credit
 
