@@ -3,8 +3,14 @@
     <p class="kicker" data-i18n="nav.crimes">Crimes</p>
     <h1 data-i18n="crimes.h">Each crime, five years, India</h1>
     <p class="intro" data-i18n="crimes.intro">Each chart shows the cases recorded in India in each year from 2020 to 2024. Counts fell everywhere in 2020, when the lockdown kept people away from police stations. The new criminal laws came into force in the middle of 2024, and the 2024 counts add the cases booked under the old laws and the new ones.</p>
-    <div class="tabs" role="tablist" aria-label="Show" id="multMode"></div>
   </header>
-  <section class="sec" aria-label="Crimes">
+  <section class="sec" id="mix" aria-labelledby="h-mix">
+    <h2 id="h-mix" data-i18n="mix.h">What was recorded</h2>
+    <div class="tabs" role="tablist" aria-label="Year" id="mixYear"></div>
+    <figure class="chart cloth"><div id="mixChart"></div><figcaption id="mixCap"></figcaption></figure>
+  </section>
+  <section class="sec" id="each" aria-labelledby="h-each">
+    <h2 id="h-each" data-i18n="each.h">Each crime, 2020 to 2024</h2>
+    <div class="tabs" role="tablist" aria-label="Show" id="multMode"></div>
     <div class="multiples" id="multiples"></div>
   </section>

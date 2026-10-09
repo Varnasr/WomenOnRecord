@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explore the data · She Counts</title>
+<meta name="description" content="Filter, sort and download every figure in She Counts: crimes against women in India by state, year and measure, 2020 to 2024, from NCRB&#x27;s Crime in India.">
+<meta property="og:title" content="Explore the data · She Counts">
+<meta property="og:description" content="Filter, sort and download every figure in She Counts: crimes against women in India by state, year and measure, 2020 to 2024, from NCRB&#x27;s Crime in India.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shecounts.netlify.app/explore/">
+<meta property="og:image" content="https://shecounts.netlify.app/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="90 in every 100 rape cases before India's courts in 2024 were still waiting for a verdict when the year ended. Source: NCRB.">
+<meta name="twitter:image" content="https://shecounts.netlify.app/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://shecounts.netlify.app/explore/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/css/fonts.css?v=d6299a11d6">
+<link rel="stylesheet" href="/css/site.css?v=7a657644dd">
+<script>
+  // The build this page came from, and a fingerprint for every file it loads
+  // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
+  window.SC_BUILD = "2e797ea832"; window.SC_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"7a657644dd","data/context.csv":"c4c676784e","data/context.json":"4efb3fb68d","data/explore.json":"22a90018a0","data/geo/india.json":"f82dbbe582","data/shecounts.csv":"eb84607428","data/site.json":"6acb7593e8","downloads/codebook.csv":"0577778935","downloads/context.xlsx":"a85d040438","downloads/shecounts.xlsx":"e76e373d9b","js/app.js":"73cce63aed","js/charts.js":"9b19e9e11a","js/i18n.js":"ff0cdab236"};
+  // Theme before first paint, so a dark-mode reader never sees a light flash.
+  try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body data-page="explore">
+<a class="skip" href="#main" data-i18n="skip">Skip to the figures</a>
+
+<svg class="band" aria-hidden="true" focusable="false" preserveAspectRatio="none" viewBox="0 0 900 22">
+  <defs>
+    <pattern id="mithila" width="9" height="22" patternUnits="userSpaceOnUse">
+      <line x1="1.5" y1="16.5" x2="7.5" y2="5.5" class="band-hatch"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="22" class="band-cloth"/>
+  <rect y="4" width="900" height="14" fill="url(#mithila)"/>
+  <line x1="0" y1="2" x2="900" y2="2" class="band-line"/>
+  <line x1="0" y1="20" x2="900" y2="20" class="band-line"/>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="/" aria-label="She Counts, home">She Counts</a>
+    <button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <span class="sr" data-i18n="menu">Menu</span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Pages">
+      <a href="/protests/" data-i18n="nav.protests">Protests</a>
+      <a href="/courts/" data-i18n="nav.pc">Police and courts</a>
+      <a href="/states/" data-i18n="nav.states">States</a>
+      <a href="/crimes/" data-i18n="nav.crimes">Crimes</a>
+      <a href="/context/" data-i18n="nav.cx">Context</a>
+      <a href="/explore/" data-i18n="nav.ex" aria-current="page">Explore</a>
+      <a href="/method/" data-i18n="nav.dm">Data and method</a>
+    </nav>
+    <div class="controls">
+      <label class="sr" for="lang" data-i18n="lang.label">Language</label>
+      <select id="lang" class="lang">
+        <option value="en">English</option>
+        <option value="hi" lang="hi">हिन्दी</option>
+        <option value="ur" lang="ur">اردو</option>
+        <option value="ta" lang="ta">தமிழ்</option>
+        <option value="bn" lang="bn">বাংলা</option>
+        <option value="mr" lang="mr">मराठी</option>
+      </select>
+      <button id="theme" class="theme" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+        <span class="sr" data-i18n="theme">Dark theme</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<p class="wrap tnote" id="tnote" hidden data-i18n="tnote">This page has been translated by machine and has not yet been checked by a native speaker. Where the translation and the English differ, the English page governs.</p>
+
+<div class="page wrap">
+<nav class="toc" id="toc" aria-labelledby="tocH" hidden><p id="tocH" data-i18n="toc">On this page</p><ol></ol></nav>
+<main id="main">
+  <header class="phead">
+    <p class="kicker" data-i18n="nav.ex">Explore</p>
+    <h1 data-i18n="ex.h">Explore the data</h1>
+    <p class="intro" id="exIntro"></p>
+    <p class="note only-tr" data-i18n="ex.en">The names of the measures are in English, as they are in the downloaded files.</p>
+  </header>
+
+  <section class="sec" id="table" aria-labelledby="h-table">
+    <h2 id="h-table" class="sr" data-i18n="ex.h">Explore the data</h2>
+    <div class="exbar">
+      <label class="exsearch"><span data-i18n="ex.search">Search</span>
+        <input type="search" id="exQ" autocomplete="off" spellcheck="false"></label>
+      <label><span data-i18n="pick.crime">Crime</span><select id="exCrime"></select></label>
+      <label><span data-i18n="ex.place">Place</span><select id="exPlace"></select></label>
+      <label><span data-i18n="ex.measure">Measure</span><select id="exMeasure"></select></label>
+    </div>
+    <div class="exbar2">
+      <div class="exyears" role="group" aria-labelledby="exYearsL"><span id="exYearsL" data-i18n="ex.years">Years</span><span id="exYears"></span></div>
+      <div class="tabs" role="tablist" aria-label="Layout" id="exLayout"></div>
+      <details class="excols"><summary data-i18n="ex.cols">Columns</summary><div id="exCols"></div></details>
+      <button type="button" class="exreset" id="exReset" data-i18n="ex.reset">Clear the filters</button>
+    </div>
+    <div class="exstatus">
+      <p id="exCount" aria-live="polite"></p>
+      <div class="exact">
+        <button type="button" id="exDl" class="btn" data-i18n="ex.dl">Download these rows (CSV)</button>
+        <button type="button" id="exLink" class="btn ghost" data-i18n="tools.link">Copy link</button>
+      </div>
+    </div>
+    <div class="table-wrap ex" tabindex="0" role="region" aria-labelledby="h-table">
+      <table class="grid extable" id="exTable"></table>
+    </div>
+    <p class="exmore"><button type="button" class="btn ghost" id="exMore" hidden></button></p>
+    <p class="note" data-i18n="ex.note">Sorting a column puts the rows in order of that figure. NCRB warns that states should not be ranked on these figures alone, because a higher count can come from more crime or from police who record more of it.</p>
+  </section>
+</main>
+</div>
+
+<footer class="foot">
+  <p class="wrap foot-in"><span data-i18n="foot.credit">Research by Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Only counts are published, and no survivor is named or described.</span> <span data-i18n="foot.ind">She Counts is not published by NCRB or by the Government of India.</span>
+    · <a href="/method/" data-i18n="foot.about">About this site</a> · <a href="/method/#data" data-i18n="foot.dl">Downloads</a> · <a href="/context/" data-i18n="nav.cx">Context</a> · <a href="/terms/" data-i18n="foot.terms">Terms and privacy</a> · <a href="https://github.com/Varnasr/SheCounts">GitHub</a> · <span data-i18n="foot.lic">Data CC BY 4.0 · Code MIT</span></p>
+</footer>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<div class="tour" id="tour" role="dialog" aria-modal="false" aria-labelledby="tourTitle" hidden>
+  <p class="tour-n" id="tourN"></p>
+  <h2 id="tourTitle"></h2>
+  <p id="tourText"></p>
+  <div class="tour-b">
+    <button type="button" id="tourBack" data-i18n="tour.back">Back</button>
+    <button type="button" id="tourNext" data-i18n="tour.next">Next</button>
+    <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
+  </div>
+</div>
+<script src="/js/i18n.js?v=ff0cdab236"></script>
+<script src="/js/charts.js?v=9b19e9e11a"></script>
+<script src="/js/app.js?v=73cce63aed"></script>
+</body>
+</html>

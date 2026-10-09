@@ -320,6 +320,117 @@
     el.__csv = [['', spec.aLabel, spec.bLabel]].concat(spec.rows.map(function (r) { return [r.label, r.a, r.b]; }));
   }
 
+
+  // ---------- treemap ----------
+  // spec: {items: [{label, value, color, ink}], fmt, label}. Squarified, so the
+  // boxes stay close to square and their areas can be compared. Every box is
+  // its share of the whole; the items must add to the whole.
+  function treemap(el, spec) {
+    var W = width(el), narrow = W < 560, H = narrow ? 420 : 440, fmt = spec.fmt || String;
+    var items = spec.items.filter(function (d) { return d.value > 0; }).sort(function (a, b) { return b.value - a.value; });
+    var total = items.reduce(function (a, d) { return a + d.value; }, 0), k = W * H / total, out = [];
+    function worst(row, side) {
+      var s = row.reduce(function (a, d) { return a + d.value * k; }, 0), mx = 0, mn = Infinity;
+      row.forEach(function (d) { mx = Math.max(mx, d.value * k); mn = Math.min(mn, d.value * k); });
+      return Math.max(side * side * mx / (s * s), s * s / (side * side * mn));
+    }
+    function lay(row, box) {
+      var s = row.reduce(function (a, d) { return a + d.value * k; }, 0);
+      if (box.w >= box.h) { var w = s / box.h, y = box.y; row.forEach(function (d) { var h = d.value * k / w; out.push([d, box.x, y, w, h]); y += h; }); box.x += w; box.w -= w; }
+      else { var h2 = s / box.w, x = box.x; row.forEach(function (d) { var ww = d.value * k / h2; out.push([d, x, box.y, ww, h2]); x += ww; }); box.y += h2; box.h -= h2; }
+    }
+    var box = { x: 0, y: 0, w: W, h: H }, row = [], rest = items.slice();
+    while (rest.length) {
+      var side = Math.min(box.w, box.h), d = rest[0];
+      if (!row.length || worst(row.concat([d]), side) <= worst(row, side)) { row.push(d); rest.shift(); }
+      else { lay(row, box); row = []; }
+    }
+    if (row.length) lay(row, box);
+    var g = '';
+    out.forEach(function (o) {
+      var d = o[0], x = o[1], y = o[2], w = o[3], h = o[4], pct = d.value / total * 100;
+      var txt = d.ink || 'var(--cloth)';
+      g += '<rect x="' + (x + 1).toFixed(1) + '" y="' + (y + 1).toFixed(1) + '" width="' + Math.max(0.5, w - 2).toFixed(1) + '" height="' + Math.max(0.5, h - 2).toFixed(1) + '" fill="' + tok(d.color) + '"><title>' +
+        esc(d.label + ': ' + fmt(d.value) + ' (' + pct.toFixed(1) + '%)') + '</title></rect>';
+      var lines = wrap(d.label, Math.max(6, Math.floor((w - 14) / 7.6))), need = lines.length * 16 + 22;
+      if (w > 64 && h > need) {
+        lines.forEach(function (ln, j) { g += '<text class="tml" x="' + (x + 8).toFixed(1) + '" y="' + (y + 20 + j * 16).toFixed(1) + '" fill="' + txt + '">' + esc(ln) + '</text>'; });
+        g += '<text class="tml num" x="' + (x + 8).toFixed(1) + '" y="' + (y + 22 + lines.length * 16).toFixed(1) + '" fill="' + txt + '">' + esc(fmt(d.value)) + ' · ' + (pct < 1 ? pct.toFixed(1) : Math.round(pct)) + '%</text>';
+      } else if (w > 34 && h > 20) {
+        g += '<text class="tml num" x="' + (x + 5).toFixed(1) + '" y="' + (y + 16).toFixed(1) + '" fill="' + txt + '">' + (pct < 1 ? pct.toFixed(1) : Math.round(pct)) + '%</text>';
+      }
+    });
+    // every box is named in the key under the chart, so a box too small for its name is still found
+    var key = '<ul class="tmkey">' + items.map(function (d) { return '<li><i style="background:' + tok(d.color) + '"></i><span>' + esc(d.label) + '</span><b>' + esc(fmt(d.value)) + '</b></li>'; }).join('') + '</ul>';
+    el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>' + key;
+    el.__csv = [['heading', 'cases', 'share %']].concat(items.map(function (d) { return [d.label, d.value, (d.value / total * 100).toFixed(2)]; }));
+  }
+
+  // ---------- tile map ----------
+  // spec: {tiles: [{code, name, col, row, values, last, href}], x: [years], fmt, label}.
+  // One square per state or union territory, placed roughly where it lies, each
+  // with its own five years as a line on its own scale. Equal squares, so a
+  // small territory is as easy to read as a large state.
+  function tiles(el, spec) {
+    var W = width(el), cols = 10, rows = 8, gap = 3, s = Math.min(78, (W - gap * (cols - 1)) / cols), fmt = spec.fmt || String;
+    var Wd = cols * s + (cols - 1) * gap, H = rows * s + (rows - 1) * gap, g = '', big = s >= 54;
+    spec.tiles.forEach(function (t) {
+      var x = t.col * (s + gap), y = t.row * (s + gap), v = t.values.filter(function (q) { return q != null; });
+      var up = v.length > 1 && v[v.length - 1] > v[0];
+      g += '<a href="' + esc(t.href) + '"><title>' + esc(t.name + ': ' + t.values.map(function (q, i) { return spec.x[i] + ' ' + (q == null ? '–' : fmt(q)); }).join(', ')) + '</title>' +
+        '<rect class="tile" x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + s.toFixed(1) + '" height="' + s.toFixed(1) + '" rx="3"/>' +
+        '<text class="tcode" x="' + (x + 5).toFixed(1) + '" y="' + (y + (big ? 15 : 12)).toFixed(1) + '" font-size="' + (big ? 12 : 10) + '">' + esc(t.code) + '</text>';
+      if (big && t.last != null) g += '<text class="tval" x="' + (x + s - 5).toFixed(1) + '" y="' + (y + 15).toFixed(1) + '" text-anchor="end">' + esc(fmt(t.last)) + '</text>';
+      if (v.length > 1) {
+        var mx = Math.max.apply(null, v), mn = Math.min.apply(null, v), top = y + (big ? 24 : 17), bot = y + s - 6, l = x + 5, r = x + s - 5;
+        var pts = t.values.map(function (q, i) { return q == null ? null : [l + i * (r - l) / (t.values.length - 1), bot - (mx === mn ? 0.5 : (q - mn) / (mx - mn)) * (bot - top)]; }).filter(Boolean);
+        g += '<path d="' + pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join('') + '" fill="none" stroke="' + (up ? 'var(--red)' : 'var(--knot)') + '" stroke-width="' + (big ? 2 : 1.5) + '" stroke-linejoin="round"/>';
+        var e = pts[pts.length - 1];
+        g += '<circle cx="' + e[0].toFixed(1) + '" cy="' + e[1].toFixed(1) + '" r="' + (big ? 2.6 : 2) + '" fill="' + (up ? 'var(--red)' : 'var(--knot)') + '"/>';
+      }
+      g += '</a>';
+    });
+    el.innerHTML = '<svg viewBox="0 0 ' + Wd.toFixed(0) + ' ' + H.toFixed(0) + '" width="' + Wd.toFixed(0) + '" height="' + H.toFixed(0) + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [['place'].concat(spec.x)].concat(spec.tiles.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }).map(function (t) { return [t.name].concat(t.values); }));
+  }
+
+  // ---------- swarm ----------
+  // spec: {rows: [{label, dots: [{name, v}], mark}], markLabel, fmt, label}.
+  // One row per year, one dot per state, piled sideways where dots would
+  // overlap. The line in each row is India as a whole. Dots carry no rank.
+  function swarm(el, spec) {
+    var W = width(el), narrow = W < 560, fmt = spec.fmt || String, L = 46, R = 14, T = 8, r = narrow ? 3.5 : 5, band = narrow ? 92 : 80;
+    var max = 0;
+    spec.rows.forEach(function (row) { row.dots.forEach(function (d) { if (d.v > max) max = d.v; }); if (row.mark > max) max = row.mark; });
+    var nice = niceMax(max), x = function (v) { return L + (W - L - R) * v / nice; };
+    var H = T + spec.rows.length * band + 26, g = '';
+    for (var t = 0; t <= 4; t++) {
+      var v = nice * t / 4, xx = x(v);
+      g += '<line x1="' + xx + '" x2="' + xx + '" y1="' + T + '" y2="' + (H - 22) + '" stroke="var(--thread)"' + (t ? ' stroke-dasharray="3 5"' : '') + '/>' +
+        '<text class="tick" x="' + xx + '" y="' + (H - 6) + '" text-anchor="middle">' + esc(fmt(v, true)) + '</text>';
+    }
+    spec.rows.forEach(function (row, i) {
+      var cy = T + i * band + band / 2, placed = [];
+      g += '<text class="tick" x="0" y="' + (cy + 4) + '">' + esc(row.label) + '</text>';
+      row.dots.slice().sort(function (a, b) { return a.v - b.v; }).forEach(function (d) {
+        var px = x(d.v), y = cy, k2 = 0;
+        // try the centre line, then alternate above and below until the dot is clear
+        while (placed.some(function (p) { return (p[0] - px) * (p[0] - px) + (p[1] - y) * (p[1] - y) < (2 * r + 1) * (2 * r + 1); }) && k2 < 40) {
+          k2++; y = cy + (k2 % 2 ? -1 : 1) * Math.ceil(k2 / 2) * (r * 0.9);
+        }
+        placed.push([px, y]);
+        g += '<circle cx="' + px.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + r + '" fill="var(--knot)" fill-opacity=".72" stroke="var(--cloth)" stroke-width="1"><title>' + esc(d.name + ', ' + row.label + ': ' + fmt(d.v)) + '</title></circle>';
+      });
+      if (row.mark != null) g += '<line x1="' + x(row.mark).toFixed(1) + '" x2="' + x(row.mark).toFixed(1) + '" y1="' + (cy - band / 2 + 6) + '" y2="' + (cy + band / 2 - 6) + '" stroke="var(--red)" stroke-width="3"><title>' + esc(spec.markLabel + ', ' + row.label + ': ' + fmt(row.mark)) + '</title></line>';
+    });
+    var key = '<ul class="legend"><li><i style="background:var(--knot)"></i>' + esc(spec.dotLabel) + '</li><li><i style="background:var(--red);border-radius:1px;width:4px"></i>' + esc(spec.markLabel) + '</li></ul>';
+    el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    var names = spec.rows[0].dots.map(function (d) { return d.name; }).sort();
+    el.__csv = [['place'].concat(spec.rows.map(function (r2) { return r2.label; }))].concat(names.map(function (n) {
+      return [n].concat(spec.rows.map(function (r2) { var d = r2.dots.find(function (q) { return q.name === n; }); return d ? d.v : ''; })); }))
+      .concat([[spec.markLabel].concat(spec.rows.map(function (r2) { return r2.mark; }))]);
+  }
+
   // ---------- export ----------
   // A chart as a standalone SVG card: its colours and type written in from the
   // page, a title above and the source and address below, so a shared picture
@@ -457,5 +568,5 @@
     return '<div class="iso">' + out + '</div>';
   }
 
-  window.SC_CHARTS = { columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
+  window.SC_CHARTS = { treemap: treemap, tiles: tiles, swarm: swarm, wrap: wrap, columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
 })();

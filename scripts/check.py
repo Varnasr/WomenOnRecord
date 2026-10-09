@@ -105,6 +105,9 @@ for l, own in OWN.items():
         # The owner's rule: India is بھارت everywhere in Urdu.
         if l == 'ur' and 'ہندوستان' in v:
             fail.append(f'ur {k} names India as ہندوستان, use بھارت')
+        # Numbers stay in Western digits in every language.
+        if re.search('[\u0966-\u096f\u09e6-\u09ef\u0be6-\u0bef\u06f0-\u06f9\u0660-\u0669]', v):
+            fail.append(f'{l} {k} writes a number in native digits, use 0-9')
 
 if fail:
     print('\n'.join(fail)); sys.exit(1)

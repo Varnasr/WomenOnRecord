@@ -8,8 +8,9 @@ in India, Volume 1, read by script, and eight context sources beside it.
 
 Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
-first line is `<!--page {json} -->`. Seven pages: home (`index.html`),
-`protests/`, `courts/`, `states/`, `crimes/`, `context/`, `method/`. Two
+first line is `<!--page {json} -->`. Pages: home (`index.html`),
+`protests/`, `courts/`, `states/`, `crimes/`, `context/`, `explore/`, `method/`
+and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
 (`crimes/<slug>/`, the 17 in `CRIMES`), with the place or crime in a `data-`
@@ -45,7 +46,32 @@ by sitting in a `figure.chart` and keeping its numbers in `__csv`.
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
 the charts, all plain SVG: `flow` (the sankey on the police and courts page),
 `lines`, `stack`, `slope`, `columns`, `heat` (state by year, on the crime
-pages) and `dumbbell` (a state against India, on the state pages). Every chart redraws when its box changes width.
+pages), `dumbbell` (a state against India, on the state pages), `treemap` (what
+was recorded, on the crimes page), `tiles` (a tile map of India with each
+state's five years, on the states page) and `swarm` (every state's rate, one
+row per year, with India marked, on the crime pages). The states page also
+draws the map once per year on one shared scale. Every chart redraws when its
+box changes width, and every chart has a phone layout: below 700px the flow
+becomes one labelled bar per stage (`steps`), the dumbbell puts each name on
+its own line, and more than five single columns lie on their side. Check every
+chart at 390px wide before deploying; the owner reads the site on a phone.
+
+The treemap's boxes must add to the total. The named headings are
+`MIX_IPC` and `MIX_SLL` in `js/app.js`, none counted twice because NCRB files
+each case under its most serious offence, and what they leave of
+`IPC_TOTAL` and `SLL_TOTAL` is drawn as "every other heading". A heading that
+contains another (RAPE_WOMEN inside RAPE, POCSO_RAPE inside POCSO_TOTAL) must
+never be added to those lists.
+
+`explore/` is the whole dataset as a table that can be filtered, searched,
+sorted and downloaded, with the view kept in the address. It reads
+`data/explore.json`, which `scripts/build_explore.py` writes from
+`data/shecounts.csv` with every repeated value written once (542 KB against
+9.3 MB). The build fails unless every CSV row comes back exactly from the
+compact file, and a download from the page rebuilds rows in the CSV's own
+eighteen columns. Measure names there are English, as in the files; the page
+says so in each translation. Rebuild it after any data change; CI runs
+`--check`.
 
 The flow joins the police stage to the court stage through "waiting in court
 from earlier years", computed as cases before the courts less that year's
@@ -132,7 +158,9 @@ preview image, and commit messages.
 change all five translations in the same commit; `build_i18n.py --check`
 fails on a missing key or a changed placeholder. No native speaker has read
 the translations yet, and every translated page says so. Numbers stay in
-Western digits with Indian grouping in every language. In Urdu, India is
+Western digits with Indian grouping in every language, and `check.py` fails on
+Devanagari, Bengali, Tamil or Arabic-Indic digits (fourteen Bengali strings
+had them until October 2026). In Urdu, India is
 بھارت everywhere (the owner's rule), and `check.py` fails on ہندوستان.
 
 ## Data
@@ -165,6 +193,7 @@ Traps already met, so nobody meets them again:
 ```bash
 python3 scripts/build_data.py && python3 scripts/build_site_data.py
 python3 scripts/build_context.py
+python3 scripts/build_explore.py
 python3 scripts/build_xlsx.py
 python3 scripts/build_i18n.py
 python3 scripts/build_pages.py      # last: it fingerprints everything above

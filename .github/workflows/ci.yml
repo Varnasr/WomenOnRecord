@@ -10,6 +10,7 @@ jobs:
       - run: python3 scripts/build_data.py --check
       - run: python3 scripts/build_site_data.py --check
       - run: python3 scripts/build_context.py --check
+      - run: python3 scripts/build_explore.py --check
       - run: python3 scripts/build_pages.py --check
       - run: python3 scripts/build_i18n.py --check
       - run: python3 scripts/check.py

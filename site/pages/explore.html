@@ -1,0 +1,36 @@
+<!--page {"url": "/explore/", "out": "explore/index.html", "title_key": "ex.h", "title": "Explore the data", "desc": "Filter, sort and download every figure in She Counts: crimes against women in India by state, year and measure, 2020 to 2024, from NCRB's Crime in India."} -->
+  <header class="phead">
+    <p class="kicker" data-i18n="nav.ex">Explore</p>
+    <h1 data-i18n="ex.h">Explore the data</h1>
+    <p class="intro" id="exIntro"></p>
+    <p class="note only-tr" data-i18n="ex.en">The names of the measures are in English, as they are in the downloaded files.</p>
+  </header>
+
+  <section class="sec" id="table" aria-labelledby="h-table">
+    <h2 id="h-table" class="sr" data-i18n="ex.h">Explore the data</h2>
+    <div class="exbar">
+      <label class="exsearch"><span data-i18n="ex.search">Search</span>
+        <input type="search" id="exQ" autocomplete="off" spellcheck="false"></label>
+      <label><span data-i18n="pick.crime">Crime</span><select id="exCrime"></select></label>
+      <label><span data-i18n="ex.place">Place</span><select id="exPlace"></select></label>
+      <label><span data-i18n="ex.measure">Measure</span><select id="exMeasure"></select></label>
+    </div>
+    <div class="exbar2">
+      <div class="exyears" role="group" aria-labelledby="exYearsL"><span id="exYearsL" data-i18n="ex.years">Years</span><span id="exYears"></span></div>
+      <div class="tabs" role="tablist" aria-label="Layout" id="exLayout"></div>
+      <details class="excols"><summary data-i18n="ex.cols">Columns</summary><div id="exCols"></div></details>
+      <button type="button" class="exreset" id="exReset" data-i18n="ex.reset">Clear the filters</button>
+    </div>
+    <div class="exstatus">
+      <p id="exCount" aria-live="polite"></p>
+      <div class="exact">
+        <button type="button" id="exDl" class="btn" data-i18n="ex.dl">Download these rows (CSV)</button>
+        <button type="button" id="exLink" class="btn ghost" data-i18n="tools.link">Copy link</button>
+      </div>
+    </div>
+    <div class="table-wrap ex" tabindex="0" role="region" aria-labelledby="h-table">
+      <table class="grid extable" id="exTable"></table>
+    </div>
+    <p class="exmore"><button type="button" class="btn ghost" id="exMore" hidden></button></p>
+    <p class="note" data-i18n="ex.note">Sorting a column puts the rows in order of that figure. NCRB warns that states should not be ranked on these figures alone, because a higher count can come from more crime or from police who record more of it.</p>
+  </section>

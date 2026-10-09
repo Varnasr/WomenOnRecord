@@ -435,3 +435,49 @@ html[lang="ur"] .lead2 { padding: 4px 18px 4px 0; }
 .findings a { font-weight: 600; font-size: 14.5px; color: var(--ink); }
 .findings a::after { content: " \2192"; }
 html[dir="rtl"] .findings a::after { content: " \2190"; }
+/* treemap, tile map */
+.chart .tml { font-size: 13px; font-weight: 600; }
+.chart .tml.num { font-weight: 400; font-variant-numeric: tabular-nums; font-size: 12.5px; }
+.tmkey { list-style: none; margin: 12px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 4px 20px; }
+.tmkey li { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 8px; align-items: baseline; font-size: 14px; }
+.tmkey i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+.tmkey b { font-variant-numeric: tabular-nums; }
+.chart .tile { fill: var(--panel); stroke: var(--thread); }
+.chart a:hover .tile, .chart a:focus .tile { stroke: var(--ink); stroke-width: 1.5; }
+.chart .tcode { font-weight: 700; fill: var(--ink); }
+.chart .tval { font-size: 11px; fill: var(--soft); font-variant-numeric: tabular-nums; }
+/* explorer */
+.exbar { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: 10px 14px; margin-bottom: 12px; }
+.exbar label { display: grid; gap: 4px; font-size: 14px; font-weight: 600; color: var(--soft); min-width: 0; }
+.exbar input, .exbar select { font: inherit; font-size: 15px; padding: 8px 10px; border: 1px solid var(--thread); border-radius: 4px; background: var(--cloth); color: var(--ink); width: 100%; min-width: 0; }
+.exbar input:focus, .exbar select:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+.exbar2 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-bottom: 14px; }
+.exyears { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--soft); }
+.exyears > span:first-child { margin-inline-end: 4px; }
+.exyears button { font: inherit; font-weight: 600; font-size: 13.5px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--thread); background: var(--cloth); color: var(--soft); cursor: pointer; font-variant-numeric: tabular-nums; }
+.exyears button[aria-pressed="true"] { background: var(--knot); border-color: var(--knot); color: var(--cloth); }
+.excols { position: relative; font-size: 14px; }
+.excols summary { cursor: pointer; font-weight: 600; padding: 6px 10px; border: 1px solid var(--thread); border-radius: 4px; background: var(--cloth); list-style: none; }
+.excols summary::after { content: " ▾"; color: var(--soft); }
+.excols > div { position: absolute; z-index: 5; margin-top: 4px; background: var(--cloth); border: 1px solid var(--thread); border-radius: 6px; padding: 10px 14px; display: grid; gap: 6px; min-width: 210px; box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.excols label { display: flex; gap: 8px; align-items: center; white-space: nowrap; }
+.exreset { font: inherit; font-size: 14px; background: none; border: 0; color: var(--soft); text-decoration: underline; cursor: pointer; padding: 6px 2px; }
+.exstatus { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin-bottom: 8px; }
+.exstatus p { margin: 0; font-size: 14.5px; color: var(--soft); font-variant-numeric: tabular-nums; }
+.exact { display: flex; gap: 8px; }
+.btn { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 4px; border: 1px solid var(--red); background: var(--red); color: #fff; cursor: pointer; }
+.btn.ghost { background: var(--cloth); color: var(--ink); border-color: var(--thread); }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn[data-msg] { position: relative; }
+.table-wrap.ex { max-height: 70vh; overflow: auto; border: 1px solid var(--thread); }
+.extable { font-size: 14px; }
+.extable thead th { position: sticky; top: 0; background: var(--panel); z-index: 2; }
+.extable thead th button { font: inherit; font-weight: 700; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap; }
+.extable th[scope="row"] { position: sticky; left: 0; background: var(--cloth); z-index: 1; min-width: 10em; }
+.extable td.t { text-align: start; white-space: normal; min-width: 11em; }
+.extable td.t.wide { min-width: 22em; font-size: 13px; color: var(--soft); }
+.extable tbody tr:hover th, .extable tbody tr:hover td { background: var(--panel); }
+.exmore { text-align: center; }
+@media (max-width: 760px) { .exbar { grid-template-columns: 1fr 1fr; } .exsearch { grid-column: 1 / -1; } .extable th[scope="row"] { min-width: 8em; } }
+.extable thead th.t { text-align: start; }
+.exyears { gap: 8px; }

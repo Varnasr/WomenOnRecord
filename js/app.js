@@ -351,8 +351,57 @@
     $('rank').innerHTML = (st.measure === 'rate' ? li('All India', india, 'india') : '') +
       vals.slice().sort(function (a, b) { return byName(a[0], b[0]); }).map(function (v) { return li(v[0].id, v[1], ''); }).join('');
   }
+  // Squares for the tile map: [code, column, row], placed roughly where each lies.
+  var TILES = { 'Jammu & Kashmir': ['JK', 3, 0], 'Ladakh': ['LA', 4, 0], 'Chandigarh': ['CH', 2, 1], 'Punjab': ['PB', 3, 1], 'Himachal Pradesh': ['HP', 4, 1],
+    'Rajasthan': ['RJ', 2, 2], 'Haryana': ['HR', 3, 2], 'Delhi': ['DL', 4, 2], 'Uttarakhand': ['UK', 5, 2], 'Sikkim': ['SK', 6, 2], 'Arunachal Pradesh': ['AR', 9, 2],
+    'Gujarat': ['GJ', 1, 3], 'Madhya Pradesh': ['MP', 2, 3], 'Uttar Pradesh': ['UP', 3, 3], 'Bihar': ['BR', 4, 3], 'West Bengal': ['WB', 5, 3], 'Meghalaya': ['ML', 7, 3], 'Assam': ['AS', 8, 3], 'Nagaland': ['NL', 9, 3],
+    'D&N Haveli and Daman & Diu': ['DD', 0, 4], 'Maharashtra': ['MH', 2, 4], 'Chhattisgarh': ['CG', 3, 4], 'Jharkhand': ['JH', 4, 4], 'Tripura': ['TR', 7, 4], 'Mizoram': ['MZ', 8, 4], 'Manipur': ['MN', 9, 4],
+    'Goa': ['GA', 1, 5], 'Karnataka': ['KA', 2, 5], 'Telangana': ['TG', 3, 5], 'Odisha': ['OD', 4, 5],
+    'Andhra Pradesh': ['AP', 3, 6], 'A&N Islands': ['AN', 6, 6],
+    'Lakshadweep': ['LD', 0, 7], 'Kerala': ['KL', 2, 7], 'Tamil Nadu': ['TN', 3, 7], 'Puducherry': ['PY', 4, 7] };
+  function tileMap() {
+    var dp = st.measure === 'rate' ? 1 : 0, y0 = D.years[0], y1 = D.years[D.years.length - 1];
+    var list = STATES().filter(function (p) { return TILES[p.id]; }).map(function (p) {
+      var vals = D.years.map(function (y) { return mapValue(st.head, p.id, y); });
+      return { code: TILES[p.id][0], col: TILES[p.id][1], row: TILES[p.id][2], name: place(p.id), values: vals, last: vals[vals.length - 1], href: link('/states/' + slug(p.id) + '/') };
+    });
+    var unit = st.measure === 'rate' ? t('unit.rate') : t('unit.cases');
+    $('tileCap').textContent = t('tiles.cap', { crime: head(st.head), unit: unit, y0: y0, y1: y1 });
+    C.watch($('tileChart'), function () { C.tiles($('tileChart'), { tiles: list, x: D.years, label: $('tileCap').textContent, fmt: function (v) { return fmt(v, dp); } }); });
+  }
+  // The same map in each of the five years, on one colour scale for all five.
+  function yearMaps() {
+    var dp = st.measure === 'rate' ? 1 : 0, all = [], per = {};
+    D.years.forEach(function (y) { per[y] = {}; STATES().forEach(function (p) { var v = mapValue(st.head, p.id, y); per[y][p.map] = v; if (v != null) all.push(v); }); });
+    all.sort(function (a, b) { return a - b; });
+    var cuts = [0.2, 0.4, 0.6, 0.8].map(function (q) { return all[Math.min(all.length - 1, Math.floor(q * all.length))]; });
+    var bin = function (v) { if (v == null) return -1; var b = 0; cuts.forEach(function (c) { if (v > c) b++; }); return b; };
+    var names = {}; STATES().forEach(function (p) { names[p.map] = place(p.id); });
+    var unit = st.measure === 'rate' ? t('unit.rate') : t('unit.cases');
+    $('yearCap').textContent = t('years.cap', { crime: head(st.head), unit: unit });
+    var box = $('yearMaps');
+    C.watch(box, function () {
+      var W = Math.max(260, box.clientWidth), n = W < 560 ? 2 : W < 900 ? 3 : 5, gap = 10, mw = (W - gap * (n - 1)) / n, k = mw / projected.W, mh = projected.H * k;
+      var rows = Math.ceil(D.years.length / n), H = rows * (mh + 28), g = '';
+      D.years.forEach(function (y, i) {
+        var x = (i % n) * (mw + gap), top = Math.floor(i / n) * (mh + 28);
+        g += '<text class="lab" x="' + (x + 2) + '" y="' + (top + 15) + '">' + y + '</text><g transform="translate(' + x.toFixed(1) + ' ' + (top + 22) + ') scale(' + k.toFixed(4) + ')">';
+        projected.paths.forEach(function (pp) {
+          var v = per[y][pp.name], b = bin(v);
+          g += '<path d="' + pp.d + '" fill="' + (b < 0 ? 'var(--ground)' : 'var(' + RAMP[b] + ')') + '" stroke="var(--cloth)" stroke-width="' + (0.6 / k).toFixed(2) + '"><title>' + pp.name + ', ' + y + ': ' + (v == null ? t('nodata') : fmt(v, dp)) + '</title></path>';
+        });
+        g += '</g>';
+      });
+      var edges = [all[0]].concat(cuts).concat([all[all.length - 1]]);
+      box.innerHTML = '<ul class="legend">' + RAMP.map(function (r, i) { return '<li><i style="background:var(' + r + ')"></i>' + t('range', { a: fmt(edges[i], dp), b: fmt(edges[i + 1], dp) }) + '</li>'; }).join('') + '</ul>' +
+        '<svg viewBox="0 0 ' + W + ' ' + Math.ceil(H) + '" width="' + W + '" height="' + Math.ceil(H) + '" role="img" aria-label="' + $('yearCap').textContent.replace(/"/g, '') + '">' + g + '</svg>';
+      box.__csv = [['state'].concat(D.years)].concat(STATES().slice().sort(byName).map(function (p) { return [place(p.id)].concat(D.years.map(function (y) { return mapValue(st.head, p.id, y); })); }));
+    });
+  }
   function states() {
     map();
+    tileMap();
+    yearMaps();
     $('placeList').innerHTML = STATES().slice().sort(byName).map(function (p) {
       return '<li><a href="' + link('/states/' + slug(p.id) + '/') + '">' + place(p.id) + '</a></li>';
     }).join('');
@@ -446,7 +495,32 @@
   }
 
   // ---------- crimes ----------
+  // The headings that together make up all crimes against women, with no case
+  // counted twice (NCRB files each case under its most serious offence). What
+  // the named headings leave over is shown as the rest of each law's total.
+  var MIX_IPC = ['RAPE', 'ATTEMPT_RAPE', 'DECEIT_69', 'ASSAULT_MODESTY', 'INSULT_MODESTY', 'MURDER_RAPE', 'DOWRY_DEATH', 'ABETMENT_SUICIDE', 'CRUELTY', 'KIDNAP', 'ACID', 'ACID_ATTEMPT', 'TRAFFICKING'];
+  var MIX_SLL = ['POCSO_TOTAL', 'DOWRY_ACT', 'PWDVA', 'ITPA', 'CYBER'];
+  var GROUP_COLOR = { sexual: ['--red'], killed: ['--knot'], home: ['--turmeric', '#16181d'], other: ['--q3'] };
+  function mix() {
+    var years = D.years.slice().reverse();
+    if (years.indexOf(st.mixY) < 0) st.mixY = years[0];
+    tabs($('mixYear'), years, 'mixY', String, mix);
+    var y = st.mixY, i = D.years.indexOf(y), items = [];
+    var add = function (code) { var v = (cases(code, 'All India') || [])[i]; if (v) { var c = GROUP_COLOR[D.heads[code].group]; items.push({ label: head(code), value: v, color: c[0], ink: c[1] }); return v; } return 0; };
+    var ipc = MIX_IPC.reduce(function (a, c) { return a + add(c); }, 0), sll = MIX_SLL.reduce(function (a, c) { return a + add(c); }, 0);
+    var restI = cases('IPC_TOTAL', 'All India')[i] - ipc, restS = cases('SLL_TOTAL', 'All India')[i] - sll;
+    if (restI > 0) items.push({ label: t('mix.ipc'), value: restI, color: '--soft' });
+    if (restS > 0) items.push({ label: t('mix.sll'), value: restS, color: '--soft' });
+    var total = cases('TOTAL', 'All India')[i];
+    $('mixCap').textContent = t('mix.cap', { y: y, n: fmt(total, 0) });
+    C.watch($('mixChart'), function () {
+      C.treemap($('mixChart'), { items: items, fmt: function (v) { return fmt(v, 0); }, label: $('mixCap').textContent });
+      $('mixChart').insertAdjacentHTML('afterbegin', '<ul class="legend">' + ['sexual', 'killed', 'home', 'other'].map(function (g) {
+        return '<li><i style="background:var(' + GROUP_COLOR[g][0] + ')"></i>' + t('group.' + g) + '</li>'; }).join('') + '<li><i style="background:var(--soft)"></i>' + t('mix.rest') + '</li></ul>');
+    });
+  }
   function crimes() {
+    mix();
     tabs($('multMode'), ['cases', 'rate'], 'mult', function (m) { return t(m === 'rate' ? 'm.rate' : 'm.cases'); }, crimes);
     $('multiples').innerHTML = CRIMES.map(function (code) {
       var vals = st.mult === 'rate' ? D.years.map(function (y) { return rate(code, 'All India', y); }) : cases(code, 'All India');
@@ -488,6 +562,13 @@
     var hrows = STATES().slice().sort(byName).map(function (p) { return { label: place(p.id), values: D.years.map(function (y) { return rate(c, p.id, y); }) }; });
     C.watch($('heatChart'), function () {
       C.heat($('heatChart'), { rows: hrows, x: D.years, label: t('heat.cap'), fmt: function (v) { return fmt(v, v < 10 ? 1 : 0); } });
+    });
+    var dp = rate(c, 'All India', D.years[D.years.length - 1]) < 1 ? 2 : 1;
+    var swRows = D.years.map(function (y) {
+      return { label: String(y), mark: rate(c, 'All India', y), dots: STATES().map(function (p) { return { name: place(p.id), v: rate(c, p.id, y) }; }).filter(function (d) { return d.v != null; }) };
+    });
+    C.watch($('swarmChart'), function () {
+      C.swarm($('swarmChart'), { rows: swRows, markLabel: t('india'), dotLabel: t('spread.dot'), label: t('spread.cap'), fmt: function (v) { return fmt(v, dp); } });
     });
     crimeStates(c);
   }
@@ -668,6 +749,189 @@
       { label: t('cx.adr.c4'), get: function (p) { return cv('adr', 'adr2025_mla_rape', p, A5); } }]);
   }
 
+
+  // ---------- explore ----------
+  // The whole dataset as a table: filter, search, sort, choose columns and
+  // download the rows in view. data/explore.json is data/shecounts.csv with
+  // each repeated value written once (scripts/build_explore.py); a download
+  // rebuilds full rows in the CSV's own columns. The view lives in the address.
+  var E = null, ex = null;
+  var EXCOLS = ['law', 'kind', 'unit', 'table', 'flag', 'note'];
+  function exParams() {
+    var q = new URL(location.href).searchParams, all = E.years.slice();
+    var ys = (q.get('y') || '').split(',').map(Number).filter(function (y) { return all.indexOf(y) >= 0; });
+    return { q: q.get('q') || '', crime: q.get('crime') || '', place: q.get('place') || '', m: q.has('m') ? q.get('m') : 'cases',
+      years: ys.length ? ys : all, lay: q.get('lay') === 'long' ? 'long' : 'wide', cols: (q.get('cols') || 'law').split(',').filter(function (c) { return EXCOLS.indexOf(c) >= 0; }),
+      sort: q.get('sort') || '', desc: q.get('dir') !== 'asc', shown: 100 };
+  }
+  function exSave() {
+    var u = new URL(location.href), q = u.searchParams;
+    var set = function (k, v, dflt) { if (v === dflt || v === '') q.delete(k); else q.set(k, v); };
+    set('q', ex.q, ''); set('crime', ex.crime, ''); set('place', ex.place, ''); set('m', ex.m, 'cases');
+    set('y', ex.years.length === E.years.length ? '' : ex.years.join(','), ''); set('lay', ex.lay, 'wide');
+    set('cols', ex.cols.join(','), 'law'); set('sort', ex.sort, ''); set('dir', ex.sort && !ex.desc ? 'asc' : '', '');
+    history.replaceState(null, '', u);
+  }
+  function exPrep() {
+    E.years = Object.keys(E.sources).map(Number).sort();
+    E.code = E.crimes.map(function (c) { return c[0]; });
+    E.codes = E.code.filter(function (c, i) { return E.code.indexOf(c) === i; });
+    E.mcodes = E.measures.map(function (m) { return m[0]; });
+  }
+  function exCrime(code) { return D.heads[code] ? head(code) : code; }
+  function exLaw(ci) { var c = E.crimes[ci]; return [c[3] ? 'IPC ' + c[3] : '', c[4]].filter(Boolean).join(' · '); }
+  function exVal(v, unit) {
+    if (v == null) return '–';
+    if (typeof v === 'string') return v;
+    return Number(v).toLocaleString('en-IN', { maximumFractionDigits: 2 });
+  }
+  function exFilter() {
+    var q = ex.q.trim().toLowerCase(), out = [];
+    var pl = ex.place, kind = pl.charAt(0) === ':' ? pl.slice(1) : null;
+    var text = {};
+    E.rows.forEach(function (r) {
+      if (ex.years.indexOf(r[1]) < 0) return;
+      var p = E.places[r[0]], c = E.code[r[2]], m = E.measures[r[3]];
+      if (ex.crime && c !== ex.crime) return;
+      if (ex.m && m[0] !== ex.m) return;
+      if (kind ? p[2] !== kind : (pl && p[0] !== pl)) return;
+      if (q) {
+        var key = r[0] + '|' + r[2] + '|' + r[3] + '|' + r[7];
+        if (text[key] == null) text[key] = [p[0], place(p[0]), c, E.crimes[r[2]][2], exCrime(c), m[2], exLaw(r[2]), E.notes[r[7]]].join(' ').toLowerCase();
+        if (text[key].indexOf(q) < 0) return;
+      }
+      out.push(r);
+    });
+    return out;
+  }
+  function exGroups(rows) {
+    if (ex.lay === 'long') return rows.map(function (r) { return { r: r, vals: null }; });
+    var g = {}, order = [];
+    rows.forEach(function (r) {
+      var k = r[0] + '|' + r[2] + '|' + r[3];
+      if (!g[k]) { g[k] = { r: r, vals: {} }; order.push(k); }
+      g[k].vals[r[1]] = r[4];
+    });
+    return order.map(function (k) { return g[k]; });
+  }
+  function exSortKey(x) {
+    var r = x.r, k = ex.sort;
+    if (k === 'place') return place(E.places[r[0]][0]);
+    if (k === 'crime') return exCrime(E.code[r[2]]);
+    if (k === 'measure') return E.measures[r[3]][2];
+    if (k === 'year') return r[1];
+    if (k === 'value') return typeof r[4] === 'number' ? r[4] : null;
+    if (k.charAt(0) === 'y' && x.vals) { var v = x.vals[+k.slice(1)]; return typeof v === 'number' ? v : null; }
+    return null;
+  }
+  function exDraw() {
+    if (ex.sort && (ex.lay === 'long' ? /^y\d/.test(ex.sort) : /^(year|value)$/.test(ex.sort) ) || (/^y\d/.test(ex.sort) && ex.years.indexOf(+ex.sort.slice(1)) < 0)) { ex.sort = ''; exSave(); }
+    var rows = exFilter(), groups = exGroups(rows);
+    if (ex.sort) {
+      var num = ex.sort === 'value' || ex.sort === 'year' || ex.sort.charAt(0) === 'y';
+      groups.sort(function (a, b) {
+        var va = exSortKey(a), vb = exSortKey(b);
+        if (va == null && vb == null) return 0; if (va == null) return 1; if (vb == null) return -1;
+        var d = num ? va - vb : String(va).localeCompare(String(vb), lang);
+        return ex.desc ? -d : d;
+      });
+    }
+    ex.rows = rows;
+    var years = ex.years, cols = [['place', t('pick.state')], ['crime', t('crime')], ['measure', t('ex.measure')]];
+    if (ex.lay === 'long') cols.push(['year', t('year')], ['value', t('ex.value')]);
+    else years.forEach(function (y) { cols.push(['y' + y, String(y)]); });
+    var opt = ex.cols.map(function (c) { return [c, t('ex.c.' + c)]; });
+    var h = '<thead><tr>' + cols.concat(opt).map(function (c, i) {
+      var sortable = i < cols.length, s = ex.sort === c[0];
+      return '<th scope="col"' + (s ? ' aria-sort="' + (ex.desc ? 'descending' : 'ascending') + '"' : '') + (i > 2 && i < cols.length ? '' : ' class="t"') + '>' +
+        (sortable ? '<button type="button" data-k="' + c[0] + '">' + c[1] + (s ? (ex.desc ? ' ↓' : ' ↑') : '') + '</button>' : c[1]) + '</th>';
+    }).join('') + (ex.lay === 'wide' && years.length > 1 ? '<th scope="col">' + t('trend') + '</th>' : '') + '</tr></thead><tbody>';
+    groups.slice(0, ex.shown).forEach(function (x) {
+      var r = x.r, p = E.places[r[0]], c = E.code[r[2]], m = E.measures[r[3]];
+      var pn = place(p[0]), pc2 = p[2] === 'total' ? pn : '<a href="' + link('/states/' + slug(p[0]) + '/') + '">' + pn + '</a>';
+      var cn = CRIMES.indexOf(c) >= 0 ? '<a href="' + link('/crimes/' + slug(c) + '/') + '">' + exCrime(c) + '</a>' : exCrime(c);
+      h += '<tr><th scope="row">' + pc2 + '</th><td class="t">' + cn + '</td><td class="t">' + m[2] + '</td>';
+      if (ex.lay === 'long') h += '<td>' + r[1] + '</td><td class="hl">' + exVal(r[4], m[1]) + '</td>';
+      else years.forEach(function (y) { h += '<td>' + exVal(x.vals[y], m[1]) + '</td>'; });
+      ex.cols.forEach(function (k) {
+        var v = k === 'law' ? exLaw(r[2]) : k === 'kind' ? t('ex.k.' + p[2]) : k === 'unit' ? m[1] : k === 'table' ? E.tables[r[5]] : k === 'flag' ? E.flags[r[6]].replace(/;/g, ', ') : E.notes[r[7]];
+        h += '<td class="t' + (k === 'note' ? ' wide' : '') + '">' + (v || '') + '</td>';
+      });
+      if (ex.lay === 'wide' && years.length > 1) h += '<td>' + spark(years.map(function (y) { var v = x.vals[y]; return typeof v === 'number' ? v : null; })) + '</td>';
+      h += '</tr>';
+    });
+    if (!groups.length) h += '<tr><td colspan="' + (cols.length + opt.length + 1) + '" class="t">' + t('ex.none') + '</td></tr>';
+    var tb = $('exTable'); tb.innerHTML = h + '</tbody>';
+    tb.querySelectorAll('thead button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var k = b.dataset.k;
+        if (ex.sort === k) { if (ex.desc === (k === 'place' || k === 'crime' || k === 'measure')) ex.sort = ''; else ex.desc = !ex.desc; }
+        else { ex.sort = k; ex.desc = !(k === 'place' || k === 'crime' || k === 'measure'); }
+        exSave(); exDraw();
+      });
+    });
+    $('exCount').textContent = t(ex.lay === 'long' ? 'ex.count.long' : 'ex.count.wide', { n: fmt(groups.length, 0), rows: fmt(rows.length, 0), shown: fmt(Math.min(ex.shown, groups.length), 0) });
+    var left = groups.length - ex.shown;
+    $('exMore').hidden = left <= 0;
+    $('exMore').textContent = t('ex.more', { n: fmt(Math.min(100, left), 0), left: fmt(left, 0) });
+    $('exDl').disabled = !rows.length;
+  }
+  function exControls() {
+    var cs = $('exCrime');
+    cs.innerHTML = '<option value="">' + t('ex.all.crimes') + '</option>' + E.codes.map(function (c) { return '<option value="' + c + '">' + exCrime(c) + '</option>'; }).join('');
+    cs.value = ex.crime;
+    var ps = $('exPlace'), seen = {};
+    var list = E.places.filter(function (p) { if (seen[p[0]]) return false; seen[p[0]] = 1; return true; });
+    var opts = function (k) { return list.filter(function (p) { return p[2] === k; }).sort(function (a, b) { return place(a[0]).localeCompare(place(b[0]), lang); }).map(function (p) { return '<option value="' + p[0] + '">' + place(p[0]) + '</option>'; }).join(''); };
+    ps.innerHTML = '<option value="">' + t('ex.all.places') + '</option><option value=":state">' + t('ex.all.state') + '</option><option value=":ut">' + t('ex.all.ut') + '</option><option value=":total">' + t('ex.all.total') + '</option>' +
+      '<optgroup label="' + t('ex.k.state') + '">' + opts('state') + '</optgroup><optgroup label="' + t('ex.k.ut') + '">' + opts('ut') + '</optgroup><optgroup label="' + t('ex.k.total') + '">' + opts('total') + '</optgroup>';
+    ps.value = ex.place;
+    var ms = $('exMeasure'), mseen = {};
+    ms.innerHTML = '<option value="">' + t('ex.all.measures') + '</option>' + E.measures.filter(function (m) { if (mseen[m[0]]) return false; mseen[m[0]] = 1; return true; })
+      .map(function (m) { return '<option value="' + m[0] + '">' + m[2] + '</option>'; }).join('');
+    ms.value = ex.m;
+    $('exYears').innerHTML = E.years.map(function (y) { return '<button type="button" aria-pressed="' + (ex.years.indexOf(y) >= 0) + '" data-y="' + y + '">' + y + '</button>'; }).join('');
+    tabs($('exLayout'), ['wide', 'long'], 'exLay', function (k) { return t('ex.' + k); }, function () { ex.lay = st.exLay; exSave(); exControls(); exDraw(); });
+    $('exLayout').querySelectorAll('button').forEach(function (b, i) { b.setAttribute('aria-selected', String(['wide', 'long'][i] === ex.lay)); });
+    $('exCols').innerHTML = EXCOLS.map(function (c) { return '<label><input type="checkbox" value="' + c + '"' + (ex.cols.indexOf(c) >= 0 ? ' checked' : '') + '> ' + t('ex.c.' + c) + '</label>'; }).join('');
+    $('exQ').value = ex.q;
+  }
+  function exCsv() {
+    var head2 = E.columns, out = [head2];
+    ex.rows.forEach(function (o) {
+      var p = E.places[o[0]], c = E.crimes[o[2]], m = E.measures[o[3]], s = E.sources[String(o[1])];
+      out.push([p[0], p[1], p[2], o[1], c[0], c[1], c[2], c[3], c[4], m[0], o[4] == null ? '' : o[4], m[1], s[0], E.tables[o[5]], s[1], s[2], E.flags[o[6]], E.notes[o[7]]]);
+    });
+    return out;
+  }
+  function explore() {
+    if (!ex) {
+      exPrep(); ex = exParams(); st.exLay = ex.lay;
+      var redraw = function () { ex.shown = 100; exSave(); exDraw(); };
+      var timer;
+      $('exQ').addEventListener('input', function () { clearTimeout(timer); var v = this.value; timer = setTimeout(function () { ex.q = v; redraw(); }, 180); });
+      $('exCrime').addEventListener('change', function () { ex.crime = this.value; redraw(); });
+      $('exPlace').addEventListener('change', function () { ex.place = this.value; redraw(); });
+      $('exMeasure').addEventListener('change', function () { ex.m = this.value; redraw(); });
+      $('exYears').addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        var y = +b.dataset.y, i = ex.years.indexOf(y);
+        if (i >= 0 && ex.years.length > 1) ex.years.splice(i, 1); else if (i < 0) ex.years.push(y);
+        ex.years.sort(); b.setAttribute('aria-pressed', String(ex.years.indexOf(y) >= 0)); redraw();
+      });
+      $('exCols').addEventListener('change', function () {
+        ex.cols = EXCOLS.filter(function (c) { var i = $('exCols').querySelector('input[value="' + c + '"]'); return i && i.checked; }); exSave(); exDraw();
+      });
+      $('exReset').addEventListener('click', function () { var keep = ex.lay; ex = { q: '', crime: '', place: '', m: 'cases', years: E.years.slice(), lay: keep, cols: ['law'], sort: '', desc: true, shown: 100 }; exControls(); redraw(); });
+      $('exMore').addEventListener('click', function () { ex.shown += 100; exDraw(); });
+      $('exDl').addEventListener('click', function () { C.saveCsv(exCsv(), 'shecounts-selection'); });
+      $('exLink').addEventListener('click', function () { copy(location.href, $('exLink')); });
+    }
+    $('exIntro').textContent = t('ex.intro', { n: fmt(E.rows.length, 0) });
+    exControls();
+    exDraw();
+  }
+
   // ---------- sharing and saving ----------
   // Under every chart a row of buttons, as on offtheroll.in: the chart as a
   // PNG or SVG card that carries its title and its source, the numbers behind
@@ -803,7 +1067,7 @@
     $('tourNext').focus();
   }
 
-  var PAGES = { context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method };
+  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
     toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
@@ -865,17 +1129,18 @@
       try { localStorage.setItem('sc-theme', next); } catch (e) {}
     });
     if ($('mapHead')) {
-      $('mapHead').addEventListener('change', function () { st.head = this.value; map(); links($('rank')); });
+      $('mapHead').addEventListener('change', function () { st.head = this.value; map(); tileMap(); yearMaps(); links($('rank')); });
       $('mapYear').addEventListener('change', function () { st.year = +this.value; map(); links($('rank')); });
-      $('mapMeasure').addEventListener('change', function () { st.measure = this.value; map(); links($('rank')); });
+      $('mapMeasure').addEventListener('change', function () { st.measure = this.value; map(); tileMap(); yearMaps(); links($('rank')); });
     }
     if ($('statePick')) $('statePick').addEventListener('change', function () { go(this.value); });
     if ($('crimePick')) $('crimePick').addEventListener('change', function () { location.href = link('/crimes/' + slug(this.value) + '/'); });
     var want = [fetch(ver('/data/site.json')).then(function (r) { return r.json(); })];
     if (PAGE === 'states') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'context') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
-      D = res[0]; if (PAGE === 'context') X = res[1]; else GEO = res[1] || null;
+      D = res[0]; if (PAGE === 'context') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
       if (GEO) project();
       setLang(lang);
     }).catch(function (e) {
