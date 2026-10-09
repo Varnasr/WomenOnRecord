@@ -89,9 +89,11 @@ BNSS requires when a woman reports a sexual offence, with the section for every
 line. It is English only, because the English text of an Act is the
 authoritative one. Each row of its table has an id, and the law line on every
 crime page links to it through `LAW_ROW` in `js/app.js`; rename a row and
-change both. Two checks are still owed: the quotations from the IPC, CrPC and
-POCSO Act against India Code, and Imran Pratapgadhi v State of Gujarat
-(2025 INSC 410) read from the judgment itself before anything in it is quoted.
+change both. Every quotation was checked on 9 October 2026: the BNS and BNSS against the
+Gazette of India texts of 25 December 2023 (Acts 45 and 46 of 2023), the IPC
+and CrPC sections against Indian Kanoon because India Code refused the sandbox,
+and Imran Pratapgadhi v State of Gujarat (2025 INSC 410) and Lalita Kumari
+((2014) 2 SCC 1, para 120.6 as reproduced there) against the judgment itself.
 Add a line to it only from the text of the Act, the Gazette or a judgment.
 
 ## Credit
