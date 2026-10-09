@@ -226,5 +226,34 @@
     rt = setTimeout(function () { watched.forEach(function (x) { if (x.el.clientWidth !== x.w) { x.w = x.el.clientWidth; x.draw(); } }); }, 150);
   });
 
-  window.SC_CHARTS = { flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
+  // ---------- women ----------
+  // One standing woman, front on: head, hair in a bun or a plait, a long kurta,
+  // arms at her sides. Drawn upright and still on purpose. She stands for a
+  // count of cases and is never shown hurt, hiding or afraid.
+  function woman(fill, line, bun) {
+    var st = line ? ' fill="none" stroke="' + tok(line) + '" stroke-width="1.5" stroke-linejoin="round"' : ' fill="' + tok(fill) + '"';
+    return '<svg class="woman" viewBox="0 0 20 40" aria-hidden="true"' + st + '>' +
+      '<circle cx="10" cy="5" r="4.2"/>' +
+      (bun ? '<circle cx="10" cy="1.3" r="2.1"/>' : '<path d="M13.5 6.2q2.2 5.6-.3 12.4l-1.1-.4q1.9-5.8.1-11.6z"/>') +
+      '<path d="M5.7 11.2q4.3-2.3 8.6 0l2.5 20.6q-6.8 2-13.6 0z"/>' +
+      '<path d="M5.9 12.6l-2.1 9.3 1.5.4 2.3-8.4z"/><path d="M14.1 12.6l2.1 9.3-1.5.4-2.3-8.4z"/>' +
+      '<rect x="7.1" y="32" width="2.1" height="7.4" rx="1"/><rect x="10.8" y="32" width="2.1" height="7.4" rx="1"/></svg>';
+  }
+  // Split 100 among groups by largest remainder, so the figures always add to 100.
+  function hundred(values) {
+    var tot = values.reduce(function (a, b) { return a + (b || 0); }, 0);
+    var raw = values.map(function (v) { return (v || 0) / tot * 100; });
+    var n = raw.map(Math.floor), left = 100 - n.reduce(function (a, b) { return a + b; }, 0);
+    raw.map(function (r, i) { return [r - Math.floor(r), i]; }).sort(function (a, b) { return b[0] - a[0]; })
+      .slice(0, left).forEach(function (x) { n[x[1]]++; });
+    return n;
+  }
+  // groups: [{n, fill, line}]. Returns ten rows of ten women.
+  function iso(groups) {
+    var out = '', k = 0;
+    groups.forEach(function (g) { for (var i = 0; i < g.n; i++) { out += woman(g.fill, g.line, k % 3 === 0); k++; } });
+    return '<div class="iso">' + out + '</div>';
+  }
+
+  window.SC_CHARTS = { woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
 })();

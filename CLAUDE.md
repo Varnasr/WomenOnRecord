@@ -27,6 +27,14 @@ page while it is in view. A new file a page loads goes into `ASSETS` in
 `build_pages.py`, and a new `fetch` in `app.js` goes through `ver()`, or it
 escapes the fingerprint.
 
+Women appear on the site only as data. `C.iso` in `js/charts.js` draws 100
+standing figures, each 1 in 100 cases of a crime before the courts in a year,
+split by largest remainder so they always add to 100: red for convicted,
+red outline for acquitted or discharged, grey for ended another way, indigo for
+still waiting. The figure is upright and still on purpose. Never draw a woman
+hurt, hiding, crouched or afraid; that image shows women only as victims, and
+this site is for the women protesting. The link preview draws the same figure.
+
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
 the charts, all plain SVG: `flow` (the sankey on the police and courts page),
 `lines`, `stack` and `slope`. Every chart redraws when its box changes width.

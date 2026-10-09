@@ -118,8 +118,10 @@
     var out = [
       [fmt(S('TOTAL', 'cases', 'All India', y), 0), t('hero.f1', { y: y }), null],
       [fmt(S('RAPE', 'cases', 'All India', y), 0), t('hero.f2', { y: y }), 'tip.ipc'],
-      [fmt(S('POCSO_RAPE', 'cases', 'All India', y), 0), t('hero.f3', { y: y }), 'tip.pocso'],
-      [t('field.big', { share: Math.round(pend / before * 100) }), t('hero.f4', { y: y }), 'tip.pend']];
+      [fmt(S('POCSO_RAPE', 'cases', 'All India', y), 0), t('hero.f3', { y: y }), 'tip.pocso']];
+    var o = pc('RAPE', 'All India', y);
+    $('heroIso').innerHTML = isoBlock(o, lc(crimeName('RAPE')), y);
+    $('heroIso').setAttribute('aria-label', t('iso.cap', { crime: lc(crimeName('RAPE')), y: y, conv: fmt(o.conv, 0), pend: fmt(o.ptr, 0), share: isoParts(o)[3] }));
     $('heroFigs').innerHTML = out.map(function (f) { return '<div class="fig"><b>' + f[0] + '</b><span' + (f[2] ? ' data-tip="' + f[2] + '"' : '') + '>' + f[1] + '</span></div>'; }).join('');
   }
   function home() {
@@ -199,51 +201,26 @@
     fir();
   }
 
-  // dot field: one stitch per N cases before the courts
-  var PER = { TOTAL: 1000, CRUELTY: 1000 };
+  // A hundred women: each one is 1 in every 100 cases of a crime before the
+  // courts in a year, coloured by how the case stood when the year ended.
+  var ISO = [['conv', '--red', null], ['acq', null, '--red'], ['other', '--soft', null], ['pend', '--knot', null]];
+  function isoParts(o) { return C.hundred([o.conv, o.acq + o.dis, o.othc, o.ptr]); }
+  function isoBlock(o, crime, y) {
+    var n = isoParts(o), share = n[3];
+    var leg = [[t('leg.conv'), o.conv], [t('leg.acq'), o.acq + o.dis], [t('leg.other'), o.othc], [t('leg.pend'), o.ptr]];
+    return '<p class="isobig"><b>' + t('field.big', { share: share }) + '</b><span>' + t('field.bigsub', { crime: crime, y: y }) + '</span></p>' +
+      C.iso(ISO.map(function (g, i) { return { n: n[i], fill: g[1], line: g[2] }; })) +
+      '<ul class="legend">' + leg.map(function (l, i) { return '<li>' + C.woman(ISO[i][1], ISO[i][2]) + l[0] + ' · ' + fmt(l[1], 0) + '</li>'; }).join('') + '</ul>' +
+      '<p class="isonote">' + t('iso.per') + '</p>';
+  }
   function field() {
-    var c = st.crime, y = st.year, o = pc(c, 'All India', y);
-    var per = PER[c] || (o.ct > 150000 ? 100 : o.ct > 15000 ? 10 : 1);
-    var n = { conv: Math.round(o.conv / per), acq: Math.round((o.acq + o.dis) / per), other: Math.round(o.othc / per), pend: Math.round(o.ptr / per) };
-    var knots = [];
-    ['conv', 'acq', 'other', 'pend'].forEach(function (k) { for (var i = 0; i < n[k]; i++) knots.push(k); });
-    var name = lc(crimeName(c)), share = Math.round(o.ptr / o.ct * 100);
+    var c = st.crime, y = st.year, o = pc(c, 'All India', y), name = lc(crimeName(c));
+    var share = isoParts(o)[3];
     $('h-courts').textContent = t('courts.hy', { y: y });
     $('courtsIntro').textContent = t('courts.intro', { n: fmt(o.ct, 0), crime: name, y: y });
-    $('fieldCap').innerHTML = t('field.cap', { per: fmt(per, 0), crime: name, conv: '<b>' + fmt(o.conv, 0) + '</b>', pend: fmt(o.ptr, 0), share: share, y: y });
+    $('field').innerHTML = isoBlock(o, name, y);
+    $('fieldCap').innerHTML = t('iso.cap', { crime: name, y: y, conv: '<b>' + fmt(o.conv, 0) + '</b>', pend: fmt(o.ptr, 0), share: share });
     $('field').setAttribute('aria-label', $('fieldCap').textContent);
-    $('fieldBig').innerHTML = '<b>' + t('field.big', { share: share }) + '</b><span>' + t('field.bigsub', { crime: name, y: y }) + '</span>';
-    var leg = [['conv', t('leg.conv'), o.conv], ['acq', t('leg.acq'), o.acq + o.dis], ['other', t('leg.other'), o.othc], ['pend', t('leg.pend'), o.ptr]];
-    $('fieldLegend').innerHTML = leg.map(function (l) { return '<li>' + glyph(l[0]) + l[1] + ' · ' + fmt(l[2], 0) + '</li>'; }).join('') +
-      '<li>' + t('leg.per', { per: fmt(per, 0) }) + '</li>';
-    C.watch($('field'), function () { drawField(knots); });
-  }
-  // Shape as well as colour tells the stitches apart: a full cross for pending
-  // and convicted, a half cross for acquitted or discharged, a small pale cross
-  // for cases that ended without a trial.
-  var STITCH = { pend: ['--knot', 1, 1.9], conv: ['--red', 1, 2.4], acq: ['--red', 0, 1.9], other: ['--knot-open', 0.7, 1.6] };
-  function glyph(k) {
-    var s = STITCH[k], c = 'var(' + s[0] + ')', a = 6 * (s[1] || 1);
-    var d = 'M' + (8 - a) + ' ' + (8 + a) + 'L' + (8 + a) + ' ' + (8 - a) + (s[1] ? 'M' + (8 - a) + ' ' + (8 - a) + 'L' + (8 + a) + ' ' + (8 + a) : '');
-    return '<svg class="glyph" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="' + d + '" stroke="' + c + '" stroke-width="' + s[2] + '" stroke-linecap="round" fill="none"/></svg>';
-  }
-  function drawField(knots) {
-    var cv = $('field'), w = cv.clientWidth || 900, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    var gap = w < 520 ? 9 : 11.5, half = gap * 0.32;
-    var cols = Math.max(10, Math.floor((w - gap * 1.2) / gap)), rows = Math.ceil(knots.length / cols);
-    var h = rows * gap + gap * 0.5;
-    cv.width = w * dpr; cv.height = h * dpr; cv.style.height = h + 'px';
-    var g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
-    g.lineCap = 'round';
-    knots.forEach(function (k, i) {
-      var rr = Math.floor(i / cols), cc = i % cols, s = STITCH[k];
-      var x = cc * gap + gap * 0.6 + (rr % 2 ? gap * 0.3 : 0), y = rr * gap + gap * 0.6;
-      var a = half * (s[1] || 1);
-      g.strokeStyle = cssv(s[0]); g.lineWidth = s[2] * (w < 520 ? 0.8 : 1);
-      g.beginPath(); g.moveTo(x - a, y + a); g.lineTo(x + a, y - a);
-      if (s[1]) { g.moveTo(x - a, y - a); g.lineTo(x + a, y + a); }
-      g.stroke();
-    });
   }
 
   // verdicts by year, as stacked bars
@@ -765,7 +742,6 @@
       var next = dark() ? 'light' : 'dark';
       document.documentElement.dataset.theme = next; th.setAttribute('aria-pressed', String(next === 'dark'));
       try { localStorage.setItem('sc-theme', next); } catch (e) {}
-      if (PAGE === 'courts') field();
     });
     if ($('mapHead')) {
       $('mapHead').addEventListener('change', function () { st.head = this.value; map(); links($('rank')); });

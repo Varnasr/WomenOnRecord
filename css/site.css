@@ -1,17 +1,16 @@
-/* She Counts. A plain report: white paper, near-black ink, grey hairlines.
-   Indigo is the data, madder red the outcome that matters, turmeric only a
-   fill. The kantha stitch survives in one place, the field of cases before
-   the courts, where each stitch is a count. */
+/* She Counts. Warm paper, ink and indigo, madder red for the outcome that
+   matters, turmeric only as a fill. Women appear only as data: a hundred
+   standing figures, each one 1 in 100 cases. */
 :root {
-  --ground: #fafaf8;
-  --cloth: #ffffff;
-  --ink: #17191e;
-  --soft: #4d5260;
-  --thread: #d4d6dc;
+  --ground: #f6f1e7;
+  --cloth: #fffdf8;
+  --ink: #1d1a16;
+  --soft: #5b5348;
+  --thread: #d9cfbd;
   --red: #a3243b;
   --turmeric: #d99a00;
-  --knot: #3c4a8a;
-  --knot-open: #9aa3c6;
+  --knot: #3a3f6b;
+  --knot-open: #a9abc6;
   --focus: #a3243b;
   --q1: #dfe3f2; --q2: #b3bbe0; --q3: #7d89c4; --q4: #4b589f; --q5: #1f2a5c;
   --display: "IBM Plex Serif", "IBM Plex Sans Devanagari", Georgia, serif;
@@ -21,14 +20,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ground: #121316; --cloth: #1a1c20; --ink: #eceef2; --soft: #aab0bd; --thread: #383c45;
+    --ground: #15130f; --cloth: #1e1b16; --ink: #f2ebdf; --soft: #b9ae9e; --thread: #3b352c;
     --red: #f08a9b; --turmeric: #e6b234; --knot: #8f9ddd; --knot-open: #4b5587; --focus: #f08a9b;
     --q1: #2a3263; --q2: #3f4c8f; --q3: #6474bd; --q4: #9aa7e0; --q5: #dfe4fb;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --ground: #121316; --cloth: #1a1c20; --ink: #eceef2; --soft: #aab0bd; --thread: #383c45;
+  --ground: #15130f; --cloth: #1e1b16; --ink: #f2ebdf; --soft: #b9ae9e; --thread: #3b352c;
   --red: #f08a9b; --turmeric: #e6b234; --knot: #8f9ddd; --knot-open: #4b5587; --focus: #f08a9b;
   --q1: #2a3263; --q2: #3f4c8f; --q3: #6474bd; --q4: #9aa7e0; --q5: #dfe4fb;
   color-scheme: dark;
@@ -367,3 +366,24 @@ svg.band { display: none; }
 .cloth, .fig, .card a, .downloads a { box-shadow: none; }
 .tabs button[aria-selected="true"] { border-color: var(--ink); }
 .tour { box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
+
+/* The hundred women */
+.isofig { margin: 0; }
+.iso { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px 5px; max-width: 420px; margin-block: 14px 10px; }
+.iso .woman { width: 100%; height: auto; display: block; }
+.isobig { margin: 0; display: grid; gap: 4px; }
+.isobig b { font: 600 clamp(40px, 7vw, 60px)/1 var(--display); letter-spacing: -.02em; color: var(--red); font-variant-numeric: tabular-nums; }
+.isobig span { font-weight: 600; font-size: clamp(16px, 2vw, 18px); max-width: 34ch; }
+.isofig .legend .woman { width: 9px; height: 18px; vertical-align: -4px; margin-inline-end: 6px; }
+.isonote { margin: 6px 0 0; font-size: 13.5px; color: var(--soft); }
+#field.isofig { padding: 4px 0; }
+.field .iso { max-width: 520px; }
+/* Home: text and the hundred women side by side on a wide screen */
+.hero { grid-template-columns: minmax(0, 1fr); }
+.hero-t { display: grid; gap: 14px; align-content: start; }
+.hero-iso { padding: 20px; background: var(--cloth); border: 1px solid var(--thread); border-radius: 3px; }
+@media (min-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px 48px; align-items: start; }
+  .hero .figs { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) { .hero-iso { padding: 16px 14px; } .iso { gap: 5px 4px; } .figs { grid-template-columns: 1fr; } .fig b { font-size: 30px; } }

@@ -2,7 +2,6 @@
  "hero.f1": "crimes against women recorded by police in {y}",
  "hero.f2": "cases of rape of women and girls, booked under the IPC or BNS, in {y}",
  "hero.f3": "cases of penetrative sexual assault of girls under 18, booked under POCSO, in {y}",
- "hero.f4": "rape cases before the courts in {y} were still waiting for a verdict at the end of the year",
  "tab.RAPE": "Rape",
  "tab.POCSO_RAPE": "Sexual assault of girls (POCSO)",
  "tab.TOTAL": "All crimes against women",
@@ -10,12 +9,10 @@
  "tab.DOWRY_DEATH": "Dowry deaths",
  "tab.CRUELTY": "Cruelty by husband or relatives",
  "courts.intro": "In {y}, {n} cases of {crime} were before the courts. They are the cases sent for trial that year and every case still waiting from earlier years.",
- "field.cap": "Each stitch is {per} cases of {crime}. {conv} ended in a conviction in {y}. {pend}, or {share} in every 100, were still waiting for a verdict when the year ended.",
  "leg.conv": "Conviction",
  "leg.acq": "Acquitted or discharged",
  "leg.other": "Ended without a trial (withdrawn, compounded, quashed, abated)",
  "leg.pend": "Still pending at the end of the year",
- "leg.per": "One stitch = {per} cases",
  "year": "Year",
  "fir.c1": "Cases reported",
  "fir.c2": "Charge-sheeted",
@@ -241,5 +238,7 @@
  "cx.adr.c1": "MPs and MLAs, 2024",
  "cx.adr.c2": "Of which rape, 2024",
  "cx.adr.c3": "MLAs, 2025",
- "cx.adr.c4": "Of which rape, 2025"
+ "cx.adr.c4": "Of which rape, 2025",
+ "iso.cap": "Each figure is 1 in every 100 cases of {crime} before the courts in {y}. {conv} of them ended in a conviction that year, and {pend}, or {share} in every 100, were still waiting for a verdict when the year ended.",
+ "iso.per": "Each figure is 1 in every 100 cases. A group smaller than half of 1 in 100 has no figure of its own."
 }
