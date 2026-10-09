@@ -240,5 +240,19 @@
  "cx.adr.c3": "MLAs, 2025",
  "cx.adr.c4": "Of which rape, 2025",
  "iso.cap": "Each figure is 1 in every 100 cases of {crime} before the courts in {y}. {conv} of them ended in a conviction that year, and {pend}, or {share} in every 100, were still waiting for a verdict when the year ended.",
- "iso.per": "Each figure is 1 in every 100 cases. A group smaller than half of 1 in 100 has no figure of its own."
+ "iso.per": "Each figure is 1 in every 100 cases. A group smaller than half of 1 in 100 has no figure of its own.",
+ "tools.wa": "WhatsApp",
+ "tools.link": "Copy link",
+ "tools.copied": "Copied",
+ "tools.anchor": "Copy a link to this section",
+ "tools.src": "Source: NCRB, Crime in India, and the sources named on the page",
+ "age.cap": "Victims of rape booked under the IPC or BNS in {place}, {y}, by age, from NCRB table 3A.3. {girls} were girls under 18 and {women} were women. Rape of girls under 18 is mostly booked under the POCSO Act and counted separately, so few girls appear here.",
+ "age.u6": "Under 6",
+ "age.60": "60 and over",
+ "find.1": "{share} in every 100 crimes against women recorded in {y} were cruelty by a husband or his relatives, the largest single heading in the records.",
+ "find.2": "Cases of penetrative sexual assault of girls under the POCSO Act rose from {a} in {y0} to {b} in {y1}.",
+ "find.3": "Police filed a charge-sheet in {cs} of every 100 rape cases they finished investigating in {y}.",
+ "find.4": "Courts finished {done} rape trials in {y}. At that pace the {pend} rape cases still waiting would take {yrs} years to clear, with no new case filed.",
+ "find.yrs": "{n} years",
+ "find.more": "See the figures"
 }

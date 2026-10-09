@@ -2,11 +2,12 @@
    matters, turmeric only as a fill. Women appear only as data: a hundred
    standing figures, each one 1 in 100 cases. */
 :root {
-  --ground: #f6f1e7;
-  --cloth: #fffdf8;
-  --ink: #1d1a16;
-  --soft: #5b5348;
-  --thread: #d9cfbd;
+  --ground: #ffffff;
+  --cloth: #ffffff;
+  --ink: #16181d;
+  --soft: #4f5461;
+  --thread: #e2e4e9;
+  --panel: #f6f7f9;
   --red: #a3243b;
   --turmeric: #d99a00;
   --knot: #3a3f6b;
@@ -20,14 +21,14 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ground: #15130f; --cloth: #1e1b16; --ink: #f2ebdf; --soft: #b9ae9e; --thread: #3b352c;
+    --ground: #111317; --cloth: #181b20; --ink: #eef0f4; --soft: #aeb3bf; --thread: #2f333b; --panel: #1d2026;
     --red: #f08a9b; --turmeric: #e6b234; --knot: #8f9ddd; --knot-open: #4b5587; --focus: #f08a9b;
     --q1: #2a3263; --q2: #3f4c8f; --q3: #6474bd; --q4: #9aa7e0; --q5: #dfe4fb;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --ground: #15130f; --cloth: #1e1b16; --ink: #f2ebdf; --soft: #b9ae9e; --thread: #3b352c;
+  --ground: #111317; --cloth: #181b20; --ink: #eef0f4; --soft: #aeb3bf; --thread: #2f333b; --panel: #1d2026;
   --red: #f08a9b; --turmeric: #e6b234; --knot: #8f9ddd; --knot-open: #4b5587; --focus: #f08a9b;
   --q1: #2a3263; --q2: #3f4c8f; --q3: #6474bd; --q4: #9aa7e0; --q5: #dfe4fb;
   color-scheme: dark;
@@ -396,3 +397,39 @@ svg.band { display: none; }
 html[lang="en"] .only-tr { display: none; }
 /* English text inside a translated page keeps the English display face. */
 .legal h2, h1[lang="en"] { font-family: "IBM Plex Serif", Georgia, serif; }
+
+/* Sharing and saving: a row of small buttons under each chart, and a link
+   button beside each section heading, as on offtheroll.in. */
+.tools { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; margin-top: 6px; }
+.tools button, .tools a { font: 600 13px/1.2 var(--text); color: var(--ink); background: var(--ground); border: 1px solid var(--thread); border-radius: 3px; padding: 6px 10px; cursor: pointer; text-decoration: none; position: relative; }
+.tools button:hover, .tools a:hover { border-color: var(--ink); }
+.tools .wa { color: #fff; background: #1e7a4a; border-color: #1e7a4a; }
+.anchor { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; margin-inline-start: 8px; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 3px; background: none; color: var(--soft); cursor: pointer; position: relative; opacity: .7; }
+.anchor:hover, .anchor:focus-visible { opacity: 1; background: var(--ground); color: var(--ink); }
+[data-msg]::after { content: attr(data-msg); position: absolute; inset-inline-start: 100%; top: 50%; transform: translateY(-50%); margin-inline-start: 6px; font: 600 12.5px/1 var(--text); color: var(--cloth); background: var(--ink); border-radius: 3px; padding: 5px 7px; white-space: nowrap; z-index: 5; }
+.tools [data-msg]::after { inset-inline-start: auto; inset-inline-end: 0; top: auto; bottom: 100%; transform: none; margin: 0 0 6px; }
+.chart .rowlab { fill: var(--ink); font-size: 12.5px; }
+.chart .hv { fill: var(--ink); font-variant-numeric: tabular-nums; }
+.chart .hv.dark { fill: var(--cloth); }
+@media print { .tools, .anchor { display: none; } }
+
+/* White pages, with structure from rules and type. A short red bar marks
+   every section heading, and each section's lead finding is set as a callout. */
+.sec > h2::before { content: ""; display: block; width: 36px; height: 3px; background: var(--red); margin-bottom: 14px; }
+.lead2 { padding: 4px 0 4px 18px; border-inline-start: 4px solid var(--red); font: 500 clamp(18px, 2.1vw, 21px)/1.5 var(--display); max-width: 60ch; }
+html[lang="ur"] .lead2 { padding: 4px 18px 4px 0; }
+.fig, .card a, .downloads a, .chart, .hero-iso, .slope, .mult, .rank, .map, .table-wrap { border-color: var(--thread); }
+.hero-iso { background: var(--panel); border: 0; }
+.chart, .map, .slope, .mult { background: var(--cloth); }
+.top { border-bottom-color: var(--thread); }
+.foot { background: var(--panel); border-top: 0; }
+
+/* What the records show */
+.findings { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; border-top: 1px solid var(--ink); }
+.findings li { padding: 18px 20px 20px 0; display: grid; gap: 8px; align-content: start; border-bottom: 1px solid var(--thread); }
+@media (min-width: 720px) { .findings li { padding-inline: 0 24px; } .findings li + li { padding-inline-start: 24px; border-inline-start: 1px solid var(--thread); } }
+.findings b { font: 600 clamp(34px, 4.4vw, 46px)/1 var(--display); color: var(--red); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.findings span { font-size: 16px; line-height: 1.5; }
+.findings a { font-weight: 600; font-size: 14.5px; color: var(--ink); }
+.findings a::after { content: " \2192"; }
+html[dir="rtl"] .findings a::after { content: " \2190"; }

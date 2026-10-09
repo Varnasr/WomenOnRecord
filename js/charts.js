@@ -106,6 +106,7 @@
       }).join('') + '</ol>';
     }
     el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + Math.ceil(H) + '" width="' + W + '" height="' + Math.ceil(H) + '" role="img" aria-label="' + esc(o.label || '') + '">' + g + '</svg>' + legend;
+    el.__csv = [['stage', 'cases']].concat(spec.nodes.map(function (n) { return [n.label, n.value]; }));
   }
 
   // ---------- lines ----------
@@ -151,6 +152,7 @@
       H = Math.max(H, top + wr[i].length * 15 + 8);
     });
     el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [['year'].concat(spec.series.map(function (z) { return z.label; }))].concat(spec.x.map(function (x, i) { return [x].concat(spec.series.map(function (z) { return z.values[i]; })); }));
   }
   function niceMax(v) {
     if (!v) return 1;
@@ -189,6 +191,169 @@
     });
     var key = '<ul class="legend">' + spec.keys.map(function (k) { return '<li><i style="background:' + tok(k.color) + '"></i>' + esc(k.label) + '</li>'; }).join('') + '</ul>';
     el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [[''].concat(spec.keys.map(function (k) { return k.label; }))].concat(spec.rows.map(function (r) {
+      return [r.label].concat(spec.keys.map(function (k) { var p = r.parts.find(function (q) { return q.key === k.key; }); return p ? p.value : ''; })); }));
+  }
+
+  // ---------- columns ----------
+  // spec: {x: [labels], series: [{label, values, color}], fmt, label}. Grouped
+  // columns from zero, values written over each column when there is room.
+  function columns(el, spec) {
+    var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
+    var H = narrow ? 250 : 300, L = narrow ? 44 : 56, R = 8, T = 22, B = spec.xWrap ? 44 : 30;
+    var max = 0;
+    spec.series.forEach(function (z) { z.values.forEach(function (v) { if (v > max) max = v; }); });
+    var nice = niceMax(max), n = spec.x.length, k = spec.series.length;
+    var band = (W - L - R) / n, inner = band * (k > 1 ? 0.78 : 0.62), cw = inner / k;
+    var y = function (v) { return T + (H - T - B) * (1 - v / nice); };
+    var g = '';
+    for (var t = 0; t <= 4; t++) {
+      var v = nice * t / 4, yy = y(v);
+      g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + yy + '" y2="' + yy + '" stroke="var(--thread)"' + (t ? ' stroke-dasharray="3 5"' : '') + '/>' +
+           '<text class="tick" x="' + (L - 8) + '" y="' + (yy + 4) + '" text-anchor="end">' + esc(fmt(v, true)) + '</text>';
+    }
+    spec.x.forEach(function (lab, i) {
+      var x0 = L + i * band + (band - inner) / 2;
+      spec.series.forEach(function (z, j) {
+        var v = z.values[i]; if (v == null) return;
+        var x = x0 + j * cw, h = (H - T - B) * v / nice;
+        g += '<rect x="' + (x + 1).toFixed(1) + '" y="' + y(v).toFixed(1) + '" width="' + Math.max(1, cw - 2).toFixed(1) + '" height="' + h.toFixed(1) + '" fill="' + tok(z.color) + '"><title>' +
+          esc(z.label + ', ' + lab + ': ' + fmt(v)) + '</title></rect>';
+        if (cw > (narrow ? 26 : 30)) g += '<text class="lab num" x="' + (x + cw / 2).toFixed(1) + '" y="' + (y(v) - 5).toFixed(1) + '" text-anchor="middle" font-size="' + (narrow ? 10.5 : 12) + '">' + esc(fmt(v, true)) + '</text>';
+      });
+      var lines2 = spec.xWrap ? wrap(lab, 8) : [lab];
+      lines2.forEach(function (ln, q) { g += '<text class="tick" x="' + (L + i * band + band / 2).toFixed(1) + '" y="' + (H - B + 16 + q * 13) + '" text-anchor="middle">' + esc(ln) + '</text>'; });
+    });
+    var key = k > 1 ? '<ul class="legend">' + spec.series.map(function (z) { return '<li><i style="background:' + tok(z.color) + '"></i>' + esc(z.label) + '</li>'; }).join('') + '</ul>' : '';
+    el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [[''].concat(spec.series.map(function (z) { return z.label; }))].concat(spec.x.map(function (x, i) { return [x].concat(spec.series.map(function (z) { return z.values[i]; })); }));
+  }
+
+  // ---------- heat ----------
+  // spec: {rows: [{label, values}], x: [labels], fmt, label, ramp}. One row per
+  // place, one column per year, the shade set by the value on one scale.
+  function heat(el, spec) {
+    var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
+    var L = Math.min(narrow ? 128 : 190, W * 0.4), cell = (W - L - 4) / spec.x.length, rh = narrow ? 22 : 24, T = 22;
+    var H = T + spec.rows.length * rh + 6, vals = [];
+    spec.rows.forEach(function (r) { r.values.forEach(function (v) { if (v != null) vals.push(v); }); });
+    vals.sort(function (a, b) { return a - b; });
+    var q = function (p) { return vals[Math.min(vals.length - 1, Math.floor(p * vals.length))]; };
+    var cuts = [q(0.2), q(0.4), q(0.6), q(0.8)], ramp = ['--q1', '--q2', '--q3', '--q4', '--q5'];
+    var bin = function (v) { var b = 0; cuts.forEach(function (c) { if (v > c) b++; }); return b; };
+    var g = '';
+    spec.x.forEach(function (x, j) { g += '<text class="tick" x="' + (L + j * cell + cell / 2).toFixed(1) + '" y="14" text-anchor="middle">' + esc(x) + '</text>'; });
+    spec.rows.forEach(function (r, i) {
+      var y = T + i * rh;
+      // a name too long for the label column is shortened, with the whole name in its tooltip
+      var room = Math.floor((L - 12) / 6.6), lab = r.label.length > room ? r.label.slice(0, room - 1).replace(/\s+\S*$/, '') + '…' : r.label;
+      g += '<text class="tick rowlab" x="' + (L - 8) + '" y="' + (y + rh / 2 + 4) + '" text-anchor="end"><title>' + esc(r.label) + '</title>' + esc(lab) + '</text>';
+      r.values.forEach(function (v, j) {
+        var b = v == null ? -1 : bin(v), x = L + j * cell;
+        g += '<rect x="' + (x + 1).toFixed(1) + '" y="' + (y + 1) + '" width="' + (cell - 2).toFixed(1) + '" height="' + (rh - 2) + '" fill="' + (b < 0 ? 'var(--ground)' : 'var(' + ramp[b] + ')') + '"><title>' +
+          esc(r.label + ', ' + spec.x[j] + ': ' + (v == null ? '–' : fmt(v))) + '</title></rect>';
+        if (v != null && cell > 40) g += '<text x="' + (x + cell / 2).toFixed(1) + '" y="' + (y + rh / 2 + 4) + '" text-anchor="middle" font-size="11" class="hv' + (b >= 3 ? ' dark' : '') + '">' + esc(fmt(v)) + '</text>';
+      });
+    });
+    var edges = [vals[0]].concat(cuts).concat([vals[vals.length - 1]]);
+    var key = '<ul class="legend">' + ramp.map(function (c, i) { return '<li><i style="background:var(' + c + ');border-radius:2px"></i>' + esc(fmt(edges[i]) + ' – ' + fmt(edges[i + 1])) + '</li>'; }).join('') + '</ul>';
+    el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [['place'].concat(spec.x)].concat(spec.rows.map(function (r) { return [r.label].concat(r.values); }));
+  }
+
+  // ---------- dumbbell ----------
+  // spec: {rows: [{label, a, b}], aLabel, bLabel, fmt, label}. Each row on its
+  // own scale from zero, because the crimes differ by orders of magnitude.
+  function dumbbell(el, spec) {
+    var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
+    var L = Math.min(narrow ? 140 : 230, W * 0.42), R = 54, rh = narrow ? 34 : 30, T = 8;
+    var H = T + spec.rows.length * rh + 6, g = '';
+    spec.rows.forEach(function (r, i) {
+      var y = T + i * rh + rh / 2, mx = Math.max(r.a || 0, r.b || 0) * 1.12 || 1;
+      var x = function (v) { return L + (W - L - R) * v / mx; };
+      g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" stroke="var(--thread)"/>';
+      g += '<text class="tick rowlab" x="' + (L - 10) + '" y="' + (y + 4) + '" text-anchor="end">' + esc(r.label) + '</text>';
+      if (r.a != null && r.b != null) g += '<line x1="' + x(r.a).toFixed(1) + '" x2="' + x(r.b).toFixed(1) + '" y1="' + y + '" y2="' + y + '" stroke="var(--soft)" stroke-width="3"/>';
+      if (r.b != null) g += '<circle cx="' + x(r.b).toFixed(1) + '" cy="' + y + '" r="5.5" fill="var(--cloth)" stroke="var(--soft)" stroke-width="2"><title>' + esc(spec.bLabel + ': ' + fmt(r.b)) + '</title></circle>';
+      if (r.a != null) g += '<circle cx="' + x(r.a).toFixed(1) + '" cy="' + y + '" r="6.5" fill="var(--red)"><title>' + esc(spec.aLabel + ': ' + fmt(r.a)) + '</title></circle>';
+      g += '<text class="lab num" x="' + (W - R + 8) + '" y="' + (y + 4) + '">' + esc(r.a == null ? '–' : fmt(r.a)) + '</text>';
+    });
+    var key = '<ul class="legend"><li><i style="background:var(--red)"></i>' + esc(spec.aLabel) + '</li><li><i style="background:var(--cloth);box-shadow:inset 0 0 0 2px var(--soft)"></i>' + esc(spec.bLabel) + '</li></ul>';
+    el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.__csv = [['', spec.aLabel, spec.bLabel]].concat(spec.rows.map(function (r) { return [r.label, r.a, r.b]; }));
+  }
+
+  // ---------- export ----------
+  // A chart as a standalone SVG card: its colours and type written in from the
+  // page, a title above and the source and address below, so a shared picture
+  // still says what it is and where it came from.
+  function card(el, title, foot) {
+    var cs = getComputedStyle(document.body), ink = cs.getPropertyValue('--ink').trim(), soft = cs.getPropertyValue('--soft').trim(), bg = cs.getPropertyValue('--cloth').trim();
+    var svgs = el.tagName.toLowerCase() === 'svg' ? [el] : el.querySelectorAll('svg:not(.woman)'), iso = el.querySelector('.iso');
+    var src, w, h;
+    if (iso) {
+      var ws = iso.querySelectorAll('.woman'), cw = 26, ch = 52;
+      w = 600; h = Math.ceil(ws.length / 10) * (ch + 4);
+      var off = (w - 10 * cw) / 2;
+      src = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      ws.forEach(function (m, i) {
+        var c = m.cloneNode(true); c.setAttribute('x', (i % 10) * cw + off); c.setAttribute('y', Math.floor(i / 10) * (ch + 4)); c.setAttribute('width', cw - 4); c.setAttribute('height', ch);
+        bake(m, c); src.appendChild(c);
+      });
+    } else {
+      var orig = svgs[svgs.length - 1]; if (!orig) return null;
+      src = orig.cloneNode(true); bake(orig, src);
+      var vb = orig.viewBox.baseVal; w = vb.width; h = vb.height;
+    }
+    // the legend, if the chart has one, as a row of swatches under the title
+    var keys = [].slice.call(el.querySelectorAll('.legend li')).map(function (li) {
+      var sw = li.querySelector('i, svg'), c = sw ? (sw.tagName === 'I' ? getComputedStyle(sw).backgroundColor : getComputedStyle(sw).fill) : soft, o = false;
+      if (sw && sw.tagName !== 'I' && (c === 'none' || !c)) { c = getComputedStyle(sw).stroke; o = true; }
+      return { c: c, o: o, t: li.textContent.trim() };
+    });
+    var pad = 24, tl = wrap(title, Math.max(30, Math.floor(w / 9))), kl = [], row = [], used = 0;
+    // a label too long for the card is cut at a word and marked with an ellipsis
+    keys.forEach(function (k) { var max = Math.floor((w - 30) / 7.2); if (k.t.length > max) k.t = k.t.slice(0, max).replace(/\s+\S*$/, '') + '…'; });
+    keys.forEach(function (k) { var kw = 22 + k.t.length * 7; if (used + kw > w && row.length) { kl.push(row); row = []; used = 0; } row.push(k); used += kw + 10; });
+    if (row.length) kl.push(row);
+    var fl = wrap(foot, Math.floor(w / 7)), top = pad + tl.length * 24 + 16 + kl.length * 22 + (kl.length ? 8 : 0), W = w + pad * 2, H = top + h + 34 + fl.length * 18;
+    var kg = kl.map(function (r, i) { var x = pad; return r.map(function (k) { var y = pad + tl.length * 24 + 22 + i * 22, s2 = '<rect x="' + (x + 1) + '" y="' + (y - 9) + '" width="11" height="11" rx="2" ' + (k.o ? 'fill="none" stroke="' + k.c + '" stroke-width="1.8"' : 'fill="' + k.c + '"') + '/><text x="' + (x + 18) + '" y="' + y + '" font-size="12.5" fill="' + soft + '">' + esc(k.t) + '</text>'; x += 22 + k.t.length * 7 + 10; return s2; }).join(''); }).join('');
+    var out = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif">' +
+      '<rect width="100%" height="100%" fill="' + bg + '"/>' +
+      tl.map(function (t, i) { return '<text x="' + pad + '" y="' + (pad + 18 + i * 24) + '" font-size="18" font-weight="700" fill="' + ink + '">' + esc(t) + '</text>'; }).join('') + kg +
+      '<g transform="translate(' + pad + ' ' + top + ')">' + src.innerHTML + '</g>' +
+      '<line x1="' + pad + '" x2="' + (W - pad) + '" y1="' + (top + h + 14) + '" y2="' + (top + h + 14) + '" stroke="' + soft + '" stroke-opacity=".4"/>' +
+      fl.map(function (f, i) { return '<text x="' + pad + '" y="' + (top + h + 34 + i * 18) + '" font-size="12.5" fill="' + soft + '">' + esc(f) + '</text>'; }).join('') + '</svg>';
+    return { svg: out, w: W, h: H };
+  }
+  // Write each element's computed paint and type into it, so the copy looks
+  // the same outside the page.
+  function bake(from, to) {
+    var a = [from].concat([].slice.call(from.querySelectorAll('*'))), b = [to].concat([].slice.call(to.querySelectorAll('*')));
+    a.forEach(function (e, i) {
+      var st = getComputedStyle(e), d = b[i]; if (!d) return;
+      ['fill', 'stroke'].forEach(function (p) { var v = st[p]; if (v && v !== 'none' || (e.getAttribute(p) || '').indexOf('var(') >= 0) d.setAttribute(p, v); });
+      if (st.fillOpacity && st.fillOpacity !== '1') d.setAttribute('fill-opacity', st.fillOpacity);
+      if (/^(text|tspan)$/.test(e.tagName)) { d.setAttribute('font-size', st.fontSize); d.setAttribute('font-weight', st.fontWeight); d.setAttribute('font-family', 'IBM Plex Sans, Helvetica, Arial, sans-serif');
+        if (st.strokeWidth && st.stroke !== 'none') { d.setAttribute('stroke-width', st.strokeWidth); d.setAttribute('paint-order', 'stroke'); } }
+      d.removeAttribute('class');
+    });
+  }
+  function save(href, name) { var a = document.createElement('a'); a.href = href; a.download = name; document.body.appendChild(a); a.click(); a.remove(); }
+  function saveSvg(el, title, foot, name) {
+    var c = card(el, title, foot); if (!c) return;
+    save(URL.createObjectURL(new Blob([c.svg], { type: 'image/svg+xml' })), name + '.svg');
+  }
+  function savePng(el, title, foot, name) {
+    var c = card(el, title, foot); if (!c) return;
+    var img = new Image(), cv = document.createElement('canvas'), k = 2;
+    cv.width = c.w * k; cv.height = c.h * k;
+    img.onload = function () { cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height); save(cv.toDataURL('image/png'), name + '.png'); };
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(c.svg);
+  }
+  function saveCsv(rows, name) {
+    var text = '\ufeff' + rows.map(function (r) { return r.map(function (c) { c = c == null ? '' : String(c); return /[",\n]/.test(c) ? '"' + c.replace(/"/g, '""') + '"' : c; }).join(','); }).join('\n');
+    save(URL.createObjectURL(new Blob([text], { type: 'text/csv' })), name + '.csv');
   }
 
   // ---------- one slope panel ----------
@@ -255,5 +420,5 @@
     return '<div class="iso">' + out + '</div>';
   }
 
-  window.SC_CHARTS = { woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
+  window.SC_CHARTS = { columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
 })();

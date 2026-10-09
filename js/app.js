@@ -121,11 +121,27 @@
       [fmt(S('POCSO_RAPE', 'cases', 'All India', y), 0), t('hero.f3', { y: y }), 'tip.pocso']];
     var o = pc('RAPE', 'All India', y);
     $('heroIso').innerHTML = isoBlock(o, lc(crimeName('RAPE')), y);
+    $('heroIso').__csv = isoCsv(o);
     $('heroIso').setAttribute('aria-label', t('iso.cap', { crime: lc(crimeName('RAPE')), y: y, conv: fmt(o.conv, 0), pend: fmt(o.ptr, 0), share: isoParts(o)[3] }));
     $('heroFigs').innerHTML = out.map(function (f) { return '<div class="fig"><b>' + f[0] + '</b><span' + (f[2] ? ' data-tip="' + f[2] + '"' : '') + '>' + f[1] + '</span></div>'; }).join('');
   }
+  // Four findings, each computed from the data, so they move when it does.
+  function findings() {
+    var y0 = D.years[0], y1 = D.years[D.years.length - 1];
+    var cr = cases('CRUELTY', 'All India')[4] / cases('TOTAL', 'All India')[4] * 100;
+    var pa = cases('POCSO_RAPE', 'All India'), ch = Math.round((pa[4] - pa[0]) / pa[0] * 100);
+    var cs = S('RAPE', 'police_chargesheeting_rate', 'All India', y1);
+    var done = S('RAPE', 'court_trials_completed', 'All India', y1), pend = S('RAPE', 'court_pending_trial_end_of_year', 'All India', y1);
+    var f = [
+      [t('field.big', { share: Math.round(cr) }), t('find.1', { share: Math.round(cr), y: y1 }), '/crimes/cruelty/'],
+      ['+' + ch + '%', t('find.2', { a: fmt(pa[0], 0), b: fmt(pa[4], 0), y0: y0, y1: y1 }), '/crimes/pocso-rape/'],
+      [t('field.big', { share: Math.round(cs) }), t('find.3', { cs: Math.round(cs), y: y1 }), '/courts/'],
+      [t('find.yrs', { n: fmt(pend / done, 1) }), t('find.4', { done: fmt(done, 0), pend: fmt(pend, 0), y: y1, yrs: fmt(pend / done, 1) }), '/courts/#years']];
+    $('findList').innerHTML = f.map(function (x) { return '<li><b>' + x[0] + '</b><span>' + x[1] + '</span><a href="' + link(x[2]) + '">' + t('find.more') + '</a></li>'; }).join('');
+  }
   function home() {
     hero();
+    findings();
     var o = pc('RAPE', 'All India', 2024);
     $('homeCourts').textContent = t('home.courts.t', { conv: Math.round(o.cr), y: 2024 });
     // a strip of every rape case before the courts in 2024, split by outcome
@@ -150,10 +166,10 @@
     var o = pc('RAPE', 'All India', y);
     $('prIndia').textContent = t('pr.india', { pend: Math.round(o.ptr / o.ct * 100), conv: Math.round(o.cr) });
     C.watch($('prChart'), function () {
-      C.lines($('prChart'), { x: D.years, fmt: function (v) { return fmt(v, 1); }, label: t('pr.chart'),
+      C.columns($('prChart'), { x: D.years, fmt: function (v) { return fmt(v, 1); }, label: t('pr.chart'),
         series: [{ label: place('Delhi'), values: row('RAPE', 'rate', 'Delhi'), color: '--red' },
                  { label: place('Bihar'), values: row('RAPE', 'rate', 'Bihar'), color: '--knot' },
-                 { label: place('All India'), values: row('RAPE', 'rate', 'All India'), color: '--soft', dash: '6 5' }] });
+                 { label: t('india'), values: row('RAPE', 'rate', 'All India'), color: '--soft' }] });
     });
     $('prChartCap').textContent = t('pr.chart');
   }
@@ -205,6 +221,10 @@
   // courts in a year, coloured by how the case stood when the year ended.
   var ISO = [['conv', '--red', null], ['acq', null, '--red'], ['other', '--soft', null], ['pend', '--knot', null]];
   function isoParts(o) { return C.hundred([o.conv, o.acq + o.dis, o.othc, o.ptr]); }
+  function isoCsv(o) {
+    var n = isoParts(o);
+    return [['', 'cases', 'figures of 100']].concat([[t('leg.conv'), o.conv, n[0]], [t('leg.acq'), o.acq + o.dis, n[1]], [t('leg.other'), o.othc, n[2]], [t('leg.pend'), o.ptr, n[3]]]);
+  }
   function isoBlock(o, crime, y) {
     var n = isoParts(o), share = n[3];
     var leg = [[t('leg.conv'), o.conv], [t('leg.acq'), o.acq + o.dis], [t('leg.other'), o.othc], [t('leg.pend'), o.ptr]];
@@ -219,6 +239,7 @@
     $('h-courts').textContent = t('courts.hy', { y: y });
     $('courtsIntro').textContent = t('courts.intro', { n: fmt(o.ct, 0), crime: name, y: y });
     $('field').innerHTML = isoBlock(o, name, y);
+    $('field').__csv = isoCsv(o);
     $('fieldCap').innerHTML = t('iso.cap', { crime: name, y: y, conv: '<b>' + fmt(o.conv, 0) + '</b>', pend: fmt(o.ptr, 0), share: share });
     $('field').setAttribute('aria-label', $('fieldCap').textContent);
   }
@@ -313,6 +334,7 @@
       svg.appendChild(el);
     });
     var india = mapValue(st.head, 'All India', st.year);
+    svg.__csv = [['state', st.measure === 'rate' ? 'per lakh women' : 'cases']].concat(vals.slice().sort(function (a, b) { return byName(a[0], b[0]); }).map(function (v) { return [place(v[0].id), v[1]]; }));
     var unit = st.measure === 'rate' ? t('unit.rate') : t('unit.cases');
     $('mapCap').textContent = t('map.cap', { crime: head(st.head), y: st.year, unit: unit, india: fmt(india, dp) });
     var edges = [nums[0]].concat(cuts).concat([nums[nums.length - 1]]);
@@ -350,6 +372,20 @@
     var last = pts[pts.length - 1];
     return '<svg class="spark" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true"><path d="' + d +
       '" fill="none" stroke="var(--knot)" stroke-width="1.6"/>' + (last ? '<circle cx="' + last[0] + '" cy="' + last[1] + '" r="2.4" fill="var(--red)"/>' : '') + '</svg>';
+  }
+  // Rape survivors by age (NCRB table 3A.3), for India or one state.
+  var AGES = [['victims_under6', 'age.u6'], ['victims_6_12', '6-12'], ['victims_12_16', '12-16'], ['victims_16_18', '16-18'],
+              ['victims_18_30', '18-30'], ['victims_30_45', '30-45'], ['victims_45_60', '45-60'], ['victims_60plus', 'age.60']];
+  function ages(p) {
+    var y = 2024, vals = AGES.map(function (g) { return S('RAPE_VICTIMS_AGE', g[0], p, y); });
+    if (vals.every(function (v) { return v == null; })) { $('ages').hidden = true; return; }
+    $('ages').hidden = false;
+    $('ageCap').textContent = t('age.cap', { y: y, place: p === 'All India' ? t('india') : place(p), girls: fmt(S('RAPE_VICTIMS_AGE', 'victims_girls', p, y), 0), women: fmt(S('RAPE_VICTIMS_AGE', 'victims_women', p, y), 0) });
+    C.watch($('ageChart'), function () {
+      C.columns($('ageChart'), { x: AGES.map(function (g) { return g[1].indexOf('age.') === 0 ? t(g[1]) : g[1]; }), xWrap: true, label: $('ageCap').textContent,
+        fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, 0) + 'k' : fmt(v, 0); },
+        series: [{ label: t('age.h'), values: vals, color: '--knot' }] });
+    });
   }
   function placeFromPage() {
     var id = body.dataset.place;
@@ -389,6 +425,12 @@
     });
     $('stateTable').innerHTML = h + '</tbody>';
     outcomes('STATE', p);
+    ages(p);
+    var dbRows = CRIMES.filter(function (c) { return c !== 'TOTAL'; }).map(function (c) { return { label: head(c), a: rate(c, p, 2024), b: rate(c, 'All India', 2024) }; })
+      .filter(function (r) { return r.a != null || r.b != null; });
+    C.watch($('dbChart'), function () {
+      C.dumbbell($('dbChart'), { rows: dbRows, aLabel: place(p), bLabel: t('india'), label: t('db.cap'), fmt: function (v) { return fmt(v, v < 1 ? 2 : 1); } });
+    });
     var oc = [['POLICE', 'reported', 'o.reported', 0], ['POLICE', 'chargesheeting_rate', 'o.cs', 1], ['POLICE', 'pending_investigation_end_of_year', 'o.pinv', 0],
               ['COURTS', 'total_for_trial', 'o.trial', 0], ['COURTS', 'convicted', 'o.conv', 0], ['COURTS', 'conviction_rate', 'o.cr', 1],
               ['COURTS', 'pending_trial_end_of_year', 'o.ptrial', 0], ['COURTS', 'court_pendency', 'o.cp', 1]];
@@ -442,6 +484,11 @@
     tabs($('trendMode'), ['cases', 'rate'], 'trend', function (m) { return t(m === 'rate' ? 'm.rate' : 'm.cases'); }, trend);
     trend();
     if (FIR.indexOf(c) >= 0) { $('pc').hidden = false; flow(c, y1); }
+    if (c === 'RAPE') ages('All India');
+    var hrows = STATES().slice().sort(byName).map(function (p) { return { label: place(p.id), values: D.years.map(function (y) { return rate(c, p.id, y); }) }; });
+    C.watch($('heatChart'), function () {
+      C.heat($('heatChart'), { rows: hrows, x: D.years, label: t('heat.cap'), fmt: function (v) { return fmt(v, v < 10 ? 1 : 0); } });
+    });
     crimeStates(c);
   }
   function trend() {
@@ -541,7 +588,7 @@
     $('ncwLead').textContent = t('cx.ncw.lead', { n: fmt(nt[4], 0), y: 2024, up: fmt(up / nt[4] * 100, 0), rape: fmt(cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', '2024'), 0), dv: fmt(cv('ncw', 'ncw_nature_domestic_violence', 'All India', '2024'), 0) });
     $('ncwCap').textContent = t('cx.ncw.cap');
     C.watch($('ncwChart'), function () {
-      C.lines($('ncwChart'), { x: D.years, fmt: function (v) { return fmt(v, 0); }, label: $('ncwCap').textContent, series: [
+      C.columns($('ncwChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
         { label: t('cx.ncw.all'), values: nt, color: '--knot', width: 3 },
         { label: t('cx.ncw.dv'), values: D.years.map(function (y) { return cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(y)); }), color: '--turmeric' },
         { label: t('cx.ncw.rape'), values: D.years.map(function (y) { return cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(y)); }), color: '--red' }] });
@@ -552,7 +599,7 @@
     $('adsiLead').textContent = t('cx.adsi.lead', { f: fmt(af[4], 0), hw: fmt(ah[4], 0), share: fmt(ah[4] / af[4] * 100, 0), y: 2024 });
     $('adsiCap').textContent = t('cx.adsi.cap');
     C.watch($('adsiChart'), function () {
-      C.lines($('adsiChart'), { x: D.years, fmt: function (v) { return fmt(v, 0); }, label: $('adsiCap').textContent, series: [
+      C.columns($('adsiChart'), { x: D.years, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, 0) + 'k' : fmt(v, 0); }, label: $('adsiCap').textContent, series: [
         { label: t('cx.adsi.f'), values: af, color: '--knot', width: 3 }, { label: t('cx.adsi.hw'), values: ah, color: '--red' }] });
     });
     placeTable($('adsiTable'), [
@@ -621,6 +668,80 @@
       { label: t('cx.adr.c4'), get: function (p) { return cv('adr', 'adr2025_mla_rape', p, A5); } }]);
   }
 
+  // ---------- sharing and saving ----------
+  // Under every chart a row of buttons, as on offtheroll.in: the chart as a
+  // PNG or SVG card that carries its title and its source, the numbers behind
+  // it as a CSV, a WhatsApp message with the finding and a link to this
+  // section, and a copied link.
+  var LINKICON = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>';
+  function pageUrl(hash) { var u = new URL(location.href); u.hash = hash || ''; return u.toString(); }
+  function copy(text, btn, msg) {
+    var done = function () { btn.setAttribute('data-msg', t('tools.copied')); setTimeout(function () { btn.removeAttribute('data-msg'); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, function () { prompt('', text); }); else prompt('', text);
+  }
+  function sectionOf(el) { var s = el.closest('section[id]'); return s ? s.id : ''; }
+  function chartTitle(fig) {
+    var s = fig.closest('section'), h = s && s.querySelector('h2'), h1 = document.querySelector('main h1');
+    var a = h ? h.firstChild.textContent.trim() : '', b = (PAGE === 'state' || PAGE === 'crime') && h1 ? h1.textContent.trim() : '';
+    // a figure outside any section (the home page's hundred women) is titled by its own sentence
+    var box = fig.querySelector('[aria-label]') || fig;
+    return [a, b].filter(Boolean).join(', ') || box.getAttribute('aria-label') || document.title;
+  }
+  function finding(fig) {
+    var s = fig.closest('section'), p = s && s.querySelector('.lead2, .intro[id], #flowIntro, #courtsIntro');
+    var box = fig.querySelector('[aria-label]') || fig;
+    return (p && p.textContent.trim()) || box.getAttribute('aria-label') || (fig.querySelector('figcaption') || {}).textContent || document.title;
+  }
+  function tools() {
+    document.querySelectorAll('main figure.chart, main figure.isofig, main figure.field, main figure.map').forEach(function (fig) {
+      if (fig.querySelector('.tools') || fig.querySelector('figure')) return;
+      var box = fig.querySelector('#field, .chart > div[id], div[id], svg[id]') || fig;
+      var id = box.id || sectionOf(fig), name = (location.pathname.replace(/^\/|\/$/g, '').replace(/\//g, '-') || 'shecounts') + '-' + id;
+      var bar = document.createElement('div'); bar.className = 'tools';
+      bar.innerHTML = '<button type="button" data-t="png">PNG</button><button type="button" data-t="svg">SVG</button><button type="button" data-t="csv">CSV</button>' +
+        '<a class="wa" data-t="wa" target="_blank" rel="noopener">' + t('tools.wa') + '</a><button type="button" data-t="link">' + t('tools.link') + '</button>';
+      var wa = bar.querySelector('.wa');
+      var setWa = function () { wa.href = 'https://wa.me/?text=' + encodeURIComponent(finding(fig).replace(/\s+/g, ' ').trim() + '\n' + pageUrl(sectionOf(fig))); };
+      setWa(); wa.addEventListener('mouseenter', setWa); wa.addEventListener('focus', setWa);
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-t]'); if (!b) return;
+        var k = b.getAttribute('data-t'), foot = 'She Counts · shecounts.netlify.app' + location.pathname + ' · ' + t('tools.src');
+        if (k === 'png') C.savePng(box, chartTitle(fig), foot, name);
+        else if (k === 'svg') C.saveSvg(box, chartTitle(fig), foot, name);
+        else if (k === 'csv' && box.__csv) C.saveCsv(box.__csv, name);
+        else if (k === 'link') copy(pageUrl(sectionOf(fig)), b);
+        else if (k === 'wa') setWa();
+      });
+      bar.__box = box;
+      fig.appendChild(bar);
+    });
+    // a chart may be redrawn with or without numbers behind it, so this is checked each time
+    document.querySelectorAll('main figure .tools').forEach(function (bar) { bar.querySelector('[data-t=csv]').hidden = !(bar.__box && bar.__box.__csv); });
+  }
+  // A link button on every section heading: it copies this page's address with
+  // the section in it, so a shared link opens on that section.
+  function anchors() {
+    document.querySelectorAll('main h2[id]').forEach(function (h) {
+      if (h.querySelector('.anchor') || h.classList.contains('sr')) return;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'anchor'; b.innerHTML = LINKICON;
+      b.setAttribute('aria-label', t('tools.anchor'));
+      b.addEventListener('click', function () { var s = h.closest('section[id]'), id = s ? s.id : h.id; try { history.replaceState(null, '', '#' + id); } catch (e) {} copy(pageUrl(id), b); });
+      h.appendChild(b);
+    });
+    document.querySelectorAll('main h2 .anchor').forEach(function (b) { b.setAttribute('aria-label', t('tools.anchor')); });
+  }
+  // A link to a section opens on it. Charts draw after the page loads and push
+  // what is below them down, so the jump is made again once they are drawn,
+  // unless the reader has already started scrolling.
+  var moved = false;
+  ['wheel', 'touchstart', 'keydown'].forEach(function (ev) { addEventListener(ev, function () { moved = true; }, { once: true, passive: true }); });
+  function jump() {
+    if (moved || !location.hash) return;
+    var el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (el && el.closest('main')) el.scrollIntoView({ block: 'start' });
+  }
+
   // ---------- contents rail ----------
   function toc() {
     var hs = Array.prototype.slice.call(document.querySelectorAll('main h2[id]')).filter(function (h) { return !h.classList.contains('sr') && !h.closest('[hidden]'); });
@@ -685,7 +806,7 @@
   var PAGES = { context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
-    toc(); links(); wireTips();
+    toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
   }
 
   // Links into the old single page land on the page that now holds that section.
@@ -757,7 +878,6 @@
       D = res[0]; if (PAGE === 'context') X = res[1]; else GEO = res[1] || null;
       if (GEO) project();
       setLang(lang);
-      if (location.hash) { var el = document.getElementById(location.hash.slice(1)); if (el) el.scrollIntoView(); }
     }).catch(function (e) {
       console.error(e);
       var m = document.createElement('p'); m.className = 'note'; m.textContent = t('err');

@@ -19,11 +19,11 @@
 <link rel="canonical" href="https://shecounts.netlify.app/states/a-and-n-islands/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/fonts.css?v=d6299a11d6">
-<link rel="stylesheet" href="/css/site.css?v=25845f5fdf">
+<link rel="stylesheet" href="/css/site.css?v=9df14fa34a">
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.SC_BUILD = "6d5aa4696b"; window.SC_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"25845f5fdf","data/context.csv":"c4c676784e","data/context.json":"4efb3fb68d","data/geo/india.json":"f82dbbe582","data/shecounts.csv":"eb84607428","data/site.json":"6acb7593e8","downloads/codebook.csv":"0577778935","downloads/context.xlsx":"a85d040438","downloads/shecounts.xlsx":"e76e373d9b","js/app.js":"44612b31ac","js/charts.js":"46634b3c09","js/i18n.js":"207ff0164a"};
+  window.SC_BUILD = "751fbd1448"; window.SC_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"9df14fa34a","data/context.csv":"c4c676784e","data/context.json":"4efb3fb68d","data/geo/india.json":"f82dbbe582","data/shecounts.csv":"eb84607428","data/site.json":"6acb7593e8","downloads/codebook.csv":"0577778935","downloads/context.xlsx":"a85d040438","downloads/shecounts.xlsx":"e76e373d9b","js/app.js":"84a66cf05d","js/charts.js":"9676fca666","js/i18n.js":"65f0c5b4e0"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -91,6 +91,11 @@
     <p class="intro" id="stateIntro"></p>
   </header>
 
+  <section class="sec" id="vsindia" aria-labelledby="h-vsindia">
+    <h2 id="h-vsindia" data-i18n="db.h">Against India, 2024</h2>
+    <figure class="chart cloth"><div id="dbChart"></div><figcaption data-i18n="db.cap">Cases recorded for every lakh women in 2024, in this state and in India. Each row has its own scale, because some crimes are recorded hundreds of times more often than others.</figcaption></figure>
+  </section>
+
   <section class="sec" id="change" aria-labelledby="h-change">
     <h2 id="h-change" data-i18n="slope.h">2020 against 2024</h2>
     <p class="intro" data-i18n="slope.intro">Each panel joins the state's recorded rate in 2020 to its rate in 2024, for every lakh women, on its own scale. The dashed grey line is India. A rise can mean more crime or more recording, and the figures cannot tell the two apart.</p>
@@ -102,6 +107,11 @@
     <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-table">
       <table class="grid" id="stateTable"></table>
     </div>
+  </section>
+
+  <section class="sec" id="ages" aria-labelledby="h-ages">
+    <h2 id="h-ages" data-i18n="age.h">Rape survivors by age</h2>
+    <figure class="chart cloth"><div id="ageChart"></div><figcaption id="ageCap"></figcaption></figure>
   </section>
 
   <section class="sec" id="after" aria-labelledby="h-after">
@@ -116,7 +126,7 @@
 </div>
 
 <footer class="foot">
-  <p class="wrap foot-in"><span data-i18n="foot.credit">Research by Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Only counts are published, and no survivor is named or described.</span> <span data-i18n="foot.ind">She Counts is independent and has no connection to NCRB, the Government of India or any political party.</span>
+  <p class="wrap foot-in"><span data-i18n="foot.credit">Research by Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Only counts are published, and no survivor is named or described.</span> <span data-i18n="foot.ind">She Counts is not published by NCRB or by the Government of India.</span>
     · <a href="/method/" data-i18n="foot.about">About this site</a> · <a href="/method/#data" data-i18n="foot.dl">Downloads</a> · <a href="/context/" data-i18n="nav.cx">Context</a> · <a href="/terms/" data-i18n="foot.terms">Terms and privacy</a> · <a href="https://github.com/Varnasr/SheCounts">GitHub</a> · <span data-i18n="foot.lic">Data CC BY 4.0 · Code MIT</span></p>
 </footer>
 
@@ -131,8 +141,8 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=207ff0164a"></script>
-<script src="/js/charts.js?v=46634b3c09"></script>
-<script src="/js/app.js?v=44612b31ac"></script>
+<script src="/js/i18n.js?v=65f0c5b4e0"></script>
+<script src="/js/charts.js?v=9676fca666"></script>
+<script src="/js/app.js?v=84a66cf05d"></script>
 </body>
 </html>

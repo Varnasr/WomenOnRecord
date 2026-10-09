@@ -35,9 +35,17 @@ still waiting. The figure is upright and still on purpose. Never draw a woman
 hurt, hiding, crouched or afraid; that image shows women only as victims, and
 this site is for the women protesting. The link preview draws the same figure.
 
+Every chart and figure has a row of buttons under it (`tools()` in
+`js/app.js`): PNG and SVG cards that carry the chart's title and source, a CSV
+of the numbers behind it (each chart keeps them on its box as `__csv`), a
+WhatsApp message with the section's finding and link, and a copied link. Every
+section heading has a link button (`anchors()`). A new chart gets all of this
+by sitting in a `figure.chart` and keeping its numbers in `__csv`.
+
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
 the charts, all plain SVG: `flow` (the sankey on the police and courts page),
-`lines`, `stack` and `slope`. Every chart redraws when its box changes width.
+`lines`, `stack`, `slope`, `columns`, `heat` (state by year, on the crime
+pages) and `dumbbell` (a state against India, on the state pages). Every chart redraws when its box changes width.
 
 The flow joins the police stage to the court stage through "waiting in court
 from earlier years", computed as cases before the courts less that year's
@@ -56,7 +64,9 @@ The footer follows offtheroll.in's: one centred line saying who did the
 research, the promise about what is published, then links. The research is by
 Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Do not copy
 offtheroll's credit here; the two sites credit different people. Names stay in
-Latin script in every language. The publisher is PinPoint Ventures and the address is
+Latin script in every language. The footer and the terms page say only that She
+Counts is not published by NCRB or any government. Do not add a claim of
+independence from political parties; the owner removed it because it is untrue. The publisher is PinPoint Ventures and the address is
 info@pinpointventures.in, as on offtheroll.in.
 
 `terms/` is the terms and privacy page, in English with a translated note that
