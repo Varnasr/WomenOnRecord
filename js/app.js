@@ -224,7 +224,7 @@
     $('mapCap').textContent = t('map.cap', { crime: head(st.head), y: st.year, unit: unit, india: fmt(india, st.measure === 'rate' ? 1 : 0) });
     var edges = [nums[0]].concat(cuts).concat([nums[nums.length - 1]]);
     $('mapScale').innerHTML = RAMP.map(function (r, i) {
-      return '<span><i style="background:var(' + r + ')"></i>' + fmt(edges[i], 1) + ' to ' + fmt(edges[i + 1], 1) + '</span>';
+      return '<span><i style="background:var(' + r + ')"></i>' + t('range', { a: fmt(edges[i], 1), b: fmt(edges[i + 1], 1) }) + '</span>';
     }).join('') + '<span><i style="background:var(--ground);outline:1px dashed var(--thread)"></i>' + t('nodata') + '</span>';
     // ranking
     var list = vals.filter(function (v) { return v[1] != null; }).sort(function (a, b) { return b[1] - a[1]; });

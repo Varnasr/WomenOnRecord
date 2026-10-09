@@ -63,6 +63,17 @@ for where, s in [('index.html', text)] + [(f'en.json {k}', v) for k, v in en.ite
     if '—' in s:
         fail.append(f'em dash in {where}')
 
+# A locale's strings must not carry another Indic script, which is what a
+# machine-translated or pasted-in string shows first.
+SCRIPTS = {'deva': (0x0900, 0x097F), 'beng': (0x0980, 0x09FF), 'taml': (0x0B80, 0x0BFF), 'arab': (0x0600, 0x06FF)}
+OWN = {'hi': 'deva', 'mr': 'deva', 'bn': 'beng', 'ta': 'taml', 'ur': 'arab'}
+for l, own in OWN.items():
+    d = json.load(open(os.path.join(ROOT, 'i18n', l + '.json'), encoding='utf-8'))
+    for k, v in d.items():
+        for name, (a, b) in SCRIPTS.items():
+            if name != own and any(a <= ord(ch) <= b and ch not in '\u0964\u0965' for ch in v):
+                fail.append(f'{l} {k} carries {name} characters')
+
 if fail:
     print('\n'.join(fail)); sys.exit(1)
 print(f'PASS: {checked} printed rates agree with cases and population; references, CSP and downloads in order')
