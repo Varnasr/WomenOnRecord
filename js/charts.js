@@ -338,9 +338,23 @@
   // One row per crime: every state as a small dot, this state as a large red
   // one and India as a line. Each row has its own scale from zero, and the
   // dots carry no rank. The point is where one place sits among the rest.
-  function strip(el, spec) {
+  function strip(el, spec, scale) {
+    scale = scale || 1;
     var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
-    var L = narrow ? 4 : Math.min(240, W * 0.36), R = 58, rh = narrow ? 52 : 34, T = 6, g = '';
+    // The label column is as wide as the longest label, up to 40% of the chart;
+    // a label longer than that goes onto two lines.
+    var cv = document.createElement('canvas').getContext('2d');
+    cv.font = '12.5px ' + getComputedStyle(el).fontFamily;
+    var tw = function (s) { return cv.measureText(s).width * scale; };
+    var cap = Math.floor(W * 0.4), longest = 0;
+    spec.rows.forEach(function (r) { longest = Math.max(longest, tw(r.label)); });
+    var L = narrow ? 4 : Math.min(cap, Math.ceil(longest) + 16), R = 58, T = 6, g = '';
+    var lines = spec.rows.map(function (r) {
+      if (narrow || tw(r.label) <= L - 16) return [r.label];
+      for (var n = r.label.length; n > 4; n--) { var w = wrap(r.label, n); if (w.every(function (x) { return tw(x) <= L - 16; })) return w; }
+      return wrap(r.label, 20);
+    });
+    var two = lines.some(function (x) { return x.length > 1; }), rh = narrow ? 52 : (two ? 40 : 34);
     var H = T + spec.rows.length * rh + 4;
     spec.rows.forEach(function (r, i) {
       var y = T + i * rh + (narrow ? 36 : rh / 2), mx = 0;
@@ -349,7 +363,8 @@
       var x = function (v) { return L + (W - L - R) * v / mx; };
       g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" stroke="var(--thread)"/>';
       if (narrow) g += '<text class="tick rowlab" x="0" y="' + (y - 14) + '">' + esc(r.label) + '</text>';
-      else g += '<text class="tick rowlab" x="' + (L - 12) + '" y="' + (y + 4) + '" text-anchor="end">' + esc(r.label) + '</text>';
+      else g += '<text class="tick rowlab" x="' + (L - 12) + '" y="' + (y + 4 - (lines[i].length - 1) * 7.5) + '" text-anchor="end">' +
+        lines[i].map(function (ln, k) { return '<tspan x="' + (L - 12) + '"' + (k ? ' dy="15"' : '') + '>' + esc(ln) + '</tspan>'; }).join('') + '</text>';
       r.dots.forEach(function (d) {
         g += '<circle cx="' + x(d.v).toFixed(1) + '" cy="' + y + '" r="3.6" fill="var(--knot)" fill-opacity=".38"><title>' + esc(d.name + ': ' + fmt(d.v)) + '</title></circle>';
       });
@@ -360,6 +375,21 @@
     var key = '<ul class="legend"><li><i style="background:var(--red)"></i>' + esc(spec.hiLabel) + '</li><li><i style="background:var(--ink);width:3px;border-radius:0"></i>' + esc(spec.markLabel) + '</li><li><i style="background:var(--knot);opacity:.45"></i>' + esc(spec.dotLabel) + '</li></ul>';
     el.innerHTML = key + '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
     el.__csv = [['', spec.hiLabel, spec.markLabel]].concat(spec.rows.map(function (r) { return [r.label, r.hi, r.mark]; }));
+    // The canvas may measure in a fallback face before the page's own font has
+    // loaded. Measure the drawn labels, and draw again if any is wider than its estimate.
+    if (!narrow && scale < 3) {
+      var worst = 1;
+      el.querySelectorAll('text.rowlab tspan').forEach(function (t) {
+        var est = tw(t.textContent); if (est > 0) worst = Math.max(worst, t.getComputedTextLength() / est);
+      });
+      if (worst > 1.01) strip(el, spec, scale * worst * 1.02);
+    }
+    // Drawing the labels can start a font download (the Indian-script faces load
+    // only when a page needs them), so draw again once the fonts are in.
+    if (scale === 1 && document.fonts && document.fonts.status === 'loading' && !el.__fontWait) {
+      el.__fontWait = true;
+      document.fonts.ready.then(function () { el.__fontWait = false; strip(el, spec); });
+    }
   }
 
   // ---------- treemap ----------
