@@ -7,7 +7,7 @@ the place or crime in a data attribute that js/app.js reads. Never edit the
 written pages; edit the sources and run this. --check fails if any is stale.
 Usage: python3 scripts/build_pages.py [--check]
 """
-import html, json, os, re, sys
+import hashlib, html, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, 'site')
@@ -19,6 +19,26 @@ NAV = [('/protests/', 'nav.protests', 'Protests'), ('/courts/', 'nav.pc', 'Polic
 CRIMES = ['RAPE', 'POCSO_RAPE', 'ATTEMPT_RAPE', 'ASSAULT_MODESTY', 'INSULT_MODESTY', 'MURDER_WOMEN', 'MURDER_RAPE',
           'DOWRY_DEATH', 'ABETMENT_SUICIDE', 'CRUELTY', 'DOWRY_ACT', 'PWDVA', 'KIDNAP', 'ACID', 'ITPA', 'CYBER', 'TOTAL']
 
+# Every file a page loads. Each gets ?v=<hash of its contents> in its address,
+# so a changed file has a new address and no browser can serve an old copy.
+ASSETS = ['css/site.css', 'js/i18n.js', 'js/charts.js', 'js/app.js',
+          'data/site.json', 'data/context.json', 'data/geo/india.json']
+
+def digest(b):
+    return hashlib.sha256(b).hexdigest()[:10]
+
+def versions():
+    v = {a: digest(open(os.path.join(ROOT, a), 'rb').read()) for a in ASSETS}
+    src = b''.join(open(os.path.join(SITE, d, f), 'rb').read() for d, fs in
+                   [('', ['shell.html'])] + [('pages', sorted(os.listdir(os.path.join(SITE, 'pages'))))] for f in fs)
+    build = digest((json.dumps(v, sort_keys=True)).encode() + src)
+    return v, build
+
+def stamp(out, v):
+    for a, h in v.items():
+        out = out.replace(f'"/{a}"', f'"/{a}?v={h}"')
+    return out
+
 def slug(s):
     s = s.lower().replace('&', ' and ')
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
@@ -29,21 +49,24 @@ def read(name):
     if not m: raise SystemExit(f'{name}: first line must be <!--page {{json}} -->')
     return json.loads(m.group(1)), src[m.end():]
 
-def render(shell, meta, content, url, attrs=''):
+def render(shell, meta, content, url, attrs='', v=None, build=''):
     nav = '\n'.join(f'      <a href="{h}" data-i18n="{k}"' + (' aria-current="page"' if url.startswith(h) else '') + f'>{t}</a>'
                     for h, k, t in NAV)
     title = meta['title'] if meta['title'] == 'She Counts' else meta['title'] + ' · She Counts'
     out = shell
-    for k, v in {'title': html.escape(title), 'desc': html.escape(meta['desc']), 'url': url, 'nav': nav,
-                 'page': meta.get('page', ''), 'body_attrs': attrs, 'content': content.rstrip('\n')}.items():
-        out = out.replace('{{' + k + '}}', v)
+    for k, val in {'title': html.escape(title), 'desc': html.escape(meta['desc']), 'url': url, 'nav': nav,
+                 'page': meta.get('page', ''), 'body_attrs': attrs, 'content': content.rstrip('\n'),
+                 'build': build, 'vmap': json.dumps(v, sort_keys=True, separators=(',', ':'))}.items():
+        out = out.replace('{{' + k + '}}', val)
     if '{{' in out: raise SystemExit(f'{url}: unfilled placeholder')
-    return out
+    return stamp(out, v)
 
 def pages():
     shell = open(os.path.join(SITE, 'shell.html'), encoding='utf-8').read()
     site = json.load(open(os.path.join(ROOT, 'data', 'site.json'), encoding='utf-8'))
-    out = {}
+    v, build = versions()
+    R = lambda *a, **k: render(*a, v=v, build=build, **k)
+    out = {'version.json': json.dumps({'build': build}) + '\n'}
     for name in sorted(os.listdir(os.path.join(SITE, 'pages'))):
         meta, content = read(name)
         meta['page'] = name[:-5]
@@ -52,15 +75,15 @@ def pages():
                 if p['kind'] == 'total': continue
                 m = dict(meta, title=meta['title'].format(place=p['name']), desc=meta['desc'].format(place=p['name']))
                 u = f'/states/{slug(p["id"])}/'
-                out[u.strip('/') + '/index.html'] = render(shell, m, content, u, f' data-place="{html.escape(p["id"])}"')
+                out[u.strip('/') + '/index.html'] = R(shell, m, content, u, f' data-place="{html.escape(p["id"])}"')
         elif meta.get('template') == 'crime':
             for c in CRIMES:
                 lab = site['heads'][c]['label']
                 m = dict(meta, title=meta['title'].format(crime=lab), desc=meta['desc'].format(crime=lab))
                 u = f'/crimes/{slug(c)}/'
-                out[u.strip('/') + '/index.html'] = render(shell, m, content, u, f' data-crime="{c}"')
+                out[u.strip('/') + '/index.html'] = R(shell, m, content, u, f' data-crime="{c}"')
         else:
-            out[meta['out']] = render(shell, meta, content, meta['url'])
+            out[meta['out']] = R(shell, meta, content, meta['url'])
     return out
 
 if __name__ == '__main__':

@@ -36,6 +36,8 @@
     if (n == null || isNaN(n)) return '–';
     return Number(n).toLocaleString('en-IN', { maximumFractionDigits: dp == null ? 1 : dp, minimumFractionDigits: dp || 0 });
   }
+  // The fingerprinted address of a file the page loads (see scripts/build_pages.py).
+  function ver(path) { var h = (window.SC_V || {})[path.slice(1)]; return h ? path + '?v=' + h : path; }
   function slug(s) { return s.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function link(path) { return path + (lang === 'en' ? '' : '?lang=' + lang); }
   function setLang(l) {
@@ -719,6 +721,22 @@
     return false;
   }
 
+  // ---------- staying current ----------
+  // When the reader comes back to this tab, or back to this page, ask the
+  // server which build is live. If it is newer than the one this page came
+  // from, reload. Never while the page is in view, so nothing moves under
+  // someone who is reading.
+  var lastCheck = 0;
+  function checkBuild() {
+    if (!window.SC_BUILD || Date.now() - lastCheck < 60000) return;
+    lastCheck = Date.now();
+    fetch('/version.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
+      if (v && v.build && v.build !== window.SC_BUILD) location.reload();
+    }).catch(function () {});
+  }
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') checkBuild(); });
+  window.addEventListener('pageshow', function (e) { if (e.persisted) { lastCheck = 0; checkBuild(); } });
+
   // ---------- start ----------
   function init() {
     if (oldHash()) return;
@@ -756,9 +774,9 @@
     }
     if ($('statePick')) $('statePick').addEventListener('change', function () { go(this.value); });
     if ($('crimePick')) $('crimePick').addEventListener('change', function () { location.href = link('/crimes/' + slug(this.value) + '/'); });
-    var want = [fetch('/data/site.json').then(function (r) { return r.json(); })];
-    if (PAGE === 'states') want.push(fetch('/data/geo/india.json').then(function (r) { return r.json(); }));
-    if (PAGE === 'context') want.push(fetch('/data/context.json').then(function (r) { return r.json(); }));
+    var want = [fetch(ver('/data/site.json')).then(function (r) { return r.json(); })];
+    if (PAGE === 'states') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'context') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
       D = res[0]; if (PAGE === 'context') X = res[1]; else GEO = res[1] || null;
       if (GEO) project();

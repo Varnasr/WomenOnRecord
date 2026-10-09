@@ -16,6 +16,17 @@ territory (`states/<slug>/`, 36) and `crime.html` once per crime
 attribute on `<body>`. The slug rule is in both `build_pages.py` and `js/app.js`
 (`&` becomes "and"); change both or links break. CI runs `--check`.
 
+Every file a page loads carries `?v=<hash of its contents>`, and each page
+carries the build it came from (`SC_BUILD`); `build_pages.py` writes both, and
+`version.json` with the live build. So build pages last, after `build_i18n.py`
+and any data build, or the fingerprints describe old files. `netlify.toml`
+serves pages with `max-age=0, must-revalidate` and fingerprinted CSS and JS as
+immutable. When a reader returns to a tab or goes back to a page, `js/app.js`
+fetches `version.json` and reloads if a newer build is live. It never reloads a
+page while it is in view. A new file a page loads goes into `ASSETS` in
+`build_pages.py`, and a new `fetch` in `app.js` goes through `ver()`, or it
+escapes the fingerprint.
+
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
 the charts, all plain SVG: `flow` (the sankey on the police and courts page),
 `lines`, `stack` and `slope`. Every chart redraws when its box changes width.
@@ -118,8 +129,8 @@ Traps already met, so nobody meets them again:
 python3 scripts/build_data.py && python3 scripts/build_site_data.py
 python3 scripts/build_context.py
 python3 scripts/build_xlsx.py
-python3 scripts/build_pages.py
 python3 scripts/build_i18n.py
+python3 scripts/build_pages.py      # last: it fingerprints everything above
 python3 scripts/check.py
 PLAYWRIGHT_CORE=... CHROME=... python3 scripts/og/make_card.py   # preview image
 bash scripts/deploy.sh                                            # until Netlify is linked to the repo
