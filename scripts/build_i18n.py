@@ -11,9 +11,9 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LANGS = {
  'en': {'name': 'English', 'dir': 'ltr', 'font': None},
  'hi': {'name': 'हिन्दी', 'dir': 'ltr', 'font': None},
- 'ur': {'name': 'اردو', 'dir': 'rtl', 'font': 'https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap'},
- 'ta': {'name': 'தமிழ்', 'dir': 'ltr', 'font': 'https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Serif+Tamil:wght@600&display=swap'},
- 'bn': {'name': 'বাংলা', 'dir': 'ltr', 'font': 'https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Serif+Bengali:wght@600&display=swap'},
+ 'ur': {'name': 'اردو', 'dir': 'rtl', 'font': '/css/fonts-ur.css'},
+ 'ta': {'name': 'தமிழ்', 'dir': 'ltr', 'font': '/css/fonts-ta.css'},
+ 'bn': {'name': 'বাংলা', 'dir': 'ltr', 'font': '/css/fonts-bn.css'},
  'mr': {'name': 'मराठी', 'dir': 'ltr', 'font': None},
 }
 

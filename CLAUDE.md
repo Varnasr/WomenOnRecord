@@ -54,10 +54,20 @@ each state against itself (2020 against 2024) and against India.
 
 The footer follows offtheroll.in's: one centred line saying who did the
 research, the promise about what is published, then links. The research is by
-Vinita Joseph, Nivedita Biswas, Tarusha Mittal and Varna. Do not copy
+Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Do not copy
 offtheroll's credit here; the two sites credit different people. Names stay in
-Latin script in every language. There is no contact email yet; add one only
-when the owner gives it.
+Latin script in every language. The publisher is PinPoint Ventures and the address is
+info@pinpointventures.in, as on offtheroll.in.
+
+`terms/` is the terms and privacy page, in English with a translated note that
+the English governs. It describes She Counts as a publisher of public
+statistics with a correction and complaints process (acknowledged in 24 hours,
+answered in 15 days); the owner chose not to claim or deny news-publisher
+status under the 2021 IT Rules. Keep its privacy section true. Every font,
+script and data file is served from this site (the fonts are in `fonts/`, with
+`css/fonts*.css`), so no service but Netlify sees a reader. If the site ever
+loads anything from another origin, or starts recording anything, the privacy
+section and the CSP in `netlify.toml` change in the same commit.
 
 ## Context sources
 

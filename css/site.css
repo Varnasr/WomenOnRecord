@@ -389,3 +389,10 @@ svg.band { display: none; }
   .hero .figs { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 600px) { .hero-iso { padding: 16px 14px; } .iso { gap: 5px 4px; } .figs { grid-template-columns: 1fr; } .fig b { font-size: 30px; } }
+
+/* Terms page: one column of plain prose */
+.legal { max-width: 72ch; }
+.legal p { margin: 0; max-width: 72ch; }
+html[lang="en"] .only-tr { display: none; }
+/* English text inside a translated page keeps the English display face. */
+.legal h2, h1[lang="en"] { font-family: "IBM Plex Serif", Georgia, serif; }

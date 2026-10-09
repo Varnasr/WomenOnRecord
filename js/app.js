@@ -47,7 +47,7 @@
     document.documentElement.dir = meta.dir;
     if (meta.font && !$('font-' + lang)) {
       var ln = document.createElement('link');
-      ln.id = 'font-' + lang; ln.rel = 'stylesheet'; ln.href = meta.font;
+      ln.id = 'font-' + lang; ln.rel = 'stylesheet'; ln.href = ver(meta.font);
       document.head.appendChild(ln);
     }
     $('lang').value = lang;
