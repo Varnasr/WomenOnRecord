@@ -24,7 +24,7 @@ CRIMES = ['RAPE', 'POCSO_RAPE', 'ATTEMPT_RAPE', 'ASSAULT_MODESTY', 'INSULT_MODES
 ASSETS = ['css/site.css', 'css/fonts.css', 'css/fonts-ur.css', 'css/fonts-ta.css', 'css/fonts-bn.css', 'js/i18n.js', 'js/charts.js', 'js/app.js',
           'data/site.json', 'data/context.json', 'data/explore.json', 'data/geo/india.json',
           # the downloads, so a new file is a new link the moment it is deployed
-          'data/shecounts.csv', 'data/context.csv', 'downloads/shecounts.xlsx',
+          'data/womenonrecord.csv', 'data/context.csv', 'downloads/womenonrecord.xlsx',
           'downloads/context.xlsx', 'downloads/codebook.csv']
 
 def digest(b):
@@ -55,7 +55,7 @@ def read(name):
 def render(shell, meta, content, url, attrs='', v=None, build=''):
     nav = '\n'.join(f'      <a href="{h}" data-i18n="{k}"' + (' aria-current="page"' if url.startswith(h) else '') + f'>{t}</a>'
                     for h, k, t in NAV)
-    title = meta['title'] if meta['title'] == 'She Counts' else meta['title'] + ' · She Counts'
+    title = meta['title'] if meta['title'] == 'Women on Record' else meta['title'] + ' · Women on Record'
     out = shell
     for k, val in {'title': html.escape(title), 'desc': html.escape(meta['desc']), 'url': url, 'nav': nav,
                  'page': meta.get('page', ''), 'body_attrs': attrs, 'content': content.rstrip('\n'),

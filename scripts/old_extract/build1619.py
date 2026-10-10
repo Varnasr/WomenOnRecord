@@ -1,5 +1,5 @@
 """Extract NCRB Crime in India 2016-2019, chapter 3A (and 2A.3 murder victims),
-into one long CSV in She Counts' coding. Writes ../out1619.csv and checks.json.
+into one long CSV in Women on Record's coding. Writes ../out1619.csv and checks.json.
 
 Every column is located by its printed column number on the page, and the
 page header text and the I/V/R sub-heading above it are checked against what

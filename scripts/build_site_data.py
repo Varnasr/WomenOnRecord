@@ -1,4 +1,4 @@
-"""Write data/site.json, the compact form of data/shecounts.csv the site reads.
+"""Write data/site.json, the compact form of data/womenonrecord.csv the site reads.
 
 The CSV is the source; this file only reshapes it, so the page and the
 download cannot disagree. Usage: python3 scripts/build_site_data.py [--check]
@@ -6,7 +6,7 @@ download cannot disagree. Usage: python3 scripts/build_site_data.py [--check]
 import csv, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CSV = os.path.join(ROOT, 'data', 'shecounts.csv')
+CSV = os.path.join(ROOT, 'data', 'womenonrecord.csv')
 OUT = os.path.join(ROOT, 'data', 'site.json')
 
 DISPLAY = {'A&N Islands': 'Andaman and Nicobar Islands',

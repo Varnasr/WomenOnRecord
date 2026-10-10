@@ -1,4 +1,4 @@
-"""Write downloads/shecounts.xlsx and downloads/codebook.csv from data/shecounts.csv.
+"""Write downloads/womenonrecord.xlsx and downloads/codebook.csv from data/womenonrecord.csv.
 
 Sheets: About, Codebook, Sources, Data (every row of the CSV), and one wide
 sheet per crime head (states down, years across) for the measure most people
@@ -11,7 +11,7 @@ from openpyxl.styles import Font, Alignment, PatternFill
 from openpyxl.utils import get_column_letter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-rows = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'shecounts.csv'), encoding='utf-8')))
+rows = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'womenonrecord.csv'), encoding='utf-8')))
 src = json.load(open(os.path.join(ROOT, 'data', 'raw', 'sources.json')))
 YEARS = sorted({r['year'] for r in rows})
 
@@ -57,14 +57,14 @@ def header(ws, cols):
 
 ws = wb.active; ws.title = 'About'
 about = [
- ['She Counts: crimes against women in India, as police and courts recorded them, 2014 to 2024'],
+ ['Women on Record: crimes against women in India, as police and courts recorded them, 2014 to 2024'],
  [],
  ['What this is', 'Every figure published state-wise in Chapter 3A (crimes against women) and table 2A.3 (murder victims by sex) of NCRB Crime in India, Volume 1, for 2016 to 2024, and in tables 5.2, 5.3, 5.5, 5.6 and 3.3 for 2014 and 2015, read from the PDFs by script and checked against NCRB\'s own totals.'],
  ['Years that differ', 'NCRB changed its crime headings in 2017. A heading defined differently before then carries a code of its own ending in _2014DEF or _2016DEF, so it never joins a later series by accident. In 2016 rape includes POCSO cases booked with s.376, and before 2017 the total for crimes against women leaves out POCSO and several other headings. For 2014 and 2015 NCRB published police and court outcomes for India only. The population behind the rates changed in 2018 and again in 2020.'],
  ['What it cannot show', 'These are cases recorded by police. They are not a measure of how often these crimes happen: most violence against women is never reported. A higher rate in one state can mean more crime or more recording. NCRB itself warns that states should not be compared on these figures alone.'],
  ['Police and court outcomes', 'NCRB publishes police and court disposal by state only for all crimes against women together (COURTS, POLICE). For single crimes such as rape it publishes them for India as a whole only (measures starting police_ and court_ on All India rows).'],
  ['Checks', 'For every count column, the states add to NCRB\'s Total State(s), the union territories to Total UT(s), and both to Total All India, as NCRB drew them in that year. The build stops on any mismatch. The checks on 2014 to 2019 are in data/raw/old.'],
- ['Licence', 'Figures: National Crime Records Bureau. This compilation, its codes and notes: CC BY 4.0. Cite NCRB and She Counts.'],
+ ['Licence', 'Figures: National Crime Records Bureau. This compilation, its codes and notes: CC BY 4.0. Cite NCRB and Women on Record.'],
  ['Built', 'scripts/build_data.py and scripts/build_xlsx.py at github.com/Varnasr/SheCounts'],
 ]
 for r in about: ws.append(r)
@@ -135,14 +135,14 @@ for code in order:
     ws.freeze_panes = 'B3'
 
 os.makedirs(os.path.join(ROOT, 'downloads'), exist_ok=True)
-wb.save(os.path.join(ROOT, 'downloads', 'shecounts.xlsx'))
+wb.save(os.path.join(ROOT, 'downloads', 'womenonrecord.xlsx'))
 with open(os.path.join(ROOT, 'downloads', 'codebook.csv'), 'w', newline='', encoding='utf-8') as f:
     w = csv.writer(f)
     w.writerow(['kind', 'item', 'meaning'])
     for k, v in COLUMNS: w.writerow(['column', k, v])
     for k, (lab, ipc, bns) in seen.items(): w.writerow(['crime_code', k, lab + (f'. IPC {ipc}' if ipc else '') + (f'. BNS/Act {bns}' if bns else '')])
     for k, v in FLAGS: w.writerow(['flag', k, v])
-print('wrote downloads/shecounts.xlsx and downloads/codebook.csv')
+print('wrote downloads/womenonrecord.xlsx and downloads/codebook.csv')
 
 # The eight context sources, in a workbook of their own: an About sheet, then
 # each source's rows exactly as collected (context/<source>/data.csv).
@@ -156,7 +156,7 @@ CX = [('nfhs', 'NFHS-5', 'National Family Health Survey 2019-21: violence by a h
       ('adr', 'ADR legislators', 'Sitting MPs and MLAs who declared pending cases of crimes against women in election affidavits. Counts only, no names. Not convictions.')]
 cw = Workbook()
 ws = cw.active; ws.title = 'About'
-ws.append(['She Counts: context sources beside the NCRB figures'])
+ws.append(['Women on Record: context sources beside the NCRB figures'])
 ws['A1'].font = Font(bold=True, size=14)
 ws.append([])
 ws.append(['Read first', 'Each source measures something different from NCRB recorded crime, so none can be added to NCRB figures or set against them as a rate. Every row carries its source, table and page. The checks run on each source are in context/<source>/notes.md in the repository.'])

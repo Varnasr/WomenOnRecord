@@ -1,4 +1,4 @@
-/* She Counts. Reads data/site.json (built from data/shecounts.csv) and, on the
+/* Women on Record. Reads data/site.json (built from data/womenonrecord.csv) and, on the
    states page, the DataMeet state map. Each page carries data-page on <body>
    and this script draws only what that page holds. Every sentence that
    carries a number is computed here from the data. */
@@ -463,7 +463,7 @@
   function state() {
     var p = placeFromPage();
     $('h-state').textContent = place(p);
-    document.title = place(p) + ' · She Counts';
+    document.title = place(p) + ' · Women on Record';
     var YL = D.years[D.years.length - 1], tot = S('TOTAL', 'cases', p, YL), r = S('TOTAL', 'rate', p, YL), ri = S('TOTAL', 'rate', 'All India', YL);
     $('stateIntro').textContent = t('state.intro', { s: place(p), pop: fmt(S('FEMALE_POP', 'population_lakh', p, YL), 1), tot: fmt(tot, 0), r: fmt(r, 1), ri: fmt(ri, 1) });
     var y1 = D.years[D.years.length - 1];
@@ -582,7 +582,7 @@
     pk.innerHTML = CRIMES.map(function (x) { return '<option value="' + x + '">' + head(x) + '</option>'; }).join('');
     pk.value = c;
     $('h-crime').textContent = head(c);
-    document.title = head(c) + ' · She Counts';
+    document.title = head(c) + ' · Women on Record';
     var la = $('crimeLaw'); la.textContent = law(c); la.href = '/law/#' + (LAW_ROW[c] || 'crimes');
     var v = cases(c, 'All India'), y0 = D.years[0], y1 = D.years[D.years.length - 1];
     $('crimeIntro').textContent = t('crime.intro', { b: fmt(v[v.length - 1], 0), y1: y1, a: fmt(v[0], 0), y0: y0, r: fmt(rate(c, 'All India', y1), 2) });
@@ -795,7 +795,7 @@
 
   // ---------- explore ----------
   // The whole dataset as a table: filter, search, sort, choose columns and
-  // download the rows in view. data/explore.json is data/shecounts.csv with
+  // download the rows in view. data/explore.json is data/womenonrecord.csv with
   // each repeated value written once (scripts/build_explore.py); a download
   // rebuilds full rows in the CSV's own columns. The view lives in the address.
   var E = null, ex = null;
@@ -967,7 +967,7 @@
       });
       $('exReset').addEventListener('click', function () { var keep = ex.lay; ex = { q: '', crime: '', place: '', m: 'cases', years: E.years.slice(), lay: keep, cols: ['law'], sort: '', desc: true, shown: 100 }; exControls(); redraw(); });
       $('exMore').addEventListener('click', function () { ex.shown += 100; exDraw(); });
-      $('exDl').addEventListener('click', function () { C.saveCsv(exCsv(), 'shecounts-selection'); });
+      $('exDl').addEventListener('click', function () { C.saveCsv(exCsv(), 'womenonrecord-selection'); });
       $('exLink').addEventListener('click', function () { copy(location.href, $('exLink')); });
     }
     $('exIntro').textContent = t('ex.intro', { n: fmt(E.rows.length, 0) });
@@ -1003,7 +1003,7 @@
     document.querySelectorAll('main figure.chart, main figure.isofig, main figure.field, main figure.map').forEach(function (fig) {
       if (fig.querySelector('.tools') || fig.querySelector('figure')) return;
       var box = fig.querySelector('#field, .chart > div[id], div[id], svg[id]') || fig;
-      var id = box.id || sectionOf(fig), name = (location.pathname.replace(/^\/|\/$/g, '').replace(/\//g, '-') || 'shecounts') + '-' + id;
+      var id = box.id || sectionOf(fig), name = (location.pathname.replace(/^\/|\/$/g, '').replace(/\//g, '-') || 'womenonrecord') + '-' + id;
       var bar = document.createElement('div'); bar.className = 'tools';
       bar.innerHTML = '<button type="button" data-t="png">PNG</button><button type="button" data-t="svg">SVG</button><button type="button" data-t="csv">CSV</button>' +
         '<a class="wa" data-t="wa" target="_blank" rel="noopener">' + t('tools.wa') + '</a><button type="button" data-t="link">' + t('tools.link') + '</button>';
@@ -1012,7 +1012,7 @@
       setWa(); wa.addEventListener('mouseenter', setWa); wa.addEventListener('focus', setWa);
       bar.addEventListener('click', function (e) {
         var b = e.target.closest('[data-t]'); if (!b) return;
-        var k = b.getAttribute('data-t'), foot = 'She Counts · shecounts.netlify.app' + location.pathname + ' · ' + t('tools.src');
+        var k = b.getAttribute('data-t'), foot = 'Women on Record · womenonrecord.net' + location.pathname + ' · ' + t('tools.src');
         if (k === 'png') C.savePng(box, chartTitle(fig), foot, name);
         else if (k === 'svg') C.saveSvg(box, chartTitle(fig), foot, name);
         else if (k === 'csv' && box.__csv) C.saveCsv(box.__csv, name);
@@ -1160,6 +1160,19 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && step >= 0) tourShow(-1); });
     }
     var mb = $('menuBtn'), nav = $('nav');
+    // Fold the links behind the menu button when the header would otherwise wrap.
+    var top = document.querySelector('header.top'), mark = document.querySelector('.mark');
+    function fold() {
+      top.classList.remove('fold');
+      if (innerWidth <= 720) return;
+      var m = mark.getBoundingClientRect(), n = nav.getBoundingClientRect(), c = document.querySelector('.controls').getBoundingClientRect();
+      if (n.top > m.top + m.height / 2 || c.top > m.bottom || n.bottom > m.bottom + 12) top.classList.add('fold');
+      else setMenu(false);
+    }
+    fold();
+    addEventListener('resize', fold);
+    $('lang').addEventListener('change', function () { setTimeout(fold, 0); });
+    if (document.fonts) document.fonts.ready.then(fold);
     function setMenu(open) { nav.classList.toggle('open', open); mb.setAttribute('aria-expanded', String(open)); }
     mb.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); mb.focus(); } });

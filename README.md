@@ -1,11 +1,11 @@
-# She Counts
+# Women on Record
 
 Crimes against women in India, as police and courts recorded them, 2014 to 2024.
 Every state and union territory from 2017, and India as a whole from 2014
 wherever NCRB counted a crime the same way, from the National Crime Records
 Bureau's *Crime in India* reports, with a free dataset in CSV and Excel.
 
-Live at https://shecounts.netlify.app
+Live at https://www.womenonrecord.net
 
 ## What it shows
 
@@ -58,8 +58,8 @@ states on these figures alone. The site says this where the numbers are.
 
 | File | What it is |
 |---|---|
-| `data/shecounts.csv` | One row per state, year, crime and measure, with the IPC and BNS sections, the NCRB table, the source PDF's address and SHA-256, and coded flags. |
-| `downloads/shecounts.xlsx` | The same rows, plus About, Codebook and Sources sheets and one wide sheet per crime. |
+| `data/womenonrecord.csv` | One row per state, year, crime and measure, with the IPC and BNS sections, the NCRB table, the source PDF's address and SHA-256, and coded flags. |
+| `downloads/womenonrecord.xlsx` | The same rows, plus About, Codebook and Sources sheets and one wide sheet per crime. |
 | `downloads/codebook.csv` | Every column, crime code and flag explained. |
 | `downloads/context.xlsx`, `data/context.csv` | The eight context sources, every row with its source, table and page. |
 | `context/` | Each context source as collected, with its notes and checks. |
@@ -72,7 +72,7 @@ official boundary.
 ## Rebuilding
 
 ```bash
-python3 scripts/build_data.py        # data/raw -> data/shecounts.csv, with total checks
+python3 scripts/build_data.py        # data/raw -> data/womenonrecord.csv, with total checks
 python3 scripts/build_site_data.py   # -> data/site.json, which the page reads
 python3 scripts/build_context.py     # context/*/data.csv -> data/context.json and .csv
 python3 scripts/build_xlsx.py        # -> downloads/

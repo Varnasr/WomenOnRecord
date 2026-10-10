@@ -21,7 +21,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 The code in this repository is under the MIT licence above. The dataset
-(data/shecounts.csv, downloads/) is a compilation of figures published by the
+(data/womenonrecord.csv, downloads/) is a compilation of figures published by the
 National Crime Records Bureau; the compilation, its codes and notes are
 released under Creative Commons Attribution 4.0 (CC BY 4.0). The state map
 (data/geo/india.json) is DataMeet's, under CC BY 4.0.

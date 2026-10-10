@@ -1,11 +1,11 @@
-"""Build She Counts' dataset from NCRB Crime in India, 2014 to 2024.
+"""Build Women on Record' dataset from NCRB Crime in India, 2014 to 2024.
 
 2020 to 2024 are parsed here from data/raw/cii<year>_v1.txt. 2014 to 2019 come
 from data/raw/old/, extracted once from NCRB's per-table PDFs and checked
 (see scripts/old_extract/README.md); old_rows() below adds them.
 
 Reads the text NCRB's tables were extracted to (`pdftotext -layout`, one file
-per edition, kept in data/raw/) and writes data/shecounts.csv in long format:
+per edition, kept in data/raw/) and writes data/womenonrecord.csv in long format:
 one row per state, year, crime head and measure.
 
 Every value is checked before it is written: the 28 states must add to NCRB's
@@ -21,7 +21,7 @@ import ncrb_parse as P
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, 'data', 'raw')
-OUT = os.path.join(ROOT, 'data', 'shecounts.csv')
+OUT = os.path.join(ROOT, 'data', 'womenonrecord.csv')
 YEARS = [2020, 2021, 2022, 2023, 2024]
 
 # LGD state codes (Local Government Directory, Ministry of Panchayati Raj).
@@ -388,8 +388,8 @@ if __name__ == '__main__':
     text = render(rows())
     if '--check' in sys.argv:
         if open(OUT, encoding='utf-8').read() != text:
-            raise SystemExit('data/shecounts.csv is stale: run python3 scripts/build_data.py')
-        print('PASS: data/shecounts.csv is current')
+            raise SystemExit('data/womenonrecord.csv is stale: run python3 scripts/build_data.py')
+        print('PASS: data/womenonrecord.csv is current')
     else:
         open(OUT, 'w', encoding='utf-8').write(text)
         print('wrote', OUT, text.count('\n') - 1, 'rows')

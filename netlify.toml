@@ -1,6 +1,16 @@
 [build]
   publish = "."
 
+# The data files carried the site's first name, She Counts, until October 2026.
+[[redirects]]
+  from = "/data/shecounts.csv"
+  to = "/data/womenonrecord.csv"
+  status = 301
+[[redirects]]
+  from = "/downloads/shecounts.xlsx"
+  to = "/downloads/womenonrecord.xlsx"
+  status = 301
+
 # Repository files that are not part of the site.
 [[redirects]]
   from = "/scripts/*"

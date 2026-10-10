@@ -1,7 +1,7 @@
-# She Counts
+# Women on Record
 
 Crimes against women in India, as police and courts recorded them, 2014 to
-2024, at shecounts.netlify.app. Static HTML, no framework. Data from NCRB Crime
+2024, at www.womenonrecord.net. Static HTML, no framework. Data from NCRB Crime
 in India, Volume 1, read by script, and eight context sources beside it.
 
 ## Pages
@@ -66,7 +66,7 @@ never be added to those lists.
 `explore/` is the whole dataset as a table that can be filtered, searched,
 sorted and downloaded, with the view kept in the address. It reads
 `data/explore.json`, which `scripts/build_explore.py` writes from
-`data/shecounts.csv` with every repeated value written once (542 KB against
+`data/womenonrecord.csv` with every repeated value written once (542 KB against
 9.3 MB). The build fails unless every CSV row comes back exactly from the
 compact file, and a download from the page rebuilds rows in the CSV's own
 eighteen columns. Measure names there are English, as in the files; the page
@@ -102,13 +102,13 @@ The footer follows offtheroll.in's: one centred line saying who did the
 research, the promise about what is published, then links. The research is by
 Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Do not copy
 offtheroll's credit here; the two sites credit different people. Names stay in
-Latin script in every language. The footer and the terms page say only that She
-Counts is not published by NCRB or any government. Do not add a claim of
+Latin script in every language. The footer and the terms page say only that Women
+on Record is not published by NCRB or any government. Do not add a claim of
 independence from political parties; the owner removed it because it is untrue. The publisher is PinPoint Ventures and the address is
 info@pinpointventures.in, as on offtheroll.in.
 
 `terms/` is the terms and privacy page, in English with a translated note that
-the English governs. It describes She Counts as a publisher of public
+the English governs. It describes Women on Record as a publisher of public
 statistics with a correction and complaints process (acknowledged in 24 hours,
 answered in 15 days); the owner chose not to claim or deny news-publisher
 status under the 2021 IT Rules. Keep its privacy section true. Every font,
@@ -200,7 +200,7 @@ printed and named in `MISPRINTS` in `check.py`.
 ## Data
 
 `scripts/build_data.py` reads `data/raw/cii<year>_v1.txt` (the NCRB pages,
-extracted with `pdftotext -layout`) and writes `data/shecounts.csv`. For every
+extracted with `pdftotext -layout`) and writes `data/womenonrecord.csv`. For every
 count column the 28 states must add to NCRB's Total State(s), the 8 UTs to
 Total UT(s), and both to Total All India, or the build stops.
 `scripts/check.py` also checks every printed rate against cases over female

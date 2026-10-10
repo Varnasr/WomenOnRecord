@@ -1,4 +1,4 @@
-/* She Counts. Warm paper, ink and indigo, madder red for the outcome that
+/* Women on Record. Warm paper, ink and indigo, madder red for the outcome that
    matters, turmeric only as a fill. Women appear only as data: a hundred
    standing figures, each one 1 in 100 cases. */
 :root {
@@ -184,9 +184,11 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .cta { display: inline-block; margin-top: 4px; padding: 12px 22px; border-radius: 4px; background: var(--ink); color: var(--cloth); font-weight: 700; text-decoration: none; min-height: 44px; }
 .cta:hover { text-decoration: underline; }
 .menu { display: none; place-items: center; width: 40px; height: 40px; color: var(--ink); background: var(--cloth); border: 1px solid var(--thread); border-radius: 3px; cursor: pointer; }
+/* On a phone the links always sit behind the menu button. Wider than that, js/app.js
+   measures the header and adds .fold when the name, the links and the controls do not
+   fit on one row, which depends on the language as much as the width. */
 @media (max-width: 720px) {
   .top-in { flex-wrap: nowrap; }
-  .mark { font-size: 24px; }
   .menu { display: inline-grid; order: 3; }
   .controls { order: 2; }
   .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 1px solid var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
@@ -194,6 +196,14 @@ html[lang="ur"] h2 { line-height: 1.7; }
   .nav a { padding: 10px 0; font-size: 18px; }
   .top { position: sticky; }
 }
+.top.fold .top-in { flex-wrap: nowrap; }
+.top.fold .menu { display: inline-grid; order: 3; }
+.top.fold .controls { order: 2; }
+.top.fold .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 1px solid var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
+.top.fold .nav.open { display: flex; }
+.top.fold .nav a { padding: 10px 0; font-size: 18px; }
+.top.fold { position: sticky; }
+@media (min-width: 721px) { .top.fold .nav { padding-inline: 28px; } }
 
 /* Phones */
 @media (max-width: 600px) {
@@ -367,6 +377,14 @@ svg.band { display: none; }
 .top { box-shadow: none; }
 .mark { white-space: nowrap; }
 @media (max-width: 720px) { .mark { font-size: 22px; } .lang { padding: 7px 8px; } }
+/* On a phone the name takes two lines, so the controls and the menu button fit beside it. */
+@media (max-width: 480px) {
+  .top-in { gap: 8px 10px; }
+  .mark { white-space: normal; width: 5.2em; flex-shrink: 0; font-size: 21px; line-height: 1.05; }
+  .theme, .menu { width: 38px; }
+  .controls { gap: 6px; }
+}
+@media (max-width: 360px) { .mark { font-size: 19px; } .lang { padding: 6px 4px; } }
 .fig b, .card b { letter-spacing: -.01em; }
 .cloth, .fig, .card a, .downloads a { box-shadow: none; }
 .tabs button[aria-selected="true"] { border-color: var(--ink); }

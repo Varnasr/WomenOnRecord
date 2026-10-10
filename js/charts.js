@@ -1,4 +1,4 @@
-/* She Counts charts. Plain SVG, no library: a flow (sankey), a line chart,
+/* Women on Record charts. Plain SVG, no library: a flow (sankey), a line chart,
    a stacked bar per row, and small slope panels. Every chart draws to the
    width of its box and is drawn again when that width changes. Colours are
    the page's CSS tokens, so both themes follow without a redraw. */

@@ -60,13 +60,13 @@ i.conv{{background:#a3243b}} i.acq{{background:none;box-shadow:inset 0 0 0 3px #
 </style>
 <div class="band"></div>
 <div class="in"><div>
-<div class="mark">She Counts</div>
+<div class="mark">Women on Record</div>
 <h1>Crimes against women in India, as police and courts recorded them</h1>
 <p class="big"><b>{n['pend']} in every 100</b>rape cases before the courts in 2024 were still waiting for a verdict when the year ended.</p>
 </div>
 <div class="cloth"><div class="grid">{knots}</div>
 <p class="leg">Each figure is 1 in 100 cases.<br><em>{n['conv']} convicted</em>, {n['acq']} acquitted or discharged.</p></div></div>
-<div class="foot"><span><b>shecounts.netlify.app</b> · every state, 2020 to 2024</span><span>Source: NCRB, Crime in India 2024</span></div>
+<div class="foot"><span><b>womenonrecord.net</b> · every state, 2014 to 2024</span><span>Source: NCRB, Crime in India 2024</span></div>
 """
 out = os.path.join(HERE, 'card.html')
 open(out, 'w', encoding='utf-8').write(html)

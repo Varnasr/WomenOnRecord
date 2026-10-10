@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write data/explore.json, a compact copy of data/shecounts.csv for the data
+"""Write data/explore.json, a compact copy of data/womenonrecord.csv for the data
 explorer page. Every value that repeats (place, crime, measure, source, note)
 is written once and referred to by number, which takes 9.3 MB to well under
 one. The explorer rebuilds full rows from it when a reader downloads, so the
@@ -11,7 +11,7 @@ build checks that every row of the CSV comes back exactly as it was.
 import csv, json, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, 'data', 'shecounts.csv')
+SRC = os.path.join(ROOT, 'data', 'womenonrecord.csv')
 OUT = os.path.join(ROOT, 'data', 'explore.json')
 
 # Plain names for each measure. A police_ or court_ prefix only says which
@@ -151,7 +151,7 @@ if __name__ == '__main__':
     if '--check' in sys.argv:
         if not os.path.exists(OUT) or open(OUT, encoding='utf-8').read() != text:
             sys.exit('data/explore.json is stale: run python3 scripts/build_explore.py')
-        print('PASS: data/explore.json gives back every row of data/shecounts.csv')
+        print('PASS: data/explore.json gives back every row of data/womenonrecord.csv')
     else:
         open(OUT, 'w', encoding='utf-8').write(text)
         print(f'wrote data/explore.json, {len(text) // 1024} KB')

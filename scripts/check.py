@@ -39,11 +39,11 @@ toml = open(os.path.join(ROOT, 'netlify.toml'), encoding='utf-8').read()
 csp = re.search(r'Content-Security-Policy = "([^"]+)"', toml).group(1)
 i18n = open(os.path.join(ROOT, 'js', 'i18n.js'), encoding='utf-8').read()
 loaded = re.sub(r'<a\s[^>]*>', '', page)  # a link is navigation, which the CSP does not govern
-for origin in set(re.findall(r'https://[a-z0-9.-]+', loaded + i18n)) - {'https://github.com', 'https://shecounts.netlify.app'}:
+for origin in set(re.findall(r'https://[a-z0-9.-]+', loaded + i18n)) - {'https://github.com', 'https://www.womenonrecord.net'}:
     if origin not in csp:
         fail.append(f'{origin} is loaded but not allowed by the CSP')
 
-rows = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'shecounts.csv'), encoding='utf-8')))
+rows = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'womenonrecord.csv'), encoding='utf-8')))
 pop = {(r['state'], r['year']): float(r['value']) for r in rows if r['crime_code'] == 'FEMALE_POP' and r['value']}
 cases = {(r['crime_code'], r['state'], r['year']): float(r['value']) for r in rows if r['measure'] == 'cases' and r['value']}
 checked = 0
@@ -72,7 +72,7 @@ for (code, st_, yr), v in cases.items():
         if abs(parts - v) > 0.5:
             fail.append(f'{yr} {st_}: IPC_TOTAL + SLL_TOTAL = {parts}, TOTAL = {v}')
 
-for f in ('downloads/shecounts.xlsx', 'downloads/codebook.csv', 'data/site.json'):
+for f in ('downloads/womenonrecord.xlsx', 'downloads/codebook.csv', 'data/site.json'):
     if not os.path.exists(os.path.join(ROOT, f)):
         fail.append(f'{f} is missing')
 
