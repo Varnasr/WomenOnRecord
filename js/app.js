@@ -1110,6 +1110,17 @@
     $('tourNext').focus();
   }
 
+  // ---------- where a woman's case is lost ----------
+  function pathPage() {
+    var y = D.years[D.years.length - 1], o = pc('STATE', 'All India', y), N = function (v) { return fmt(v, 0); };
+    $('ptViolence').textContent = t('pt.vi.p1', { pos: fmt(cv('nfhs', 'NFHS5_SPV_POS', 'All India'), 1), sv: fmt(cv('nfhs', 'NFHS5_SV_EVER', 'All India'), 1) });
+    $('ptTold').textContent = t('pt.to.p1', { never: fmt(cv('nfhs', 'NFHS5_HS_NEVER_TOLD', 'All India'), 1), sought: fmt(cv('nfhs', 'NFHS5_HS_SOUGHT', 'All India'), 1) });
+    $('ptInv').textContent = t('pt.in.p1', { y: y, inv: N(o.inv), carry: N(o.carry), cs: N(o.cs), fal: N(o.fal), ins: N(o.ins), pinv: N(o.pinv),
+      csr: fmt(S('POLICE', 'chargesheeting_rate', 'All India', y), 1) });
+    $('ptTrial').textContent = t('pt.tr.p1', { y: y, ct: N(o.ct), tc: N(S('COURTS', 'trials_completed', 'All India', y)), conv: N(o.conv), acq: N(o.acq),
+      dis: N(o.dis), ptr: N(o.ptr), cp: fmt(S('COURTS', 'court_pendency', 'All India', y), 1), cr: fmt(o.cr, 1) });
+  }
+
   // ---------- how the numbers are made ----------
   function counting() {
     var y = D.years[D.years.length - 1], at = function (code) { var v = cases(code, 'All India'); return v[v.length - 1]; };
@@ -1117,7 +1128,7 @@
     $('ctUn').textContent = t('ct.un.p1', { never: fmt(cv('nfhs', 'NFHS5_HS_NEVER_TOLD', 'All India'), 1), sought: fmt(cv('nfhs', 'NFHS5_HS_SOUGHT', 'All India'), 1) });
   }
 
-  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method, counting: counting };
+  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
     toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
@@ -1200,10 +1211,10 @@
     if ($('crimePick')) $('crimePick').addEventListener('change', function () { location.href = link('/crimes/' + slug(this.value) + '/'); });
     var want = [fetch(ver('/data/site.json')).then(function (r) { return r.json(); })];
     if (PAGE === 'states' || PAGE === 'state') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
-    if (PAGE === 'context' || PAGE === 'counting') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
-      D = res[0]; if (PAGE === 'context' || PAGE === 'counting') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
+      D = res[0]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
       if (GEO) project();
       setLang(lang);
     }).catch(function (e) {
