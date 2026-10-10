@@ -58,10 +58,10 @@ a { color: var(--ink); text-underline-offset: 3px; }
 .band-line { stroke: var(--ink); stroke-width: 2; }
 
 .top { position: sticky; top: 0; z-index: 5; background: var(--ground); border-bottom: 1px solid var(--thread); }
-.top-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding-block: 10px; }
-.mark { font: 600 25px/1 var(--display); letter-spacing: -.01em; text-decoration: none; letter-spacing: .01em; }
+.top-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 10px; }
+.mark { font: 600 23px/1 var(--display); letter-spacing: -.01em; text-decoration: none; letter-spacing: .01em; }
 html[lang="ur"] .mark { font-family: "IBM Plex Serif", serif; }
-.nav { display: flex; flex-wrap: wrap; gap: 4px 16px; font-weight: 600; font-size: 16px; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 12px; font-weight: 600; font-size: 15px; }
 .nav a { text-decoration: none; padding: 4px 0; }
 .nav a:hover { text-decoration: underline; }
 .controls { margin-inline-start: auto; display: flex; gap: 8px; align-items: center; }

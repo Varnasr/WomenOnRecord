@@ -14,7 +14,10 @@ SITE = os.path.join(ROOT, 'site')
 
 NAV = [('/protests/', 'nav.protests', 'Protests'), ('/courts/', 'nav.pc', 'Police and courts'),
        ('/states/', 'nav.states', 'States'), ('/crimes/', 'nav.crimes', 'Crimes'), ('/context/', 'nav.cx', 'Context'),
-       ('/explore/', 'nav.ex', 'Explore'), ('/method/', 'nav.dm', 'Data and method')]
+       ('/explore/', 'nav.ex', 'Explore'), ('/path/', 'nav.how', 'How it works'),
+       ('/method/', 'nav.dm', 'Data and method')]
+# Pages outside the nav that mark a nav item as current.
+ALSO = {'/path/': ('/counting/', '/law/')}
 # The crimes that get a page of their own, in the order the crimes page shows them.
 CRIMES = ['RAPE', 'POCSO_RAPE', 'ATTEMPT_RAPE', 'ASSAULT_MODESTY', 'INSULT_MODESTY', 'MURDER_WOMEN', 'MURDER_RAPE',
           'DOWRY_DEATH', 'ABETMENT_SUICIDE', 'CRUELTY', 'DOWRY_ACT', 'PWDVA', 'KIDNAP', 'ACID', 'ITPA', 'CYBER', 'TOTAL']
@@ -53,7 +56,7 @@ def read(name):
     return json.loads(m.group(1)), src[m.end():]
 
 def render(shell, meta, content, url, attrs='', v=None, build=''):
-    nav = '\n'.join(f'      <a href="{h}" data-i18n="{k}"' + (' aria-current="page"' if url.startswith(h) else '') + f'>{t}</a>'
+    nav = '\n'.join(f'      <a href="{h}" data-i18n="{k}"' + (' aria-current="page"' if url.startswith(h) or url.startswith(tuple(ALSO.get(h, ()))) else '') + f'>{t}</a>'
                     for h, k, t in NAV)
     title = meta['title'] if meta['title'] == 'Women on Record' else meta['title'] + ' · Women on Record'
     out = shell
