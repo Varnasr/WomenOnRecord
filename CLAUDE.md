@@ -105,8 +105,17 @@ the population sources, and what NFHS-5 says never reaches the police. Its two
 sentences with figures are computed in `counting()` in `js/app.js` from
 `site.json` and `context.json`. NCRB has not said whether the 2016 exception
 still holds; the owner chose to say so plainly and not to file an RTI
-application. Do not write that the rule applies to the chapter, or that it
-does not, until NCRB says which.
+application. Checked on 10 October 2026 in every edition from 2016 to 2024:
+the exception appears only in 2016 (General Notes, page xi); 2017 to 2021 keep
+the "Murder with Rape is accounted as Murder" example in their Limitations and
+drop the exception; 2022 to 2024 drop the example too. The one measurement of
+what the rule hides is NCRB's own, in the 2016 Limitations (page ix): about
+38,632 FIRs carried a Dowry Prohibition Act charge in CCTNS against 9,683
+counted, and the 2016 chapter (Table 3A.2) prints that same 9,683. So for that
+heading in that year the chapter figure is the rule's figure, and the page says
+exactly that much. Do not extend it to other headings or years, and do not
+write that the rule applies to the whole chapter, or that it does not, until
+NCRB says which.
 
 `path/` ("Where a woman's case is lost") follows a case step by step: the
 violence (NFHS-5), telling someone, the police (BNSS s.173, Lalita Kumari,
@@ -118,8 +127,13 @@ organisations working on the same steps, each line from that organisation's
 own pages. The help-seeking figure is a count (141 of 17,765, Ghoshal and
 others 2024, Table 3), never a weighted percentage. Women were 12.3% of the
 police in January 2023 (India Justice Report 2025, page 53); the 8% figure is
-officers. Tukaram v State of Maharashtra is left out because the 1983 Act's
-text could not be read. A case goes on the list only by its legal title, with
+officers. Tuka Ram v State of Maharashtra (1978) is on the list with the
+1983 Act as the sources state it: Act 43 of 1983, in force 25 December 1983,
+adding IPC s.228A and CrPC s.327(2) (Nipun Saxena, paras 6 to 8) and Evidence
+Act s.114A (Law Commission, 185th Report, page 265). The Act's own text could
+not be read (India Code refuses the sandbox), so say nothing else about it,
+and do not say the judgment caused the Act; the 84th Report (para 1.4) says
+only that it provoked debate. A case goes on the list only by its legal title, with
 no survivor named or described.
 
 ## Addresses
