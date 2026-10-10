@@ -136,12 +136,17 @@ and do not say the judgment caused the Act; the 84th Report (para 1.4) says
 only that it provoked debate. A case goes on the list only by its legal title, with
 no survivor named or described.
 
-The header nav has eight items, the last two "How it works" (`/path/`) and
-"Data and method". `ALSO` in `build_pages.py` marks "How it works" as current
+The header nav has eight items in three groups, with a rule between groups:
+the records (Crimes, States, Police and courts), reading them (Context, How it
+works, Protests) and the data (Explore, Data and method). `NAV` and
+`NAV_GROUP_STARTS` in `build_pages.py` set the order and groups; the home
+page's cards and the tour follow the same order. On a wide screen the rule sits
+inside the gap between groups, so it costs the row no width; in the menu it is
+a line across. `ALSO` in `build_pages.py` marks "How it works" as current
 on `/counting/` and `/law/` too, and the home page's "How the records work"
 band links all three. Eight items fill the header row at 1280px with almost
-nothing to spare: the wordmark is 23px, the nav 15px with 12px gaps and the
-row 16px gaps, measured so that English, Hindi, Urdu, Bengali and Marathi fit
+nothing to spare: the wordmark is 23px, the nav 15px with 10px gaps (17px
+between groups) and the row 16px gaps, measured so that English, Hindi, Urdu, Bengali and Marathi fit
 on one row at 1280 and 1440 (Tamil folds into the menu, as it did before).
 A ninth item, or a longer label in any language, will fold the header into
 the menu on a laptop. Measure at 1280 in all six languages after any change to

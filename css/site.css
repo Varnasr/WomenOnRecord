@@ -61,7 +61,10 @@ a { color: var(--ink); text-underline-offset: 3px; }
 .top-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 10px; }
 .mark { font: 600 23px/1 var(--display); letter-spacing: -.01em; text-decoration: none; letter-spacing: .01em; }
 html[lang="ur"] .mark { font-family: "IBM Plex Serif", serif; }
-.nav { display: flex; flex-wrap: wrap; gap: 4px 12px; font-weight: 600; font-size: 15px; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 10px; font-weight: 600; font-size: 15px; }
+/* A rule between the nav's three groups, drawn inside the extra gap so the row gets no wider than it must. */
+.nav a.grp { position: relative; margin-inline-start: 7px; }
+.nav a.grp::before { content: ""; position: absolute; inset-inline-start: -9px; top: 22%; bottom: 22%; border-inline-start: 1px solid var(--thread); }
 .nav a { text-decoration: none; padding: 4px 0; }
 .nav a:hover { text-decoration: underline; }
 .controls { margin-inline-start: auto; display: flex; gap: 8px; align-items: center; }
@@ -194,6 +197,8 @@ html[lang="ur"] h2 { line-height: 1.7; }
   .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 1px solid var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
   .nav.open { display: flex; }
   .nav a { padding: 10px 0; font-size: 18px; }
+  .nav a.grp { margin: 6px 0 0; padding-top: 16px; border-top: 1px solid var(--thread); }
+  .nav a.grp::before { content: none; }
   .top { position: sticky; }
 }
 .top.fold .top-in { flex-wrap: nowrap; }
@@ -202,6 +207,8 @@ html[lang="ur"] h2 { line-height: 1.7; }
 .top.fold .nav { display: none; position: absolute; inset-inline: 0; top: 100%; background: var(--ground); border-bottom: 1px solid var(--thread); padding: 8px 16px 14px; flex-direction: column; gap: 2px; }
 .top.fold .nav.open { display: flex; }
 .top.fold .nav a { padding: 10px 0; font-size: 18px; }
+.top.fold .nav a.grp { margin: 6px 0 0; padding-top: 16px; border-top: 1px solid var(--thread); }
+.top.fold .nav a.grp::before { content: none; }
 .top.fold { position: sticky; }
 @media (min-width: 721px) { .top.fold .nav { padding-inline: 28px; } }
 

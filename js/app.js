@@ -1092,7 +1092,7 @@
   window.addEventListener('scroll', hideTip, { passive: true });
 
   // ---------- tour, on the home page ----------
-  var TOUR = [['.figs', 'tour.1'], ['#cardProtests', 'tourp.2'], ['#cardCourts', 'tourp.3'], ['#cardStates', 'tourp.5'], ['#cardCrimes', 'tourp.4'], ['#cardData', 'tour.6']];
+  var TOUR = [['.figs', 'tour.1'], ['#cardCrimes', 'tourp.4'], ['#cardStates', 'tourp.5'], ['#cardCourts', 'tourp.3'], ['#cardProtests', 'tourp.2'], ['#cardData', 'tour.6']];
   var step = -1;
   function tourShow(i) {
     document.querySelectorAll('.tour-on').forEach(function (e) { e.classList.remove('tour-on'); });
@@ -1190,7 +1190,8 @@
     fold();
     addEventListener('resize', fold);
     $('lang').addEventListener('change', function () { setTimeout(fold, 0); });
-    if (document.fonts) document.fonts.ready.then(fold);
+    // A script's font can arrive after fonts.ready has resolved (Tamil does), so measure again whenever one loads.
+    if (document.fonts) { document.fonts.ready.then(fold); document.fonts.addEventListener('loadingdone', fold); }
     function setMenu(open) { nav.classList.toggle('open', open); mb.setAttribute('aria-expanded', String(open)); }
     mb.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); mb.focus(); } });
