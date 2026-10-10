@@ -1,6 +1,13 @@
 [build]
   publish = "."
 
+# The site's first address. Every page on it moves to the same page here.
+[[redirects]]
+  from = "https://shecounts.netlify.app/*"
+  to = "https://www.womenonrecord.net/:splat"
+  status = 301
+  force = true
+
 # The data files carried the site's first name, She Counts, until October 2026.
 [[redirects]]
   from = "/data/shecounts.csv"
