@@ -298,5 +298,7 @@
  "grid.low": "Lower",
  "grid.high": "Highest year in its row",
  "trend.long": "Before 2017 the line shows India only, and only in years when NCRB counted this heading the same way. A gap is a year when it did not.",
- "src.files": "{n} files, one for each table"
+ "src.files": "{n} files, one for each table",
+ "ct.mr.p": "Since 2017 NCRB's chapter on crimes against women has carried a separate heading for murder with rape or gang rape, so a rape that ends in murder is counted in that chapter under that heading. In {y} NCRB recorded {mr} such cases, beside {rape} cases of rape and {pocso} cases of rape of girls under the POCSO Act.",
+ "ct.un.p1": "Police can count only the cases reported to them. In the National Family Health Survey of 2019-21 (NFHS-5), among women aged 18 to 49 who had ever experienced physical or sexual violence, {never} in every 100 had never told anyone about it, and {sought} in every 100 had sought help from anyone, the police included."
 }

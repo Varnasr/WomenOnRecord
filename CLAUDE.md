@@ -10,7 +10,7 @@ Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
 first line is `<!--page {json} -->`. Pages: home (`index.html`),
 `protests/`, `courts/`, `states/`, `crimes/`, `context/`, `explore/`, `method/`,
-`law/` and `terms/`. Two
+`law/`, `counting/` and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
 (`crimes/<slug>/`, the 17 in `CRIMES`), with the place or crime in a `data-`
@@ -95,6 +95,18 @@ and CrPC sections against Indian Kanoon because India Code refused the sandbox,
 and Imran Pratapgadhi v State of Gujarat (2025 INSC 410) and Lalita Kumari
 ((2014) 2 SCC 1, para 120.6 as reproduced there) against the judgment itself.
 Add a line to it only from the text of the Act, the Gazette or a judgment.
+
+`counting/` ("How the numbers are made") sets out how NCRB counts, in NCRB's
+own words: the Principal Offence Rule (Crime in India 2024, Volume 1, General
+Notes, pages v and vii), the 2016 edition's statement that the rule did not
+apply to the chapter on crimes against women (2016, page xi) and the 2024
+edition's silence on it, murder with rape, the 2016 rape and POCSO change,
+the population sources, and what NFHS-5 says never reaches the police. Its two
+sentences with figures are computed in `counting()` in `js/app.js` from
+`site.json` and `context.json`. NCRB has not said whether the 2016 exception
+still holds; the owner chose to say so plainly and not to file an RTI
+application. Do not write that the rule applies to the chapter, or that it
+does not, until NCRB says which.
 
 ## Addresses
 

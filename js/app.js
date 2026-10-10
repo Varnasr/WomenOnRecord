@@ -1110,7 +1110,14 @@
     $('tourNext').focus();
   }
 
-  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method };
+  // ---------- how the numbers are made ----------
+  function counting() {
+    var y = D.years[D.years.length - 1], at = function (code) { var v = cases(code, 'All India'); return v[v.length - 1]; };
+    $('ctMr').textContent = t('ct.mr.p', { y: y, mr: fmt(at('MURDER_RAPE'), 0), rape: fmt(at('RAPE'), 0), pocso: fmt(at('POCSO_RAPE'), 0) });
+    $('ctUn').textContent = t('ct.un.p1', { never: fmt(cv('nfhs', 'NFHS5_HS_NEVER_TOLD', 'All India'), 1), sought: fmt(cv('nfhs', 'NFHS5_HS_SOUGHT', 'All India'), 1) });
+  }
+
+  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method, counting: counting };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
     toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
@@ -1193,10 +1200,10 @@
     if ($('crimePick')) $('crimePick').addEventListener('change', function () { location.href = link('/crimes/' + slug(this.value) + '/'); });
     var want = [fetch(ver('/data/site.json')).then(function (r) { return r.json(); })];
     if (PAGE === 'states' || PAGE === 'state') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
-    if (PAGE === 'context') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'context' || PAGE === 'counting') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
-      D = res[0]; if (PAGE === 'context') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
+      D = res[0]; if (PAGE === 'context' || PAGE === 'counting') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
       if (GEO) project();
       setLang(lang);
     }).catch(function (e) {
