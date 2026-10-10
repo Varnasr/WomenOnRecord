@@ -1,9 +1,10 @@
 [build]
   publish = "."
 
-# The site's first address. Every page on it moves to the same page here.
+# Netlify's own address for this site. shecounts.netlify.app, the site's first
+# address, is a separate Netlify site that does nothing but forward here.
 [[redirects]]
-  from = "https://shecounts.netlify.app/*"
+  from = "https://womenonrecord.netlify.app/*"
   to = "https://www.womenonrecord.net/:splat"
   status = 301
   force = true

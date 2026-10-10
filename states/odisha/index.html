@@ -23,9 +23,9 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.SC_BUILD = "307e2b041d"; window.SC_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"21042163ff","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"0b3180d7bb","data/geo/india.json":"f82dbbe582","data/site.json":"0082546db9","data/womenonrecord.csv":"1073c7ca6a","downloads/codebook.csv":"e27ae68589","downloads/context.xlsx":"e0ca3482d2","downloads/womenonrecord.xlsx":"bcda19e10c","js/app.js":"4324c0a5ae","js/charts.js":"c4b02e386c","js/i18n.js":"f3b75af160"};
+  window.WOR_BUILD = "6c1f1766f9"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"21042163ff","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"0b3180d7bb","data/geo/india.json":"f82dbbe582","data/site.json":"0082546db9","data/womenonrecord.csv":"1073c7ca6a","downloads/codebook.csv":"e27ae68589","downloads/context.xlsx":"e0ca3482d2","downloads/womenonrecord.xlsx":"bcda19e10c","js/app.js":"68cb63d6cc","js/charts.js":"99c5f73bf1","js/i18n.js":"d2c63fb4a0"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
-  try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
 </head>
 <body data-page="state" data-place="Odisha">
@@ -159,8 +159,8 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=f3b75af160"></script>
-<script src="/js/charts.js?v=c4b02e386c"></script>
-<script src="/js/app.js?v=4324c0a5ae"></script>
+<script src="/js/i18n.js?v=d2c63fb4a0"></script>
+<script src="/js/charts.js?v=99c5f73bf1"></script>
+<script src="/js/app.js?v=68cb63d6cc"></script>
 </body>
 </html>

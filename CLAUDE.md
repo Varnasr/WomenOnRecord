@@ -18,7 +18,7 @@ attribute on `<body>`. The slug rule is in both `build_pages.py` and `js/app.js`
 (`&` becomes "and"); change both or links break. CI runs `--check`.
 
 Every file a page loads or offers for download carries `?v=<hash of its contents>`, and each page
-carries the build it came from (`SC_BUILD`); `build_pages.py` writes both, and
+carries the build it came from (`WOR_BUILD`); `build_pages.py` writes both, and
 `version.json` with the live build. So build pages last, after `build_i18n.py`
 and any data build, or the fingerprints describe old files. `netlify.toml`
 serves pages with `max-age=0, must-revalidate` and fingerprinted CSS and JS as
@@ -95,6 +95,18 @@ and CrPC sections against Indian Kanoon because India Code refused the sandbox,
 and Imran Pratapgadhi v State of Gujarat (2025 INSC 410) and Lalita Kumari
 ((2014) 2 SCC 1, para 120.6 as reproduced there) against the judgment itself.
 Add a line to it only from the text of the Act, the Gazette or a judgment.
+
+## Addresses
+
+The site is the Netlify site `womenonrecord`, served at www.womenonrecord.net,
+with DNS on Netlify (the domain is registered at Porkbun). The bare domain and
+womenonrecord.netlify.app forward to www. The site was called She Counts until
+10 October 2026. Its first address, shecounts.netlify.app, is now a separate
+Netlify site, also named `shecounts`, holding only a `_redirects` file that
+forwards every path here. Keep it: deleting it frees the name for anyone, and
+links to the old address are already shared. The old download names
+(`shecounts.csv`, `shecounts.xlsx`) redirect in `netlify.toml`, and the theme
+and language a reader chose are read from the old `sc-` keys as well as `wor-`.
 
 ## Credit
 

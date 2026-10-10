@@ -23,9 +23,9 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.SC_BUILD = "{{build}}"; window.SC_V = {{vmap}};
+  window.WOR_BUILD = "{{build}}"; window.WOR_V = {{vmap}};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
-  try { var t = localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
 </head>
 <body data-page="{{page}}"{{body_attrs}}>

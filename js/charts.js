@@ -639,5 +639,5 @@
     return '<div class="iso">' + out + '</div>';
   }
 
-  window.SC_CHARTS = { strip: strip, treemap: treemap, tiles: tiles, swarm: swarm, wrap: wrap, columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
+  window.WOR_CHARTS = { strip: strip, treemap: treemap, tiles: tiles, swarm: swarm, wrap: wrap, columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
 })();

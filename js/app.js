@@ -5,7 +5,7 @@
 (function () {
   'use strict';
   var D = null, GEO = null;
-  var I = window.SC_I18N, C = window.SC_CHARTS;
+  var I = window.WOR_I18N, C = window.WOR_CHARTS;
   var lang = 'en';
   var body = document.body, PAGE = body.dataset.page;
   var st = { crime: 'RAPE', year: 2024, head: 'RAPE', measure: 'rate', ob: 'all', mult: 'cases', trend: 'cases', sort: null };
@@ -41,7 +41,7 @@
     return Number(n).toLocaleString('en-IN', { maximumFractionDigits: dp == null ? 1 : dp, minimumFractionDigits: dp || 0 });
   }
   // The fingerprinted address of a file the page loads (see scripts/build_pages.py).
-  function ver(path) { var h = (window.SC_V || {})[path.slice(1)]; return h ? path + '?v=' + h : path; }
+  function ver(path) { var h = (window.WOR_V || {})[path.slice(1)]; return h ? path + '?v=' + h : path; }
   function slug(s) { return s.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function link(path) { return path + (lang === 'en' ? '' : '?lang=' + lang); }
   function setLang(l) {
@@ -57,7 +57,7 @@
     $('lang').value = lang;
     $('tnote').hidden = lang === 'en';
     document.querySelectorAll('[data-i18n]').forEach(function (el) { el.textContent = t(el.getAttribute('data-i18n')); });
-    try { localStorage.setItem('sc-lang', lang); } catch (e) {}
+    try { localStorage.setItem('wor-lang', lang); } catch (e) {}
     var u = new URL(location.href);
     if (lang === 'en') u.searchParams.delete('lang'); else u.searchParams.set('lang', lang);
     history.replaceState(null, '', u);
@@ -1133,10 +1133,10 @@
   // someone who is reading.
   var lastCheck = 0;
   function checkBuild() {
-    if (!window.SC_BUILD || Date.now() - lastCheck < 60000) return;
+    if (!window.WOR_BUILD || Date.now() - lastCheck < 60000) return;
     lastCheck = Date.now();
     fetch('/version.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (v) {
-      if (v && v.build && v.build !== window.SC_BUILD) location.reload();
+      if (v && v.build && v.build !== window.WOR_BUILD) location.reload();
     }).catch(function () {});
   }
   document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') checkBuild(); });
@@ -1146,7 +1146,7 @@
   function init() {
     if (oldHash()) return;
     var q = new URL(location.href).searchParams.get('lang'), saved = null;
-    try { saved = localStorage.getItem('sc-lang'); } catch (e) {}
+    try { saved = localStorage.getItem('wor-lang') || localStorage.getItem('sc-lang'); } catch (e) {}
     // A language is offered once it is translated. A string not yet translated falls back to English in t().
     var ready = function (l) { return l === 'en' || Object.keys(I.dict[l] || {}).length > 0; };
     Array.prototype.slice.call($('lang').options).forEach(function (o) { if (!ready(o.value)) o.remove(); });
@@ -1182,7 +1182,7 @@
     th.addEventListener('click', function () {
       var next = dark() ? 'light' : 'dark';
       document.documentElement.dataset.theme = next; th.setAttribute('aria-pressed', String(next === 'dark'));
-      try { localStorage.setItem('sc-theme', next); } catch (e) {}
+      try { localStorage.setItem('wor-theme', next); } catch (e) {}
     });
     if ($('mapHead')) {
       $('mapHead').addEventListener('change', function () { st.head = this.value; map(); tileMap(); yearMaps(); links($('rank')); });

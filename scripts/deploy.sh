@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Upload the site to the Netlify site 'shecounts', served at www.womenonrecord.net. Needs NETLIFY_PAT.
+# Upload the site to the Netlify site 'womenonrecord', served at www.womenonrecord.net. Needs NETLIFY_PAT.
 # Not needed once the Netlify site is linked to the GitHub repository.
 set -euo pipefail
 cd "$(dirname "$0")/.."

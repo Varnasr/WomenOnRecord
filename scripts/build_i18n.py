@@ -77,7 +77,7 @@ def build():
 
 if __name__ == '__main__':
     dicts, probs = build()
-    js = '/* Written by scripts/build_i18n.py from i18n/*.json. Do not edit. */\nwindow.SC_I18N = ' + json.dumps(
+    js = '/* Written by scripts/build_i18n.py from i18n/*.json. Do not edit. */\nwindow.WOR_I18N = ' + json.dumps(
         {'langs': LANGS, 'dict': dicts}, ensure_ascii=False, separators=(',', ':')) + ';\n'
     out = os.path.join(ROOT, 'js', 'i18n.js')
     if '--check' in sys.argv:
