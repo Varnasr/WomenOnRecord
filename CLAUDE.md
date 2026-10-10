@@ -10,7 +10,7 @@ Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
 first line is `<!--page {json} -->`. Pages: home (`index.html`),
 `protests/`, `courts/`, `states/`, `crimes/`, `context/`, `explore/`, `method/`,
-`law/`, `counting/` and `terms/`. Two
+`law/`, `counting/`, `path/` and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
 (`crimes/<slug>/`, the 17 in `CRIMES`), with the place or crime in a `data-`
@@ -107,6 +107,20 @@ sentences with figures are computed in `counting()` in `js/app.js` from
 still holds; the owner chose to say so plainly and not to file an RTI
 application. Do not write that the rule applies to the chapter, or that it
 does not, until NCRB says which.
+
+`path/` ("Where a woman's case is lost") follows a case step by step: the
+violence (NFHS-5), telling someone, the police (BNSS s.173, Lalita Kumari,
+BNS s.199(c), the CHRI and AALI study of 14 cases), being counted, the
+investigation and the trial (both computed in `pathPage()` in `js/app.js`).
+Then the gaps in the law itself (BNS s.63 Exception 2 and the definition's
+"A man"), cases and reports that changed the law by legal title only, and
+organisations working on the same steps, each line from that organisation's
+own pages. The help-seeking figure is a count (141 of 17,765, Ghoshal and
+others 2024, Table 3), never a weighted percentage. Women were 12.3% of the
+police in January 2023 (India Justice Report 2025, page 53); the 8% figure is
+officers. Tukaram v State of Maharashtra is left out because the 1983 Act's
+text could not be read. A case goes on the list only by its legal title, with
+no survivor named or described.
 
 ## Addresses
 
