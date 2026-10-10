@@ -65,7 +65,7 @@ about = [
  ['Police and court outcomes', 'NCRB publishes police and court disposal by state only for all crimes against women together (COURTS, POLICE). For single crimes such as rape it publishes them for India as a whole only (measures starting police_ and court_ on All India rows).'],
  ['Checks', 'For every count column, the states add to NCRB\'s Total State(s), the union territories to Total UT(s), and both to Total All India, as NCRB drew them in that year. The build stops on any mismatch. The checks on 2014 to 2019 are in data/raw/old.'],
  ['Licence', 'Figures: National Crime Records Bureau. This compilation, its codes and notes: CC BY 4.0. Cite NCRB and Women on Record.'],
- ['Built', 'scripts/build_data.py and scripts/build_xlsx.py at github.com/Varnasr/SheCounts'],
+ ['Built', 'scripts/build_data.py and scripts/build_xlsx.py at github.com/Varnasr/WomenOnRecord'],
 ]
 for r in about: ws.append(r)
 ws['A1'].font = Font(bold=True, size=14)
