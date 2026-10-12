@@ -10,7 +10,7 @@ python3 scripts/build_pages.py
 python3 scripts/build_pages.py --check
 python3 scripts/check.py
 Z=$(mktemp -d)/site.zip
-zip -qr "$Z" . -x '.git/*' '.github/*' 'scripts/*' 'i18n/*' 'site/*'
+zip -qr "$Z" . -x '.git/*' '.github/*' 'scripts/*' 'i18n/*' 'site/*' 'node_modules/*' 'package.json' 'package-lock.json'
 curl -sf -X POST -H "Authorization: Bearer $NETLIFY_PAT" -H "Content-Type: application/zip" \
   --data-binary @"$Z" https://api.netlify.com/api/v1/sites/98f16191-ea31-4c2f-88a2-3f0f5d01bc1a/deploys \
   | python3 -c "import sys,json;d=json.load(sys.stdin);print('deploy',d['id'],d['state'])"

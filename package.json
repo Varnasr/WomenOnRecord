@@ -1,0 +1,9 @@
+{
+  "name": "womenonrecord-checks",
+  "private": true,
+  "description": "Browser checks for www.womenonrecord.net. Nothing here is part of the site.",
+  "devDependencies": {
+    "axe-core": "4.10.2",
+    "playwright-core": "1.56.1"
+  }
+}

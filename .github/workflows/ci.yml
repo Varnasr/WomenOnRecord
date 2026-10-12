@@ -14,3 +14,16 @@ jobs:
       - run: python3 scripts/build_pages.py --check
       - run: python3 scripts/build_i18n.py --check
       - run: python3 scripts/check.py
+  browser:
+    # Separate from the static checks, so a contributor waiting on those does not
+    # wait on a browser download. The site loads nothing from another origin, so
+    # a failed request here is a fault in the site.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: npm ci
+      - run: node node_modules/playwright-core/cli.js install --with-deps chromium
+      - run: node scripts/audit.mjs
