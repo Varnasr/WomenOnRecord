@@ -94,6 +94,8 @@ ws = wb.create_sheet('Sources')
 header(ws, ['year', 'title', 'publisher', 'copy held by', 'url', 'sha256', 'retrieved on'])
 for y, s in src.items():
     ws.append([int(y), s['title'], s['publisher'], s['mirror'], s['url'], s['sha256'], s['retrieved_on']])
+for y, s in json.load(open(os.path.join(ROOT, 'data', 'raw', 'sources_v2.json'))).items():
+    ws.append([int(y), s['title'], s['publisher'], s['mirror'], s['url'], s['sha256'], s['retrieved_on']])
 for i, w in enumerate([8, 30, 44, 30, 90, 70, 14], 1): ws.column_dimensions[get_column_letter(i)].width = w
 
 ws = wb.create_sheet('Data')

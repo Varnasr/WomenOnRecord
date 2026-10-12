@@ -57,6 +57,10 @@ MEASURES = {
     'acquitted': 'Courts: acquitted',
     'discharged': 'Courts: discharged',
     'conviction_rate': 'Courts: conviction rate (%)',
+    'pending_trial': 'Courts: cases pending trial at year end',
+    'pendency_pct': 'Courts: cases pending trial at year end, as a share of cases for trial (%)',
+    'cases_women': 'Cases in which the victim was a woman 18 or over',
+    'cases_children': 'Cases in which the victim was a girl under 18',
     'pending_trial_end_of_year': 'Courts: still waiting for a verdict at year end',
     'court_pendency': 'Courts: share still waiting for a verdict (%)',
     # measures printed only in the 2014 to 2016 tables

@@ -1,0 +1,42 @@
+{
+ "2021": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2021, Volume 2",
+  "edition": "Crime in India 2021, Volume 2",
+  "url": "https://data.opencity.in/dataset/5a788d6e-5db6-46ae-bd4b-eab8966bd24b/resource/52410ff2-c9b0-4dd4-8ff3-1768578abf6b/download/d8afae6c-e64c-43bb-a48f-6a712ffb1a13.pdf",
+  "mirror": "OpenCity",
+  "sha256": "4878195fa89eaac953e9900837b6f1147ebffd1181e817c6e020f7337f6ee418",
+  "retrieved_on": "2026-10-12",
+  "pages_kept": 66
+ },
+ "2022": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2022, Volume 2",
+  "edition": "Crime in India 2022, Volume 2",
+  "url": "https://data.opencity.in/dataset/b2d3ff5c-b109-42ad-afe0-b244c26505cd/resource/67fcb2bd-ddda-428c-9ecd-777ce0797d58/download/752b0f96-1546-42b1-b6a7-c691021754fd.pdf",
+  "mirror": "OpenCity",
+  "sha256": "771bb6797730ced5e0065aef7729278660ecc980673f26591e7d01ef82b3b9af",
+  "retrieved_on": "2026-10-12",
+  "pages_kept": 66
+ },
+ "2023": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2023, Volume 2",
+  "edition": "Crime in India 2023, Volume 2",
+  "url": "https://data.opencity.in/dataset/40449a25-7fb3-4e38-91b9-f834af6078e2/resource/7ac7f9fc-7567-4c5d-8a24-9777b9f47519/download/cb95d6e0-f96a-41df-80c0-92ab2fbd74f5.pdf",
+  "mirror": "OpenCity",
+  "sha256": "ed870a4780c2b091f7cb2dfb385dffaf11e44ce4b4f6f98095007cc2fbffd754",
+  "retrieved_on": "2026-10-12",
+  "pages_kept": 66
+ },
+ "2024": {
+  "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
+  "title": "Crime in India 2024, Volume 2",
+  "edition": "Crime in India 2024, Volume 2",
+  "url": "https://data.opencity.in/dataset/7d883875-921a-4820-b298-713c6219bd90/resource/27025829-5e66-49be-9c80-e2a4d1a1b1b8/download/2crimeinindia2024-volumeii.pdf",
+  "mirror": "OpenCity",
+  "sha256": "423af46b6704338d9241fc95411fbca706b70662e79becdd4dc8f7ab0c16ae50",
+  "retrieved_on": "2026-10-12",
+  "pages_kept": 72
+ }
+}

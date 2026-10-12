@@ -53,6 +53,8 @@ crime_code,POCSO_VICTIMS_AGE,"Girl victims of penetrative sexual assault under P
 crime_code,RAPE_SECTION,Rape cases by section of law (s.376 IPC / BNS 64-71). IPC 376. BNS/Act 64-71
 crime_code,PERSONS,"Persons arrested, charge-sheeted and tried, all crimes against women"
 crime_code,CITY,Crimes against women in cities of two million or more
+crime_code,RAPE_SC,Rape of Scheduled Caste women and girls (IPC/BNS r/w SC/ST (Prevention of Atrocities) Act). IPC 376. BNS/Act 64-70
+crime_code,RAPE_ST,Rape of Scheduled Tribe women and girls (IPC/BNS r/w SC/ST (Prevention of Atrocities) Act). IPC 376. BNS/Act 64-70
 crime_code,DECEIT_69,"Sexual intercourse by deceitful means (BNS 69, new offence). BNS/Act 69"
 crime_code,RAPE_CUSTODIAL_2014DEF,Custodial rape. IPC 376(2)
 crime_code,RAPE_CUSTODIAL_GANG_2014DEF,"Custodial gang rape. IPC 376(2), 376D"

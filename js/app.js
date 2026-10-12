@@ -655,7 +655,7 @@
     tabs($('trendMode'), ['cases', 'rate'], 'trend', function (m) { return t(m === 'rate' ? 'm.rate' : 'm.cases'); }, trend);
     trend();
     if (FIR.indexOf(c) >= 0) { $('pc').hidden = false; flow(c, y1); }
-    if (c === 'RAPE') { ages('All India'); bySection(); }
+    if (c === 'RAPE') { ages('All India'); bySection(); caste(); }
     known(c);
     var hrows = STATES().slice().sort(byName).map(function (p) { return { label: place(p.id), values: D.years.map(function (y) { return rate(c, p.id, y); }) }; });
     C.watch($('heatChart'), function () {
@@ -728,6 +728,43 @@
     $('secTable').innerHTML = '<thead><tr><th scope="col">' + t('sec.col') + '</th>' + yrs.map(function (yy) { return '<th scope="col">' + yy + '</th>'; }).join('') + '</tr></thead><tbody>' +
       SECTIONS.map(function (r) { return '<tr' + (r[0] === 'cases' ? ' class="total"' : '') + '><th scope="row">' + t(r[1]) + '</th>' + yrs.map(function (yy) { return '<td>' + fmt(secVal(r[0], yy), 0) + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody>';
   }
+  // Rape of Scheduled Caste and Scheduled Tribe women and girls: NCRB Volume 2,
+  // tables 7A.2, 7A.3, 7A.5 (SC) and 7C.2, 7C.3, 7C.5 (ST), from 2021.
+  function caste() {
+    var yrs = D.years.filter(function (y) { return S('RAPE_SC', 'cases', 'All India', y) != null; }), y = yrs[yrs.length - 1];
+    if (!y) return;
+    $('caste').hidden = false;
+    var g = function (c, m, yy) { return S(c, m, 'All India', yy == null ? y : yy); };
+    var allPend = function (yy) { var p = S('RAPE', 'court_pending_trial_end_of_year', 'All India', yy), tt = S('RAPE', 'court_total_for_trial', 'All India', yy); return p == null || !tt ? null : p / tt * 100; };
+    $('casteIntro').textContent = t('caste.p', { y: y, sc: fmt(g('RAPE_SC', 'cases'), 0), scw: fmt(g('RAPE_SC', 'cases_women'), 0), scc: fmt(g('RAPE_SC', 'cases_children'), 0),
+      st: fmt(g('RAPE_ST', 'cases'), 0), stw: fmt(g('RAPE_ST', 'cases_women'), 0), stc: fmt(g('RAPE_ST', 'cases_children'), 0),
+      csc: fmt(g('RAPE_SC', 'conviction_rate'), 1), cst: fmt(g('RAPE_ST', 'conviction_rate'), 1), call: fmt(S('RAPE', 'court_conviction_rate', 'All India', y), 1),
+      psc: fmt(g('RAPE_SC', 'pending_trial'), 0), pst: fmt(g('RAPE_ST', 'pending_trial'), 0) });
+    $('casteCap').textContent = t('caste.cap', { y0: yrs[0], y1: y });
+    var ser = [{ label: t('caste.sc'), short: t('caste.sc'), values: yrs.map(function (yy) { return g('RAPE_SC', 'conviction_rate', yy); }), color: '--red', width: 3 },
+               { label: t('caste.st'), short: t('caste.st'), values: yrs.map(function (yy) { return g('RAPE_ST', 'conviction_rate', yy); }), color: '--turmeric', width: 3 },
+               { label: t('caste.all'), short: t('caste.all'), values: yrs.map(function (yy) { return S('RAPE', 'court_conviction_rate', 'All India', yy); }), color: '--knot', dash: '6 5' }];
+    C.watch($('casteChart'), function () {
+      C.lines($('casteChart'), { x: yrs, series: ser, label: $('casteCap').textContent, fmt: function (v, tick) { return fmt(v, tick ? 0 : 1) + (tick ? '' : '%'); } });
+    });
+    var rows = [['caste.r.sc', function (yy) { return fmt(g('RAPE_SC', 'cases', yy), 0); }],
+                ['caste.r.st', function (yy) { return fmt(g('RAPE_ST', 'cases', yy), 0); }],
+                ['caste.r.cssc', function (yy) { return pct(g('RAPE_SC', 'chargesheeting_rate', yy)); }],
+                ['caste.r.csst', function (yy) { return pct(g('RAPE_ST', 'chargesheeting_rate', yy)); }],
+                ['caste.r.csall', function (yy) { return pct(S('RAPE', 'police_chargesheeting_rate', 'All India', yy)); }],
+                ['caste.r.cvsc', function (yy) { return pct(g('RAPE_SC', 'conviction_rate', yy)); }],
+                ['caste.r.cvst', function (yy) { return pct(g('RAPE_ST', 'conviction_rate', yy)); }],
+                ['caste.r.cvall', function (yy) { return pct(S('RAPE', 'court_conviction_rate', 'All India', yy)); }],
+                ['caste.r.pdsc', function (yy) { return pct(g('RAPE_SC', 'pendency_pct', yy)); }],
+                ['caste.r.pdst', function (yy) { return pct(g('RAPE_ST', 'pendency_pct', yy)); }],
+                ['caste.r.pdall', function (yy) { return pct(allPend(yy)); }]];
+    $('casteYears').innerHTML = '<thead><tr><th scope="col">' + t('caste.col') + '</th>' + yrs.map(function (yy) { return '<th scope="col">' + yy + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      rows.map(function (r) { return '<tr><th scope="row">' + t(r[0]) + '</th>' + yrs.map(function (yy) { return '<td>' + r[1](yy) + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody>';
+    $('casteStatesP').textContent = t('caste.states', { y: y });
+    placeTable($('casteStates'), [{ label: t('caste.sc'), get: function (p) { return S('RAPE_SC', 'cases', p, y); } },
+                                   { label: t('caste.st'), get: function (p) { return S('RAPE_ST', 'cases', p, y); } }]);
+    $('casteNote').textContent = t('caste.note');
+  }
   function crimeStates(c) {
     var cols = D.years.map(function (y) { return { key: 'y' + y, label: String(y), get: function (p) { return (cases(c, p) || [])[D.years.indexOf(y)]; }, dp: 0 }; })
       .concat([{ key: 'rate', label: t('rate24'), get: function (p) { return rate(c, p, D.years[D.years.length - 1]); }, dp: 2, tip: 'tip.rate' }]);
@@ -757,7 +794,8 @@
       var s = D.sources[String(y)];
       if (s.files) return '<li>' + s.title + ' · ' + t('src.via') + ' ' + s.mirror + '<details><summary>' + t('src.files', { n: s.files.length }) + '</summary><ul class="files">' +
         s.files.map(function (f) { return '<li><a href="' + f.url + '">' + f.name + '</a><br><code>sha256 ' + f.sha256 + '</code></li>'; }).join('') + '</ul></details></li>';
-      return '<li>' + s.title + ' · ' + t('src.via') + ' ' + s.mirror + ' · <a href="' + s.url + '">PDF</a><br><code>sha256 ' + s.sha256 + '</code></li>';
+      var one = function (v) { return v.title + ' · ' + t('src.via') + ' ' + v.mirror + ' · <a href="' + v.url + '">PDF</a><br><code>sha256 ' + v.sha256 + '</code>'; };
+      return '<li>' + one(s) + (s.v2 ? '</li><li>' + one(s.v2) : '') + '</li>';
     }).join('');
   }
 

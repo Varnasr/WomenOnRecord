@@ -74,6 +74,7 @@ SLL_2024 = {228, 231, 249, 252, 258, 261, 264, 279, 282}
 
 PAGES = {2020: "199-215", 2021: "211-227", 2022: "211-227", 2023: "211-227", 2024: "281-309"}
 SOURCE = json.load(open(os.path.join(RAW, 'sources.json')))
+SOURCE_V2 = json.load(open(os.path.join(RAW, 'sources_v2.json')))
 
 def note_for(code, year):
     if code == 'ASSAULT_MODESTY' and year == 2024:
@@ -103,6 +104,20 @@ def load(year, table):
             if bad and not (year == 2023 and table == '3A.2' and n == 158):
                 raise SystemExit(f'{year} {table} col {n}: rows do not add to totals: {bad}')
     return data
+
+def load_v2(year, table, heads=False):
+    txt = open(os.path.join(RAW, f'cii{year}_v2.txt'), encoding='utf-8').read()
+    if heads:
+        return P.parse_heads_table(txt, table)
+    data, _ = P.parse_table(txt, table)
+    return data
+
+def head_row(table, pattern):
+    """The one row of a crime-head table whose label matches, or stop."""
+    rows = [l for l in table[4] if re.match(pattern, l)]
+    if len(rows) != 1:
+        raise SystemExit(f'expected one row matching {pattern!r}, found {rows}')
+    return rows[0]
 
 ROWKEYS = P.STATES + ['Total states', 'Total UTs', 'All India']
 
@@ -258,6 +273,44 @@ def rows():
             for m in bands:
                 add(st, y, 'POCSO_VICTIMS_AGE', 'sexual', 'Girl victims of penetrative sexual assault under POCSO s.4 and 6, by age', None, 'POCSO Act s.4 and 6',
                     m, t49[gcol[m]][st], 'count', '4A.9', 'Girls only, from NCRB chapter 4A (crimes against children). The total equals the girl victims of POCSO s.4 and 6 in chapter 3A.')
+        # Rape of Scheduled Caste and Scheduled Tribe women and girls: NCRB Volume 2,
+        # chapters 7A and 7C, from 2021 (the 2020 Volume 2 is not held here). The heading
+        # is rape booked under the IPC or BNS read with the SC/ST (Prevention of Atrocities) Act.
+        if str(y) in SOURCE_V2:
+            for code, ch, who in (('RAPE_SC', '7A', 'Scheduled Caste'), ('RAPE_ST', '7C', 'Scheduled Tribe')):
+                label = f'Rape of {who} women and girls (IPC/BNS r/w SC/ST (Prevention of Atrocities) Act)'
+                src = SOURCE_V2[str(y)]
+                pol, crt = load_v2(y, ch + '.3', True), load_v2(y, ch + '.5', True)
+                rk = {'': r'^1A\.\d+ Rape$', '_women': r'^1A\.\d+(A|\.1) Rape of Women$', '_children': r'^1A\.\d+(B|\.2) Rape of Children$'}
+                rk = {k: (head_row(pol, v), head_row(crt, v)) for k, v in rk.items()}
+                for k, (rp, rc) in rk.items():
+                    # NCRB prints the rates; recompute them from the counts beside them
+                    csr = pol[18][rp] / pol[19][rp] * 100
+                    conv = crt[15][rc] / crt[18][rc] * 100
+                    if abs(csr - pol[23][rp]) > 0.06 or abs(conv - crt[21][rc]) > 0.06:
+                        raise SystemExit(f'{y} {code}{k}: printed rates do not match their counts')
+                if abs(pol[4][rk['_women'][0]] + pol[4][rk['_children'][0]] - pol[4][rk[''][0]]) > 0.5:
+                    raise SystemExit(f'{y} {code}: rape of women and of children do not add to all rape')
+                rp, rc = rk['']
+                note = f'Rape of {who} women and girls, as NCRB records it in chapter {ch} of Volume 2.'
+                for m, (t, n, r) in {'cases': (pol, 4, rp), 'chargesheeting_rate': (pol, 23, rp), 'trials_completed': (crt, 18, rc),
+                                     'convicted': (crt, 15, rc), 'conviction_rate': (crt, 21, rc), 'pending_trial': (crt, 20, rc),
+                                     'pendency_pct': (crt, 22, rc)}.items():
+                    unit = 'percent' if m.endswith(('_rate', '_pct')) else 'count'
+                    add('All India', y, code, 'sexual', label, '376', '64-70', m, t[n][r], unit, ch + ('.3' if t is pol else '.5'), note, src=src)
+                add('All India', y, code, 'sexual', label, '376', '64-70', 'cases_women', pol[4][rk['_women'][0]], 'count', ch + '.3', 'Women 18 and over.', src=src)
+                add('All India', y, code, 'sexual', label, '376', '64-70', 'cases_children', pol[4][rk['_children'][0]], 'count', ch + '.3', 'Girls under 18. NCRB labels the heading Rape of Children.', src=src)
+                # Only the total column is read and checked. In 2024, 7A.2 prints Chhattisgarh's
+                # IPC rape cases as 100 beside BNS 32 and a total of 119, so its IPC column
+                # does not add up; the total does, and matches 7A.3.
+                st = load_v2(y, ch + '.2')[10 if y == 2024 else 87]
+                if P.check_totals(st):
+                    raise SystemExit(f'{y} {ch}.2: the states do not add to the printed totals: {P.check_totals(st)}')
+                if st['All India'] != pol[4][rp]:
+                    raise SystemExit(f'{y} {code}: the state table ({st["All India"]}) and the crime-head table ({pol[4][rp]}) disagree')
+                for place in ROWKEYS:
+                    if place == 'All India': continue
+                    add(place, y, code, 'sexual', label, '376', '64-70', 'cases', st[place], 'count', ch + '.2', note, src=src)
         # Rape by section: 3A.11. IPC sections to 2023, BNS from 2024, mapped head by head.
         t311 = load(y, '3A.11')
         if y < 2024:

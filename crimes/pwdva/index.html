@@ -30,7 +30,7 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.WOR_BUILD = "9ea0985237"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"d5787c839f","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"1fbf65404e","data/geo/india.json":"f82dbbe582","data/site.json":"3fad6cb503","data/womenonrecord.csv":"41cfd6870d","downloads/codebook.csv":"b8f750af72","downloads/context.xlsx":"3c577331a1","downloads/womenonrecord.xlsx":"ad0a1a021f","js/app.js":"9edff4551d","js/charts.js":"664aa485da","js/i18n.js":"77f8bd0df7"};
+  window.WOR_BUILD = "9d0c336d68"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"d5787c839f","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/site.json":"22ea83fbc4","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"9913cfcbe3","downloads/context.xlsx":"e57f18b8ce","downloads/womenonrecord.xlsx":"e143d1a78e","js/app.js":"3ec920dcf9","js/charts.js":"664aa485da","js/i18n.js":"62d5263562"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -137,6 +137,20 @@
     <p class="note" data-i18n="sec.cap">To 2023 the sections are those of the IPC, and for 2024 NCRB prints every case under the BNS sections, including the cases registered under the IPC before 1 July 2024, so each column adds to all rape cases. Gang rape adds IPC sections 376D, 376DA and 376DB together. A case is counted once, under one section. NCRB Crime in India, table 3A.11.</p>
   </section>
 
+  <section class="sec" id="caste" aria-labelledby="h-caste" hidden>
+    <h2 id="h-caste" data-i18n="caste.h">Scheduled Caste and Scheduled Tribe women and girls</h2>
+    <p class="intro" id="casteIntro"></p>
+    <figure class="chart cloth"><div id="casteChart"></div><figcaption id="casteCap"></figcaption></figure>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-caste">
+      <table class="grid" id="casteYears"></table>
+    </div>
+    <p class="intro" id="casteStatesP"></p>
+    <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-caste">
+      <table class="grid sortable" id="casteStates"></table>
+    </div>
+    <p class="note" id="casteNote"></p>
+  </section>
+
   <section class="sec" id="spread" aria-labelledby="h-spread">
     <h2 id="h-spread" data-i18n="spread.h">How the states spread</h2>
     <figure class="chart cloth"><div id="swarmChart"></div><figcaption data-i18n="spread.cap">Each dot is a state or union territory, placed at the cases it recorded for every lakh women. The red line is India as a whole. Hover over or tap a dot to see which state it is.</figcaption></figure>
@@ -173,8 +187,8 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=77f8bd0df7"></script>
+<script src="/js/i18n.js?v=62d5263562"></script>
 <script src="/js/charts.js?v=664aa485da"></script>
-<script src="/js/app.js?v=9edff4551d"></script>
+<script src="/js/app.js?v=3ec920dcf9"></script>
 </body>
 </html>

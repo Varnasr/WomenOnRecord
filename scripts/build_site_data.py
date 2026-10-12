@@ -66,6 +66,8 @@ def build():
             notes.setdefault(c, {})[r['year']] = r['note']
     srcs = json.load(open(os.path.join(ROOT, 'data', 'raw', 'sources.json')))
     old = json.load(open(os.path.join(ROOT, 'data', 'raw', 'old', 'sources.json')))
+    for y, v in json.load(open(os.path.join(ROOT, 'data', 'raw', 'sources_v2.json'))).items():
+        srcs[y]['v2'] = {k: v[k] for k in ('title', 'mirror', 'url', 'sha256')}
     for y in sorted({m['year'] for m in old}):
         srcs[str(y)] = {'title': f'Crime in India {y}', 'mirror': 'National Crime Records Bureau (ncrb.gov.in), one file for each table',
                         'files': [{'url': m['url'], 'sha256': m['sha256'], 'name': m['file'][5:]} for m in old if m['year'] == y]}
