@@ -71,6 +71,46 @@ def read(name):
     if not m: raise SystemExit(f'{name}: first line must be <!--page {{json}} -->')
     return json.loads(m.group(1)), src[m.end():]
 
+# The default link preview, and the page's own where scripts/og/make_page_cards.py made one.
+OG_DEFAULT = ('assets/og.png', "90 in every 100 rape cases before India's courts in 2024 were still waiting for a verdict when the year ended. Source: NCRB.")
+def og(url):
+    cards = os.path.join(ROOT, 'assets', 'og', 'cards.json')
+    c = json.load(open(cards, encoding='utf-8')).get(url) if os.path.exists(cards) else None
+    img, alt = (c['img'], c['alt']) if c else OG_DEFAULT
+    return f'{SITE_URL}/{img}?v=' + digest(open(os.path.join(ROOT, img), 'rb').read()), alt
+
+# Structured data for search engines. The Dataset block is what Google Dataset Search
+# reads; it sits on the Data and method page, which describes the dataset.
+RESEARCHERS = ['Vinitha Joseph', 'Nivedita Biswas', 'Tarushaa Miittal', 'Varna']
+PUBLISHER = {'@type': 'Organization', 'name': 'PinPoint Ventures', 'email': 'info@pinpointventures.in'}
+def structured(url):
+    last = last_year()
+    if url == '/':
+        ld = {'@context': 'https://schema.org', '@type': 'WebSite', 'name': 'Women on Record', 'url': SITE_URL + '/',
+              'inLanguage': LANGS, 'publisher': PUBLISHER,
+              'description': f'Crimes against women in India, as police and courts recorded them, 2014 to {last}, from NCRB Crime in India.'}
+    elif url == '/method/':
+        ld = {'@context': 'https://schema.org', '@type': 'Dataset',
+              'name': f'Women on Record: crimes against women in India, 2014 to {last}',
+              'description': (f'Every figure NCRB publishes state-wise on crimes against women in Crime in India, 2014 to {last}: '
+                              'cases, victims and rates by crime and state, what police and courts did with them, who the offender was '
+                              'in rape cases, rape by section of law, people arrested and tried, the 19 largest cities, and rape of '
+                              'Scheduled Caste and Scheduled Tribe women and girls. Read from the NCRB PDFs by script and checked '
+                              'against NCRB\'s own printed totals.'),
+              'url': SITE_URL + '/method/', 'license': 'https://creativecommons.org/licenses/by/4.0/', 'isAccessibleForFree': True,
+              'creator': [{'@type': 'Person', 'name': n} for n in RESEARCHERS], 'publisher': PUBLISHER,
+              'temporalCoverage': f'2014/{last}', 'spatialCoverage': {'@type': 'Place', 'name': 'India'}, 'inLanguage': LANGS,
+              'isBasedOn': {'@type': 'CreativeWork', 'name': 'Crime in India',
+                            'author': {'@type': 'GovernmentOrganization', 'name': 'National Crime Records Bureau'}},
+              'variableMeasured': ['Cases recorded', 'Victims', 'Cases per lakh women', 'Charge-sheeting rate', 'Conviction rate',
+                                   'Cases pending trial', 'People arrested', 'People convicted'],
+              'distribution': [{'@type': 'DataDownload', 'encodingFormat': 'text/csv', 'contentUrl': SITE_URL + '/data/womenonrecord.csv'},
+                               {'@type': 'DataDownload', 'encodingFormat': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                                'contentUrl': SITE_URL + '/downloads/womenonrecord.xlsx'}]}
+    else:
+        return ''
+    return '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/') + '</script>\n'
+
 def render(shell, meta, content, url, attrs='', v=None, build=''):
     nav = '\n'.join(f'      <a href="{h}"' + (' class="grp"' if h in NAV_GROUP_STARTS else '') + f' data-i18n="{k}"' + (' aria-current="page"' if url.startswith(h) or url.startswith(tuple(ALSO.get(h, ()))) else '') + f'>{t}</a>'
                     for h, k, t in NAV)
@@ -79,7 +119,8 @@ def render(shell, meta, content, url, attrs='', v=None, build=''):
     for k, val in {'title': html.escape(title), 'desc': html.escape(meta['desc']), 'url': url, 'nav': nav,
                  'page': meta.get('page', ''), 'body_attrs': attrs, 'content': content.rstrip('\n'),
                  'alts': '\n'.join(f'<link rel="alternate" hreflang="{l}" href="{h}">' for l, h in alternates(url)),
-                 'build': build, 'vmap': json.dumps(v, sort_keys=True, separators=(',', ':'))}.items():
+                 'build': build, 'vmap': json.dumps(v, sort_keys=True, separators=(',', ':')),
+                 'ogimg': og(url)[0], 'ogalt': html.escape(og(url)[1]), 'ld': structured(url)}.items():
         out = out.replace('{{' + k + '}}', val)
     if '{{' in out: raise SystemExit(f'{url}: unfilled placeholder')
     return stamp(out, v)

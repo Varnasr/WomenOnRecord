@@ -361,6 +361,24 @@ The tables it added, all 2020 to 2024, and what each needs:
   NCRB's city rate divides by the 2011 census population and is stored as
   `rate_2011pop`, never compared with state rates.
 
+## Link previews and search engines
+
+Every page carries Open Graph and Twitter tags, `og:site_name`, `og:locale` with the
+five translations as alternates, a canonical address and hreflang links. The home
+page carries a `WebSite` JSON-LD block and the Data and method page a `Dataset`
+block (licence, creators, publisher, coverage, the CSV and workbook), which is what
+Google Dataset Search reads. Both are written by `structured()` in `build_pages.py`.
+
+`assets/og.png` is the default preview, from `scripts/og/make_card.py`. Each crime
+and state page has its own, `assets/og/<crimes|states>-<slug>.png`, from
+`scripts/og/make_page_cards.py`: the page's figure for the latest year and its line
+from 2017, both ends labelled with year and figure, all from `data/site.json`. The
+image address carries `?v=<hash>`, because WhatsApp and others cache a preview by
+address. `check.py` fails if a crime or state page has no card or if
+`assets/og/cards.json` no longer matches what the data gives, so re-run the script
+after any data change. WhatsApp share buttons under every chart pre-fill the
+section's finding and link.
+
 ## Adding an NCRB edition
 
 Rehearsed on 12 October 2026 with a fake 2025 made from the 2024 pages. In order:
@@ -387,7 +405,7 @@ Rehearsed on 12 October 2026 with a fake 2025 made from the 2024 pages. In order
    table describe 2024. Decide whether each holds for the new year.
 6. The context sources and their pages are separate and dated; update them only from
    their own new editions.
-7. Re-run `scripts/og/make_card.py`, the audit, and read the home, rape, courts and a
+7. Re-run `scripts/og/make_card.py` and `scripts/og/make_page_cards.py`, the audit, and read the home, rape, courts and a
    state page at 390 wide.
 
 ## Commands

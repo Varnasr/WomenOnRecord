@@ -1,0 +1,214 @@
+{
+ "/crimes/rape/": {
+  "img": "assets/og/crimes-rape.png",
+  "alt": "Rape: 29,536 cases recorded by police in India in 2024, 4.3 for every lakh women. Source: NCRB."
+ },
+ "/crimes/pocso-rape/": {
+  "img": "assets/og/crimes-pocso-rape.png",
+  "alt": "POCSO: penetrative sexual assault of girls (s.4 and 6): 43,313 cases recorded by police in India in 2024, 6.3 for every lakh women. Source: NCRB."
+ },
+ "/crimes/attempt-rape/": {
+  "img": "assets/og/crimes-attempt-rape.png",
+  "alt": "Attempt to rape: 2,561 cases recorded by police in India in 2024, 0.4 for every lakh women. Source: NCRB."
+ },
+ "/crimes/assault-modesty/": {
+  "img": "assets/og/crimes-assault-modesty.png",
+  "alt": "Assault with intent to outrage modesty (incl. sexual harassment, disrobing, voyeurism, stalking): 83,908 cases recorded by police in India in 2024, 12.3 for every lakh women. Source: NCRB."
+ },
+ "/crimes/insult-modesty/": {
+  "img": "assets/og/crimes-insult-modesty.png",
+  "alt": "Insult to the modesty of women: 9,338 cases recorded by police in India in 2024, 1.4 for every lakh women. Source: NCRB."
+ },
+ "/crimes/murder-women/": {
+  "img": "assets/og/crimes-murder-women.png",
+  "alt": "Women and girls murdered (all motives): 7,535 women and girls murdered in India in 2024. Source: NCRB."
+ },
+ "/crimes/murder-rape/": {
+  "img": "assets/og/crimes-murder-rape.png",
+  "alt": "Murder with rape or gang rape: 266 cases recorded by police in India in 2024, 0.0 for every lakh women. Source: NCRB."
+ },
+ "/crimes/dowry-death/": {
+  "img": "assets/og/crimes-dowry-death.png",
+  "alt": "Dowry deaths: 5,737 cases recorded by police in India in 2024, 0.8 for every lakh women. Source: NCRB."
+ },
+ "/crimes/abetment-suicide/": {
+  "img": "assets/og/crimes-abetment-suicide.png",
+  "alt": "Abetment of suicide of women: 4,220 cases recorded by police in India in 2024, 0.6 for every lakh women. Source: NCRB."
+ },
+ "/crimes/cruelty/": {
+  "img": "assets/og/crimes-cruelty.png",
+  "alt": "Cruelty by husband or his relatives: 1,20,227 cases recorded by police in India in 2024, 17.6 for every lakh women. Source: NCRB."
+ },
+ "/crimes/dowry-act/": {
+  "img": "assets/og/crimes-dowry-act.png",
+  "alt": "Dowry Prohibition Act, 1961: 12,343 cases recorded by police in India in 2024, 1.8 for every lakh women. Source: NCRB."
+ },
+ "/crimes/pwdva/": {
+  "img": "assets/og/crimes-pwdva.png",
+  "alt": "Protection of Women from Domestic Violence Act, 2005: 616 cases recorded by police in India in 2024, 0.1 for every lakh women. Source: NCRB."
+ },
+ "/crimes/kidnap/": {
+  "img": "assets/og/crimes-kidnap.png",
+  "alt": "Kidnapping and abduction of women: 98,439 cases recorded by police in India in 2024, 14.4 for every lakh women. Source: NCRB."
+ },
+ "/crimes/acid/": {
+  "img": "assets/og/crimes-acid.png",
+  "alt": "Acid attack: 118 cases recorded by police in India in 2024, 0.0 for every lakh women. Source: NCRB."
+ },
+ "/crimes/itpa/": {
+  "img": "assets/og/crimes-itpa.png",
+  "alt": "Immoral Traffic (Prevention) Act, women victims: 1,436 cases recorded by police in India in 2024, 0.2 for every lakh women. Source: NCRB."
+ },
+ "/crimes/cyber/": {
+  "img": "assets/og/crimes-cyber.png",
+  "alt": "Cyber crimes against women (IT Act): 2,511 cases recorded by police in India in 2024, 0.4 for every lakh women. Source: NCRB."
+ },
+ "/crimes/total/": {
+  "img": "assets/og/crimes-total.png",
+  "alt": "All crimes against women: 4,41,534 cases recorded by police in India in 2024, 64.6 for every lakh women. Source: NCRB."
+ },
+ "/states/andhra-pradesh/": {
+  "img": "assets/og/states-andhra-pradesh.png",
+  "alt": "Andhra Pradesh: 74.7 crimes against women for every lakh women in 2024, against 64.6 for India, and 19,952 cases. Source: NCRB."
+ },
+ "/states/arunachal-pradesh/": {
+  "img": "assets/og/states-arunachal-pradesh.png",
+  "alt": "Arunachal Pradesh: 41.7 crimes against women for every lakh women in 2024, against 64.6 for India, and 321 cases. Source: NCRB."
+ },
+ "/states/assam/": {
+  "img": "assets/og/states-assam.png",
+  "alt": "Assam: 59.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 10,546 cases. Source: NCRB."
+ },
+ "/states/bihar/": {
+  "img": "assets/og/states-bihar.png",
+  "alt": "Bihar: 44.1 crimes against women for every lakh women in 2024, against 64.6 for India, and 27,359 cases. Source: NCRB."
+ },
+ "/states/chhattisgarh/": {
+  "img": "assets/og/states-chhattisgarh.png",
+  "alt": "Chhattisgarh: 56.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 8,601 cases. Source: NCRB."
+ },
+ "/states/goa/": {
+  "img": "assets/og/states-goa.png",
+  "alt": "Goa: 45.1 crimes against women for every lakh women in 2024, against 64.6 for India, and 356 cases. Source: NCRB."
+ },
+ "/states/gujarat/": {
+  "img": "assets/og/states-gujarat.png",
+  "alt": "Gujarat: 22.0 crimes against women for every lakh women in 2024, against 64.6 for India, and 7,606 cases. Source: NCRB."
+ },
+ "/states/haryana/": {
+  "img": "assets/og/states-haryana.png",
+  "alt": "Haryana: 96.4 crimes against women for every lakh women in 2024, against 64.6 for India, and 13,945 cases. Source: NCRB."
+ },
+ "/states/himachal-pradesh/": {
+  "img": "assets/og/states-himachal-pradesh.png",
+  "alt": "Himachal Pradesh: 43.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 1,605 cases. Source: NCRB."
+ },
+ "/states/jharkhand/": {
+  "img": "assets/og/states-jharkhand.png",
+  "alt": "Jharkhand: 32.5 crimes against women for every lakh women in 2024, against 64.6 for India, and 6,367 cases. Source: NCRB."
+ },
+ "/states/karnataka/": {
+  "img": "assets/og/states-karnataka.png",
+  "alt": "Karnataka: 59.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 19,945 cases. Source: NCRB."
+ },
+ "/states/kerala/": {
+  "img": "assets/og/states-kerala.png",
+  "alt": "Kerala: 80.5 crimes against women for every lakh women in 2024, against 64.6 for India, and 15,037 cases. Source: NCRB."
+ },
+ "/states/madhya-pradesh/": {
+  "img": "assets/og/states-madhya-pradesh.png",
+  "alt": "Madhya Pradesh: 77.0 crimes against women for every lakh women in 2024, against 64.6 for India, and 32,832 cases. Source: NCRB."
+ },
+ "/states/maharashtra/": {
+  "img": "assets/og/states-maharashtra.png",
+  "alt": "Maharashtra: 78.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 47,954 cases. Source: NCRB."
+ },
+ "/states/manipur/": {
+  "img": "assets/og/states-manipur.png",
+  "alt": "Manipur: 12.0 crimes against women for every lakh women in 2024, against 64.6 for India, and 195 cases. Source: NCRB."
+ },
+ "/states/meghalaya/": {
+  "img": "assets/og/states-meghalaya.png",
+  "alt": "Meghalaya: 38.9 crimes against women for every lakh women in 2024, against 64.6 for India, and 658 cases. Source: NCRB."
+ },
+ "/states/mizoram/": {
+  "img": "assets/og/states-mizoram.png",
+  "alt": "Mizoram: 41.8 crimes against women for every lakh women in 2024, against 64.6 for India, and 259 cases. Source: NCRB."
+ },
+ "/states/nagaland/": {
+  "img": "assets/og/states-nagaland.png",
+  "alt": "Nagaland: 5.1 crimes against women for every lakh women in 2024, against 64.6 for India, and 56 cases. Source: NCRB."
+ },
+ "/states/odisha/": {
+  "img": "assets/og/states-odisha.png",
+  "alt": "Odisha: 118.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 27,449 cases. Source: NCRB."
+ },
+ "/states/punjab/": {
+  "img": "assets/og/states-punjab.png",
+  "alt": "Punjab: 36.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 5,348 cases. Source: NCRB."
+ },
+ "/states/rajasthan/": {
+  "img": "assets/og/states-rajasthan.png",
+  "alt": "Rajasthan: 91.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 36,563 cases. Source: NCRB."
+ },
+ "/states/sikkim/": {
+  "img": "assets/og/states-sikkim.png",
+  "alt": "Sikkim: 39.7 crimes against women for every lakh women in 2024, against 64.6 for India, and 131 cases. Source: NCRB."
+ },
+ "/states/tamil-nadu/": {
+  "img": "assets/og/states-tamil-nadu.png",
+  "alt": "Tamil Nadu: 29.4 crimes against women for every lakh women in 2024, against 64.6 for India, and 11,363 cases. Source: NCRB."
+ },
+ "/states/telangana/": {
+  "img": "assets/og/states-telangana.png",
+  "alt": "Telangana: 128.6 crimes against women for every lakh women in 2024, against 64.6 for India, and 24,495 cases. Source: NCRB."
+ },
+ "/states/tripura/": {
+  "img": "assets/og/states-tripura.png",
+  "alt": "Tripura: 34.8 crimes against women for every lakh women in 2024, against 64.6 for India, and 716 cases. Source: NCRB."
+ },
+ "/states/uttar-pradesh/": {
+  "img": "assets/og/states-uttar-pradesh.png",
+  "alt": "Uttar Pradesh: 58.0 crimes against women for every lakh women in 2024, against 64.6 for India, and 66,398 cases. Source: NCRB."
+ },
+ "/states/uttarakhand/": {
+  "img": "assets/og/states-uttarakhand.png",
+  "alt": "Uttarakhand: 58.1 crimes against women for every lakh women in 2024, against 64.6 for India, and 3,342 cases. Source: NCRB."
+ },
+ "/states/west-bengal/": {
+  "img": "assets/og/states-west-bengal.png",
+  "alt": "West Bengal: 70.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 34,360 cases. Source: NCRB."
+ },
+ "/states/a-and-n-islands/": {
+  "img": "assets/og/states-a-and-n-islands.png",
+  "alt": "Andaman and Nicobar Islands: 82.1 crimes against women for every lakh women in 2024, against 64.6 for India, and 156 cases. Source: NCRB."
+ },
+ "/states/chandigarh/": {
+  "img": "assets/og/states-chandigarh.png",
+  "alt": "Chandigarh: 77.9 crimes against women for every lakh women in 2024, against 64.6 for India, and 452 cases. Source: NCRB."
+ },
+ "/states/d-and-n-haveli-and-daman-and-diu/": {
+  "img": "assets/og/states-d-and-n-haveli-and-daman-and-diu.png",
+  "alt": "Dadra and Nagar Haveli and Daman and Diu: 18.7 crimes against women for every lakh women in 2024, against 64.6 for India, and 86 cases. Source: NCRB."
+ },
+ "/states/delhi/": {
+  "img": "assets/og/states-delhi.png",
+  "alt": "Delhi: 130.7 crimes against women for every lakh women in 2024, against 64.6 for India, and 13,396 cases. Source: NCRB."
+ },
+ "/states/jammu-and-kashmir/": {
+  "img": "assets/og/states-jammu-and-kashmir.png",
+  "alt": "Jammu and Kashmir: 51.4 crimes against women for every lakh women in 2024, against 64.6 for India, and 3,366 cases. Source: NCRB."
+ },
+ "/states/ladakh/": {
+  "img": "assets/og/states-ladakh.png",
+  "alt": "Ladakh: 26.2 crimes against women for every lakh women in 2024, against 64.6 for India, and 34 cases. Source: NCRB."
+ },
+ "/states/lakshadweep/": {
+  "img": "assets/og/states-lakshadweep.png",
+  "alt": "Lakshadweep: 43.3 crimes against women for every lakh women in 2024, against 64.6 for India, and 13 cases. Source: NCRB."
+ },
+ "/states/puducherry/": {
+  "img": "assets/og/states-puducherry.png",
+  "alt": "Puducherry: 30.6 crimes against women for every lakh women in 2024, against 64.6 for India, and 272 cases. Source: NCRB."
+ }
+}

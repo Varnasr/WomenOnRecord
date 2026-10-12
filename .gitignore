@@ -8,3 +8,4 @@ scripts/og/card.html
 
 # Test screenshots never belong in the published site.
 /*.png
+scripts/og/cards/

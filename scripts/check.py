@@ -39,6 +39,7 @@ toml = open(os.path.join(ROOT, 'netlify.toml'), encoding='utf-8').read()
 csp = re.search(r'Content-Security-Policy = "([^"]+)"', toml).group(1)
 i18n = open(os.path.join(ROOT, 'js', 'i18n.js'), encoding='utf-8').read()
 loaded = re.sub(r'<a\s[^>]*>', '', page)  # a link is navigation, which the CSP does not govern
+loaded = re.sub(r'<script type="application/ld\+json">.*?</script>', '', loaded, flags=re.S)  # structured data names addresses, it loads nothing
 for origin in set(re.findall(r'https://[a-z0-9.-]+', loaded + i18n)) - {'https://github.com', 'https://www.womenonrecord.net'}:
     if origin not in csp:
         fail.append(f'{origin} is loaded but not allowed by the CSP')
@@ -117,6 +118,21 @@ for (code, yr), now in sorted(cont.items()):
     if max(a, b) / min(a, b) > JUMP or tv > SPREAD:
         fail.append(f'{code} {yr - 1} to {yr}: India cases {a:,.0f} to {b:,.0f}, spread across states moved {tv:.2f}. '
                     f'A column may be read from the wrong place; if the change is real, add it to CONTINUITY_OK with its reason')
+# Every crime and state page has a link preview of its own, and every card says what the
+# data says now. A card is an image, so nothing else would notice it going stale.
+sys.path.insert(0, os.path.join(ROOT, 'scripts', 'og'))
+import make_page_cards
+_, want = make_page_cards.plan()
+have = json.load(open(os.path.join(ROOT, 'assets', 'og', 'cards.json'), encoding='utf-8'))
+if have != want:
+    fail.append('assets/og/cards.json is stale: run python3 scripts/og/make_page_cards.py')
+for u, c in want.items():
+    if not os.path.exists(os.path.join(ROOT, c['img'])):
+        fail.append(f'{u} has no preview image at {c["img"]}')
+for f in PAGES:
+    u = '/' + f[:-len('index.html')]
+    if u.startswith(('/crimes/', '/states/')) and u not in ('/crimes/', '/states/') and u not in want:
+        fail.append(f'{u} has no preview card of its own')
 for f in ('downloads/womenonrecord.xlsx', 'downloads/codebook.csv', 'data/site.json'):
     if not os.path.exists(os.path.join(ROOT, f)):
         fail.append(f'{f} is missing')
