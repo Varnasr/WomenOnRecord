@@ -48,8 +48,13 @@ def build():
         if c not in heads or int(r['year']) >= SITE_FROM:
             heads[c] = {'label': r['crime_head'], 'group': r['group'],
                         'ipc': r['ipc_section'], 'bns': r['bns_section_or_act']}
+    cities = {}
     for r in rows:
         s = r['state']
+        if r['kind'] == 'city':
+            # cities stay out of the places list, which every state map and table is drawn from
+            cities.setdefault(s, {}).setdefault(r['measure'], [None] * len(years))[years.index(int(r['year']))] = num(r['value'])
+            continue
         if s not in seen:
             seen.add(s)
             places.append({'id': s, 'name': DISPLAY.get(s, s), 'map': MAPNAME.get(s, s),
@@ -65,7 +70,7 @@ def build():
         srcs[str(y)] = {'title': f'Crime in India {y}', 'mirror': 'National Crime Records Bureau (ncrb.gov.in), one file for each table',
                         'files': [{'url': m['url'], 'sha256': m['sha256'], 'name': m['file'][5:]} for m in old if m['year'] == y]}
     return {'years': years, 'places': places, 'heads': heads, 'series': series,
-            'notes': notes, 'sources': srcs, 'long': {'years': LONG_YEARS, 'series': long}}
+            'notes': notes, 'cities': cities, 'sources': srcs, 'long': {'years': LONG_YEARS, 'series': long}}
 
 if __name__ == '__main__':
     text = json.dumps(build(), ensure_ascii=False, separators=(',', ':'))

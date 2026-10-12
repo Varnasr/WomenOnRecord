@@ -66,8 +66,8 @@ never be added to those lists.
 `explore/` is the whole dataset as a table that can be filtered, searched,
 sorted and downloaded, with the view kept in the address. It reads
 `data/explore.json`, which `scripts/build_explore.py` writes from
-`data/womenonrecord.csv` with every repeated value written once (542 KB against
-9.3 MB). The build fails unless every CSV row comes back exactly from the
+`data/womenonrecord.csv` with every repeated value written once (about 1.8 MB against
+25 MB, before gzip). The build fails unless every CSV row comes back exactly from the
 compact file, and a download from the page rebuilds rows in the CSV's own
 eighteen columns. Measure names there are English, as in the files; the page
 says so in each translation. Rebuild it after any data change; CI runs
@@ -289,6 +289,37 @@ Traps already met, so nobody meets them again:
   conviction rate.
 - Rape of girls is mostly booked under POCSO s.4 and 6. Show POCSO beside
   rape whenever rape is shown.
+
+## Tables added in October 2026
+
+`scripts/add_raw_tables.py` copies more NCRB tables into `data/raw/cii<year>_v1.txt`
+from the edition's PDF, by the footer NCRB prints on each table page, and refuses a
+PDF whose SHA-256 is not the one in `sources.json`. It appends and never rewrites.
+The tables it added, all 2020 to 2024, and what each needs:
+
+- **3A.4 and 4A.10, who the offender was** (`RAPE_OFFENDER`, `POCSO_OFFENDER`). The two
+  tables print their middle columns in opposite order (3A.4 has partners in col 5 and
+  acquaintances in col 6, 4A.10 the reverse), checked against the printed header
+  positions in every edition. 4A.10 is from the chapter on crimes against children and
+  counts boys, so its total is above POCSO_RAPE. 3A.4's total equals RAPE, and
+  `check.py` holds it there.
+- **3A.11, rape by section** (`RAPE_SECTION`). IPC columns to 2023, BNS from 2024,
+  mapped head by head in `build_data.py`; gang rape is IPC 376D+376DA+376DB. The
+  top-level columns must add to all rape cases in every row, and the build fails if
+  they do not. IPC 376AB is labelled differently in different editions and is left out.
+  Page 3 of the 2024 table prints its footer as "TABLE 3A.11 Page 3" with no "of 4",
+  which is why `table_pages()` accepts a footer without it.
+- **3A.9 and 3A.10, persons arrested to acquitted** (`PERSONS` by state, `persons_*`
+  measures on the FIR crime codes for India). 2020 has no transgender columns, so its
+  totals sit in different columns. 3A.9's later pages drop the row numbers, so rows are
+  matched by position and every row's sexes must add to its printed total.
+  `check.py` holds the state table's India row equal to 3A.9's total. More people are
+  charge-sheeted than arrested in most states, which the courts page explains with
+  Siddharth v State of Uttar Pradesh (16 August 2021).
+- **3B.1, the 19 cities** (`CITY`, `kind` = city). Cities are kept out of
+  `site.json` places (they would land on every state map) and sit in `cities`.
+  NCRB's city rate divides by the 2011 census population and is stored as
+  `rate_2011pop`, never compared with state rates.
 
 ## Commands
 

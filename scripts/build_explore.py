@@ -78,6 +78,26 @@ MEASURES = {
     'police_total_for_investigation_2014def': 'Police: cases for investigation, 2014-2015 definition',
     'police_transferred': 'Police: transferred to another police station or magistrate',
     'police_withdrawn_by_govt': 'Police: withdrawn by the government during investigation',
+    # who the offender was (3A.4, 4A.10)
+    'cases_known': 'Cases where the offender was known to the victim',
+    'known_family': 'Offender a family member',
+    'known_partner': 'Offender a friend, online friend, live-in partner, man who promised marriage, or (for rape) separated husband',
+    'known_acquaintance': 'Offender a family friend, neighbour, employer or other known person',
+    'cases_unknown': 'Offender unknown or not identified',
+    'known_share': 'Share of cases where the offender was known (%)',
+    # rape by section (3A.11)
+    'by_police': 'Rape by a police officer', 'by_public_servant': 'Rape by a public servant',
+    'by_armed_forces': 'Rape by a member of the armed forces', 'by_jail_staff': 'Rape by staff of a jail, remand home or place of custody',
+    'by_hospital_staff': 'Rape by staff of a hospital', 'by_relative_trust': 'Rape by a relative, guardian, teacher or person in a position of trust',
+    'gang_rape': 'Gang rape', 'causing_death': 'Rape causing death or a persistent vegetative state',
+    'by_separated_husband': 'Rape by a separated husband', 'repeat_offender': 'Rape by a repeat offender',
+    # cities (3B.1)
+    'population_lakh_2011': 'Population, 2011 census, as NCRB prints it (lakh)',
+    'rate_2011pop': 'Cases per lakh of the 2011 census population',
+    # persons (3A.9, 3A.10)
+    'persons_arrested': 'Persons arrested', 'persons_arrested_female': 'Women arrested',
+    'persons_chargesheeted': 'Persons charge-sheeted', 'persons_convicted': 'Persons convicted',
+    'persons_convicted_female': 'Women convicted', 'persons_discharged': 'Persons discharged', 'persons_acquitted': 'Persons acquitted',
 }
 for band, words in (('under6', 'under 6'), ('6_12', '6 to 12'), ('12_16', '12 to 16'), ('16_18', '16 to 18'),
                     ('18_30', '18 to 30'), ('30_45', '30 to 45'), ('45_60', '45 to 60'), ('60plus', '60 and over')):

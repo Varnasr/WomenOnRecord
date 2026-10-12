@@ -23,7 +23,7 @@ def table_pages(txt, table):
     """Pages whose footer names the table, e.g. 'TABLE 3A.2 Page 3 of 28'."""
     out = []
     for p in pages(txt):
-        m = re.search(r'TABLE\s+' + re.escape(table) + r'\s+Page\s+(\d+)\s+of\s+(\d+)', p)
+        m = re.search(r'TABLE\s+' + re.escape(table) + r'\s+Page\s+(\d+)(?:\s+of\s+(\d+))?', p)
         if m:
             out.append((int(m.group(1)), p))
     return [p for _, p in sorted(out)]
@@ -162,3 +162,34 @@ def parse_heads_table(txt, table):
             for (n, _, _), v in zip(datacols, nums):
                 data.setdefault(n, {})[label] = None if v == '-' else float(v)
     return data
+
+def parse_cities(txt, table='3B.1'):
+    """City-wise table 3B.1: rows are the 19 cities of two million or more, each
+    printed as 'SL  numbers' with the city name on the line above and its State in
+    brackets on the line below (or 'SL Name numbers' on one line), then TOTAL CITIES.
+    Returns {name: [numbers]} with name like 'Ahmedabad (Gujarat)'."""
+    out = {}
+    for p in table_pages(txt, table):
+        lines = p.split('\n')
+        ci = next(i for i, l in enumerate(lines) if l.strip().startswith('[1]'))
+        body = lines[ci + 1:]
+        for j, l in enumerate(body):
+            s = l.strip()
+            m = re.match(r'^(\d+)\s+(.*)$', s) or re.match(r'^(TOTAL CITIES)\s+(.*)$', s)
+            if not m:
+                continue
+            toks = m.group(2).split()
+            nums = []
+            while toks and NUM.match(toks[-1]):
+                nums.insert(0, toks.pop())
+            if len(nums) < 5:
+                continue
+            name = ' '.join(toks)
+            if m.group(1) == 'TOTAL CITIES':
+                name = 'Total cities'
+            elif not name:
+                above = body[j - 1].strip() if j else ''
+                below = body[j + 1].strip() if j + 1 < len(body) else ''
+                name = above + (' ' + below if below.startswith('(') else '')
+            out[re.sub(r'\s+', ' ', name)] = [None if v == '-' else float(v) for v in nums]
+    return out

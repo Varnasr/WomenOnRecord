@@ -72,6 +72,15 @@ for (code, st_, yr), v in cases.items():
         if abs(parts - v) > 0.5:
             fail.append(f'{yr} {st_}: IPC_TOTAL + SLL_TOTAL = {parts}, TOTAL = {v}')
 
+# Tables added in October 2026 must agree with the ones they sit beside.
+val = {(r['crime_code'], r['state'], r['year'], r['measure']): r['value'] for r in rows}
+for (code, st_, yr, m), v in val.items():
+    if code == 'RAPE_SECTION' and m == 'cases' and v != val.get(('RAPE', st_, yr, 'cases')):
+        fail.append(f'{yr} {st_}: rape by section (3A.11) totals {v}, rape cases (3A.2) are {val.get(("RAPE", st_, yr, "cases"))}')
+    if code == 'RAPE_OFFENDER' and m == 'cases' and v != val.get(('RAPE', st_, yr, 'cases')):
+        fail.append(f'{yr} {st_}: rape by offender (3A.4) totals {v}, rape cases (3A.2) are {val.get(("RAPE", st_, yr, "cases"))}')
+    if code == 'PERSONS' and st_ == 'All India' and v != val.get(('TOTAL', st_, yr, m)):
+        fail.append(f'{yr}: {m} is {v} by state (3A.10) and {val.get(("TOTAL", st_, yr, m))} by crime head (3A.9)')
 for f in ('downloads/womenonrecord.xlsx', 'downloads/codebook.csv', 'data/site.json'):
     if not os.path.exists(os.path.join(ROOT, f)):
         fail.append(f'{f} is missing')

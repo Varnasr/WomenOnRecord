@@ -229,6 +229,86 @@ def rows():
             for c, m, u in crt:
                 add('All India', y, code, 'outcome', head[2], head[3], head[4], 'court_' + m,
                     t37[c][lc], u, '3A.7', 'India as a whole. Trials completed in a year mostly began in earlier years.')
+        # Who the offender was: 3A.4 (rape) and 4A.10 (POCSO s.4 and 6, girls and boys).
+        # The two tables print the two middle groups in opposite order, checked against
+        # the printed column headers of every edition from 2020 to 2024.
+        rel = {'3A.4': ('RAPE_OFFENDER', "Rape cases by the offender's relation to the victim (s.376 IPC / BNS 64-70)", '376', '64-70',
+                        {5: 'known_partner', 6: 'known_acquaintance'},
+                        'Women and girls. known_partner: friends, online friends, live-in partners or men who promised marriage, and separated husbands. known_acquaintance: family friends, neighbours, employers and other known persons.'),
+               '4A.10': ('POCSO_OFFENDER', "POCSO s.4 and 6 cases by the offender's relation to the child", None, 'POCSO Act s.4 and 6',
+                         {5: 'known_acquaintance', 6: 'known_partner'},
+                         'Child victims, girls and boys (NCRB chapter 4A), so the total is above the POCSO figure in the chapter on crimes against women. known_partner: friends, online friends, or live-in partners or men who promised marriage. known_acquaintance: family friends, neighbours, employers and other known persons.')}
+        for t, (code, label, ipc, bns, mid, note) in rel.items():
+            tr = load(y, t)
+            for st in ROWKEYS:
+                if (tr[3][st] or 0) != sum(tr[c][st] or 0 for c in (4, 5, 6)) or (tr[8][st] or 0) != (tr[3][st] or 0) + (tr[7][st] or 0):
+                    raise SystemExit(f'{y} {t} {st}: known cases do not add up')
+                for c, m in [(3, 'cases_known'), (4, 'known_family'), (5, mid[5]), (6, mid[6]), (7, 'cases_unknown'), (8, 'cases')]:
+                    add(st, y, code, 'sexual', label, ipc, bns, m, tr[c][st], 'count', t, note)
+                add(st, y, code, 'sexual', label, ipc, bns, 'known_share', tr[9][st], 'percent', t, 'Share of cases in which the offender was known to the victim, as printed by NCRB.')
+        # Rape by section: 3A.11. IPC sections to 2023, BNS from 2024, mapped head by head.
+        t311 = load(y, '3A.11')
+        if y < 2024:
+            sec = {'by_police': [5], 'by_public_servant': [6], 'by_armed_forces': [7], 'by_jail_staff': [8], 'by_hospital_staff': [9],
+                   'by_relative_trust': [11], 'gang_rape': [25, 26, 27], 'causing_death': [21], 'by_separated_husband': [22],
+                   'repeat_offender': [28], 'cases': [29]}
+        else:
+            sec = {'by_police': [5], 'by_public_servant': [6], 'by_armed_forces': [7], 'by_jail_staff': [8], 'by_hospital_staff': [9],
+                   'by_relative_trust': [10], 'gang_rape': [24], 'causing_death': [21], 'by_separated_husband': [22],
+                   'repeat_offender': [27], 'cases': [28]}
+        # every case sits in exactly one top-level column, which is what lets the page say so
+        top = [3, 4, 18, 21, 22, 23, 24, 27] if y == 2024 else [3, 4, 10] + list(range(20, 29))
+        for st in ROWKEYS:
+            if abs(sum(t311[c][st] or 0 for c in top) - (t311[sec['cases'][0]][st] or 0)) > 0.5:
+                raise SystemExit(f'{y} 3A.11 {st}: the sections do not add to all rape cases')
+        for st in ROWKEYS:
+            for m, cols in sec.items():
+                note = {'gang_rape': 'IPC 376D, 376DA and 376DB added together to 2023; BNS 70 from 2024.',
+                        'causing_death': 'Rape causing death or a persistent vegetative state: IPC 376A, BNS 66.',
+                        'by_relative_trust': 'By a relative, guardian, teacher or person in a position of trust: IPC 376(2)(f), BNS 64(2)(f).',
+                        'cases': 'All rape cases, as the total of the section-wise table.'}.get(m, 'IPC 376(2)(a) to (e), BNS 64(2)(a) to (e).')
+                add(st, y, 'RAPE_SECTION', 'sexual', 'Rape cases by section of law (s.376 IPC / BNS 64-71)', '376', '64-71',
+                    m, sum(t311[c][st] or 0 for c in cols), 'count', '3A.11', note)
+        # Persons arrested to persons convicted: 3A.10 by state (all crimes against women),
+        # 3A.9 for India by crime head. 2020 has no transgender columns, so the totals sit elsewhere.
+        pcol = ({'persons_arrested': 5, 'persons_arrested_female': 4, 'persons_chargesheeted': 8, 'persons_convicted': 11,
+                 'persons_convicted_female': 10, 'persons_discharged': 14, 'persons_acquitted': 17} if y == 2020 else
+                {'persons_arrested': 6, 'persons_arrested_female': 4, 'persons_chargesheeted': 10, 'persons_convicted': 14,
+                 'persons_convicted_female': 12, 'persons_discharged': 18, 'persons_acquitted': 22})
+        t310 = load(y, '3A.10')
+        for st in ROWKEYS:
+            for m, c in pcol.items():
+                add(st, y, 'PERSONS', 'outcome', 'Persons arrested, charge-sheeted and tried, all crimes against women', None, None,
+                    m, t310[c][st], 'count', '3A.10', 'Persons, not cases. People convicted, discharged or acquitted in a year were mostly arrested in earlier years.')
+        t39 = P.parse_heads_table(txt, '3A.9')
+        # Later pages print the row labels without their numbers, so rows are matched by
+        # position, and every row's sexes must add to its printed total for each stage.
+        labs39 = list(t39[3])
+        t39 = {c: dict(zip(labs39, col.values())) for c, col in t39.items()}
+        grp = [(3, 5)] + [(c - 2, c) for c in (8, 11, 14, 17)] if y == 2020 else [(c - 3, c) for c in (6, 10, 14, 18, 22)]
+        for lab in labs39:
+            for a, tot in grp:
+                if sum(t39[c][lab] or 0 for c in range(a, tot)) != (t39[tot][lab] or 0):
+                    raise SystemExit(f'{y} 3A.9 {lab}: sexes do not add to the total in col {tot}')
+        for code, test in pick.items():
+            head = next(h for h in HEADS if h[0] == code)
+            lp = find(t39, test)
+            for m, c in pcol.items():
+                add('All India', y, code, 'outcome', head[2], head[3], head[4], m, t39[c][lp], 'count', '3A.9',
+                    'India as a whole. Persons, not cases. People convicted in a year were mostly arrested in earlier years.')
+        # The 19 cities of two million people or more: table 3B.1. Each edition prints three
+        # years; only its own year is taken. NCRB's rate divides by the city's 2011 census
+        # population, so it is kept apart from the state rates.
+        cities = P.parse_cities(txt)
+        tot = cities.pop('Total cities')
+        if len(cities) != 19 or any(abs(sum(v[i] for v in cities.values()) - tot[i]) > 0.5 for i in range(3)):
+            raise SystemExit(f'{y} 3B.1: cities do not add to the total')
+        for name, v in list(cities.items()) + [('Total, 19 cities', tot)]:
+            for m, val, unit in (('cases', v[2], 'count'), ('population_lakh_2011', v[3], 'lakh'),
+                                 ('rate_2011pop', v[4], 'rate'), ('chargesheeting_rate', v[5], 'percent')):
+                add(name, y, 'CITY', 'city', 'Crimes against women in cities of two million or more', None, None, m, val, unit, '3B.1',
+                    'The rate is cases per lakh of the 2011 census population NCRB prints for the city, so it does not allow for growth since 2011.')
+                out[-1]['kind'] = 'city'
     old_rows(add)
     return out
 

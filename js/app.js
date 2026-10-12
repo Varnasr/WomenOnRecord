@@ -226,7 +226,30 @@
     flow(st.crime, st.year);
     field();
     outcomes(st.crime, 'All India');
+    persons();
     fir();
+  }
+  // People, not cases: tables 3A.9 (India, by crime) and 3A.10 (states, all crimes against women).
+  var STAGES = [['persons_arrested', 'per.arr'], ['persons_chargesheeted', 'per.cs'], ['persons_convicted', 'per.conv'], ['persons_acquitted', 'per.acq'], ['persons_discharged', 'per.dis']];
+  function persons() {
+    var c = st.crime, y = st.year, A = 'All India', code = c === 'TOTAL' ? 'PERSONS' : c;
+    var g = function (m, p) { return S(code, m, p || A, y); };
+    if (g('persons_arrested') == null) {
+      $('perIntro').textContent = t('per.none', { y: y });
+      $('perChart').innerHTML = ''; $('perCap').textContent = ''; $('perStatesP').textContent = ''; $('perStates').innerHTML = '';
+      return;
+    }
+    $('perIntro').textContent = t('per.p', { y: y, crime: lc(crimeName(c)), arr: fmt(g('persons_arrested'), 0), f: fmt(g('persons_arrested_female'), 0),
+      cs: fmt(g('persons_chargesheeted'), 0), conv: fmt(g('persons_convicted'), 0), acq: fmt(g('persons_acquitted'), 0), dis: fmt(g('persons_discharged'), 0) });
+    $('perCap').textContent = t('per.cap', { y: y, crime: lc(crimeName(c)) });
+    var vals = STAGES.map(function (s) { return g(s[0]); });
+    C.watch($('perChart'), function () {
+      C.stack($('perChart'), { rows: STAGES.map(function (s, i) { return { label: t(s[1]), parts: [{ key: 'v', value: vals[i] }] }; }),
+        keys: [{ key: 'v', label: t('per.h'), color: '--knot' }], values: true, fmt: function (v) { return fmt(v, 0); }, label: $('perCap').textContent });
+    });
+    $('perStatesP').textContent = t('per.states', { y: y });
+    placeTable($('perStates'), STAGES.map(function (s) { return { label: t(s[1]), get: function (p) { return S('PERSONS', s[0], p, y); } }; })
+      .concat([{ label: t('per.f'), get: function (p) { return S('PERSONS', 'persons_arrested_female', p, y); } }]));
   }
 
   // A hundred women: each one is 1 in every 100 cases of a crime before the
@@ -417,10 +440,36 @@
     svg.setAttribute('viewBox', '0 0 ' + projected.W + ' ' + projected.H.toFixed(0));
     svg.innerHTML = projected.paths.map(function (pp) { return '<path d="' + pp.d + '" fill="' + (pp.name === mp ? 'var(--red)' : 'var(--q1)') + '" stroke="var(--cloth)" stroke-width="1"/>'; }).join('');
   }
+  // The 19 cities of two million or more: table 3B.1, kept apart from the states.
+  function cityTable() {
+    var Cy = D.cities || {}, names = Object.keys(Cy).filter(function (n) { return n.indexOf('Total') !== 0; }).sort();
+    var yrs = D.years.filter(function (y) { return names.some(function (n) { return (Cy[n].cases || [])[D.years.indexOf(y)] != null; }); }), y = yrs[yrs.length - 1];
+    if (!y) { $('cities').hidden = true; return; }
+    var gv = function (n, m, yy) { return ((Cy[n] || {})[m] || [])[D.years.indexOf(yy)]; };
+    var tot = Object.keys(Cy).find(function (n) { return n.indexOf('Total') === 0; });
+    $('cityIntro').textContent = t('city.p', { y: y, y0: yrs[0], n: fmt(gv(tot, 'cases', y), 0), all: fmt(S('TOTAL', 'cases', 'All India', y), 0),
+      share: fmt(gv(tot, 'cases', y) / S('TOTAL', 'cases', 'All India', y) * 100, 1) });
+    var cols = yrs.map(function (yy) { return { key: 'y' + yy, label: String(yy), get: function (n) { return gv(n, 'cases', yy); }, dp: 0 }; })
+      .concat([{ key: 'csr', label: t('city.csr', { y: y }), get: function (n) { return gv(n, 'chargesheeting_rate', y); }, dp: 1 },
+               { key: 'rate', label: t('city.rate', { y: y }), get: function (n) { return gv(n, 'rate_2011pop', y); }, dp: 1 }]);
+    var sortKey = null;
+    function draw() {
+      var list = names.slice(), sc = cols.find(function (x) { return x.key === sortKey; });
+      if (sc) list.sort(function (a, b) { return (sc.get(b) == null ? -1 : sc.get(b)) - (sc.get(a) == null ? -1 : sc.get(a)); });
+      var h = '<thead><tr><th scope="col"' + (sc ? '' : ' aria-sort="ascending"') + '><button type="button" data-k="">' + t('city.col') + '</button></th>' +
+        cols.map(function (x) { return '<th scope="col"' + (sortKey === x.key ? ' aria-sort="descending"' : '') + '><button type="button" data-k="' + x.key + '">' + x.label + '</button></th>'; }).join('') + '</tr></thead><tbody>';
+      list.forEach(function (n) { h += '<tr><th scope="row">' + n + '</th>' + cols.map(function (x) { return '<td>' + fmt(x.get(n), x.dp) + '</td>'; }).join('') + '</tr>'; });
+      h += '<tr class="total"><th scope="row">' + t('city.total') + '</th>' + cols.map(function (x) { return '<td>' + fmt(x.get(tot), x.dp) + '</td>'; }).join('') + '</tr>';
+      $('cityTable').innerHTML = h + '</tbody>';
+      $('cityTable').querySelectorAll('thead button').forEach(function (b) { b.addEventListener('click', function () { sortKey = b.dataset.k || null; draw(); }); });
+    }
+    draw();
+  }
   function states() {
     map();
     tileMap();
     yearMaps();
+    cityTable();
     $('placeList').innerHTML = STATES().slice().sort(byName).map(function (p) {
       return '<li><a href="' + link('/states/' + slug(p.id) + '/') + '">' + place(p.id) + '</a></li>';
     }).join('');
@@ -594,7 +643,8 @@
     tabs($('trendMode'), ['cases', 'rate'], 'trend', function (m) { return t(m === 'rate' ? 'm.rate' : 'm.cases'); }, trend);
     trend();
     if (FIR.indexOf(c) >= 0) { $('pc').hidden = false; flow(c, y1); }
-    if (c === 'RAPE') ages('All India');
+    if (c === 'RAPE') { ages('All India'); bySection(); }
+    known(c);
     var hrows = STATES().slice().sort(byName).map(function (p) { return { label: place(p.id), values: D.years.map(function (y) { return rate(c, p.id, y); }) }; });
     C.watch($('heatChart'), function () {
       C.heat($('heatChart'), { rows: hrows, x: D.years, label: t('heat.cap'), fmt: function (v) { return fmt(v, v < 10 ? 1 : 0); } });
@@ -628,6 +678,43 @@
         fmt: function (v, tick) { return tick && !rateMode && v >= 100000 ? fmt(v / 100000, 3) + ' L' : fmt(v, tick ? (rateMode ? 1 : 0) : dp); },
         marks: [{ i: X.indexOf(2020), label: t('mark.lock') }, { i: X.indexOf(2024), label: t('mark.bns') }] });
     });
+  }
+  // Who the offender was: NCRB tables 3A.4 (rape) and 4A.10 (POCSO s.4 and 6, girls and boys).
+  function known(c) {
+    var code = { RAPE: 'RAPE_OFFENDER', POCSO_RAPE: 'POCSO_OFFENDER' }[c];
+    if (!code) return;
+    var A = 'All India', yrs = D.years.filter(function (y) { return S(code, 'cases', A, y) != null; }), y = yrs[yrs.length - 1];
+    if (!y) return;
+    $('known').hidden = false;
+    var g = function (m, p, yy) { return S(code, m, p || A, yy || y); };
+    $('knownIntro').textContent = t('known.p.' + c, { y: y, total: fmt(g('cases'), 0), known: fmt(g('cases_known'), 0), share: fmt(g('known_share'), 1),
+      fam: fmt(g('known_family'), 0), part: fmt(g('known_partner'), 0), acq: fmt(g('known_acquaintance'), 0), unk: fmt(g('cases_unknown'), 0) });
+    var keys = [{ key: 'known_family', label: t('known.k.fam'), color: '--red' }, { key: 'known_partner', label: t('known.k.part.' + c), color: '--knot' },
+                { key: 'known_acquaintance', label: t('known.k.acq'), color: '--q3' }, { key: 'cases_unknown', label: t('known.k.unk'), color: '--soft' }];
+    var rows = yrs.map(function (yy) { return { label: String(yy), parts: keys.map(function (k) { return { key: k.key, value: g(k.key, A, yy) }; }) }; });
+    $('knownCap').textContent = t('known.cap.' + c, { y0: yrs[0], y1: y });
+    C.watch($('knownChart'), function () { C.stack($('knownChart'), { rows: rows, keys: keys, share: true, fmt: function (v) { return fmt(v, 0); }, label: $('knownCap').textContent }); });
+    $('knownStatesP').textContent = t('known.states', { y: y });
+    placeTable($('knownStates'), [{ label: t('known.share'), get: function (p) { return g('known_share', p); }, dp: 1 }]
+      .concat(keys.map(function (k) { return { label: k.label, get: function (p) { return g(k.key, p); } }; })));
+  }
+  // Rape by section of law: table 3A.11, India.
+  var SECTIONS = [['gang_rape', 'sec.r.gang'], ['by_relative_trust', 'sec.r.rel'], ['officials', 'sec.r.off'], ['by_separated_husband', 'sec.r.sep'],
+                  ['causing_death', 'sec.r.death'], ['repeat_offender', 'sec.r.rep'], ['cases', 'sec.r.all']];
+  var OFFICIALS = ['by_police', 'by_public_servant', 'by_armed_forces', 'by_jail_staff', 'by_hospital_staff'];
+  function secVal(m, y) {
+    if (m !== 'officials') return S('RAPE_SECTION', m, 'All India', y);
+    var vs = OFFICIALS.map(function (o) { return S('RAPE_SECTION', o, 'All India', y); });
+    return vs.some(function (v) { return v == null; }) ? null : vs.reduce(function (a, b) { return a + b; }, 0);
+  }
+  function bySection() {
+    var yrs = D.years.filter(function (y) { return secVal('cases', y) != null; }), y = yrs[yrs.length - 1];
+    if (!y) return;
+    $('bysec').hidden = false;
+    $('secIntro').textContent = t('sec.p', { y: y, gang: fmt(secVal('gang_rape', y), 0), rel: fmt(secVal('by_relative_trust', y), 0),
+      off: fmt(secVal('officials', y), 0), death: fmt(secVal('causing_death', y), 0), all: fmt(secVal('cases', y), 0) });
+    $('secTable').innerHTML = '<thead><tr><th scope="col">' + t('sec.col') + '</th>' + yrs.map(function (yy) { return '<th scope="col">' + yy + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      SECTIONS.map(function (r) { return '<tr' + (r[0] === 'cases' ? ' class="total"' : '') + '><th scope="row">' + t(r[1]) + '</th>' + yrs.map(function (yy) { return '<td>' + fmt(secVal(r[0], yy), 0) + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody>';
   }
   function crimeStates(c) {
     var cols = D.years.map(function (y) { return { key: 'y' + y, label: String(y), get: function (p) { return (cases(c, p) || [])[D.years.indexOf(y)]; }, dp: 0 }; })

@@ -47,6 +47,11 @@ crime_code,MURDER_ALL,All murder victims. IPC 302. BNS/Act 103
 crime_code,RAPE_VICTIMS_AGE,Victims of rape by age (s.376 IPC / BNS 64-70). IPC 376. BNS/Act 64-70
 crime_code,POLICE,"Police disposal, all crimes against women"
 crime_code,COURTS,"Court disposal, all crimes against women"
+crime_code,RAPE_OFFENDER,Rape cases by the offender's relation to the victim (s.376 IPC / BNS 64-70). IPC 376. BNS/Act 64-70
+crime_code,POCSO_OFFENDER,POCSO s.4 and 6 cases by the offender's relation to the child. BNS/Act POCSO Act s.4 and 6
+crime_code,RAPE_SECTION,Rape cases by section of law (s.376 IPC / BNS 64-71). IPC 376. BNS/Act 64-71
+crime_code,PERSONS,"Persons arrested, charge-sheeted and tried, all crimes against women"
+crime_code,CITY,Crimes against women in cities of two million or more
 crime_code,DECEIT_69,"Sexual intercourse by deceitful means (BNS 69, new offence). BNS/Act 69"
 crime_code,RAPE_CUSTODIAL_2014DEF,Custodial rape. IPC 376(2)
 crime_code,RAPE_CUSTODIAL_GANG_2014DEF,"Custodial gang rape. IPC 376(2), 376D"
