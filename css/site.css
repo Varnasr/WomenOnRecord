@@ -490,7 +490,8 @@ html[dir="rtl"] .findings a::after { content: " \2190"; }
 .exstatus { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin-bottom: 8px; }
 .exstatus p { margin: 0; font-size: 14.5px; color: var(--soft); font-variant-numeric: tabular-nums; }
 .exact { display: flex; gap: 8px; }
-.btn { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 4px; border: 1px solid var(--red); background: var(--red); color: #fff; cursor: pointer; }
+.btn { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 4px; border: 1px solid var(--red); background: var(--red); color: var(--ground); cursor: pointer; }
+/* --ground is white in the light theme and near-black in the dark one, where --red turns pale. */
 .btn.ghost { background: var(--cloth); color: var(--ink); border-color: var(--thread); }
 .btn:disabled { opacity: .5; cursor: default; }
 .btn[data-msg] { position: relative; }

@@ -634,7 +634,8 @@
     pk.value = c;
     $('h-crime').textContent = head(c);
     document.title = head(c) + ' · Women on Record';
-    var la = $('crimeLaw'); la.textContent = law(c); la.href = '/law/#' + (LAW_ROW[c] || 'crimes');
+    var la = $('crimeLaw'); la.textContent = law(c); la.href = '/law/#' + (LAW_ROW[c] || 'crimes'); la.hidden = !law(c);
+    if (la.previousSibling && la.previousSibling.nodeType === 3) la.previousSibling.textContent = law(c) ? ' · ' : '';
     var v = cases(c, 'All India'), y0 = D.years[0], y1 = D.years[D.years.length - 1];
     $('crimeIntro').textContent = t('crime.intro', { b: fmt(v[v.length - 1], 0), y1: y1, a: fmt(v[0], 0), y0: y0, r: fmt(rate(c, 'All India', y1), 2) });
     var note = (D.notes[c] || {})[String(D.years[D.years.length - 1])];

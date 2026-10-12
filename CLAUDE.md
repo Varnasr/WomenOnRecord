@@ -290,6 +290,23 @@ Traps already met, so nobody meets them again:
 - Rape of girls is mostly booked under POCSO s.4 and 6. Show POCSO beside
   rape whenever rape is shown.
 
+## Accessibility
+
+Audited with axe-core on 12 October 2026 over all 65 pages and the 404 page, in
+both colour themes at 390 and 1280 wide, and over nine pages in Hindi, Urdu and
+Tamil: 0 serious or critical. Three things it found, so they are not undone:
+
+- An element that holds something focusable cannot be `role="img"`. The state map
+  (`#map`) and the tile map are `role="group"`, because every state on them is a
+  link, and the home page figure has no role, because the share buttons sit inside it.
+- The 100 figures (`C.iso`) are `aria-hidden`. The text and legend beside them give
+  every number.
+- `.btn` writes `var(--ground)` on `var(--red)`, which is white on dark red in the
+  light theme and near-black on pale red in the dark one. A literal `#fff` measured
+  2.38:1 in the dark theme.
+
+The audit is not in CI. Run it again after any change to colour, the header or a chart.
+
 ## Tables added in October 2026
 
 `scripts/add_raw_tables.py` copies more NCRB tables into `data/raw/cii<year>_v1.txt`

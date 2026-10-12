@@ -461,7 +461,7 @@
       }
       g += '</a>';
     });
-    el.innerHTML = '<svg viewBox="0 0 ' + Wd.toFixed(0) + ' ' + H.toFixed(0) + '" width="' + Wd.toFixed(0) + '" height="' + H.toFixed(0) + '" role="img" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
+    el.innerHTML = '<svg viewBox="0 0 ' + Wd.toFixed(0) + ' ' + H.toFixed(0) + '" width="' + Wd.toFixed(0) + '" height="' + H.toFixed(0) + '" role="group" aria-label="' + esc(spec.label || '') + '">' + g + '</svg>';
     el.__csv = [['place'].concat(spec.x)].concat(spec.tiles.slice().sort(function (a, b) { return a.name.localeCompare(b.name); }).map(function (t) { return [t.name].concat(t.values); }));
   }
 
@@ -636,7 +636,7 @@
   function iso(groups) {
     var out = '', k = 0;
     groups.forEach(function (g) { for (var i = 0; i < g.n; i++) { out += woman(g.fill, g.line, k % 3 === 0); k++; } });
-    return '<div class="iso">' + out + '</div>';
+    return '<div class="iso" aria-hidden="true">' + out + '</div>';
   }
 
   window.WOR_CHARTS = { strip: strip, treemap: treemap, tiles: tiles, swarm: swarm, wrap: wrap, columns: columns, heat: heat, dumbbell: dumbbell, savePng: savePng, saveSvg: saveSvg, saveCsv: saveCsv, woman: woman, hundred: hundred, iso: iso, flow: flow, lines: lines, stack: stack, slope: slope, watch: watch, niceMax: niceMax };
