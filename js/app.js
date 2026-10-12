@@ -241,6 +241,7 @@
     }
     $('perIntro').textContent = t('per.p', { y: y, crime: lc(crimeName(c)), arr: fmt(g('persons_arrested'), 0), f: fmt(g('persons_arrested_female'), 0),
       cs: fmt(g('persons_chargesheeted'), 0), conv: fmt(g('persons_convicted'), 0), acq: fmt(g('persons_acquitted'), 0), dis: fmt(g('persons_discharged'), 0) });
+    if ((c === 'RAPE' || c === 'MURDER_RAPE') && g('persons_arrested_female')) $('perIntro').textContent += ' ' + t('per.women');
     $('perCap').textContent = t('per.cap', { y: y, crime: lc(crimeName(c)) });
     var vals = STAGES.map(function (s) { return g(s[0]); });
     C.watch($('perChart'), function () {
