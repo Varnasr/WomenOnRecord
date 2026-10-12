@@ -72,6 +72,21 @@ SUMS_2024 = {'ASSAULT_MODESTY': ([45, 60, 75, 90, 105], ['bns74', 'bns75', 'bns7
              'KIDNAP': ([195, 145, 165], ['bns137_142', 'bns87_marriage', 'bns96_procuration'])}
 SLL_2024 = {228, 231, 249, 252, 258, 261, 264, 279, 282}
 
+# The layout NCRB used for each edition's tables. 'ipc': one column of cases per head
+# (I, V, R), as 2020 to 2023 print them. 'split': IPC, BNS and Total columns, as 2024
+# prints them, the year the BNS came in. A year missing here stops the build, so a new
+# edition cannot be read with a guessed layout: read its headers, then add it.
+# See "Adding an NCRB edition" in CLAUDE.md.
+LAYOUT = {2020: 'ipc', 2021: 'ipc', 2022: 'ipc', 2023: 'ipc', 2024: 'split'}
+# 2020 alone prints no transgender columns in the people-arrested and POCSO-age tables.
+NO_TRANS = {2020}
+
+def layout(year):
+    if year not in LAYOUT:
+        raise SystemExit(f'No layout recorded for {year}. Read the headers of tables 3A.2, 3A.9, 3A.10, 3A.11, 4A.9 and '
+                         f'7A.2 in the {year} edition, compare them with 2024, and add {year} to LAYOUT (and NO_TRANS if needed).')
+    return LAYOUT[year]
+
 PAGES = {2020: "199-215", 2021: "211-227", 2022: "211-227", 2023: "211-227", 2024: "281-309"}
 SOURCE = json.load(open(os.path.join(RAW, 'sources.json')))
 SOURCE_V2 = json.load(open(os.path.join(RAW, 'sources_v2.json')))
@@ -136,6 +151,7 @@ def rows():
             'flag': ';'.join(flags_for(year) + list(extra) + (['NOT_REPORTED'] if value is None else [])),
             'note': note})
     for y in YEARS:
+        layout(y)
         t32 = load(y, '3A.2')
         t31 = load(y, '3A.1')
         popcol = 6
@@ -147,7 +163,7 @@ def rows():
         for code, group, label, ipc, bns, c_old, c_new in HEADS:
             for s in ROWKEYS:
                 note = note_for(code, y)
-                if y < 2024:
+                if layout(y) == 'ipc':
                     i, v, r = (t32[c_old].get(s), t32[c_old + 1].get(s), t32[c_old + 2].get(s))
                     add(s, y, code, group, label, ipc, bns, 'cases', i, 'count', '3A.2', note)
                     add(s, y, code, group, label, ipc, bns, 'victims', v, 'count', '3A.2', note)
@@ -178,7 +194,7 @@ def rows():
                 add(s, y, code, group, label, ipc, bns, 'victims', v, 'count', '3A.2', note)
                 add(s, y, code, group, label, ipc, bns, 'rate', r, 'rate', '3A.2', 'Cases per lakh women, as printed by NCRB. ' + note)
         # BNS 69, new in 2024
-        if y == 2024:
+        if layout(y) == 'split':
             for s in ROWKEYS:
                 add(s, y, 'DECEIT_69', 'sexual', 'Sexual intercourse by deceitful means (BNS 69, new offence)', None, '69',
                     'cases', t32[20][s], 'count', '3A.2', 'No IPC equivalent. Not counted in RAPE.')
@@ -264,7 +280,7 @@ def rows():
         # Girls' ages in POCSO s.4 and 6 cases: 4A.9, from the chapter on crimes against children.
         # 2020 prints Boys, Girls, Total per band; from 2021 a Transgender column sits between.
         t49 = load(y, '4A.9')
-        step = 3 if y == 2020 else 4
+        step = 3 if y in NO_TRANS else 4
         bands = ['victims_under6', 'victims_6_12', 'victims_12_16', 'victims_16_18', 'victims']
         gcol = {m: 4 + i * step for i, m in enumerate(bands)}
         for st in ROWKEYS:
@@ -303,7 +319,7 @@ def rows():
                 # Only the total column is read and checked. In 2024, 7A.2 prints Chhattisgarh's
                 # IPC rape cases as 100 beside BNS 32 and a total of 119, so its IPC column
                 # does not add up; the total does, and matches 7A.3.
-                st = load_v2(y, ch + '.2')[10 if y == 2024 else 87]
+                st = load_v2(y, ch + '.2')[10 if layout(y) == 'split' else 87]
                 if P.check_totals(st):
                     raise SystemExit(f'{y} {ch}.2: the states do not add to the printed totals: {P.check_totals(st)}')
                 if st['All India'] != pol[4][rp]:
@@ -313,7 +329,7 @@ def rows():
                     add(place, y, code, 'sexual', label, '376', '64-70', 'cases', st[place], 'count', ch + '.2', note, src=src)
         # Rape by section: 3A.11. IPC sections to 2023, BNS from 2024, mapped head by head.
         t311 = load(y, '3A.11')
-        if y < 2024:
+        if layout(y) == 'ipc':
             sec = {'by_police': [5], 'by_public_servant': [6], 'by_armed_forces': [7], 'by_jail_staff': [8], 'by_hospital_staff': [9],
                    'by_relative_trust': [11], 'gang_rape': [25, 26, 27], 'causing_death': [21], 'by_separated_husband': [22],
                    'repeat_offender': [28], 'cases': [29]}
@@ -322,7 +338,7 @@ def rows():
                    'by_relative_trust': [10], 'gang_rape': [24], 'causing_death': [21], 'by_separated_husband': [22],
                    'repeat_offender': [27], 'cases': [28]}
         # every case sits in exactly one top-level column, which is what lets the page say so
-        top = [3, 4, 18, 21, 22, 23, 24, 27] if y == 2024 else [3, 4, 10] + list(range(20, 29))
+        top = [3, 4, 18, 21, 22, 23, 24, 27] if layout(y) == 'split' else [3, 4, 10] + list(range(20, 29))
         for st in ROWKEYS:
             if abs(sum(t311[c][st] or 0 for c in top) - (t311[sec['cases'][0]][st] or 0)) > 0.5:
                 raise SystemExit(f'{y} 3A.11 {st}: the sections do not add to all rape cases')
@@ -337,7 +353,7 @@ def rows():
         # Persons arrested to persons convicted: 3A.10 by state (all crimes against women),
         # 3A.9 for India by crime head. 2020 has no transgender columns, so the totals sit elsewhere.
         pcol = ({'persons_arrested': 5, 'persons_arrested_female': 4, 'persons_chargesheeted': 8, 'persons_convicted': 11,
-                 'persons_convicted_female': 10, 'persons_discharged': 14, 'persons_acquitted': 17} if y == 2020 else
+                 'persons_convicted_female': 10, 'persons_discharged': 14, 'persons_acquitted': 17} if y in NO_TRANS else
                 {'persons_arrested': 6, 'persons_arrested_female': 4, 'persons_chargesheeted': 10, 'persons_convicted': 14,
                  'persons_convicted_female': 12, 'persons_discharged': 18, 'persons_acquitted': 22})
         t310 = load(y, '3A.10')
@@ -350,7 +366,7 @@ def rows():
         # position, and every row's sexes must add to its printed total for each stage.
         labs39 = list(t39[3])
         t39 = {c: dict(zip(labs39, col.values())) for c, col in t39.items()}
-        grp = [(3, 5)] + [(c - 2, c) for c in (8, 11, 14, 17)] if y == 2020 else [(c - 3, c) for c in (6, 10, 14, 18, 22)]
+        grp = [(3, 5)] + [(c - 2, c) for c in (8, 11, 14, 17)] if y in NO_TRANS else [(c - 3, c) for c in (6, 10, 14, 18, 22)]
         for lab in labs39:
             for a, tot in grp:
                 if sum(t39[c][lab] or 0 for c in range(a, tot)) != (t39[tot][lab] or 0):

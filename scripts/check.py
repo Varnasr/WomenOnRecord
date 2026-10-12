@@ -83,6 +83,40 @@ for (code, st_, yr, m), v in val.items():
         fail.append(f'{yr} {st_}: girls by age (4A.9) total {v}, POCSO s.4 and 6 girl victims (3A.2) are {val.get(("POCSO_RAPE", st_, yr, "victims"))}')
     if code == 'PERSONS' and st_ == 'All India' and v != val.get(('TOTAL', st_, yr, m)):
         fail.append(f'{yr}: {m} is {v} by state (3A.10) and {val.get(("TOTAL", st_, yr, m))} by crime head (3A.9)')
+# Continuity from one year to the next. A column read one place to the left or right
+# still adds up to its own printed totals, and its printed rate still matches its own
+# cases, so neither check above can see it. What it changes is the size of the crime and
+# where in India it happens. Each crime's India count may not move by more than JUMP
+# times between two years, and its spread across the states (total variation distance
+# between the two years' shares) by more than SPREAD, unless CONTINUITY_OK names the
+# pair with its reason. Crimes under FLOOR cases in both years are too noisy to judge.
+# Set from 2017 to 2024, where the largest ordinary moves are 2.1 times and 0.34.
+# Fault-injected on 2026-10-12 by pointing seven 2024 headings at a neighbouring
+# column (cruelty, dowry deaths, acid attack, rape, POCSO, insult, cyber): all seven fail,
+# here or in the cross-checks above.
+JUMP, SPREAD, FLOOR = 2.5, 0.36, 100
+CONTINUITY_OK = {
+    ('RAPE_GIRLS_IPC', 2019): 'Rape of girls moved to POCSO; the IPC count fell by half.',
+    ('RAPE_GIRLS_IPC', 2020): 'Rape of girls moved to POCSO; the IPC count fell by half.',
+    ('RAPE_GIRLS_IPC', 2022): 'Rape of girls moved to POCSO; the IPC count fell to a third.',
+}
+STATE_ROWS = {r['state'] for r in rows if r['kind'] in ('state', 'ut')}
+cont = {}
+for r in rows:
+    if r['measure'] == 'cases' and r['value'] != '' and int(r['year']) >= 2017 and (r['kind'] in ('state', 'ut') or r['state'] == 'All India'):
+        cont.setdefault((r['crime_code'], int(r['year'])), {})[r['state']] = float(r['value'])
+for (code, yr), now in sorted(cont.items()):
+    before = cont.get((code, yr - 1))
+    if not before or (code, yr) in CONTINUITY_OK:
+        continue
+    a, b = before.get('All India'), now.get('All India')
+    if not a or not b or max(a, b) < FLOOR:
+        continue
+    ta = sum(v for k, v in before.items() if k in STATE_ROWS); tb = sum(v for k, v in now.items() if k in STATE_ROWS)
+    tv = 0.5 * sum(abs(before.get(k, 0) / ta - now.get(k, 0) / tb) for k in STATE_ROWS) if ta and tb else 0
+    if max(a, b) / min(a, b) > JUMP or tv > SPREAD:
+        fail.append(f'{code} {yr - 1} to {yr}: India cases {a:,.0f} to {b:,.0f}, spread across states moved {tv:.2f}. '
+                    f'A column may be read from the wrong place; if the change is real, add it to CONTINUITY_OK with its reason')
 for f in ('downloads/womenonrecord.xlsx', 'downloads/codebook.csv', 'data/site.json'):
     if not os.path.exists(os.path.join(ROOT, f)):
         fail.append(f'{f} is missing')

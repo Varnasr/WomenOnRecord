@@ -3,7 +3,9 @@
 i18n/en.json is the reference. Keys used in the pages (data-i18n) are read
 from site/shell.html and site/pages/, so the English shown without JavaScript and the English
 the script applies cannot drift. Every other language must carry every key,
-with the same {placeholders}. Usage: python3 scripts/build_i18n.py [--check]
+with the same {placeholders}. {last} is filled in here with the latest NCRB year in
+data/site.json, so a sentence about the latest year moves with the data.
+Usage: python3 scripts/build_i18n.py [--check]
 """
 import html.parser, json, os, re, sys
 
@@ -73,6 +75,8 @@ def build():
         extra = set(d) - set(en)
         probs += [f'{l}: unused key {k}' for k in extra]
         dicts[l] = d
+    last = str(max(json.load(open(os.path.join(ROOT, 'data', 'site.json'), encoding='utf-8'))['years']))
+    dicts = {l: {k: v.replace('{last}', last) for k, v in d.items()} for l, d in dicts.items()}
     return dicts, probs
 
 if __name__ == '__main__':

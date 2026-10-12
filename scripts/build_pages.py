@@ -60,8 +60,13 @@ def slug(s):
     s = s.lower().replace('&', ' and ')
     return re.sub(r'[^a-z0-9]+', '-', s).strip('-')
 
+def last_year():
+    """The latest NCRB year in the data. '{last}' in a page source or in the shell
+    becomes this, so text about the latest year moves with the data."""
+    return str(max(json.load(open(os.path.join(ROOT, 'data', 'site.json'), encoding='utf-8'))['years']))
+
 def read(name):
-    src = open(os.path.join(SITE, 'pages', name), encoding='utf-8').read()
+    src = open(os.path.join(SITE, 'pages', name), encoding='utf-8').read().replace('{last}', last_year())
     m = re.match(r'<!--page (\{.*?\}) -->\n', src)
     if not m: raise SystemExit(f'{name}: first line must be <!--page {{json}} -->')
     return json.loads(m.group(1)), src[m.end():]
@@ -80,7 +85,7 @@ def render(shell, meta, content, url, attrs='', v=None, build=''):
     return stamp(out, v)
 
 def pages():
-    shell = open(os.path.join(SITE, 'shell.html'), encoding='utf-8').read()
+    shell = open(os.path.join(SITE, 'shell.html'), encoding='utf-8').read().replace('{last}', last_year())
     site = json.load(open(os.path.join(ROOT, 'data', 'site.json'), encoding='utf-8'))
     v, build = versions()
     R = lambda *a, **k: render(*a, v=v, build=build, **k)

@@ -13,13 +13,14 @@ from openpyxl.utils import get_column_letter
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 rows = list(csv.DictReader(open(os.path.join(ROOT, 'data', 'womenonrecord.csv'), encoding='utf-8')))
 src = json.load(open(os.path.join(ROOT, 'data', 'raw', 'sources.json')))
+LAST = max(int(r['year']) for r in rows)
 YEARS = sorted({r['year'] for r in rows})
 
 COLUMNS = [
  ('state', 'State or union territory as NCRB prints it, or a total row (Total states, Total UTs, All India).'),
  ('lgd_code', 'Local Government Directory state code, for joining to other data. Blank for total rows.'),
  ('kind', 'state, ut (union territory) or total.'),
- ('year', 'Calendar year the cases were recorded, 2014 to 2024.'),
+ ('year', f'Calendar year the cases were recorded, 2014 to {LAST}.'),
  ('crime_code', 'Short stable code for the crime head. See the crime codes below.'),
  ('group', 'sexual, killed, home, other, total, outcome or denominator.'),
  ('crime_head', 'The crime head in plain words.'),
@@ -57,9 +58,9 @@ def header(ws, cols):
 
 ws = wb.active; ws.title = 'About'
 about = [
- ['Women on Record: crimes against women in India, as police and courts recorded them, 2014 to 2024'],
+ [f'Women on Record: crimes against women in India, as police and courts recorded them, 2014 to {LAST}'],
  [],
- ['What this is', 'Every figure published state-wise in Chapter 3A (crimes against women) and table 2A.3 (murder victims by sex) of NCRB Crime in India, Volume 1, for 2016 to 2024, and in tables 5.2, 5.3, 5.5, 5.6 and 3.3 for 2014 and 2015, read from the PDFs by script and checked against NCRB\'s own totals.'],
+ ['What this is', f'Every figure published state-wise in Chapter 3A (crimes against women) and table 2A.3 (murder victims by sex) of NCRB Crime in India, Volume 1, for 2016 to {LAST}, the tables on rape of Scheduled Caste and Scheduled Tribe women and girls in chapters 7A and 7C of Volume 2 for 2021 to {LAST}, and in tables 5.2, 5.3, 5.5, 5.6 and 3.3 for 2014 and 2015, read from the PDFs by script and checked against NCRB\'s own totals.'],
  ['Years that differ', 'NCRB changed its crime headings in 2017. A heading defined differently before then carries a code of its own ending in _2014DEF or _2016DEF, so it never joins a later series by accident. In 2016 rape includes POCSO cases booked with s.376, and before 2017 the total for crimes against women leaves out POCSO and several other headings. For 2014 and 2015 NCRB published police and court outcomes for India only. The population behind the rates changed in 2018 and again in 2020.'],
  ['What it cannot show', 'These are cases recorded by police. They are not a measure of how often these crimes happen: most violence against women is never reported. A higher rate in one state can mean more crime or more recording. NCRB itself warns that states should not be compared on these figures alone.'],
  ['Police and court outcomes', 'NCRB publishes police and court disposal by state only for all crimes against women together (COURTS, POLICE). For single crimes such as rape it publishes them for India as a whole only (measures starting police_ and court_ on All India rows).'],

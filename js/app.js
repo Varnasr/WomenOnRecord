@@ -156,7 +156,7 @@
     findings();
     var YL = D.years[D.years.length - 1], o = pc('RAPE', 'All India', YL);
     $('homeCourts').textContent = t('home.courts.t', { conv: Math.round(o.cr), y: YL });
-    // a strip of every rape case before the courts in 2024, split by outcome
+    // a strip of every rape case before the courts in the latest year, split by outcome
     var parts = [['conv', '--red'], ['acq', '--turmeric'], ['dis', '--q4'], ['othc', '--soft'], ['ptr', '--knot-open']], x = 0, g = '';
     parts.forEach(function (p) { var w = o[p[0]] / o.ct * 300; g += '<rect x="' + x.toFixed(1) + '" y="0" width="' + Math.max(1, w).toFixed(1) + '" height="14" fill="var(' + p[1] + ')"/>'; x += w; });
     $('vizCourts').setAttribute('viewBox', '0 0 300 14'); $('vizCourts').innerHTML = g;
@@ -1354,7 +1354,7 @@
     if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
-      D = res[0]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
+      D = res[0]; st.year = D.years[D.years.length - 1]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
       if (GEO) project();
       setLang(lang);
     }).catch(function (e) {

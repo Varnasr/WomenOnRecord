@@ -1,4 +1,4 @@
-<!--page {"template": "state", "title": "{place}", "desc": "Crimes against women recorded in {place}, 2017 to 2024, with what police and courts did, from NCRB's Crime in India."} -->
+<!--page {"template": "state", "title": "{place}", "desc": "Crimes against women recorded in {place}, 2017 to {last}, with what police and courts did, from NCRB's Crime in India."} -->
   <header class="phead shead">
     <div class="shead-t">
       <p class="kicker"><a href="/states/" data-i18n="nav.states">States</a></p>
@@ -13,7 +13,7 @@
   </header>
 
   <section class="sec" id="court" aria-labelledby="h-court">
-    <h2 id="h-court" data-i18n="state.iso.h">Before the courts, 2024</h2>
+    <h2 id="h-court" data-i18n="state.iso.h">Before the courts, {last}</h2>
     <figure class="isofig hero-iso"><div id="stateIso"></div><figcaption id="stateIsoCap"></figcaption></figure>
   </section>
 
@@ -23,8 +23,8 @@
   </section>
 
   <section class="sec" id="vsindia" aria-labelledby="h-vsindia">
-    <h2 id="h-vsindia" data-i18n="strip.h">Among the states, 2024</h2>
-    <figure class="chart cloth"><div id="stripChart"></div><figcaption data-i18n="strip.cap">Cases recorded for every lakh women in 2024. In each row the red dot is this state, the black line is India, and the faint dots are the other states and union territories. Each row has its own scale, because some crimes are recorded hundreds of times more often than others. NCRB warns that a higher rate can come from more crime or from police who record more of it.</figcaption></figure>
+    <h2 id="h-vsindia" data-i18n="strip.h">Among the states, {last}</h2>
+    <figure class="chart cloth"><div id="stripChart"></div><figcaption data-i18n="strip.cap">Cases recorded for every lakh women in {last}. In each row the red dot is this state, the black line is India, and the faint dots are the other states and union territories. Each row has its own scale, because some crimes are recorded hundreds of times more often than others. NCRB warns that a higher rate can come from more crime or from police who record more of it.</figcaption></figure>
   </section>
 
   <section class="sec" id="change" aria-labelledby="h-change">
@@ -50,7 +50,7 @@
 
   <section class="sec" id="table" aria-labelledby="h-table">
     <h2 id="h-table" data-i18n="state.table">Every crime, every year</h2>
-    <p class="intro" data-i18n="state.table.p">The cases recorded under every heading in each year, with the rate for every lakh women in 2024 worked out from the cases and NCRB's population figure.</p>
+    <p class="intro" data-i18n="state.table.p">The cases recorded under every heading in each year, with the rate for every lakh women in {last} worked out from the cases and NCRB's population figure.</p>
     <details class="fold"><summary data-i18n="fold.show">Show every figure</summary>
       <div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-table">
         <table class="grid" id="stateTable"></table>

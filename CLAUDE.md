@@ -305,7 +305,13 @@ Tamil: 0 serious or critical. Three things it found, so they are not undone:
   light theme and near-black on pale red in the dark one. A literal `#fff` measured
   2.38:1 in the dark theme.
 
-The audit is not in CI. Run it again after any change to colour, the header or a chart.
+`scripts/audit.mjs` runs it in CI as its own job (`npm ci`, then
+`node scripts/audit.mjs`; locally pass `CHROME=` the Chromium path). It walks every
+page, so a new page is covered by existing, loads each in both themes at 390 and 1280
+and three pages in Urdu and Tamil, and fails on a serious or critical axe finding, a
+page wider than the screen, a script error or a failed request. The site loads
+nothing from another origin, so a failed request is always a fault. 288 page views,
+about four minutes.
 
 ## Tables added in October 2026
 
@@ -333,10 +339,56 @@ The tables it added, all 2020 to 2024, and what each needs:
   `check.py` holds the state table's India row equal to 3A.9's total. More people are
   charge-sheeted than arrested in most states, which the courts page explains with
   Siddharth v State of Uttar Pradesh (16 August 2021).
+- **4A.9, girls' ages under POCSO s.4 and 6** (`POCSO_VICTIMS_AGE`). Boys, girls and
+  (from 2021) transgender columns per age band; only girls are read. The girls' total
+  equals POCSO_RAPE victims in chapter 3A in every state and year, and `check.py`
+  holds it there. The rape age chart puts these beside table 3A.3, where few girls appear.
+- **Volume 2, rape of Scheduled Caste and Scheduled Tribe women and girls**
+  (`RAPE_SC`, `RAPE_ST`), tables 7A.2, 7A.3, 7A.5, 7C.2, 7C.3 and 7C.5, 2021 to 2024,
+  in `data/raw/cii<year>_v2.txt` with `sources_v2.json` (`add_raw_tables.py --vol2`).
+  The 2020 Volume 2 is not held: NCRB's 2020 page serves it as chapter files behind
+  tabs and no mirror carries it. The heading is rape under the IPC or BNS read with the
+  SC/ST (Prevention of Atrocities) Act, the only heading under which NCRB lists it, so a
+  case where police did not apply the Act is not in these tables, and the page says so.
+  Rows are found by label (`head_row`), because their numbers move between editions
+  (1A.8 to 2023, 1A.1 in 2024). The build recomputes the printed charge-sheeting rate
+  (col 18 / col 19) and conviction rate (col 15 / col 18) from their counts. The state
+  table's rape total is col 87 to 2023 and col 10 in 2024; only that column is read,
+  because 2024's 7A.2 misprints Chhattisgarh's IPC count (100 beside BNS 32 and a total
+  of 119). Never compare these counts between states: the SC and ST populations differ.
 - **3B.1, the 19 cities** (`CITY`, `kind` = city). Cities are kept out of
   `site.json` places (they would land on every state map) and sit in `cities`.
   NCRB's city rate divides by the 2011 census population and is stored as
   `rate_2011pop`, never compared with state rates.
+
+## Adding an NCRB edition
+
+Rehearsed on 12 October 2026 with a fake 2025 made from the 2024 pages. In order:
+
+1. Get Volume 1 and Volume 2, add each to `data/raw/sources.json` and
+   `sources_v2.json` with its URL, SHA-256 and date, and copy the tables in with
+   `add_raw_tables.py` (the list is every table already in the 2024 raw files).
+2. Add the year to `YEARS` in `build_data.py`. The build stops at once with "No
+   layout recorded": that is deliberate. Read the column headers of 3A.2, 3A.9, 3A.10,
+   3A.11, 4A.9 and 7A.2 against 2024. If they match, add the year to `LAYOUT` as
+   `'split'`. If NCRB drops the IPC column, that is a new layout: add a name for it and
+   give every branch on `layout(y)` its columns. `HEADS` holds the 3A.2 columns.
+3. Run every build and `check.py`. The continuity check fails if a crime's India count
+   moves more than 2.5 times, or its spread across states more than 0.36, from the
+   year before. That is what a column read from the wrong place looks like, and the
+   sum and rate checks cannot see it. If a change is real, put it in `CONTINUITY_OK`
+   with the reason.
+4. Every sentence about the latest year takes it from the data: `{last}` in a page
+   source or a string becomes the latest year at build, and scripts read
+   `D.years`. A new sentence about the latest year uses one or the other, never a
+   literal year. A literal year is right only for a fixed fact (1 July 2024, the 2024
+   edition's notes).
+5. `note_for`, `flags_for`, `SUMS_2024` and the 2024 caption on the rape-by-section
+   table describe 2024. Decide whether each holds for the new year.
+6. The context sources and their pages are separate and dated; update them only from
+   their own new editions.
+7. Re-run `scripts/og/make_card.py`, the audit, and read the home, rape, courts and a
+   state page at 390 wide.
 
 ## Commands
 
