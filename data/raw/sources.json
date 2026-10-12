@@ -6,7 +6,7 @@
   "mirror": "People's Archive of Rural India (PARI) library",
   "sha256": "6c9679d089b6ac384fbd61beeea25026ba4bd78be563df35af591de7f7aaf193",
   "retrieved_on": "2026-10-09",
-  "pages_kept": 75
+  "pages_kept": 77
  },
  "2021": {
   "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
@@ -15,7 +15,7 @@
   "mirror": "OpenCity",
   "sha256": "d0b191b8a623ed31b26cdeb1b0983ce8f055f3c0aa7af7da86b8a709ac263d60",
   "retrieved_on": "2026-10-09",
-  "pages_kept": 77
+  "pages_kept": 79
  },
  "2022": {
   "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
@@ -24,7 +24,7 @@
   "mirror": "OpenCity",
   "sha256": "7c5ee3128b0b6bc7c068f986961eaf40bb383d9f241ff75ad3a38e4ab3c23e8d",
   "retrieved_on": "2026-10-09",
-  "pages_kept": 77
+  "pages_kept": 79
  },
  "2023": {
   "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
@@ -33,7 +33,7 @@
   "mirror": "OpenCity",
   "sha256": "553ac8b2eadfe9e2f3e3b80688fb3ced884dde4c1ddb5ba18077ca7432289661",
   "retrieved_on": "2026-10-09",
-  "pages_kept": 77
+  "pages_kept": 79
  },
  "2024": {
   "publisher": "National Crime Records Bureau, Ministry of Home Affairs",
@@ -42,6 +42,6 @@
   "mirror": "OpenCity",
   "sha256": "75b827bdcfcd5e641984d7fb549aaa2f3cdf030caace2d93853e450ee236bb4c",
   "retrieved_on": "2026-10-09",
-  "pages_kept": 101
+  "pages_kept": 103
  }
 }

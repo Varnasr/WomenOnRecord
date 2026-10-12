@@ -246,6 +246,18 @@ def rows():
                 for c, m in [(3, 'cases_known'), (4, 'known_family'), (5, mid[5]), (6, mid[6]), (7, 'cases_unknown'), (8, 'cases')]:
                     add(st, y, code, 'sexual', label, ipc, bns, m, tr[c][st], 'count', t, note)
                 add(st, y, code, 'sexual', label, ipc, bns, 'known_share', tr[9][st], 'percent', t, 'Share of cases in which the offender was known to the victim, as printed by NCRB.')
+        # Girls' ages in POCSO s.4 and 6 cases: 4A.9, from the chapter on crimes against children.
+        # 2020 prints Boys, Girls, Total per band; from 2021 a Transgender column sits between.
+        t49 = load(y, '4A.9')
+        step = 3 if y == 2020 else 4
+        bands = ['victims_under6', 'victims_6_12', 'victims_12_16', 'victims_16_18', 'victims']
+        gcol = {m: 4 + i * step for i, m in enumerate(bands)}
+        for st in ROWKEYS:
+            if abs(sum(t49[gcol[m]][st] or 0 for m in bands[:4]) - (t49[gcol['victims']][st] or 0)) > 0.5:
+                raise SystemExit(f'{y} 4A.9 {st}: the age bands do not add to all girl victims')
+            for m in bands:
+                add(st, y, 'POCSO_VICTIMS_AGE', 'sexual', 'Girl victims of penetrative sexual assault under POCSO s.4 and 6, by age', None, 'POCSO Act s.4 and 6',
+                    m, t49[gcol[m]][st], 'count', '4A.9', 'Girls only, from NCRB chapter 4A (crimes against children). The total equals the girl victims of POCSO s.4 and 6 in chapter 3A.')
         # Rape by section: 3A.11. IPC sections to 2023, BNS from 2024, mapped head by head.
         t311 = load(y, '3A.11')
         if y < 2024:

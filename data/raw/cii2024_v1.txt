@@ -6531,3 +6531,115 @@ UNION TERRITORIES:
 
 
                                                                        346
+                                                           TABLE 4A.9
+                         Age Profile of Child Victims of POCSO Act (Sec 4&6) (State/UT-wise) - 2024
+                                Victims below 6 Years            Victims 6 to 12 Years        Victims 12 to 16 Years
+SL         State/UT
+                             Boys Girls Trans Total Boys Girls Trans Total Boys Girls Trans Total
+[1]         [2]               [3]      [4]     [5]     [6]     [7]    [8]     [9]    [10]  [11]    [12]    [13]   [14]
+STATES:
+1 Andhra Pradesh                    0       29         0       29         3      67   0     70     1   362        0   363
+2 Arunachal Pradesh                 0        0         0        0         0       2   0      2     0     9        0     9
+3 Assam                             1       16         0       17         2     275   0    277     7   856        0   863
+4 Bihar                             1       14         0       15         1      67   0     68     0   439        0   439
+5 Chhattisgarh                      0       17         0       17         3      54   0     57     0   644        0   644
+6 Goa                               0        0         0        0         0       0   0      0     0     0        0     0
+7 Gujarat                           2       19         0       21         6      78   0     84     3   996        0   999
+8 Haryana                           7       27         0       34        37     112   0    149    26   634        0   660
+9 Himachal Pradesh                  1        0         0        1         0       3   0      3     4     8        0    12
+10 Jharkhand                        0        0         0        0         0       7   0      7     0   154        0   154
+11 Karnataka                        2       29         0       31         1      72   0     73     6 1035         0 1041
+12 Kerala                           6       62         0       68        75     201   0    276   115   671        0   786
+13 Madhya Pradesh                   1       48         0       49        11     182   0    193     6 1545         0 1551
+14 Maharashtra                      5      101         0      106        71     315   0    386    73 1722         0 1795
+15 Manipur                          0        6         0        6         0       8   0      8     0    16        0    16
+16 Meghalaya                        0       17         0       17         2      61   0     63     1   140        0   141
+17 Mizoram                          0       10         0       10         3      24   0     27     0    53        0    53
+18 Nagaland                         1        0         0        1         0       2   0      2     0     6        0     6
+19 Odisha                           0        0         0        0         0      15   0     15     0   326        0   326
+20 Punjab                           1       19         0       20         6      36   0     42     8   253        0   261
+21 Rajasthan                        1       13         0       14         5      60   0     65     6   495        0   501
+22 Sikkim                           0        2         0        2         0      16   0     16     0    23        0    23
+23 Tamil Nadu                       3       81         0       84        34     212   0    246    31 1995         0 2026
+24 Telangana                        0       24         0       24         1      97   0     98     1   740        0   741
+25 Tripura                          0        6         0        6         3      28   0     31     0    49        0    49
+26 Uttar Pradesh                    9      121         0      130        46     556   0    602    38 1721         0 1759
+27 Uttarakhand                      0        5         0        5         5      29   0     34     9   201        0   210
+28 West Bengal                      1       89         0       90        13     357   0    370    10   770        0   780
+    TOTAL STATE(S)                 42      755         0      797       328    2936   0   3264   345 15863        0 16208
+UNION TERRITORIES:
+29 A&N Islands                      0         2        0         2         1      6   0      7    0     21        0      21
+30 Chandigarh                       0         0        0         0         1      0   0      1    1      0        0       1
+    D&N Haveli and
+31                                  0         2        0         2         0      1   0      1    1     10        0      11
+    Daman & Diu
+32 Delhi                            1       27         0       28        19     125   0    144    19   414        0   433
+33 Jammu & Kashmir                  0        1         0        1         2      16   0     18     3   104        0   107
+34 Ladakh                           0        0         0        0         0       0   0      0     0     1        0     1
+35 Lakshadweep                      0        0         0        0         0       1   0      1     0     0        0     0
+36 Puducherry                       0        1         0        1         0       2   0      2     0    19        0    19
+    TOTAL UT(S)                     1       33         0       34        23     151   0    174    24   569        0   593
+    TOTAL ALL INDIA                43      788         0      831       351    3087   0   3438   369 16432        0 16801
+● As per data provided by States/UTs                                                                  TABLE 4A.9 Page 1 of 2
+● States/UTs may not be compared purely on the basis of crime figures
+
+
+
+
+                                                                     475
+                                                      TABLE 4A.9
+               Age Profile of Child Victims of POCSO Act (Sec 4&6) (State/UT-wise) - 2024 (Concluded)
+                                        Victims 16 to 18 Years                      Total Child Victims
+ SL          State/UT
+                                Boys       Girls      Trans     Total      Boys       Girls      Trans         Total
+ [1]            [2]             [15]        [16]       [17]      [18]      [19]       [20]        [21]          [22]
+STATES:
+1 Andhra Pradesh                          0         484                 0     484     4     942           0        946
+2 Arunachal Pradesh                       0          30                 0      30     0      41           0         41
+3 Assam                                   0        1069                 0    1069    10    2216           0       2226
+4 Bihar                                   0         542                 0     542     2    1062           0       1064
+5 Chhattisgarh                            3        1069                 0    1072     6    1784           0       1790
+6 Goa                                     0           0                 0       0     0       0           0          0
+7 Gujarat                                 2        1346                 0    1348    13    2439           0       2452
+8 Haryana                                11         714                 0     725    81    1487           0       1568
+9 Himachal Pradesh                        0           0                 0       0     5      11           0         16
+10 Jharkhand                              0         401                 0     401     0     562           0        562
+11 Karnataka                              1        2140                 0    2141    10    3276           0       3286
+12 Kerala                                57         907                 0     964   253    1841           0       2094
+13 Madhya Pradesh                         5        1932                 0    1937    23    3707           0       3730
+14 Maharashtra                           19        2674                 0    2693   168    4812           0       4980
+15 Manipur                                0          24                 0      24     0      54           0         54
+16 Meghalaya                              0         132                 0     132     3     350           0        353
+17 Mizoram                                0          16                 0      16     3     103           0        106
+18 Nagaland                               0           3                 0       3     1      11           0         12
+19 Odisha                                 0        1445                 0    1445     0    1786           0       1786
+20 Punjab                                 1         251                 0     252    16     559           0        575
+21 Rajasthan                              2        1064                 0    1066    14    1632           0       1646
+22 Sikkim                                 0          19                 0      19     0      60           0         60
+23 Tamil Nadu                             6        2997                 0    3003    74    5285           0       5359
+24 Telangana                              0        1240                 0    1240     2    2101           0       2103
+25 Tripura                                0          34                 0      34     3     117           0        120
+26 Uttar Pradesh                          8        1173                 0    1181   101    3571           0       3672
+27 Uttarakhand                            3         381                 0     384    17     616           0        633
+28 West Bengal                            2         635                 0     637    26    1851           0       1877
+     TOTAL STATE(S)                     120       22722                 0   22842   835   42276           0      43111
+UNION TERRITORIES:
+29 A&N Islands                             1           46               0      47     2      75           0            77
+30 Chandigarh                              0            0               0       0     2       0           0             2
+     D&N Haveli and
+31                                         0            9               0       9     1      22           0            23
+     Daman & Diu
+32 Delhi                                  7         427                 0     434    46     993           0       1039
+33 Jammu & Kashmir                        1         101                 0     102     6     222           0        228
+34 Ladakh                                 0           3                 0       3     0       4           0          4
+35 Lakshadweep                            0           0                 0       0     0       1           0          1
+36 Puducherry                             0          60                 0      60     0      82           0         82
+     TOTAL UT(S)                          9         646                 0     655    57    1399           0       1456
+     TOTAL ALL INDIA                    129       23368                 0   23497   892   43675           0      44567
+● As per data provided by States/UTs                                                              TABLE 4A.9 Page 2 of 2
+● States/UTs may not be compared purely on the basis of crime figures
+
+
+
+
+                                                                    476

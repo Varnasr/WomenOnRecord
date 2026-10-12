@@ -109,8 +109,8 @@ order = []
 for r in rows:
     if r['crime_code'] not in order: order.append(r['crime_code'])
 for code in order:
-    if code in ('POLICE', 'COURTS', 'FEMALE_POP', 'RAPE_VICTIMS_AGE'):
-        measure = {'POLICE': 'chargesheeting_rate', 'COURTS': 'conviction_rate', 'FEMALE_POP': 'population_lakh', 'RAPE_VICTIMS_AGE': 'victims'}[code]
+    if code in ('POLICE', 'COURTS', 'FEMALE_POP', 'RAPE_VICTIMS_AGE', 'POCSO_VICTIMS_AGE'):
+        measure = {'POLICE': 'chargesheeting_rate', 'COURTS': 'conviction_rate', 'FEMALE_POP': 'population_lakh', 'RAPE_VICTIMS_AGE': 'victims', 'POCSO_VICTIMS_AGE': 'victims'}[code]
     elif code in ('MURDER_WOMEN', 'MURDER_ALL'):
         measure = 'victims'
     else:

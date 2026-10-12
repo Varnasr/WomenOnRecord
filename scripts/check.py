@@ -79,6 +79,8 @@ for (code, st_, yr, m), v in val.items():
         fail.append(f'{yr} {st_}: rape by section (3A.11) totals {v}, rape cases (3A.2) are {val.get(("RAPE", st_, yr, "cases"))}')
     if code == 'RAPE_OFFENDER' and m == 'cases' and v != val.get(('RAPE', st_, yr, 'cases')):
         fail.append(f'{yr} {st_}: rape by offender (3A.4) totals {v}, rape cases (3A.2) are {val.get(("RAPE", st_, yr, "cases"))}')
+    if code == 'POCSO_VICTIMS_AGE' and m == 'victims' and v != val.get(('POCSO_RAPE', st_, yr, 'victims')):
+        fail.append(f'{yr} {st_}: girls by age (4A.9) total {v}, POCSO s.4 and 6 girl victims (3A.2) are {val.get(("POCSO_RAPE", st_, yr, "victims"))}')
     if code == 'PERSONS' and st_ == 'All India' and v != val.get(('TOTAL', st_, yr, m)):
         fail.append(f'{yr}: {m} is {v} by state (3A.10) and {val.get(("TOTAL", st_, yr, m))} by crime head (3A.9)')
 for f in ('downloads/womenonrecord.xlsx', 'downloads/codebook.csv', 'data/site.json'):

@@ -498,13 +498,23 @@
     var y = D.years[D.years.length - 1], vals = AGES.map(function (g) { return S('RAPE_VICTIMS_AGE', g[0], p, y); });
     if (vals.every(function (v) { return v == null; })) { $('ages').hidden = true; return; }
     $('ages').hidden = false;
-    $('ageCap').textContent = t('age.cap', { y: y, place: p === 'All India' ? t('india') : place(p), girls: fmt(S('RAPE_VICTIMS_AGE', 'victims_girls', p, y), 0), women: fmt(S('RAPE_VICTIMS_AGE', 'victims_women', p, y), 0) });
+    // Girls under POCSO s.4 and 6 (table 4A.9) sit beside the under-18 bands; the adult bands have none.
+    var po = AGES.map(function (g, i) { return i < 4 ? S('POCSO_VICTIMS_AGE', g[0], p, y) : null; });
+    var hasPo = po.some(function (v) { return v != null; });
+    var args = { y: y, place: p === 'All India' ? t('india') : place(p), girls: fmt(S('RAPE_VICTIMS_AGE', 'victims_girls', p, y), 0), women: fmt(S('RAPE_VICTIMS_AGE', 'victims_women', p, y), 0),
+      pocso: fmt(S('POCSO_VICTIMS_AGE', 'victims', p, y), 0) };
+    $('ageCap').textContent = t(hasPo ? 'age.cap2' : 'age.cap', args);
+    var labs = AGES.map(function (g) { return g[1].indexOf('age.') === 0 ? t(g[1]) : g[1]; });
     C.watch($('ageChart'), function () {
-      C.columns($('ageChart'), { x: AGES.map(function (g) { return g[1].indexOf('age.') === 0 ? t(g[1]) : g[1]; }), xWrap: true, label: $('ageCap').textContent,
+      if (!hasPo) return C.columns($('ageChart'), { x: labs, xWrap: true, label: $('ageCap').textContent,
         fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); },
         series: [{ label: t('age.h'), values: vals, color: '--knot' }] });
+      C.stack($('ageChart'), { rows: labs.map(function (l, i) { return { label: l, parts: [{ key: 'r', value: vals[i] }, { key: 'p', value: po[i] }] }; }),
+        keys: [{ key: 'r', label: t('age.k.rape'), color: '--knot' }, { key: 'p', label: t('age.k.pocso'), color: '--turmeric' }],
+        values: true, fmt: function (v) { return fmt(v, 0); }, label: $('ageCap').textContent });
     });
   }
+
   function placeFromPage() {
     var id = body.dataset.place;
     var pk = $('statePick');

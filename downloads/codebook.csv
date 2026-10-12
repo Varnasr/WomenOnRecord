@@ -49,6 +49,7 @@ crime_code,POLICE,"Police disposal, all crimes against women"
 crime_code,COURTS,"Court disposal, all crimes against women"
 crime_code,RAPE_OFFENDER,Rape cases by the offender's relation to the victim (s.376 IPC / BNS 64-70). IPC 376. BNS/Act 64-70
 crime_code,POCSO_OFFENDER,POCSO s.4 and 6 cases by the offender's relation to the child. BNS/Act POCSO Act s.4 and 6
+crime_code,POCSO_VICTIMS_AGE,"Girl victims of penetrative sexual assault under POCSO s.4 and 6, by age. BNS/Act POCSO Act s.4 and 6"
 crime_code,RAPE_SECTION,Rape cases by section of law (s.376 IPC / BNS 64-71). IPC 376. BNS/Act 64-71
 crime_code,PERSONS,"Persons arrested, charge-sheeted and tried, all crimes against women"
 crime_code,CITY,Crimes against women in cities of two million or more
