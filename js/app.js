@@ -49,6 +49,8 @@
     var meta = I.langs[lang];
     document.documentElement.lang = lang;
     document.documentElement.dir = meta.dir;
+    // The canonical address follows the language, so each translation is indexed as itself.
+    var cn = $('canon'); if (cn) { var cu = new URL(cn.href); if (lang === 'en') cu.searchParams.delete('lang'); else cu.searchParams.set('lang', lang); cn.href = cu.href; }
     if (meta.font && !$('font-' + lang)) {
       var ln = document.createElement('link');
       ln.id = 'font-' + lang; ln.rel = 'stylesheet'; ln.href = ver(meta.font);

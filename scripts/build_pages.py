@@ -19,6 +19,14 @@ NAV = [('/crimes/', 'nav.crimes', 'Crimes'), ('/states/', 'nav.states', 'States'
 # The nav is three groups (the records, reading them, the data), and a rule
 # separates each group from the one before it.
 NAV_GROUP_STARTS = ('/context/', '/explore/')
+# The languages every page is offered in, as read by js/app.js from ?lang=.
+LANGS = ['en', 'hi', 'ur', 'ta', 'bn', 'mr']
+SITE_URL = 'https://www.womenonrecord.net'
+
+def alternates(url):
+    a = SITE_URL + url
+    return [(l, a if l == 'en' else a + '?lang=' + l) for l in LANGS] + [('x-default', a)]
+
 # Pages outside the nav that mark a nav item as current.
 ALSO = {'/path/': ('/counting/', '/law/')}
 # The crimes that get a page of their own, in the order the crimes page shows them.
@@ -65,6 +73,7 @@ def render(shell, meta, content, url, attrs='', v=None, build=''):
     out = shell
     for k, val in {'title': html.escape(title), 'desc': html.escape(meta['desc']), 'url': url, 'nav': nav,
                  'page': meta.get('page', ''), 'body_attrs': attrs, 'content': content.rstrip('\n'),
+                 'alts': '\n'.join(f'<link rel="alternate" hreflang="{l}" href="{h}">' for l, h in alternates(url)),
                  'build': build, 'vmap': json.dumps(v, sort_keys=True, separators=(',', ':'))}.items():
         out = out.replace('{{' + k + '}}', val)
     if '{{' in out: raise SystemExit(f'{url}: unfilled placeholder')
@@ -93,6 +102,17 @@ def pages():
                 out[u.strip('/') + '/index.html'] = R(shell, m, content, u, f' data-crime="{c}"')
         else:
             out[meta['out']] = R(shell, meta, content, meta['url'])
+    # Every page, with its five translations, for search engines. The 404 page is left out.
+    urls = sorted('/' + k[:-len('index.html')] for k in out if k.endswith('index.html'))
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>',
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for u in urls:
+        for l, h in alternates(u)[:-1]:
+            sm.append(f'<url><loc>{html.escape(h)}</loc>' + ''.join(
+                f'<xhtml:link rel="alternate" hreflang="{l2}" href="{html.escape(h2)}"/>' for l2, h2 in alternates(u)) + '</url>')
+    sm.append('</urlset>')
+    out['sitemap.xml'] = '\n'.join(sm) + '\n'
+    out['robots.txt'] = f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n'
     return out
 
 if __name__ == '__main__':
