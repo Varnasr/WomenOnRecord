@@ -5,3 +5,6 @@ node_modules/
 # Source PDFs are large; data/raw keeps the extracted pages and their checksums.
 *.pdf
 scripts/og/card.html
+
+# Test screenshots never belong in the published site.
+/*.png
