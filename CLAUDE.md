@@ -1,5 +1,7 @@
 # Women on Record
 
+Shared engineering standard: @.claude/engineering-standards.md. It applies to all work in this repository. This file adds what is specific to the project, and wins where the two disagree.
+
 Crimes against women in India, as police and courts recorded them, 2014 to
 2024, at www.womenonrecord.net. Static HTML, no framework. Data from NCRB Crime
 in India, Volume 1, read by script, and eight context sources beside it.

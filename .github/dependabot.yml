@@ -1,0 +1,31 @@
+# Monthly, with minor and patch updates grouped into one pull request per
+# ecosystem and at most two open at a time. Every merged pull request is a
+# production deploy, so a steady stream of small ones costs Netlify credits
+# (.claude/engineering-standards.md, section 0). Major versions still arrive
+# on their own, so each one is a considered upgrade.
+version: 2
+updates:
+- package-ecosystem: github-actions
+  directory: /
+  schedule:
+    interval: monthly
+  labels:
+  - dependencies
+  open-pull-requests-limit: 2
+  groups:
+    github-actions-minor-and-patch:
+      update-types:
+      - minor
+      - patch
+- package-ecosystem: npm
+  directory: /
+  schedule:
+    interval: monthly
+  labels:
+  - dependencies
+  open-pull-requests-limit: 2
+  groups:
+    npm-minor-and-patch:
+      update-types:
+      - minor
+      - patch
