@@ -35,7 +35,7 @@ For every year:
 
 ## Limits
 
-NCW complaints are self-selected. They count women who knew of NCW, chose to complain to it and could reach it, online or otherwise. They are not a measure of how much crime happens in a State and they do not overlap cleanly with NCRB's registered cases. Uttar Pradesh alone is half or more of all complaints in every year (50.0% in 2020, 55.9% in 2023, 13,868 of 25,743 or 53.9% in 2024), which says as much about access to and awareness of NCW as about crime. Small counts in small States and UTs move a lot from year to year. Per-capita rates are not provided here; if built, they should be labelled as complaints to NCW per population, not as crime rates.
+NCW complaints are self-selected. They count women who knew of NCW, chose to complain to it and could reach it, online or otherwise. They say nothing about how much crime happens in a State, and they do not overlap cleanly with NCRB's registered cases. Uttar Pradesh alone is half or more of all complaints in every year (50.0% in 2020, 55.9% in 2023, 13,868 of 25,743 or 53.9% in 2024), which reflects access to and awareness of NCW as well as crime. Small counts in small States and UTs move a lot from year to year. Per-capita rates are not provided here; if built, they should be labelled as complaints to NCW per population, not as crime rates.
 
 ## Gaps
 

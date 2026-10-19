@@ -9,7 +9,7 @@ Live at https://www.womenonrecord.net
 
 ## What it shows
 
-- Cases recorded each year for thirteen groups of crime: rape, POCSO sexual
+- Cases recorded each year for sixteen crime headings and their total: rape, POCSO sexual
   offences against girls, attempt to rape, assault and harassment, insult to
   modesty, murder with rape, dowry deaths, abetment of suicide, women murdered,
   cruelty by husband or relatives, the Dowry Prohibition Act, the Domestic
@@ -49,10 +49,12 @@ NCRB's figures.
 
 ## What it cannot show
 
-These are cases that reached a police station and were written down. They are
-not a measure of how often the crimes happen. A higher rate in one state can
-mean more crime or more recording, and NCRB itself warns against comparing
-states on these figures alone. The site says this where the numbers are.
+These are cases that reached a police station and were written down, which is
+fewer than the crimes that took place. In the National Family Health Survey of
+2019-21, 76.5 in every 100 women who had experienced physical or sexual
+violence had never told anyone about it. A higher rate in one state can mean
+more crime or more recording, and NCRB itself warns against comparing states on
+these figures alone. The site says this where the numbers are.
 
 ## The data
 
