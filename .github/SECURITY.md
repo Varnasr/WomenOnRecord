@@ -2,7 +2,7 @@
 
 ## Reporting a vulnerability
 
-Email **info@pinpointventures.in**. Please do not open a public issue for a vulnerability.
+Email **care@pinpointventures.in**. Please do not open a public issue for a vulnerability.
 
 Include a description of the problem, the steps to reproduce it and what it
 would let someone do.
