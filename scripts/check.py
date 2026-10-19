@@ -141,7 +141,8 @@ text = re.sub(r'<(script|style)[^>]*>.*?</\1>', '', page, flags=re.S)
 text = re.sub(r'<[^>]+>', ' ', text)
 # The owner's banned words (the part of the list a regex can hold) and the
 # "X, not Y" endings. See CLAUDE.md.
-BANNED = r'\b(delve\w*|certainly|utilise|leverage|robust|streamline|harness|foster|underscore|enhance|testament|pivotal|intricate|crucial|transformative|groundbreaking|tapestry|landscape|paradigm|synergy|showcas\w+|meticulous\w*|notabl[ey]|noteworthy|seamless\w*|multifaceted|nuanced|holistic|invaluable|unparalleled|garner|bolster|elucidate|interplay|underpin\w*|vibrant|stunning|boasts|renowned|embark|unlock|unleash|empower\w*|elevate|amplify|resonate|facilitate|spearhead|realm|myriad|plethora|genuinely|truly|arguably|honestly|navigate)\b'
+BANNED = r'\b(delve\w*|certainly|utilise|leverage|robust|streamline|harness|foster|underscore|enhance|testament|pivotal|intricate|crucial|transformative|groundbreaking|tapestry|landscape|paradigm|synergy|showcas\w+|meticulous\w*|notabl[ey]|noteworthy|seamless\w*|multifaceted|nuanced|holistic|invaluable|unparalleled|garner|bolster|elucidate|interplay|underpin\w*|vibrant|stunning|boasts|renowned|embark|unlock|unleash|empower\w*|elevate|amplify|resonate|facilitate|spearhead|realm|myriad|plethora|genuinely|truly|arguably|honestly|navigate|liminal|palpable|ineffable|visceral|dappled|ledger|commendable|versatil\w+|solidif\w+|bustling|nestled|picturesque|breathtaking|poignant|captivat\w+|evocative|evoke|indelible|picturesque)\b'
+PHRASES = r"shed(?:s|ding)? light on|at the intersection of|when it comes to|it.s important to note|plays? a (?:vital|key|significant) role|in today.s|ever-evolving|needless to say|pave the way|stands? as a testament|rich (?:cultural )?heritage|deeply rooted|a stark reminder"
 TURNS = [r',\s*not\s+(?:a |an |the )?\w+\.', r'\bnot only\b', r'\bnot just\b', r"\bit'?s not\b.*\bit'?s\b"]
 en = json.load(open(os.path.join(ROOT, 'i18n', 'en.json'), encoding='utf-8'))
 readme = open(os.path.join(ROOT, 'README.md'), encoding='utf-8').read()
@@ -152,6 +153,8 @@ for where, s in [('the pages', text), ('README.md', readme)] + [(f'en.json {k}',
         fail.append(f'em dash in {where}')
     for w in re.findall(BANNED, s, flags=re.I):
         fail.append(f'banned word "{w}" in {where}')
+    for w in re.findall(PHRASES, s, flags=re.I):
+        fail.append(f'banned phrase "{w}" in {where}')
     for pat in TURNS:
         if re.search(pat, s, flags=re.I):
             fail.append(f'"X, not Y" turn ({pat}) in {where}')

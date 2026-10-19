@@ -92,8 +92,8 @@ def structured(url):
     elif url == '/method/':
         ld = {'@context': 'https://schema.org', '@type': 'Dataset',
               'name': f'Women on Record: crimes against women in India, 2014 to {last}',
-              'description': (f'Every figure NCRB publishes state-wise on crimes against women in Crime in India, 2014 to {last}: '
-                              'cases, victims and rates by crime and state, what police and courts did with them, who the offender was '
+              'description': (f'Every figure NCRB publishes state-wise on crimes against women in Crime in India, 2014 to {last}. '
+                              'It holds cases, victims and rates by crime and state, what police and courts did with them, who the offender was '
                               'in rape cases, rape by section of law, people arrested and tried, the 19 largest cities, and rape of '
                               'Scheduled Caste and Scheduled Tribe women and girls. Read from the NCRB PDFs by script and checked '
                               'against NCRB\'s own printed totals.'),

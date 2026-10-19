@@ -18,7 +18,7 @@ Table 2.7 is titled "Profession-wise Distribution of Suicides (State & UT-wise)"
 
 ## What the figures mean
 
-They are suicides registered by police, as reported by States and UTs to NCRB ("As per data provided by States/UTs" is printed under each table). The state is the state that reported the case. They are counts, not rates. NCRB does not print a female suicide rate by state in these tables, and no rate is computed here.
+They are suicides registered by police, as reported by States and UTs to NCRB ("As per data provided by States/UTs" is printed under each table). The state is the state that reported the case. They are counts. NCRB does not print a female suicide rate by state in these tables, and no rate is computed here.
 
 "House wife" is NCRB's profession category. It is the profession recorded for the person, so it says nothing about marital status beyond what the police record. A woman recorded under another profession, or as unemployed, is not counted as a house wife.
 
@@ -49,7 +49,7 @@ All India results: female suicides 44,498 (2020), 45,026 (2021), 48,172 (2022), 
 These are as printed and were not altered. They should be read with care.
 
 - Odisha, house wives: 554 (2020), 377 (2021), 2,691 (2022), 1,925 (2023), 1,123 (2024). Female suicides in Odisha were 1,637, 1,239, 3,990, 2,337 and 1,838. The 2022 female total is confirmed by Table 2.9 and Table 2.2; the house wife figure appears only in Table 2.7. No explanation is printed.
-- Puducherry, house wives: 0 in 2020, 2021 and 2022, then 21 and 46, while female suicides were 104 to 133 every year. This looks like a change in how the profession was recorded, not a change in suicides.
+- Puducherry, house wives: 0 in 2020, 2021 and 2022, then 21 and 46, while female suicides were 104 to 133 every year. NCRB does not say why. A change in how the profession was recorded would explain it, and NCRB prints nothing to confirm that.
 - Uttar Pradesh female suicides doubled from 1,642 (2020) to 3,454 (2024), and Bihar's rose from 358 to 606. The tables give no reason for the rise.
 - Small UTs have single-digit counts (Ladakh 1 to 2, Lakshadweep 0 to 1 female suicides a year).
 

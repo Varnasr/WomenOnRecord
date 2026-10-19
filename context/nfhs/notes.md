@@ -17,7 +17,7 @@ Fieldwork ran in two phases: Phase I from 17 June 2019 to 30 January 2020 (17 st
 
 ## Indicators
 
-### Spousal violence (task item 1): `NFHS5_SPV_*`
+### Spousal violence: `NFHS5_SPV_*`
 
 Source: India report FR375, Table 15.13 "Spousal violence by state/union territory", printed p.668 (pdf p.704). Covers all 36 states and UTs and India.
 
@@ -28,7 +28,7 @@ Source: India report FR375, Table 15.13 "Spousal violence by state/union territo
 
 `NFHS5_FS_SPV_POS` is the same concept as printed in each state/UT fact sheet (indicator 125, "spousal violence is defined as physical and/or sexual violence"). 36 of 36 states/UTs found. The India national fact sheet was not found at any URL tried (dhsprogram.com OF43, rchiips.org, mohfw.gov.in), so the commonly quoted India fact sheet figure is not in this file and has not been verified here.
 
-### Sexual violence by anyone (task item 2): `NFHS5_SV_EVER`
+### Sexual violence by anyone : `NFHS5_SV_EVER`
 
 Source: DHS Program API, indicator `DV_EXSV_W_EVR`, survey IA2020DHS. Denominator: all women 18-49 who completed the module, married or not, any perpetrator, at any age.
 
@@ -36,7 +36,7 @@ The India report has no state-wise table of this indicator. Table 15.4 gives Ind
 
 The API labels the age group "Total 15-49". That label is generic: NFHS-5 interviewed only women 18-49 for this module (FR375 p.639-640), and the API's India denominator (72,320 weighted) is the module sample.
 
-### Help seeking (task item 3): `NFHS5_HS_*`
+### Help seeking : `NFHS5_HS_*`
 
 Source: DHS Program API indicators `DV_STPV_W_NTL` (never sought help, never told anyone), `DV_STPV_W_TLD` (never sought help, told someone) and `DV_STPV_W_HLP` (sought help from any source). Denominator: women 18-49 who ever experienced physical or sexual violence by anyone. The three add to 100 within 0.1 in every state (a small "missing or don't know" category accounts for the rest).
 

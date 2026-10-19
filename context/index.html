@@ -38,7 +38,7 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.WOR_BUILD = "31abc4da81"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"d5787c839f","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/site.json":"22ea83fbc4","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"9913cfcbe3","downloads/context.xlsx":"6ab515534e","downloads/womenonrecord.xlsx":"808e261967","js/app.js":"0009daa55e","js/charts.js":"664aa485da","js/i18n.js":"62d5263562"};
+  window.WOR_BUILD = "147cf3ad3c"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"d5787c839f","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/site.json":"22ea83fbc4","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"4eff60f319","downloads/womenonrecord.xlsx":"0b39c6d8e3","js/app.js":"0009daa55e","js/charts.js":"664aa485da","js/i18n.js":"e7e259b72b"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -106,7 +106,7 @@
 
   <section class="sec" id="nfhs" aria-labelledby="h-nfhs">
     <h2 id="h-nfhs" data-i18n="cx.nfhs.h">What women tell a household survey</h2>
-    <p class="intro" data-i18n="cx.nfhs.p">The National Family Health Survey asks women directly about violence, in their homes and in private. Its fifth round was carried out across every state between 2019 and 2021. It is the best measure there is of violence that never reaches a police station.</p>
+    <p class="intro" data-i18n="cx.nfhs.p">The National Family Health Survey asks women directly about violence, in their homes and in private. Its fifth round was carried out across every state between 2019 and 2021. Because it asks women directly, it also reaches violence that never reached a police station.</p>
     <p class="lead2" id="nfhsLead"></p>
     <figure class="chart cloth"><div id="nfhsChart"></div><figcaption id="nfhsCap"></figcaption></figure>
     <details class="every"><summary data-i18n="cx.every">Every state and union territory</summary><div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-nfhs"><table class="grid sortable" id="nfhsTable"></table></div></details>
@@ -120,7 +120,7 @@
     <p class="lead2" id="ncwLead"></p>
     <figure class="chart cloth"><div id="ncwChart"></div><figcaption id="ncwCap"></figcaption></figure>
     <details class="every"><summary data-i18n="cx.every">Every state and union territory</summary><div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-ncw"><table class="grid sortable" id="ncwTable"></table></div></details>
-    <p class="note" data-i18n="cx.ncw.lim">These are complaints a woman chose to send to one national body. Uttar Pradesh sends half or more of them every year, which says more about who uses the Commission than about where crime happens. In 2024 the Commission changed its list of categories partway through the year, so categories in 2024 cannot be compared with earlier years.</p>
+    <p class="note" data-i18n="cx.ncw.lim">These are complaints a woman chose to send to one national body. Uttar Pradesh sends half or more of them every year. A complaint count follows who knows of the Commission and can reach it, so it cannot show where crime is highest. In 2024 the Commission changed its list of categories partway through the year, so categories in 2024 cannot be compared with earlier years.</p>
     <p class="src">National Commission for Women, <a href="https://ncwapps.nic.in/frmComp_Stat_Overview.aspx">Statistical overview of received complaints</a>, calendar years 2020 to 2024, retrieved 9 October 2026.</p>
   </section>
 
@@ -187,7 +187,7 @@
   <section class="sec" id="cx-data" aria-labelledby="h-cxdata">
     <h2 id="h-cxdata" data-i18n="cx.dl.h">The context data</h2>
     <ul class="downloads">
-      <li><a href="/downloads/context.xlsx?v=6ab515534e" download><b data-i18n="dl.cx.t">Context workbook</b><span data-i18n="dl.cx">Eight other sources, from the household survey to election affidavits, one sheet each, with the source, table and page on every row.</span></a></li>
+      <li><a href="/downloads/context.xlsx?v=4eff60f319" download><b data-i18n="dl.cx.t">Context workbook</b><span data-i18n="dl.cx">Eight other sources, from the household survey to election affidavits, one sheet each, with the source, table and page on every row.</span></a></li>
       <li><a href="/data/context.csv?v=49c71cb50a" download><b data-i18n="dl.cxcsv.t">Context CSV</b><span data-i18n="dl.cxcsv">The same rows as the context workbook, in one file, with a column that names the source.</span></a></li>
     </ul>
   </section>
@@ -210,7 +210,7 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=62d5263562"></script>
+<script src="/js/i18n.js?v=e7e259b72b"></script>
 <script src="/js/charts.js?v=664aa485da"></script>
 <script src="/js/app.js?v=0009daa55e"></script>
 </body>

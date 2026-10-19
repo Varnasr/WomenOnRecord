@@ -99,8 +99,8 @@ crime_code,SLL_TOTAL_2016DEF,"All special and local law crimes against women, 20
 crime_code,TOTAL_2016DEF,"All crimes against women, 2016 definition (no POCSO, no murder with rape)"
 crime_code,RAPE_VICTIMS_AGE_2016DEF,"Victims of rape by age, 2016 definition (child bands include POCSO s.4 and 6). IPC 376. BNS/Act POCSO s.4, 6"
 flag,PRINCIPAL_OFFENCE,"NCRB counts each FIR once, under its most serious offence. On every row."
-flag,LOCKDOWN_2020,2020: the COVID-19 lockdown kept people from police stations and courts. Counts are lower for that reason.
-flag,CODE_SPLIT_2024,"2024: offences from 1 July 2024 were booked under the BNS, earlier ones under the IPC. NCRB reports both; cases is their sum."
+flag,LOCKDOWN_2020,"In 2020 the COVID-19 lockdown limited access to police stations and courts. Counts are lower in 2020, and NCRB does not say how much of the fall the lockdown explains."
+flag,CODE_SPLIT_2024,"In 2024, offences from 1 July 2024 were booked under the BNS and earlier ones under the IPC. NCRB reports both, and cases is their sum."
 flag,NOT_REPORTED,NCRB published no figure for this cell.
 flag,BOUNDARIES_PRE_2020,"2014 to 2019: Jammu and Kashmir includes Ladakh, and Dadra and Nagar Haveli and Daman and Diu, which NCRB printed separately, are added together here. Totals for states and for union territories are as NCRB printed them, with Jammu and Kashmir counted as a state."
-flag,WB_2019_REPEATS_2018,"West Bengal, 2019: NCRB received no data in time and printed the 2018 figures again. Rates differ only because the population changed."
+flag,WB_2019_REPEATS_2018,"For West Bengal in 2019, NCRB received no data in time and printed the 2018 figures again. Rates differ only because the population changed."
