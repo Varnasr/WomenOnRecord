@@ -174,14 +174,13 @@ Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Do not copy
 offtheroll's credit here; the two sites credit different people. Names stay in
 Latin script in every language. The footer and the terms page say only that Women
 on Record is not published by NCRB or any government. Do not add a claim of
-independence from political parties; the owner removed it because it is untrue. The publisher is PinPoint Ventures and the address is
+independence from political parties. The publisher is PinPoint Ventures and the address is
 info@pinpointventures.in, as on offtheroll.in.
 
 `terms/` is the terms and privacy page, in English with a translated note that
 the English governs. It describes Women on Record as a publisher of public
 statistics with a correction and complaints process (acknowledged in 24 hours,
-answered in 15 days); the owner chose not to claim or deny news-publisher
-status under the 2021 IT Rules. Keep its privacy section true. Every font,
+answered in 15 days). Keep its privacy section true. Every font,
 script and data file is served from this site (the fonts are in `fonts/`, with
 `css/fonts*.css`), so no service but Netlify sees a reader. If the site ever
 loads anything from another origin, or starts recording anything, the privacy
