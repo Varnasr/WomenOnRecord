@@ -154,37 +154,13 @@ A ninth item, or a longer label in any language, will fold the header into
 the menu on a laptop. Measure at 1280 in all six languages after any change to
 the nav.
 
-## Addresses
+## Hosting, credit and terms
 
-The site is the Netlify site `womenonrecord`, served at www.womenonrecord.net,
-with DNS on Netlify (the domain is registered at Porkbun). The bare domain and
-womenonrecord.netlify.app forward to www. The site was called She Counts until
-10 October 2026. Its first address, shecounts.netlify.app, is now a separate
-Netlify site, also named `shecounts`, holding only a `_redirects` file that
-forwards every path here. Keep it: deleting it frees the name for anyone, and
-links to the old address are already shared. The old download names
-(`shecounts.csv`, `shecounts.xlsx`) redirect in `netlify.toml`, and the theme
-and language a reader chose are read from the old `sc-` keys as well as `wor-`.
-
-## Credit
-
-The footer follows offtheroll.in's: one centred line saying who did the
-research, the promise about what is published, then links. The research is by
-Vinitha Joseph, Nivedita Biswas, Tarushaa Miittal and Varna. Do not copy
-offtheroll's credit here; the two sites credit different people. Names stay in
-Latin script in every language. The footer and the terms page say only that Women
-on Record is not published by NCRB or any government. Do not add a claim of
-independence from political parties. The publisher is PinPoint Ventures and the address is
-info@pinpointventures.in, as on offtheroll.in.
-
-`terms/` is the terms and privacy page, in English with a translated note that
-the English governs. It describes Women on Record as a publisher of public
-statistics with a correction and complaints process (acknowledged in 24 hours,
-answered in 15 days). Keep its privacy section true. Every font,
-script and data file is served from this site (the fonts are in `fonts/`, with
-`css/fonts*.css`), so no service but Netlify sees a reader. If the site ever
-loads anything from another origin, or starts recording anything, the privacy
-section and the CSP in `netlify.toml` change in the same commit.
+The site is served by Netlify at www.womenonrecord.net. The footer credit, the
+terms and privacy page, and the hosting and domain notes are kept in the
+maintainer's private notes. Keep the Terms page's privacy section true: if the
+site ever loads anything from another origin, or starts recording anything,
+change the privacy section and the CSP in `netlify.toml` in the same commit.
 
 ## Context sources
 
