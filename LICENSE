@@ -1,27 +1,54 @@
-MIT License
+DUAL LICENSE
 
-Copyright (c) 2026 Varna Sri Raman
+Copyright (c) 2026 Varna Sri Raman / PinPoint Ventures
+https://www.womenonrecord.net
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository holds the source, the compiled figures and the written notes of
+Women on Record. Three kinds of material are treated separately, as the site's
+Terms page (/terms/#reuse) already states.
+
+================================================================================
+1. SOURCE CODE: MIT License
+================================================================================
+
+Applies to: scripts/, js/, css/, tools and tests, and the build configuration.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
-The code in this repository is under the MIT licence above. The dataset
-(data/womenonrecord.csv, downloads/) is a compilation of figures published by the
-National Crime Records Bureau; the compilation, its codes and notes are
-released under Creative Commons Attribution 4.0 (CC BY 4.0). The state map
-(data/geo/india.json) is DataMeet's, under CC BY 4.0.
+================================================================================
+2. COMPILATION, CODES, NOTES, CHARTS AND TABLES: CC BY 4.0
+================================================================================
+
+Applies to: what this project wrote or compiled, including the compiled dataset
+and its codebook, the notes beside each source, and the text, charts and tables
+on the site.
+
+You may share and adapt it, including commercially, if you give credit to
+"Women on Record, PinPoint Ventures", link to
+https://creativecommons.org/licenses/by/4.0/ and say if you changed it. This
+is the licence the site's Terms page and the dataset notes already state, so the
+repository matches the published site.
+
+================================================================================
+3. THIRD-PARTY MATERIAL: NOT LICENSED HERE
+================================================================================
+
+The figures are NCRB's. Official data keeps the terms of whoever published it:
+NCRB's reports, the National Family Health Survey, the National Commission for
+Women, the Bureau of Police Research and Development, answers given in
+Parliament and the National Judicial Data Grid. ADR's reports are ADR's. The
+state map is DataMeet's (CC BY 4.0). The IBM Plex and Noto typefaces are under
+the SIL Open Font License. News reports linked from the site belong to their
+publishers. Nothing here changes those terms.
