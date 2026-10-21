@@ -45,6 +45,22 @@ reader how it was built or researched ("read twice", "the build fails unless",
 read, or prose that nothing checks. Take it from the source at build time, pin
 it with a check, or stop stating it.
 
+**Decisions are recorded twice.** When a session makes or finds a consequential
+decision (a rule, a trade-off, an incident and its cause, something deliberately
+left alone), it writes it in the project's `CLAUDE.md` with the date, the reason
+and the rule for next time, as section 3 says. It then adds one row to the
+owner's decision log, if the log is reachable from the session. The private
+operations notes name the log and its fields. A row holds the decision as one
+plain sentence, the repository, a category, a status of decided, open or
+reversed, the date the source gives, the reason, the rule for next time, how it
+was verified and a link to the `CLAUDE.md` line it came from. Leave the date
+empty when the source gives none. Do not log a routine fix, a dependency update
+with no decision in it, or a count. When a decision is reversed, set the old row
+to reversed and add a new row. The log summarises `CLAUDE.md` and never replaces
+it; where the two disagree, the repository file wins. If the log cannot be
+reached, say so in the report under remaining work and list the rows owed. Do
+not describe a row as added when it was not.
+
 **Checks must be able to fail.** No `|| true`, `|| echo`, `2>/dev/null` hiding
 the reason, or `fail: false` on a gate. A long job that talks to third-party
 hosts (a link crawl) goes in its own workflow on a schedule and off pull
@@ -176,7 +192,8 @@ empty documents or placeholder sections.
 7. Configuration separate from logic.
 8. Dependencies current, compatible and justified.
 9. No framework, service or infrastructure without a need for it.
-10. Consequential decisions written down, usually in `CLAUDE.md`.
+10. Consequential decisions written down in `CLAUDE.md` and summarised in the
+    decision log (section 0).
 11. Backward compatibility where users or integrations depend on it.
 12. Accessible, responsive interfaces.
 13. Every visible control does something.
@@ -392,7 +409,8 @@ D. Repository standards: documentation, settings, tracking, dependency
    automation, CI, security, releases.
 E. Verification: tests and builds run and their results, deploy state, journeys
    checked, failures, links to runs.
-F. Remaining work: unfinished tasks, blockers, actions only the owner can take.
+F. Remaining work: unfinished tasks, blockers, decision-log rows owed, and
+   actions only the owner can take.
 G. Status, one of: complete and verified; implemented, awaiting production
    verification; partially complete; blocked; deferred with reason.
 
@@ -438,6 +456,7 @@ anything destructive, a licence decision, spending money (including a
 production deploy outside the batching rule), exposing a private resource or a
 consequential production change. When blocked by access, finish everything that
 can safely proceed and name the blocker exactly. Keep to earlier decisions
-recorded in `CLAUDE.md`, and update that file when a new one is made. Treat a
+recorded in `CLAUDE.md`, and when a new one is made, update that file and add
+the log row that section 0 describes. Treat a
 failing test, a configuration error, missing functionality or a broken journey
 as work to be done.
