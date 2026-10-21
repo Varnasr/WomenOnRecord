@@ -1,5 +1,15 @@
 name: checks
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A newer commit on a pull request cancels the run still going for the older one.
+# Runs on the default branch are never cancelled.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 # Read-only: this workflow checks the repository and writes nothing back to it.
 permissions:
   contents: read
@@ -27,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: '22' }
+        with: { node-version: '22', cache: npm }
       - run: npm ci
       - run: node node_modules/playwright-core/cli.js install --with-deps chromium
       - run: node scripts/audit.mjs
