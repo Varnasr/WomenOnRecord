@@ -476,6 +476,50 @@
     }).join('');
   }
 
+  // ---------- the North-East ----------
+  // NCRB prints no regions, so the total adds the eight state rows and the rate divides
+  // the summed cases by the summed women. States stay in alphabetical order, never ranked.
+  var NE = ['Arunachal Pradesh', 'Assam', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Sikkim', 'Tripura'];
+  function northEast() {
+    var y = D.years[D.years.length - 1], names = NE.slice().sort(function (a, b) { return place(a).localeCompare(place(b), lang); });
+    var sum = function (code, m, yy) { return NE.reduce(function (a, n) { return a + (S(code, m, n, yy) || 0); }, 0); };
+    var I0 = 'All India', pct = function (a, b) { return 100 * a / b; };
+    var cols = [
+      { label: t('m.cases'), dp: 0, get: function (n) { return n ? S('TOTAL', 'cases', n, y) : sum('TOTAL', 'cases', y); }, ind: S('TOTAL', 'cases', I0, y) },
+      { label: t('ne.col.pop'), dp: 1, get: function (n) { return n ? S('FEMALE_POP', 'population_lakh', n, y) : sum('FEMALE_POP', 'population_lakh', y); }, ind: S('FEMALE_POP', 'population_lakh', I0, y) },
+      { label: t('m.rate'), dp: 1, get: function (n) { return n ? S('TOTAL', 'rate', n, y) : sum('TOTAL', 'cases', y) / sum('FEMALE_POP', 'population_lakh', y); }, ind: S('TOTAL', 'rate', I0, y) },
+      { label: t('ne.col.pocso'), dp: 0, get: function (n) { return n ? S('POCSO_TOTAL', 'cases', n, y) : sum('POCSO_TOTAL', 'cases', y); }, ind: S('POCSO_TOTAL', 'cases', I0, y) },
+      { label: t('ne.col.share'), dp: 0, get: function (n) { return n ? pct(S('POCSO_TOTAL', 'cases', n, y), S('TOTAL', 'cases', n, y)) : pct(sum('POCSO_TOTAL', 'cases', y), sum('TOTAL', 'cases', y)); }, ind: pct(S('POCSO_TOTAL', 'cases', I0, y), S('TOTAL', 'cases', I0, y)) },
+      { label: t('ne.col.rape'), dp: 0, get: function (n) { return n ? S('RAPE', 'cases', n, y) : sum('RAPE', 'cases', y); }, ind: S('RAPE', 'cases', I0, y) }
+    ];
+    var h = '<thead><tr><th scope="col">' + t('nav.states') + '</th>' + cols.map(function (c) { return '<th scope="col">' + c.label + '</th>'; }).join('') + '</tr></thead><tbody>';
+    names.forEach(function (n) { h += '<tr><th scope="row">' + place(n) + '</th>' + cols.map(function (c) { return '<td>' + fmt(c.get(n), c.dp) + '</td>'; }).join('') + '</tr>'; });
+    h += '<tr class="total"><th scope="row">' + t('ne.total') + '</th>' + cols.map(function (c) { return '<td>' + fmt(c.get(null), c.dp) + '</td>'; }).join('') + '</tr>';
+    h += '<tr class="total"><th scope="row">' + place('All India') + '</th>' + cols.map(function (c) { return '<td>' + fmt(c.ind, c.dp) + '</td>'; }).join('') + '</tr>';
+    $('neTable').innerHTML = h + '</tbody>';
+    var tot = sum('TOTAL', 'cases', y);
+    $('neAssam').textContent = t('ne.assam', { y: y, n: fmt(tot, 0), a: fmt(100 * S('TOTAL', 'cases', 'Assam', y) / tot, 0) });
+    var yh = '<thead><tr><th scope="col">' + t('nav.states') + '</th>' + D.years.map(function (yy) { return '<th scope="col">' + yy + '</th>'; }).join('') + '</tr></thead><tbody>';
+    names.forEach(function (n) { yh += '<tr><th scope="row">' + place(n) + '</th>' + D.years.map(function (yy) { return '<td>' + fmt(S('TOTAL', 'rate', n, yy), 1) + '</td>'; }).join('') + '</tr>'; });
+    yh += '<tr class="total"><th scope="row">' + t('ne.total') + '</th>' + D.years.map(function (yy) { return '<td>' + fmt(sum('TOTAL', 'cases', yy) / sum('FEMALE_POP', 'population_lakh', yy), 1) + '</td>'; }).join('') + '</tr>';
+    yh += '<tr class="total"><th scope="row">' + place('All India') + '</th>' + D.years.map(function (yy) { return '<td>' + fmt(S('TOTAL', 'rate', 'All India', yy), 1) + '</td>'; }).join('') + '</tr>';
+    $('neYears').innerHTML = yh + '</tbody>';
+    // The largest one-year fall in the region's total, the state behind it and the heading in that state.
+    var worst = null;
+    D.years.slice(1).forEach(function (yy, i) {
+      var y0 = D.years[i], drop = sum('TOTAL', 'cases', y0) - sum('TOTAL', 'cases', yy);
+      if (drop > 0 && (!worst || drop > worst.d)) worst = { y0: y0, y1: yy, d: drop };
+    });
+    $('neFall').hidden = !worst;
+    if (worst) {
+      var big = NE.map(function (n) { return { n: n, d: S('TOTAL', 'cases', n, worst.y0) - S('TOTAL', 'cases', n, worst.y1) }; }).sort(function (a, b) { return b.d - a.d; })[0];
+      var hd = MIX_IPC.concat(MIX_SLL).map(function (c) { return { c: c, d: (S(c, 'cases', big.n, worst.y0) || 0) - (S(c, 'cases', big.n, worst.y1) || 0) }; }).sort(function (a, b) { return b.d - a.d; })[0];
+      $('neFall').textContent = t('ne.fall', { y0: worst.y0, y1: worst.y1, a: fmt(sum('TOTAL', 'cases', worst.y0), 0), b: fmt(sum('TOTAL', 'cases', worst.y1), 0), d: fmt(worst.d, 0), t: fmt(big.d, 0), s: place(big.n),
+        h: lc(head(hd.c)), h0: fmt(S(hd.c, 'cases', big.n, worst.y0), 0), h1: fmt(S(hd.c, 'cases', big.n, worst.y1), 0) });
+    }
+    $('neList').innerHTML = names.map(function (n) { return '<li><a href="' + link('/states/' + slug(n) + '/') + '">' + place(n) + '</a></li>'; }).join('');
+  }
+
   // ---------- one state ----------
   var GROUPS = [['sexual', ['RAPE', 'RAPE_WOMEN', 'RAPE_GIRLS_IPC', 'POCSO_RAPE', 'POCSO_ASSAULT', 'POCSO_TOTAL', 'ATTEMPT_RAPE', 'ASSAULT_MODESTY', 'INSULT_MODESTY']],
                 ['killed', ['MURDER_WOMEN', 'MURDER_RAPE', 'DOWRY_DEATH', 'ABETMENT_SUICIDE']],
@@ -541,6 +585,7 @@
     drawMix($('stateMix'), p, y1, $('stateMixCap').textContent);
     // how much of the state's total is POCSO, set against India
     var pt = S('POCSO_TOTAL', 'cases', p, y1), tt = S('TOTAL', 'cases', p, y1), pi = S('POCSO_TOTAL', 'cases', 'All India', y1), ti = S('TOTAL', 'cases', 'All India', y1);
+    $('stateNeNote').hidden = NE.indexOf(p) < 0;
     $('stateMixNote').hidden = !(pt != null && tt && pi && ti);
     if (!$('stateMixNote').hidden) $('stateMixNote').textContent = t('state.pocso', { s: place(p), y: y1, n: fmt(tt, 0), share: fmt(100 * pt / tt, 0), ri: fmt(100 * pi / ti, 0) });
     // among the states
@@ -1271,7 +1316,7 @@
     $('ctUn').textContent = t('ct.un.p1', { never: fmt(cv('nfhs', 'NFHS5_HS_NEVER_TOLD', 'All India'), 1), sought: fmt(cv('nfhs', 'NFHS5_HS_SOUGHT', 'All India'), 1) });
   }
 
-  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
+  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, 'north-east': northEast, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
     toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
