@@ -1,0 +1,110 @@
+{
+ "regions": [
+  {
+   "id": "central",
+   "states": [
+    "Chhattisgarh",
+    "Madhya Pradesh",
+    "Uttar Pradesh",
+    "Uttarakhand"
+   ]
+  },
+  {
+   "id": "eastern",
+   "states": [
+    "Bihar",
+    "Jharkhand",
+    "Odisha",
+    "West Bengal"
+   ]
+  },
+  {
+   "id": "north-east",
+   "states": [
+    "Arunachal Pradesh",
+    "Assam",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Sikkim",
+    "Tripura"
+   ]
+  },
+  {
+   "id": "northern",
+   "states": [
+    "Chandigarh",
+    "Delhi",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jammu & Kashmir",
+    "Ladakh",
+    "Punjab",
+    "Rajasthan"
+   ]
+  },
+  {
+   "id": "southern",
+   "states": [
+    "Andhra Pradesh",
+    "Karnataka",
+    "Kerala",
+    "Puducherry",
+    "Tamil Nadu",
+    "Telangana"
+   ]
+  },
+  {
+   "id": "western",
+   "states": [
+    "D&N Haveli and Daman & Diu",
+    "Goa",
+    "Gujarat",
+    "Maharashtra"
+   ]
+  }
+ ],
+ "outside": [
+  "A&N Islands",
+  "Lakshadweep"
+ ],
+ "capitals": [
+  {
+   "city": "Bengaluru (Karnataka)",
+   "state": "Karnataka"
+  },
+  {
+   "city": "Chennai (Tamil Nadu)",
+   "state": "Tamil Nadu"
+  },
+  {
+   "city": "Delhi City",
+   "state": "Delhi"
+  },
+  {
+   "city": "Hyderabad (Telangana)",
+   "state": "Telangana"
+  },
+  {
+   "city": "Jaipur (Rajasthan)",
+   "state": "Rajasthan"
+  },
+  {
+   "city": "Kolkata (West Bengal)",
+   "state": "West Bengal"
+  },
+  {
+   "city": "Lucknow (Uttar Pradesh)",
+   "state": "Uttar Pradesh"
+  },
+  {
+   "city": "Mumbai (Maharashtra)",
+   "state": "Maharashtra"
+  },
+  {
+   "city": "Patna (Bihar)",
+   "state": "Bihar"
+  }
+ ]
+}

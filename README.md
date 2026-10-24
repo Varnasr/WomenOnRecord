@@ -23,8 +23,9 @@ Live at https://www.womenonrecord.net
 ## Pages
 
 Home, Protests (with a list of marches and protests), Police and courts, States
-(with a page for each of the 36 states and union territories, and a North-East
-page that sets the eight North-Eastern states side by side), Crimes (with a page for each of 17 crimes),
+(with a page for each of the 36 states and union territories, a North-East
+page that sets the eight North-Eastern states side by side, and a Regions page that groups
+every state and union territory by Zonal Council), Crimes (with a page for each of 17 crimes),
 Context, Explore (every figure in a table that can be filtered, sorted and
 downloaded) and Data and method.
 

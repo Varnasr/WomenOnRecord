@@ -11,7 +11,7 @@ in India, Volume 1, read by script, and eight context sources beside it.
 Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
 first line is `<!--page {json} -->`. Pages: home (`index.html`),
-`protests/`, `courts/`, `states/`, `north-east/`, `updates/`, `corrections/`, `crimes/`, `context/`, `explore/`, `method/`,
+`protests/`, `courts/`, `states/`, `north-east/`, `regions/`, `updates/`, `corrections/`, `crimes/`, `context/`, `explore/`, `method/`,
 `law/`, `counting/`, `path/` and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
@@ -420,3 +420,9 @@ The translations of the new strings (`state.pocso`, `ne.*`) were written by a mo
 - The first entries were built from the git history, 9 to 24 October 2026, which is the whole history of the site.
 
 The figures stop at 2024 because NCRB has not published a later Crime in India. It released its 2023 report on 29 September 2025, more than 20 months after that year ended (Ramanath Jha, Observer Research Foundation, 15 November 2025), and the 2024 edition was retrieved on 9 October 2026. The Data and method page says so (`read.stop`, with `{last}`). Some Context sources are newer than NCRB: the fast track courts to 30 April 2026 and the National Judicial Data Grid on 9 October 2026. Do not fill 2025 or 2026 from a state police release or a news report; the dataset is NCRB's, as printed.
+
+## Regions and capital cities (October 2026)
+
+`/regions/` (`site/pages/regions.html`, `regions()` in `js/app.js`) groups all 36 states and union territories by the five Zonal Councils and the North Eastern Council, from `data/regions.json`. The membership is the Press Information Bureau's list of 31 January 2017 (A Note on Zonal Councils, pib.gov.in factsheet 148532), which says the councils were created under the States Reorganization Act, 1956. Two placements are ours, because the list predates them: Ladakh (part of Jammu and Kashmir until 2019) goes with Northern, and Dadra and Nagar Haveli and Daman and Diu (merged in 2020 from two union territories the list puts in Western) goes with Western. The Andaman and Nicobar Islands and Lakshadweep are on no list and are shown apart. Do not invent a membership for them. Regions and the states inside them are alphabetical and never ranked, and a region's total adds its state rows, so the page also says which state holds most of each region's cases (Assam holds 82% of the North-East's).
+
+The capital table uses NCRB's 19 cities only (`CITY`, table 3B.1). Nine are capitals (Bengaluru, Chennai, Delhi City, Hyderabad, Jaipur, Kolkata, Lucknow, Mumbai, Patna), and no North-Eastern capital is among the 19. NCRB publishes no figure for any other capital, and this site shows none. City rates use 2011 population and are never set beside state rates, so the table gives each city's share of its state's cases instead. `scripts/check.py` fails if a place is in two regions or none, if a capital's city or state is not in `site.json`, or if the `NE` list in `app.js` stops matching the North-East region.
