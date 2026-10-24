@@ -214,6 +214,38 @@
     }).catch(function () { $('evScope').textContent = 'The list of events could not be loaded.'; });
   }
 
+  // ---------- what's new and corrections ----------
+  // English only. Both lists are edited by hand in data/updates.json and data/corrections.json.
+  function dated(iso) { return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }); }
+  function node(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+  function updates() {
+    fetch(ver('/data/updates.json')).then(function (r) { return r.json(); }).then(function (U) {
+      var ol = $('updList'); ol.textContent = '';
+      U.entries.forEach(function (e) {
+        var li = node('li'); li.appendChild(node('span', dated(e.date), 'when'));
+        e.items.forEach(function (it) {
+          var p = node('p');
+          if (it.href) { var a = node('a', it.text); a.href = it.href; p.appendChild(a); } else p.textContent = it.text;
+          li.appendChild(p);
+        });
+        ol.appendChild(li);
+      });
+    }).catch(function () { $('updList').textContent = 'The list could not be loaded.'; });
+  }
+  function corrections() {
+    fetch(ver('/data/corrections.json')).then(function (r) { return r.json(); }).then(function (C) {
+      var ol = $('corList'); ol.textContent = '';
+      C.entries.forEach(function (e) {
+        var li = node('li'), w = node('span', dated(e.date) + ' · ', 'when'), a = node('a', e.page); a.href = e.href; w.appendChild(a);
+        li.appendChild(w);
+        [['Before', e.before], ['Now', e.after], ['Why', e.why]].forEach(function (x) {
+          var p = node('p'); p.appendChild(node('span', x[0] + ' ', 'lbl')); p.appendChild(document.createTextNode(x[1])); li.appendChild(p);
+        });
+        ol.appendChild(li);
+      });
+    }).catch(function () { $('corList').textContent = 'The list could not be loaded.'; });
+  }
+
   // ---------- police and courts ----------
   function flowSpec(o) {
     return { nodes: [
@@ -1344,7 +1376,7 @@
     $('ctUn').textContent = t('ct.un.p1', { never: fmt(cv('nfhs', 'NFHS5_HS_NEVER_TOLD', 'All India'), 1), sought: fmt(cv('nfhs', 'NFHS5_HS_SOUGHT', 'All India'), 1) });
   }
 
-  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, 'north-east': northEast, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
+  var PAGES = { updates: updates, corrections: corrections, explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, 'north-east': northEast, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
     toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);

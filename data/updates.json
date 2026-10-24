@@ -1,0 +1,102 @@
+{
+ "entries": [
+  {
+   "date": "2026-10-24",
+   "items": [
+    {
+     "text": "A What's new page and a Corrections page, so that changes to the site and to its figures and claims have a public record.",
+     "href": "/corrections/"
+    },
+    {
+     "text": "The North-East page sets the eight North-Eastern states side by side.",
+     "href": "/north-east/"
+    },
+    {
+     "text": "The Protests page lists six marches and protests reported between 1 September and 6 October 2026, each with the report that gives its date.",
+     "href": "/protests/#events"
+    },
+    {
+     "text": "Every state page now says what share of its cases were booked under POCSO, against India as a whole.",
+     "href": "/states/"
+    },
+    {
+     "text": "The Data and method page now says why the figures stop at 2024.",
+     "href": "/method/"
+    }
+   ]
+  },
+  {
+   "date": "2026-10-12",
+   "items": [
+    {
+     "text": "Who the offender was in rape and POCSO cases, rape by section of law, people arrested and tried, and the 19 largest cities, for 2020 to 2024.",
+     "href": "/crimes/rape/"
+    },
+    {
+     "text": "Rape of Scheduled Caste and Scheduled Tribe women and girls, 2021 to 2024, from NCRB's Volume 2.",
+     "href": "/crimes/rape/"
+    },
+    {
+     "text": "Girls' ages under POCSO, set beside rape victims by age.",
+     "href": "/crimes/pocso-rape/"
+    },
+    {
+     "text": "An explanation of why women appear among the people arrested for rape.",
+     "href": "/crimes/rape/"
+    },
+    {
+     "text": "Every crime and state page has its own link preview when shared, and the site has a sitemap."
+    }
+   ]
+  },
+  {
+   "date": "2026-10-10",
+   "items": [
+    {
+     "text": "How the numbers are made, on how NCRB counts a case and what its counting rule leaves out.",
+     "href": "/counting/"
+    },
+    {
+     "text": "Where a woman's case is lost, which follows a case from the violence to the verdict.",
+     "href": "/path/"
+    },
+    {
+     "text": "The site is now Women on Record, at www.womenonrecord.net."
+    }
+   ]
+  },
+  {
+   "date": "2026-10-09",
+   "items": [
+    {
+     "text": "The law page sets each crime's section in the Indian Penal Code beside its section in the Bharatiya Nyaya Sanhita.",
+     "href": "/law/"
+    },
+    {
+     "text": "The data now runs from 2014 and the charts from 2017.",
+     "href": "/method/"
+    },
+    {
+     "text": "A data explorer puts every figure in one table that can be filtered, sorted and downloaded.",
+     "href": "/explore/"
+    },
+    {
+     "text": "Police figures for 1 January 2024 from the Bureau of Police Research and Development.",
+     "href": "/context/"
+    },
+    {
+     "text": "The Context page, which sets eight other sources beside NCRB's figures.",
+     "href": "/context/"
+    },
+    {
+     "text": "The Protests page, on the cases and marches of September 2026.",
+     "href": "/protests/"
+    },
+    {
+     "text": "Terms and privacy.",
+     "href": "/terms/"
+    }
+   ]
+  }
+ ]
+}

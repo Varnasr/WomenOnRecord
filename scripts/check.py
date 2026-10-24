@@ -204,6 +204,36 @@ for e in EV['events']:
     if re.search(r'\b(her name|his name|named|identified as|\d{1,2}-year-old|aged \d)', e.get('what', ''), flags=re.I):
         fail.append(f'{w} may describe a survivor: no name, age or detail that could identify her')
 
+# data/updates.json and data/corrections.json: the public record of changes. Both are newest
+# first, dated, and follow the writing rules. A correction names the page it changed, and a
+# link must point at a page that exists. Nothing may repeat a detail that could identify a survivor.
+for fname, fields in [('updates', None), ('corrections', ['page', 'href', 'before', 'after', 'why'])]:
+    D2 = json.load(open(os.path.join(ROOT, 'data', fname + '.json'), encoding='utf-8'))
+    dates = [e.get('date', '') for e in D2['entries']]
+    if dates != sorted(dates, reverse=True): fail.append(f'{fname}.json is not newest first')
+    for e in D2['entries']:
+        w = f"{fname}.json {e.get('date')}"
+        try: datetime.date.fromisoformat(e.get('date', ''))
+        except ValueError: fail.append(f'{w} has no valid date')
+        texts, hrefs = [], []
+        if fname == 'updates':
+            if not e.get('items'): fail.append(f'{w} has no items')
+            for it in e.get('items', []):
+                texts.append(it.get('text', '')); hrefs.append(it.get('href'))
+        else:
+            for k in fields:
+                if not e.get(k): fail.append(f'{w} has no {k}')
+            texts = [e.get(k, '') for k in ['page', 'before', 'after', 'why']]; hrefs = [e.get('href')]
+        for h in hrefs:
+            if h and not exists(h.split('#')[0], '/'): fail.append(f'{w} links to {h}, which is not a page')
+        for v in texts:
+            for pat, what in [(';', 'a semicolon'), ('\u2014', 'an em dash'), (BANNED, 'a banned word'), (PHRASES, 'a banned phrase')]:
+                if re.search(pat, v, flags=re.I): fail.append(f'{w} carries {what}: {v[:50]}')
+            for pat in TURNS:
+                if re.search(pat, v, flags=re.I): fail.append(f'{w} has an "X, not Y" turn: {v[:50]}')
+            if re.search(r'\b(\d{1,2}-year-old|aged \d|girl of \d|schoolgirl|schoolboy)', v, flags=re.I):
+                fail.append(f'{w} may repeat a detail that could identify a survivor: {v[:50]}')
+
 if fail:
     print('\n'.join(fail)); sys.exit(1)
 print(f'PASS: {checked} printed rates agree with cases and population; references, CSP and downloads in order')

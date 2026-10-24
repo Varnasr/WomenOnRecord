@@ -255,6 +255,8 @@ html[lang="hi"], html[lang="mr"] { --display: "IBM Plex Sans Devanagari", "IBM P
 .events .when { font: 500 13px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
 html:not([lang="en"]) .events .when { font-family: var(--text); letter-spacing: 0; text-transform: none; font-weight: 600; }
 .events p { margin: 4px 0 0; }
+.events .lbl { font: 500 12px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--soft); margin-inline-end: .35em; }
+html:not([lang="en"]) .events .lbl { font-family: var(--text); letter-spacing: 0; text-transform: none; font-weight: 600; }
 .events .src { font-size: 14px; color: var(--soft); }
 .prdata { padding: 20px 22px; display: grid; gap: 8px; max-width: 72ch; }
 .prdata h3 { margin: 0; }

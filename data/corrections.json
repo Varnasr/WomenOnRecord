@@ -1,0 +1,132 @@
+{
+ "entries": [
+  {
+   "date": "2026-10-24",
+   "page": "Protests, list of marches",
+   "href": "/protests/#events",
+   "before": "The Reuters entry said that protesters demanded safety and the freedom to go out at night without fear.",
+   "after": "The entry says that protesters shouted slogans and held placards, and that some placards demanded freedom to go out at night without fear.",
+   "why": "The report gives the demand about going out at night to some of the placards. The entry had been live for under ten minutes."
+  },
+  {
+   "date": "2026-10-24",
+   "page": "Context",
+   "href": "/context/",
+   "before": "The page said that press reports put the release of the sixth National Family Health Survey round in May 2026, and that this site had not checked the official fact sheet.",
+   "after": "The page says that the International Institute for Population Sciences published the fact sheets for the sixth round in May 2026, and that the sixth round has not yet been added here.",
+   "why": "A statement about a release needs a named publisher. The figures on the page are still from the fifth round."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Protests, Delhi item",
+   "href": "/protests/",
+   "before": "The item gave details about the girl and about the place where she was attacked.",
+   "after": "The item says only that a girl was allegedly gang-raped by three men in a park in Delhi.",
+   "why": "A detail that could identify a survivor must not be published (BNS s.72). No figure changed. The same change was made to the card on the home page."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Protests, Jamui item",
+   "href": "/protests/",
+   "before": "The item gave details of the two children and of the time of day, and said that all seven accused had been arrested.",
+   "after": "The item says that a girl and a boy, both minors, were stopped by a group of men on a road in Jamui district, and that The Hindu reported arrests in the case.",
+   "why": "The details of the children could help identify them. The number of arrests could not be checked against the report we read."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Protests, Delhi University item",
+   "href": "/protests/",
+   "before": "The item gave 25 September as the date of the march, called it the second march in a week and said about 200 students took part.",
+   "after": "The item says only that students marched near August Kranti Marg and then met on Siri Fort Road, as The Indian Express reported, in September.",
+   "why": "The date, the count and the claim of a second march could not be checked against a report we could read."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Data and method, Terms",
+   "href": "/method/",
+   "before": "The pages said that the site's code was published under the MIT licence, with a link to its repository.",
+   "after": "The statement and the link were removed.",
+   "why": "The repository was private, so the link led nowhere and the statement was untrue."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Law",
+   "href": "/law/",
+   "before": "The page said that a woman of eighteen or more who is raped by her husband cannot bring a case of rape, and that no such case can be counted as rape.",
+   "after": "The page says that a husband's sexual acts with a wife of eighteen or more are not rape under the exception, so such a case is not counted as rape, and that section 67 punishes sexual intercourse without her consent when the couple live separately.",
+   "why": "The earlier sentence said more than the text of BNS section 63, Exception 2 supports, and left out section 67."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Law",
+   "href": "/law/",
+   "before": "The page said that the rule on recording information from a person with a disability applied to any person reporting an offence, and that the officer need not be a woman.",
+   "after": "The page says that the rule applies where the person against whom an offence under BNS sections 64 to 71, 74 to 79 or 124 is alleged has a disability, and that a Magistrate must then record her statement.",
+   "why": "The earlier line did not match the text of the second proviso to BNSS section 173(1)."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Law",
+   "href": "/law/",
+   "before": "The page said that NCRB's heading for kidnapping and abduction of women also counts BNS sections 96 and 137 to 140 and 142.",
+   "after": "The page says that until 2023 the heading counted IPC sections 363 to 369, and that for 2024 NCRB prints three headings, which this site adds together so that 2024 matches the earlier years.",
+   "why": "NCRB's 2024 tables split the heading in three."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Law",
+   "href": "/law/",
+   "before": "The page cited paragraph 23 of Imran Pratapgadhi v State of Gujarat for the words 'is an exception to sub-Section (1) of Section 173', and paragraph 88 of Independent Thought v Union of India.",
+   "after": "The page cites paragraph 42(i) of Imran Pratapgadhi, and paragraphs 88 and 105(v) of Independent Thought.",
+   "why": "A fact-check against the judgments found the words at the later paragraphs."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Law, list of sources",
+   "href": "/law/",
+   "before": "The list pointed to copies of the Bharatiya Nyaya Sanhita, the Bharatiya Nagarik Suraksha Sanhita and notification S.O. 850(E) on mha.gov.in.",
+   "after": "The list points to Gazette copies on PRS Legislative Research and LiveLaw.",
+   "why": "The mha.gov.in links no longer opened."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Police and courts, and Where a woman's case is lost",
+   "href": "/courts/",
+   "before": "The step that closes a case after investigation was labelled 'Closed by police for lack of evidence'.",
+   "after": "The step is labelled 'True, but too little evidence or untraced', and the text says insufficient evidence, untraced or with no clue.",
+   "why": "NCRB's category covers cases found true but closed for insufficient evidence, and cases untraced or with no clue. The earlier label described only part of it."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "How the numbers are made",
+   "href": "/counting/",
+   "before": "The page said that, in the 2016 edition's own tables, the chapter's figure for the Dowry Prohibition Act 'is the one the rule produced'.",
+   "after": "The page says that this matches the rule having been applied in that chapter for that heading in that year, although NCRB does not say so.",
+   "why": "NCRB does not state that the rule was applied there, so the earlier sentence claimed more than the source shows."
+  },
+  {
+   "date": "2026-10-19",
+   "page": "Where a woman's case is lost",
+   "href": "/path/",
+   "before": "The page described the Commonwealth Human Rights Initiative study as following 14 rape cases, called the Status of Policing in India Report a series of surveys from 2018 to 2026, said How She Figures was published in English and Tamil, gave an author and a date for the CEDA analysis and said it covers the counting rule, and said that no figures had been found from the Investigation Tracking System.",
+   "after": "The page says 14 complaints of rape and gang rape, a series of reports with the most recent published in March 2025, and says nothing about languages, the author, the date or the counting rule for the other two. It says that this site has found no published figures from the tracking system.",
+   "why": "Each earlier description went further than the organisation's own pages allow, or could not be checked."
+  },
+  {
+   "date": "2026-10-10",
+   "page": "How the numbers are made",
+   "href": "/counting/",
+   "before": "The page said that NCRB used to say its counting rule did not apply to the chapter on crimes against women, and that its 2024 edition no longer says so.",
+   "after": "The page gives the edition-by-edition record. The exception appears only in the 2016 edition. The editions for 2017 to 2021 keep the murder with rape example and drop the exception, and the editions for 2022 to 2024 drop the example too.",
+   "why": "The earlier sentence rested on the 2024 edition alone. Reading every edition from 2016 to 2024 gave the dated record."
+  },
+  {
+   "date": "2026-10-09",
+   "page": "Law",
+   "href": "/law/",
+   "before": "The page described the Supreme Court as holding that a preliminary enquiry is appropriate where information concerns speech protected by Article 19, said that deceitful means includes a false promise of a job or a promotion, and listed pending investigations, inquiries, trials and appeals.",
+   "after": "The page quotes the Court's holding that section 173(3) is an exception to section 173(1), says that deceitful means includes an inducement or a false promise of a job or a promotion, and lists pending appeals and applications as well.",
+   "why": "The page was checked line by line against the Acts and the judgment, and the wording was brought into line with their text."
+  }
+ ]
+}

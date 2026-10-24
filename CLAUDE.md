@@ -11,7 +11,7 @@ in India, Volume 1, read by script, and eight context sources beside it.
 Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
 first line is `<!--page {json} -->`. Pages: home (`index.html`),
-`protests/`, `courts/`, `states/`, `north-east/`, `crimes/`, `context/`, `explore/`, `method/`,
+`protests/`, `courts/`, `states/`, `north-east/`, `updates/`, `corrections/`, `crimes/`, `context/`, `explore/`, `method/`,
 `law/`, `counting/`, `path/` and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
@@ -408,3 +408,15 @@ Every state page carries one sentence from the data: the share of the state's ca
 `data/events.json` feeds the "Marches and protests listed" section of `/protests/`. It is English only and edited by hand. An entry is added only after the report has been read. It needs the report's own words (`quote`, copied exactly and cut before any detail about a survivor), its link, and `date_basis`: `stated`, or `worked out` with a `date_note` saying how (a report that says "on Saturday" is dated from its publication day). A political party's student wing is named in `affiliation`. Never add a name, age or detail that could identify a survivor (BNS s.72); `scripts/check.py` fails on the obvious patterns and cannot catch the rest. The Indian Express blocks automated fetching, so its reports cannot be checked here. The first six entries came from reports read on 24 October 2026.
 
 The translations of the new strings (`state.pocso`, `ne.*`) were written by a model and have not been read by a native speaker, like the rest.
+
+## What's new, Corrections, and why the figures stop at 2024 (October 2026)
+
+`/updates/` and `/corrections/` are English-only lists drawn by `updates()` and `corrections()` in `js/app.js` from `data/updates.json` and `data/corrections.json`, newest first, linked from the footer (the header nav is full). The Terms page promises that a correction is made on the page itself, and the Corrections page is the public record of it. The same split is used on Off the Roll.
+
+- **Add to `updates.json`** whenever something is added: a page, a chart, a source, a year. Additions only.
+- **Add to `corrections.json`** whenever a figure, a finding or a claim already on the site changes: the date, the page, what it said before, what it says now, and why. A change of wording that leaves the meaning as it was is not listed.
+- **A detail removed because it could identify a survivor is described, never repeated**, in the "before" text. Repeating it on the Corrections page would publish it again. `scripts/check.py` fails on the obvious patterns (an age, "schoolgirl") and cannot catch the rest.
+- Both files follow the writing rules, and `check.py` also fails on a list that is not newest first and on a link to a page that does not exist. Fault-injected on 24 October 2026 with all four failures.
+- The first entries were built from the git history, 9 to 24 October 2026, which is the whole history of the site.
+
+The figures stop at 2024 because NCRB has not published a later Crime in India. It released its 2023 report on 29 September 2025, more than 20 months after that year ended (Ramanath Jha, Observer Research Foundation, 15 November 2025), and the 2024 edition was retrieved on 9 October 2026. The Data and method page says so (`read.stop`, with `{last}`). Some Context sources are newer than NCRB: the fast track courts to 30 April 2026 and the National Judicial Data Grid on 9 October 2026. Do not fill 2025 or 2026 from a state police release or a news report; the dataset is NCRB's, as printed.
