@@ -1005,17 +1005,18 @@
       { label: t('cx.nfhs.c3'), get: function (p) { return cv('nfhs', 'NFHS5_HS_NEVER_TOLD', p, NF); }, pct: 1 }]);
     // NCW
     var CY = [2020, 2021, 2022, 2023, 2024];
-    var nt = CY.map(function (y) { return cv('ncw', 'ncw_complaints_total', 'All India', String(y)); });
-    var up = cv('ncw', 'ncw_complaints_total', 'Uttar Pradesh', '2024');
-    $('ncwLead').textContent = t('cx.ncw.lead', { n: fmt(nt[4], 0), y: 2024, up: fmt(up / nt[4] * 100, 0), rape: fmt(cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', '2024'), 0), dv: fmt(cv('ncw', 'ncw_nature_domestic_violence', 'All India', '2024'), 0) });
+    var NY = CY.concat([2025]), LY = NY[NY.length - 1];
+    var nt = NY.map(function (y) { return cv('ncw', 'ncw_complaints_total', 'All India', String(y)); });
+    var up = cv('ncw', 'ncw_complaints_total', 'Uttar Pradesh', String(LY));
+    $('ncwLead').textContent = t('cx.ncw.lead', { n: fmt(nt[nt.length - 1], 0), y: LY, up: fmt(up / nt[nt.length - 1] * 100, 0), rape: fmt(cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(LY)), 0), dv: fmt(cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(LY)), 0) });
     $('ncwCap').textContent = t('cx.ncw.cap');
     C.watch($('ncwChart'), function () {
-      C.columns($('ncwChart'), { x: CY, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
+      C.columns($('ncwChart'), { x: NY, fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }, label: $('ncwCap').textContent, series: [
         { label: t('cx.ncw.all'), values: nt, color: '--knot', width: 3 },
-        { label: t('cx.ncw.dv'), values: CY.map(function (y) { return cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(y)); }), color: '--turmeric' },
-        { label: t('cx.ncw.rape'), values: CY.map(function (y) { return cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(y)); }), color: '--red' }] });
+        { label: t('cx.ncw.dv'), values: NY.map(function (y) { return cv('ncw', 'ncw_nature_domestic_violence', 'All India', String(y)); }), color: '--turmeric' },
+        { label: t('cx.ncw.rape'), values: NY.map(function (y) { return cv('ncw', 'ncw_nature_rape_attempt_to_rape', 'All India', String(y)); }), color: '--red' }] });
     });
-    placeTable($('ncwTable'), CY.map(function (y) { return { label: String(y), get: function (p) { return cv('ncw', 'ncw_complaints_total', p, String(y)); } }; }));
+    placeTable($('ncwTable'), NY.map(function (y) { return { label: String(y), get: function (p) { return cv('ncw', 'ncw_complaints_total', p, String(y)); } }; }));
     // ADSI
     var af = CY.map(function (y) { return cv('adsi', 'ADSI_SUI_F', 'All India', String(y)); }), ah = CY.map(function (y) { return cv('adsi', 'ADSI_SUI_HW', 'All India', String(y)); });
     $('adsiLead').textContent = t('cx.adsi.lead', { f: fmt(af[4], 0), hw: fmt(ah[4], 0), share: fmt(ah[4] / af[4] * 100, 0), y: 2024 });

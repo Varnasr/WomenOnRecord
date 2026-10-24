@@ -1,12 +1,12 @@
 # National Commission for Women complaints: notes
 
-Retrieved 2026-10-09 from the NCW portal page "Statistical Overview of Received Complaints" at https://ncwapps.nic.in/frmComp_Stat_Overview.aspx. Scripts: `../../work/ncw_fetch.py` (drives the form and saves each response), `../../work/parse_ncw.py` and `../../work/build_ncw.py` (CSV and checks). Check output: `../../work/ncw_checks.log`. The 195 saved responses are in `../../dl/ncw/html/`, each hashed in sources.json.
+Retrieved 2026-10-09 (2020 to 2024) and 2026-10-24 (2025) from the NCW portal page "Statistical Overview of Received Complaints" at https://ncwapps.nic.in/frmComp_Stat_Overview.aspx. Scripts: `scripts/context/ncw_fetch.py` drives the form and saves each response, and `scripts/context/ncw_build.py` runs the checks below and writes the rows. The saved responses (195 for 2020 to 2024, 38 for 2025) are not kept in the repository, and each is hashed in sources.json.
 
 ## What is counted
 
 Complaints received by the National Commission for Women, by calendar year (the portal's "Year" option; it also offers financial years, which were not used). The portal's headings are "Statistical Overview of Received Complaints" and "State-Wise Report of the Complaints Received by NCW in the Year : 2024". So these are complaints received, not complaints found true, registered as cases, or acted on. The state is the state recorded on the complaint; the portal does not say whether that is where the complainant lives or where the incident happened.
 
-data.csv holds, for 2020 to 2024:
+data.csv holds, for 2020 to 2025:
 
 - `ncw_complaints_total`: all complaints for each State/UT and All India.
 - `ncw_nature_<category>`: complaints by nature (category) for each State/UT and All India, with the category label exactly as NCW prints it.
@@ -24,18 +24,19 @@ For every year:
 - The State/UT totals sum to the printed All India total. All five years equal exactly.
 - Each row's twelve monthly figures sum to its annual total, in the state table and in every nature table. All pass.
 - For each State/UT, the nature rows sum to that table's printed total, and that total equals the State's figure in the state-wise table. All pass.
-- For each nature, the sum over States/UTs equals the All India nature table. All match (23 natures in 2020 to 2022, 24 in 2023, 34 in 2024).
+- For each nature, the sum over States/UTs equals the All India nature table. All match (23 natures in 2020 to 2022, 24 in 2023, 34 in 2024, 31 in 2025).
 - Every saved response's heading names the year and State that were requested, so no response was saved under the wrong label.
+- 2025 was retrieved on 24 October 2026 with `scripts/context/ncw_fetch.py` and checked by `scripts/context/ncw_build.py`: All India 27,672, the 36 State and UT rows add to it, and a table was printed for every State and UT. The same day 2024 was fetched again and compared row by row with the 507 rows stored on 9 October: no figure had changed.
 
 ## Things to know before using these figures
 
-- **The categories changed in 2024.** In 2025 the portal uses a new list (Assault, Criminal Intimidation, Abduction, Murder and others, with "Stalking" and "Voyeurism" separate). 2024 carries both lists: some complaints are under the old labels ("Stalking / Voyeurism", "Trafficking / Prostitution of women", "Right to live with dignity") and some under the new ones ("Stalking", "Trafficking of women", "Assault", "Criminal Intimidation"). Category counts for 2024 are therefore not comparable with 2020 to 2023, and a fall in an old category in 2024 may only be a move to a new one. "Police Apathy against women" (920 in 2024 against 1,624 in 2023) should be read with this in mind. "Harassment of Transgender" first appears in 2023.
+- **The categories changed in 2024 and the portal printed only the new list in 2025.** In 2025 the portal uses a new list (Assault, Criminal Intimidation, Abduction, Murder and others, with "Stalking" and "Voyeurism" separate). 2024 carries both lists: some complaints are under the old labels ("Stalking / Voyeurism", "Trafficking / Prostitution of women", "Right to live with dignity") and some under the new ones ("Stalking", "Trafficking of women", "Assault", "Criminal Intimidation"). Category counts for 2024 are therefore not comparable with 2020 to 2023, and a fall in an old category in 2024 may only be a move to a new one. "Police Apathy against women" (920 in 2024 against 1,624 in 2023) should be read with this in mind. "Harassment of Transgender" first appears in 2023. The 2025 list has 31 categories, three of which (Honor Killing, with 1 complaint, Voyeurism, 39, and Not Categorized yet, 5) are not among the 2024 rows. "Domestic Violence" (6,348 in 2024, 6,920 in 2025) and "Rape/Attempt to Rape" (1,447 and 1,625) carry the same label in both years, but as 2024 was split between the lists, a change between 2024 and 2025 may owe something to that.
 - **States not listed.** The state-wise table omits a State/UT in some years, and the nature-wise query for it returns no table: Ladakh in 2020, 2022 and 2024; Lakshadweep in 2022, 2023 and 2024; Nagaland in 2024. The portal prints no figure for them, so data.csv has no row for them in those years. That most likely means no complaints were recorded, but the portal does not print a zero and none is entered here.
 - **Name mapping.** Portal spellings were mapped to the project list: "Andaman and Nicobar Islands" to "A&N Islands", "Dadra & Nagar Haveli and Daman & Diu" to "D&N Haveli and Daman & Diu", "Jammu and Kashmir" to "Jammu & Kashmir", "Pondicherry" to "Puducherry", "Total" to "All India". One label had the link text "Cleck Here to see sub-categories" attached in the HTML; it was removed.
 
 ## Limits
 
-NCW complaints are self-selected. They count women who knew of NCW, chose to complain to it and could reach it, online or otherwise. They say nothing about how much crime happens in a State, and they do not overlap cleanly with NCRB's registered cases. Uttar Pradesh alone is half or more of all complaints in every year (50.0% in 2020, 55.9% in 2023, 13,868 of 25,743 or 53.9% in 2024), which reflects access to and awareness of NCW as well as crime. Small counts in small States and UTs move a lot from year to year. Per-capita rates are not provided here; if built, they should be labelled as complaints to NCW per population, not as crime rates.
+NCW complaints are self-selected. They count women who knew of NCW, chose to complain to it and could reach it, online or otherwise. They say nothing about how much crime happens in a State, and they do not overlap cleanly with NCRB's registered cases. Uttar Pradesh alone is half or more of all complaints in every year (50.0% in 2020, 55.9% in 2023, 13,868 of 25,743 or 53.9% in 2024, 14,028 of 27,672 or 50.7% in 2025), which reflects access to and awareness of NCW as well as crime. Small counts in small States and UTs move a lot from year to year. Per-capita rates are not provided here; if built, they should be labelled as complaints to NCW per population, not as crime rates.
 
 ## Gaps
 
