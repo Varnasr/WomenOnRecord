@@ -1,5 +1,5 @@
 {
- "scope": "Marches, protests and gatherings about the safety of women and violence against women in India, each backed by a published report that we have read. We list an event only after reading a report of it, and we leave out anything that could identify a survivor. Entries are added by hand, so the list is a sample of what was reported and is not a count of everything that happened.",
+ "scope": "Marches, protests and gatherings about the safety of women and violence against women in India, each backed by a published report that we have read. We list an event only after reading a report of it, and we leave out anything that could identify a survivor. Entries are added by hand, so the list is a sample of what was reported and leaves out events that no report covered or that we have not read.",
  "events": [
   {
    "id": "nsui-candle-march-2026-09-01",
@@ -43,7 +43,7 @@
    "start": "2026-09-23",
    "date_basis": "stated",
    "date_note": "",
-   "what": "Hundreds of students, most of them women, marched on Wednesday evening with placards. Reuters reported that they demanded safety and the freedom to go out at night without fear.",
+   "what": "Hundreds of students, most of them women, marched on Wednesday evening, shouting slogans and holding placards. Reuters reported that some placards demanded freedom to go out at night without fear.",
    "outlet": "Reuters, via The Star",
    "url": "https://www.thestar.com.my/news/world/2026/09/24/hundreds-protest-in-india039s-capital-after-teenager-reports-gang-rape",
    "quote": "NEW DELHI, Sept 23 (Reuters) - Hundreds of students protested in Delhi on Wednesday, demanding better safety for women",
