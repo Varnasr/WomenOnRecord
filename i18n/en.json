@@ -297,6 +297,7 @@
  "ex.none": "No figures match these filters.",
  "state.iso.cap": "{n} cases of crimes against women were before the courts in {s} in {y}. Each figure is 1 in every 100 of them. {conv} ended in a conviction that year, and {pend}, or {share} in every 100, were still waiting for a verdict when the year ended.",
  "state.mix.cap": "All {n} crimes against women recorded in {s} in {y}, by heading. Each box is that heading's share of the state's total.",
+ "state.pocso": "{share}% of the {n} cases recorded in {s} in {y} were booked under the POCSO Act, against {ri}% across India. Rape of girls under 18 is mostly booked under POCSO and counted separately, so read the rape box and the POCSO box together.",
  "strip.dot": "Other states and union territories",
  "grid.low": "Lower",
  "grid.high": "Highest year in its row",

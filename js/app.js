@@ -539,6 +539,10 @@
     // what was recorded
     $('stateMixCap').textContent = t('state.mix.cap', { s: place(p), y: y1, n: fmt(S('TOTAL', 'cases', p, y1), 0) });
     drawMix($('stateMix'), p, y1, $('stateMixCap').textContent);
+    // how much of the state's total is POCSO, set against India
+    var pt = S('POCSO_TOTAL', 'cases', p, y1), tt = S('TOTAL', 'cases', p, y1), pi = S('POCSO_TOTAL', 'cases', 'All India', y1), ti = S('TOTAL', 'cases', 'All India', y1);
+    $('stateMixNote').hidden = !(pt != null && tt && pi && ti);
+    if (!$('stateMixNote').hidden) $('stateMixNote').textContent = t('state.pocso', { s: place(p), y: y1, n: fmt(tt, 0), share: fmt(100 * pt / tt, 0), ri: fmt(100 * pi / ti, 0) });
     // among the states
     var list = CRIMES.filter(function (c) { return c !== 'TOTAL'; }).concat(['TOTAL']);
     var srows = list.map(function (c) {
