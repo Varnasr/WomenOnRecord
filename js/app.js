@@ -214,6 +214,38 @@
     }).catch(function () { $('evScope').textContent = 'The list of events could not be loaded.'; });
   }
 
+  // ---------- what's new and corrections ----------
+  // English only. Both lists are edited by hand in data/updates.json and data/corrections.json.
+  function dated(iso) { return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }); }
+  function node(tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; }
+  function updates() {
+    fetch(ver('/data/updates.json')).then(function (r) { return r.json(); }).then(function (U) {
+      var ol = $('updList'); ol.textContent = '';
+      U.entries.forEach(function (e) {
+        var li = node('li'); li.appendChild(node('span', dated(e.date), 'when'));
+        e.items.forEach(function (it) {
+          var p = node('p');
+          if (it.href) { var a = node('a', it.text); a.href = it.href; p.appendChild(a); } else p.textContent = it.text;
+          li.appendChild(p);
+        });
+        ol.appendChild(li);
+      });
+    }).catch(function () { $('updList').textContent = 'The list could not be loaded.'; });
+  }
+  function corrections() {
+    fetch(ver('/data/corrections.json')).then(function (r) { return r.json(); }).then(function (C) {
+      var ol = $('corList'); ol.textContent = '';
+      C.entries.forEach(function (e) {
+        var li = node('li'), w = node('span', dated(e.date) + ' · ', 'when'), a = node('a', e.page); a.href = e.href; w.appendChild(a);
+        li.appendChild(w);
+        [['Before', e.before], ['Now', e.after], ['Why', e.why]].forEach(function (x) {
+          var p = node('p'); p.appendChild(node('span', x[0] + ' ', 'lbl')); p.appendChild(document.createTextNode(x[1])); li.appendChild(p);
+        });
+        ol.appendChild(li);
+      });
+    }).catch(function () { $('corList').textContent = 'The list could not be loaded.'; });
+  }
+
   // ---------- police and courts ----------
   function flowSpec(o) {
     return { nodes: [
@@ -546,6 +578,56 @@
         h: lc(head(hd.c)), h0: fmt(S(hd.c, 'cases', big.n, worst.y0), 0), h1: fmt(S(hd.c, 'cases', big.n, worst.y1), 0) });
     }
     $('neList').innerHTML = names.map(function (n) { return '<li><a href="' + link('/states/' + slug(n) + '/') + '">' + place(n) + '</a></li>'; }).join('');
+  }
+
+  // ---------- regions ----------
+  // The groups are in data/regions.json: the five Zonal Councils and the North Eastern Council,
+  // with the two islands that belong to no council listed apart. NCRB prints no regions, so a
+  // region's total adds its state rows and its rate divides summed cases by summed women.
+  var RG = null;
+  function regions() {
+    var y = D.years[D.years.length - 1], I0 = 'All India', pct = function (a, b) { return 100 * a / b; };
+    var sum = function (ids, code, m, yy) { return ids.reduce(function (a, n) { return a + (S(code, m, n, yy) || 0); }, 0); };
+    var rname = function (r) { return t('rg.n.' + r.id); };
+    var regs = RG.regions.slice().sort(function (a, b) { return rname(a).localeCompare(rname(b), lang); });
+    var byPlace = function (ids) { return ids.slice().sort(function (a, b) { return place(a).localeCompare(place(b), lang); }); };
+    var vals = function (ids) {
+      var cases = sum(ids, 'TOTAL', 'cases', y), pop = sum(ids, 'FEMALE_POP', 'population_lakh', y), po = sum(ids, 'POCSO_TOTAL', 'cases', y);
+      return [cases, pop, ids.length === 1 ? S('TOTAL', 'rate', ids[0], y) : cases / pop, po, pct(po, cases), sum(ids, 'RAPE', 'cases', y)];
+    };
+    var dps = [0, 1, 1, 0, 0, 0], heads = [t('m.cases'), t('ne.col.pop'), t('m.rate'), t('ne.col.pocso'), t('ne.col.share'), t('ne.col.rape')];
+    var cells = function (v) { return v.map(function (x, i) { return '<td>' + fmt(x, dps[i]) + '</td>'; }).join(''); };
+    var group = function (label) { return '<tr class="group"><th scope="rowgroup" colspan="7">' + label + '</th></tr>'; };
+    var rows = function (ids) { return byPlace(ids).map(function (n) { return '<tr><th scope="row">' + place(n) + '</th>' + cells(vals([n])) + '</tr>'; }).join(''); };
+    var h = '<thead><tr><th scope="col">' + t('nav.states') + '</th>' + heads.map(function (x) { return '<th scope="col">' + x + '</th>'; }).join('') + '</tr></thead>';
+    regs.forEach(function (r) {
+      h += '<tbody>' + group(rname(r)) + rows(r.states) + '<tr class="total"><th scope="row">' + t('rg.total', { r: rname(r) }) + '</th>' + cells(vals(r.states)) + '</tr></tbody>';
+    });
+    h += '<tbody>' + group(t('rg.out')) + rows(RG.outside) + '</tbody>';
+    var ind = [S('TOTAL', 'cases', I0, y), S('FEMALE_POP', 'population_lakh', I0, y), S('TOTAL', 'rate', I0, y), S('POCSO_TOTAL', 'cases', I0, y),
+      pct(S('POCSO_TOTAL', 'cases', I0, y), S('TOTAL', 'cases', I0, y)), S('RAPE', 'cases', I0, y)];
+    h += '<tbody><tr class="total"><th scope="row">' + place(I0) + '</th>' + cells(ind) + '</tr></tbody>';
+    $('rgTable').innerHTML = h;
+    // the rate in each region, year by year
+    var yh = '<thead><tr><th scope="col">' + t('rg.h') + '</th>' + D.years.map(function (yy) { return '<th scope="col">' + yy + '</th>'; }).join('') + '</tr></thead><tbody>';
+    regs.forEach(function (r) { yh += '<tr><th scope="row">' + rname(r) + '</th>' + D.years.map(function (yy) { return '<td>' + fmt(sum(r.states, 'TOTAL', 'cases', yy) / sum(r.states, 'FEMALE_POP', 'population_lakh', yy), 1) + '</td>'; }).join('') + '</tr>'; });
+    yh += '<tr class="total"><th scope="row">' + place(I0) + '</th>' + D.years.map(function (yy) { return '<td>' + fmt(S('TOTAL', 'rate', I0, yy), 1) + '</td>'; }).join('') + '</tr>';
+    $('rgYears').innerHTML = yh + '</tbody>';
+    // the state that holds most of each region's cases
+    $('rgBig').innerHTML = regs.map(function (r) {
+      var top = r.states.slice().sort(function (a, b) { return (S('TOTAL', 'cases', b, y) || 0) - (S('TOTAL', 'cases', a, y) || 0); })[0];
+      return '<li>' + t('rg.big.item', { r: rname(r), s: place(top), p: fmt(pct(S('TOTAL', 'cases', top, y), sum(r.states, 'TOTAL', 'cases', y)), 0) }) + '</li>';
+    }).join('');
+    // the capitals NCRB reports, from its table of the 19 largest cities
+    var Cy = D.cities || {}, ci = D.years.indexOf(y), yc = y;
+    $('rgCapIntro').textContent = t('rg.cap.p');
+    var caps = RG.capitals.filter(function (c) { return Cy[c.city]; }).sort(function (a, b) { return a.city.localeCompare(b.city); });
+    var ch = '<thead><tr><th scope="col">' + t('city.col') + '</th><th scope="col">' + t('m.cases') + '</th><th scope="col">' + t('rg.cap.share') + '</th><th scope="col">' + t('city.rate', { y: yc }) + '</th><th scope="col">' + t('city.csr', { y: yc }) + '</th></tr></thead><tbody>';
+    caps.forEach(function (c) {
+      var cc = Cy[c.city].cases[ci];
+      ch += '<tr><th scope="row">' + c.city + '</th><td>' + fmt(cc, 0) + '</td><td>' + fmt(pct(cc, S('TOTAL', 'cases', c.state, y)), 0) + '</td><td>' + fmt(Cy[c.city].rate_2011pop[ci], 1) + '</td><td>' + fmt(Cy[c.city].chargesheeting_rate[ci], 1) + '</td></tr>';
+    });
+    $('rgCap').innerHTML = ch + '</tbody>';
   }
 
   // ---------- one state ----------
@@ -1344,7 +1426,7 @@
     $('ctUn').textContent = t('ct.un.p1', { never: fmt(cv('nfhs', 'NFHS5_HS_NEVER_TOLD', 'All India'), 1), sought: fmt(cv('nfhs', 'NFHS5_HS_SOUGHT', 'All India'), 1) });
   }
 
-  var PAGES = { explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, 'north-east': northEast, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
+  var PAGES = { regions: regions, updates: updates, corrections: corrections, explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, 'north-east': northEast, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
     toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
@@ -1430,8 +1512,9 @@
     if (PAGE === 'states' || PAGE === 'state') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'regions') want.push(fetch(ver('/data/regions.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
-      D = res[0]; st.year = D.years[D.years.length - 1]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else GEO = res[1] || null;
+      D = res[0]; st.year = D.years[D.years.length - 1]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else if (PAGE === 'regions') RG = res[1]; else GEO = res[1] || null;
       if (GEO) project();
       setLang(lang);
     }).catch(function (e) {

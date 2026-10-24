@@ -204,6 +204,56 @@ for e in EV['events']:
     if re.search(r'\b(her name|his name|named|identified as|\d{1,2}-year-old|aged \d)', e.get('what', ''), flags=re.I):
         fail.append(f'{w} may describe a survivor: no name, age or detail that could identify her')
 
+# data/regions.json: every state and union territory sits in exactly one region or in "outside",
+# every capital names a city and a state that exist, and the North-East list in app.js is the
+# same list as the North-East region, because the two are written separately.
+RGN = json.load(open(os.path.join(ROOT, 'data', 'regions.json'), encoding='utf-8'))
+SITE = json.load(open(os.path.join(ROOT, 'data', 'site.json'), encoding='utf-8'))
+placed = [s for g in RGN['regions'] for s in g['states']] + RGN['outside']
+want = [p['id'] for p in SITE['places'] if p['kind'] != 'total']
+for pid in want:
+    if placed.count(pid) != 1: fail.append(f'regions.json places {pid} {placed.count(pid)} times, not once')
+for pid in set(placed) - set(want): fail.append(f'regions.json names {pid}, which is not a place in site.json')
+for g in RGN['regions']:
+    if 'rg.n.' + g['id'] not in en: fail.append(f"regions.json region {g['id']} has no name in en.json (rg.n.{g['id']})")
+for cp in RGN['capitals']:
+    if cp['city'] not in SITE['cities']: fail.append(f"regions.json capital {cp['city']} is not in site.json cities")
+    if cp['state'] not in want: fail.append(f"regions.json capital {cp['city']} names state {cp['state']}, which is not a place")
+ne_js = re.search(r"var NE = \[(.*?)\];", app, flags=re.S)
+ne_list = re.findall(r"'([^']+)'", ne_js.group(1)) if ne_js else []
+if sorted(ne_list) != sorted(next(g for g in RGN['regions'] if g['id'] == 'north-east')['states']):
+    fail.append('NE in app.js and the north-east region in regions.json are different lists')
+
+# data/updates.json and data/corrections.json: the public record of changes. Both are newest
+# first, dated, and follow the writing rules. A correction names the page it changed, and a
+# link must point at a page that exists. Nothing may repeat a detail that could identify a survivor.
+for fname, fields in [('updates', None), ('corrections', ['page', 'href', 'before', 'after', 'why'])]:
+    D2 = json.load(open(os.path.join(ROOT, 'data', fname + '.json'), encoding='utf-8'))
+    dates = [e.get('date', '') for e in D2['entries']]
+    if dates != sorted(dates, reverse=True): fail.append(f'{fname}.json is not newest first')
+    for e in D2['entries']:
+        w = f"{fname}.json {e.get('date')}"
+        try: datetime.date.fromisoformat(e.get('date', ''))
+        except ValueError: fail.append(f'{w} has no valid date')
+        texts, hrefs = [], []
+        if fname == 'updates':
+            if not e.get('items'): fail.append(f'{w} has no items')
+            for it in e.get('items', []):
+                texts.append(it.get('text', '')); hrefs.append(it.get('href'))
+        else:
+            for k in fields:
+                if not e.get(k): fail.append(f'{w} has no {k}')
+            texts = [e.get(k, '') for k in ['page', 'before', 'after', 'why']]; hrefs = [e.get('href')]
+        for h in hrefs:
+            if h and not exists(h.split('#')[0], '/'): fail.append(f'{w} links to {h}, which is not a page')
+        for v in texts:
+            for pat, what in [(';', 'a semicolon'), ('\u2014', 'an em dash'), (BANNED, 'a banned word'), (PHRASES, 'a banned phrase')]:
+                if re.search(pat, v, flags=re.I): fail.append(f'{w} carries {what}: {v[:50]}')
+            for pat in TURNS:
+                if re.search(pat, v, flags=re.I): fail.append(f'{w} has an "X, not Y" turn: {v[:50]}')
+            if re.search(r'\b(\d{1,2}-year-old|aged \d|girl of \d|schoolgirl|schoolboy)', v, flags=re.I):
+                fail.append(f'{w} may repeat a detail that could identify a survivor: {v[:50]}')
+
 if fail:
     print('\n'.join(fail)); sys.exit(1)
 print(f'PASS: {checked} printed rates agree with cases and population; references, CSP and downloads in order')
