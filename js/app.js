@@ -184,6 +184,34 @@
                  { label: t('india'), values: row('RAPE', 'rate', 'All India'), color: '--soft' }] });
     });
     $('prChartCap').textContent = t('pr.chart', { y0: D.years[0], y1: D.years[D.years.length - 1] });
+    events();
+  }
+  // Marches and protests from data/events.json, each with the report that dates it.
+  // English only. Today is taken in India, whatever the reader's own clock says.
+  function events() {
+    fetch(ver('/data/events.json')).then(function (r) { return r.json(); }).then(function (E) {
+      var today = new Date(Date.now() + 330 * 60000).toISOString().slice(0, 10);
+      var el = function (tag, text, cls) { var e = document.createElement(tag); if (text != null) e.textContent = text; if (cls) e.className = cls; return e; };
+      var date = function (iso) { return new Date(iso + 'T00:00:00Z').toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }); };
+      var item = function (e) {
+        var li = el('li'); li.id = 'ev-' + e.id;
+        li.appendChild(el('span', date(e.start) + (e.time ? ', ' + e.time : ''), 'when'));
+        var p1 = el('p'); p1.appendChild(el('b', e.title)); li.appendChild(p1);
+        li.appendChild(el('p', [e.kind.charAt(0).toUpperCase() + e.kind.slice(1), e.organiser ? 'Organised by ' + e.organiser : 'The report does not name the organiser', e.affiliation, e.place.replace(/\.$/, '')].filter(Boolean).join('. ') + '.'));
+        li.appendChild(el('p', e.what));
+        var src = el('p', null, 'src'), a = el('a', e.outlet); a.href = e.url; a.rel = 'noopener'; src.appendChild(a);
+        src.appendChild(document.createTextNode(e.date_basis === 'stated' ? '. The report states the date.' : '. Date worked out. ' + e.date_note));
+        li.appendChild(src);
+        var d = el('details'); d.appendChild(el('summary', 'The words of the source')); d.appendChild(el('blockquote', e.quote)); li.appendChild(d);
+        return li;
+      };
+      var next = E.events.filter(function (e) { return e.start >= today; }).sort(function (a, b) { return a.start < b.start ? -1 : 1; });
+      var past = E.events.filter(function (e) { return e.start < today; }).sort(function (a, b) { return a.start < b.start ? 1 : -1; });
+      var fill = function (id, list, none) { var o = $(id); o.textContent = ''; if (!list.length) o.appendChild(el('li', none)); list.forEach(function (e) { o.appendChild(item(e)); }); };
+      fill('evNext', next, 'No event still to come has been announced in a report we could read.');
+      fill('evPast', past, 'No past event is listed yet.');
+      $('evScope').textContent = E.scope;
+    }).catch(function () { $('evScope').textContent = 'The list of events could not be loaded.'; });
   }
 
   // ---------- police and courts ----------

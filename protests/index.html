@@ -38,7 +38,7 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.WOR_BUILD = "c4f9dc7028"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"d5787c839f","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/site.json":"22ea83fbc4","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"7fb4cc6dd1","downloads/womenonrecord.xlsx":"a959f14e1d","js/app.js":"969698a17d","js/charts.js":"664aa485da","js/i18n.js":"a16b172bfc"};
+  window.WOR_BUILD = "b325e78791"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"d5787c839f","data/context.csv":"49c71cb50a","data/context.json":"69bee9f7a4","data/events.json":"7452679ca1","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/site.json":"22ea83fbc4","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"7fb4cc6dd1","downloads/womenonrecord.xlsx":"a959f14e1d","js/app.js":"38762edc9e","js/charts.js":"664aa485da","js/i18n.js":"a16b172bfc"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -118,6 +118,16 @@
         <p class="src"><a href="https://indianexpress.com/article/cities/delhi/du-students-protest-womens-safety-delhi-10894166/">The Indian Express</a> · <a href="https://thenewsmill.com/2026/09/students-demand-better-safety-and-education-after-kalkaji-gang-rape/">The News Mill and ANI</a> · <a href="https://www.theguardian.com/world/2026/sep/28/this-is-india-violence-against-women">The Guardian</a></p></li>
     </ol>
   </section>
+  <section class="sec" id="events" aria-labelledby="h-events" lang="en" dir="ltr">
+    <h2 id="h-events">Marches and protests listed</h2>
+    <p class="intro">This list is in English only. Each entry links to the report that carries the date and shows the words it uses. When a report gives only a day of the week, we work the date out from the day the report was published, and the entry says so. Plans change, so check with the organiser before you go. Student wings of political parties are marked.</p>
+    <h3>Coming up</h3>
+    <ol class="events" id="evNext"></ol>
+    <h3>Past</h3>
+    <ol class="events" id="evPast"></ol>
+    <p class="note" id="evScope"></p>
+  </section>
+
   <section class="sec" aria-labelledby="h-records">
     <h2 id="h-records" data-i18n="pr.data.h">What the police and court records say about Delhi, Bihar and India</h2>
     <div class="cloth prdata">
@@ -149,6 +159,6 @@
 </div>
 <script src="/js/i18n.js?v=a16b172bfc"></script>
 <script src="/js/charts.js?v=664aa485da"></script>
-<script src="/js/app.js?v=969698a17d"></script>
+<script src="/js/app.js?v=38762edc9e"></script>
 </body>
 </html>
