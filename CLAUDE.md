@@ -398,3 +398,13 @@ python3 scripts/check.py
 PLAYWRIGHT_CORE=... CHROME=... python3 scripts/og/make_card.py   # preview image
 bash scripts/deploy.sh                                            # until Netlify is linked to the repo
 ```
+
+## The North-East page, the POCSO sentence and the events list (October 2026)
+
+`/north-east/` (`site/pages/north-east.html`, `northEast()` in `js/app.js`) sets the eight North-Eastern states side by side. It is not in the header nav, which is full at 1280px; it is linked from the states page and from each of the eight state pages. States stay alphabetical and are never ranked. NCRB prints no regions, so the total adds the state rows and the rate divides summed cases by summed women. A generated note names the largest one-year fall in the total (2021 to 2022: 14,898 of the 15,018 fewer cases were in Assam, mostly cruelty by husband or relatives, 12,950 to 4,704) and says the figures give no cause. Do not let a table of this region be read as the North-East improving. No source we hold goes below the state, so there is no district view.
+
+Every state page carries one sentence from the data: the share of the state's cases booked under POCSO against India's (Meghalaya 2024: 64% against 15%). Rape of girls under 18 is mostly booked under POCSO, so the rape box alone understates sexual violence where POCSO is large (Meghalaya's rape count fell from 119 in 2017 to 57 in 2024 while POCSO rose from 239 to 420).
+
+`data/events.json` feeds the "Marches and protests listed" section of `/protests/`. It is English only and edited by hand. An entry is added only after the report has been read. It needs the report's own words (`quote`, copied exactly and cut before any detail about a survivor), its link, and `date_basis`: `stated`, or `worked out` with a `date_note` saying how (a report that says "on Saturday" is dated from its publication day). A political party's student wing is named in `affiliation`. Never add a name, age or detail that could identify a survivor (BNS s.72); `scripts/check.py` fails on the obvious patterns and cannot catch the rest. The Indian Express blocks automated fetching, so its reports cannot be checked here. The first six entries came from reports read on 24 October 2026.
+
+The translations of the new strings (`state.pocso`, `ne.*`) were written by a model and have not been read by a native speaker, like the rest.

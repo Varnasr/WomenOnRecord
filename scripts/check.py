@@ -178,6 +178,32 @@ for l, own in OWN.items():
         if re.search('[\u0966-\u096f\u09e6-\u09ef\u0be6-\u0bef\u06f0-\u06f9\u0660-\u0669]', v):
             fail.append(f'{l} {k} writes a number in native digits, use 0-9')
 
+# data/events.json: the protests list. Each entry is backed by a report that was read, so
+# it needs a link, the report's own words and an honest account of how its date was found.
+# A date worked out from a weekday has to say so, and nothing may carry a survivor's details.
+import datetime
+EV = json.load(open(os.path.join(ROOT, 'data', 'events.json'), encoding='utf-8'))
+ev_ids = set()
+for e in EV['events']:
+    w = 'events.json ' + str(e.get('id'))
+    for k in ['id', 'title', 'kind', 'place', 'start', 'date_basis', 'what', 'outlet', 'url', 'quote', 'accessed']:
+        if not e.get(k): fail.append(f'{w} has no {k}')
+    if e.get('id') in ev_ids: fail.append(f'{w} is listed twice')
+    ev_ids.add(e.get('id'))
+    try: datetime.date.fromisoformat(e.get('start', ''))
+    except ValueError: fail.append(f'{w} start is not a date')
+    if e.get('date_basis') not in ('stated', 'worked out'): fail.append(f'{w} date_basis must be stated or worked out')
+    if e.get('date_basis') == 'worked out' and not e.get('date_note'): fail.append(f'{w} works its date out and does not say how')
+    if not str(e.get('url', '')).startswith('https://'): fail.append(f'{w} url is not https')
+    for k in ['title', 'organiser', 'place', 'what', 'date_note', 'affiliation']:
+        v = e.get(k) or ''
+        for pat, what in [(';', 'a semicolon'), ('\u2014', 'an em dash'), (BANNED, 'a banned word'), (PHRASES, 'a banned phrase')]:
+            if re.search(pat, v, flags=re.I): fail.append(f'{w} {k} carries {what}')
+        for pat in TURNS:
+            if re.search(pat, v, flags=re.I): fail.append(f'{w} {k} has an "X, not Y" turn')
+    if re.search(r'\b(her name|his name|named|identified as|\d{1,2}-year-old|aged \d)', e.get('what', ''), flags=re.I):
+        fail.append(f'{w} may describe a survivor: no name, age or detail that could identify her')
+
 if fail:
     print('\n'.join(fail)); sys.exit(1)
 print(f'PASS: {checked} printed rates agree with cases and population; references, CSP and downloads in order')
