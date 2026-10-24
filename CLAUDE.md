@@ -11,7 +11,7 @@ in India, Volume 1, read by script, and eight context sources beside it.
 Never edit a built page. `scripts/build_pages.py` writes every page from
 `site/shell.html` (head, header, nav, footer) and `site/pages/*.html`, whose
 first line is `<!--page {json} -->`. Pages: home (`index.html`),
-`protests/`, `courts/`, `states/`, `crimes/`, `context/`, `explore/`, `method/`,
+`protests/`, `courts/`, `states/`, `north-east/`, `crimes/`, `context/`, `explore/`, `method/`,
 `law/`, `counting/`, `path/` and `terms/`. Two
 sources are templates: `state.html` is written once per state and union
 territory (`states/<slug>/`, 36) and `crime.html` once per crime
