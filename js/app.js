@@ -531,6 +531,10 @@
     tileMap();
     yearMaps();
     cityTable();
+    var rname = function (r) { return t('rg.n.' + r.id); };
+    $('regionCards').innerHTML = RG.regions.slice().sort(function (a, b) { return rname(a).localeCompare(rname(b), lang); }).map(function (r) {
+      return '<li class="card"><a href="' + link('/regions/#rg-' + r.id) + '"><b>' + rname(r) + '</b><span>' + t('states.rg.n', { n: r.states.length }) + '</span></a></li>';
+    }).join('');
     $('placeList').innerHTML = STATES().slice().sort(byName).map(function (p) {
       return '<li><a href="' + link('/states/' + slug(p.id) + '/') + '">' + place(p.id) + '</a></li>';
     }).join('');
@@ -601,7 +605,7 @@
     var rows = function (ids) { return byPlace(ids).map(function (n) { return '<tr><th scope="row">' + place(n) + '</th>' + cells(vals([n])) + '</tr>'; }).join(''); };
     var h = '<thead><tr><th scope="col">' + t('nav.states') + '</th>' + heads.map(function (x) { return '<th scope="col">' + x + '</th>'; }).join('') + '</tr></thead>';
     regs.forEach(function (r) {
-      h += '<tbody>' + group(rname(r)) + rows(r.states) + '<tr class="total"><th scope="row">' + t('rg.total', { r: rname(r) }) + '</th>' + cells(vals(r.states)) + '</tr></tbody>';
+      h += '<tbody id="rg-' + r.id + '">' + group(rname(r)) + rows(r.states) + '<tr class="total"><th scope="row">' + t('rg.total', { r: rname(r) }) + '</th>' + cells(vals(r.states)) + '</tr></tbody>';
     });
     h += '<tbody>' + group(t('rg.out')) + rows(RG.outside) + '</tbody>';
     var ind = [S('TOTAL', 'cases', I0, y), S('FEMALE_POP', 'population_lakh', I0, y), S('TOTAL', 'rate', I0, y), S('POCSO_TOTAL', 'cases', I0, y),
@@ -1513,9 +1517,9 @@
     if (PAGE === 'states' || PAGE === 'state') want.push(fetch(ver('/data/geo/india.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') want.push(fetch(ver('/data/context.json')).then(function (r) { return r.json(); }));
     if (PAGE === 'explore') want.push(fetch(ver('/data/explore.json')).then(function (r) { return r.json(); }));
-    if (PAGE === 'regions') want.push(fetch(ver('/data/regions.json')).then(function (r) { return r.json(); }));
+    if (PAGE === 'regions' || PAGE === 'states') want.push(fetch(ver('/data/regions.json')).then(function (r) { return r.json(); }));
     Promise.all(want).then(function (res) {
-      D = res[0]; st.year = D.years[D.years.length - 1]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else if (PAGE === 'regions') RG = res[1]; else GEO = res[1] || null;
+      D = res[0]; st.year = D.years[D.years.length - 1]; if (PAGE === 'context' || PAGE === 'counting' || PAGE === 'path') X = res[1]; else if (PAGE === 'explore') E = res[1]; else if (PAGE === 'regions') RG = res[1]; else { GEO = res[1] || null; if (PAGE === 'states') RG = res[2]; }
       if (GEO) project();
       setLang(lang);
     }).catch(function (e) {

@@ -1,6 +1,19 @@
 {
  "entries": [
   {
+   "date": "2026-10-25",
+   "items": [
+    {
+     "text": "The States page now opens with a By region section, one card for each of the six regions, and the North-East is one of them. Each card goes to that region's rows on the Regions page.",
+     "href": "/states/#by-region"
+    },
+    {
+     "text": "Type, spacing, table rows and buttons were refined across the site. No page changed its content.",
+     "href": "/"
+    }
+   ]
+  },
+  {
    "date": "2026-10-24",
    "items": [
     {

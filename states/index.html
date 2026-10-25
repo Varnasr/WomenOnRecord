@@ -34,11 +34,11 @@
 <link rel="alternate" hreflang="x-default" href="https://www.womenonrecord.net/states/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/fonts.css?v=d6299a11d6">
-<link rel="stylesheet" href="/css/site.css?v=774a1abd91">
+<link rel="stylesheet" href="/css/site.css?v=eea741be6c">
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.WOR_BUILD = "3b193df795"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"774a1abd91","data/context.csv":"97e8b2e6ad","data/context.json":"085770d9d7","data/corrections.json":"45ef9af2d4","data/events.json":"cb28f0bdd2","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/regions.json":"06e8823874","data/site.json":"22ea83fbc4","data/updates.json":"5c02e19150","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"54b6cafd46","downloads/womenonrecord.xlsx":"a959f14e1d","js/app.js":"0ebd01dfc6","js/charts.js":"664aa485da","js/i18n.js":"e58917153c"};
+  window.WOR_BUILD = "74013bcaee"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"eea741be6c","data/context.csv":"97e8b2e6ad","data/context.json":"085770d9d7","data/corrections.json":"45ef9af2d4","data/events.json":"cb28f0bdd2","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/regions.json":"06e8823874","data/site.json":"22ea83fbc4","data/updates.json":"3c8a69628a","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"54b6cafd46","downloads/womenonrecord.xlsx":"a959f14e1d","js/app.js":"46e2ef39e7","js/charts.js":"664aa485da","js/i18n.js":"c4757f614b"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -104,7 +104,12 @@
     <p class="intro" data-i18n="states.intro">The map shows cases recorded for every lakh women, so that a large state and a small one can be read on the same scale. NCRB warns that states should not be compared on these figures alone, because a high rate can come from more crime or from police who record more of the crime that happens.</p>
   </header>
 
-  <p class="note"><a href="/north-east/" data-i18n="ne.from">See the eight North-Eastern states side by side.</a> <a href="/regions/" data-i18n="rg.all">See every region side by side.</a></p>
+
+  <section class="sec" id="by-region" aria-labelledby="h-rgn">
+    <h2 id="h-rgn" data-i18n="states.rg.h">By region</h2>
+    <p class="intro" data-i18n="states.rg.p">Every state and union territory sits in one of six regions, the five Zonal Councils and the North Eastern Council. Pick a region to see its states side by side.</p>
+    <ul class="cards" id="regionCards"></ul>
+  </section>
 
   <section class="sec" id="map-sec" aria-labelledby="h-map">
     <h2 id="h-map" data-i18n="map.h">The map</h2>
@@ -172,8 +177,8 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=e58917153c"></script>
+<script src="/js/i18n.js?v=c4757f614b"></script>
 <script src="/js/charts.js?v=664aa485da"></script>
-<script src="/js/app.js?v=0ebd01dfc6"></script>
+<script src="/js/app.js?v=46e2ef39e7"></script>
 </body>
 </html>
