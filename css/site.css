@@ -536,3 +536,37 @@ html[dir="rtl"] .findings a::after { content: " \2190"; }
   .lawtable td:nth-child(3)::before { content: "BNS, from 1 July 2024"; }
   .lawtable td:nth-child(4)::before { content: "What changed"; }
 }
+
+/* Polish: type, spacing and states. No new colours, so the contrast checks still describe it. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+p, li { text-wrap: pretty; }
+::selection { background: var(--red); color: var(--ground); }
+.top { box-shadow: 0 8px 16px -14px rgba(15, 20, 45, .45); }
+h1 { font-size: clamp(30px, 4.6vw, 46px); line-height: 1.14; }
+.lead { font-size: clamp(17px, 1.5vw, 18.5px); line-height: 1.62; max-width: 62ch; }
+.phead .intro { font-size: 17.5px; }
+.sec h2 { letter-spacing: -.01em; }
+.card a { transition: border-color .15s ease, transform .15s ease; }
+.card a:hover { border-color: var(--ink); transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) { .card a, .cta { transition: none; } .card a:hover { transform: none; } }
+.cta { transition: transform .15s ease, box-shadow .15s ease; }
+.cta:hover { transform: translateY(-1px); box-shadow: 0 0 0 2px var(--ground), 0 0 0 4px var(--ink); }
+.grid { font-variant-numeric: tabular-nums; }
+.grid tbody tr:hover > * { background: var(--cloth); }
+.grid tr.group:hover > *, .grid tr.total:hover > * { background: transparent; }
+.table-wrap { border-radius: 3px; }
+.fig, .field, .hero-iso { border-radius: 3px; }
+#regionCards { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+#regionCards .card a { padding: 16px 18px; gap: 4px; }
+#regionCards .card b { font-size: 20px; }
+.foot-in { font-size: 14.5px; max-width: 860px; text-wrap: balance; }
+.foot-in a { text-decoration-thickness: 1px; }
+tbody[id^="rg-"] { scroll-margin-top: 76px; }
+@media (max-width: 599px) {
+  #regionCards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  #regionCards .card a { padding: 12px 14px; }
+  #regionCards .card b { font-size: 18px; }
+  #regionCards .card span { font-size: 14px; }
+}
