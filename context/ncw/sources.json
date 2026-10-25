@@ -7,7 +7,7 @@
    "publisher": "National Commission for Women, Government of India",
    "url": "https://ncwapps.nic.in/frmComp_Stat_Overview.aspx",
    "retrieved_on": "2026-10-09",
-   "method": "ASP.NET form driven by script (work/ncw_fetch.py): Year option (calendar year, not financial year), Report Type 'State Wise' for state totals and 'Nature Wise' with each State selected for categories. Each server response was saved as HTML.",
+   "method": "ASP.NET form driven by script (scripts/context/ncw_fetch.py; the rows are written by scripts/context/ncw_build.py, which runs the checks in notes.md): Year option (calendar year, not financial year), Report Type 'State Wise' for state totals and 'Nature Wise' with each State selected for categories. Each server response was saved as HTML.",
    "definitions": {
     "page_heading": "प्राप्त शिकायतों का सांख्यिकीय अवलोकन / Statistical Overview of Received Complaints",
     "state_table_heading": "State-Wise Report of the Complaints Received by NCW in the Year : 2024",
@@ -794,8 +794,161 @@
     "ncw_2024_type1.html": {
      "path": "/tmp/claude-0/-home-user/b265c821-fef0-5b88-b65b-b3bdb122355c/scratchpad/dl/ncw/html/ncw_2024_type1.html",
      "sha256": "0fea99cf0601f22b78691a823aab32d8b131fcea817dd1c336bf5058c7ef2eef"
+    },
+    "ncw_2025_type1.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type1.html (not kept in the repository)",
+     "sha256": "b09f573dc6f13caf9ed27cdc52f16124731ffd0866690ec9d0fdb97c7984ac26"
+    },
+    "ncw_2025_type0.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0.html (not kept in the repository)",
+     "sha256": "494fdb187d90f591673ad63587eabe7fcf021da29e34f306d29506fef804f2c4"
+    },
+    "ncw_2025_type0_st1.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st1.html (not kept in the repository)",
+     "sha256": "0344f00217ac0bb0de6f94f76a78ddea7489eb884a8bf6856dae77fc0f406e19"
+    },
+    "ncw_2025_type0_st2.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st2.html (not kept in the repository)",
+     "sha256": "4fb900ea5a73c2234f505a2c369218ec6cc8e507efdc12c095d2b26ab75b5bd3"
+    },
+    "ncw_2025_type0_st3.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st3.html (not kept in the repository)",
+     "sha256": "f77e9bbce2f0c4ff746d50af4b40a7c4edf2a53037d2bc2523c687d5b37298ba"
+    },
+    "ncw_2025_type0_st4.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st4.html (not kept in the repository)",
+     "sha256": "bd900dd00d9408a5fb6e54c3b27b3177f57c62a492d41dda6c7b059df284cb61"
+    },
+    "ncw_2025_type0_st5.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st5.html (not kept in the repository)",
+     "sha256": "bfe6462c6fa27c11e2fd017dc6748224717264943a8e216427cad892d07b94ef"
+    },
+    "ncw_2025_type0_st6.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st6.html (not kept in the repository)",
+     "sha256": "a667961d62fd8b02f2924288164bc1eb3227f4a93836ca07f7ed4b14ba33e4e0"
+    },
+    "ncw_2025_type0_st7.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st7.html (not kept in the repository)",
+     "sha256": "17bcc46beaa85d69903f675f80b703e0145ea117630582807dd8acb388163dbe"
+    },
+    "ncw_2025_type0_st8.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st8.html (not kept in the repository)",
+     "sha256": "96326b52bdc878eabc03caf0dd8f49d882e38b9071378592a8fbb8e553367084"
+    },
+    "ncw_2025_type0_st10.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st10.html (not kept in the repository)",
+     "sha256": "0c2683c824175164fb5e6e25f1513a64b6c605b6f5db280fc691e958c25ff2fd"
+    },
+    "ncw_2025_type0_st11.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st11.html (not kept in the repository)",
+     "sha256": "9e40fd581e4a2b1bab01fa8fcd2e940833cb89152aa0277312e9089d621e58d5"
+    },
+    "ncw_2025_type0_st12.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st12.html (not kept in the repository)",
+     "sha256": "1246ee1554938257d33b504190580eef7b5d4ffa748f288474e8d43e88c31ee1"
+    },
+    "ncw_2025_type0_st13.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st13.html (not kept in the repository)",
+     "sha256": "74dacaec3afa6cb942862e795caa9e11ffb39a5fb597e11a7027c260c14df5b8"
+    },
+    "ncw_2025_type0_st14.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st14.html (not kept in the repository)",
+     "sha256": "877cb05f71a06d027cd69425a4d613d2b7f83be70f8fc17474f4822c3aea90a1"
+    },
+    "ncw_2025_type0_st15.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st15.html (not kept in the repository)",
+     "sha256": "8f4292a6a72520d654e50974a3a7b8bd8914bc7990d44c4a62c78bd5cf734b5f"
+    },
+    "ncw_2025_type0_st16.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st16.html (not kept in the repository)",
+     "sha256": "8a2f434b3a9baa607fb8008185632eafd9bf3c967cfa6da2f613aed0f3e925b0"
+    },
+    "ncw_2025_type0_st17.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st17.html (not kept in the repository)",
+     "sha256": "843b8573648aa82e0d5296ed972a25adce459cb5dfc43b883e40c02fc9fbb05d"
+    },
+    "ncw_2025_type0_st18.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st18.html (not kept in the repository)",
+     "sha256": "4c806bce1b837aa32cfd5b389745441cc83edd79a2145cf9e1ba9ba99e3d4640"
+    },
+    "ncw_2025_type0_st4565.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st4565.html (not kept in the repository)",
+     "sha256": "e8ccc475f9ef3cc4489e5208791cd745672e3cb6ce785b812d56f5a95b026f3d"
+    },
+    "ncw_2025_type0_st19.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st19.html (not kept in the repository)",
+     "sha256": "07d984b793b2a0cfbe7481440d09e5dd580c08e4f4f41246745dc8a332942196"
+    },
+    "ncw_2025_type0_st20.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st20.html (not kept in the repository)",
+     "sha256": "6770daee32cabc387c459f778c5802e9ed45b9ca23140893b4ac51dc83d16732"
+    },
+    "ncw_2025_type0_st21.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st21.html (not kept in the repository)",
+     "sha256": "0f7feb18fa43f9b536f00a7e490c64bf4d03607d7d47f6f81d69d35795f5f521"
+    },
+    "ncw_2025_type0_st22.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st22.html (not kept in the repository)",
+     "sha256": "6a8f11ba01c215ea75620b6969b94ac9e71c68d72580c6ff6b617415a75940a6"
+    },
+    "ncw_2025_type0_st23.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st23.html (not kept in the repository)",
+     "sha256": "24547a305080630ea93d914bf1bbfca379fff8d4f2c37ebc2ae02e76ca2b4e4f"
+    },
+    "ncw_2025_type0_st24.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st24.html (not kept in the repository)",
+     "sha256": "24b3545cde79fd1dba1e018193543bc63fb335b3ab9dc1ed31485d3b199c34c4"
+    },
+    "ncw_2025_type0_st25.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st25.html (not kept in the repository)",
+     "sha256": "dd93b7fe5e6981c13b4de80adb079d9285e1621b6690b3c77972805731006ddb"
+    },
+    "ncw_2025_type0_st26.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st26.html (not kept in the repository)",
+     "sha256": "569550ceffbff15403cf65ad1d9f281c5fcdeccbad0f69e16a7d432969c2fed4"
+    },
+    "ncw_2025_type0_st27.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st27.html (not kept in the repository)",
+     "sha256": "29e691aaf8acdc859aa1ef782347192b8a0b781bdd185e877bc4b0374cb5c8c2"
+    },
+    "ncw_2025_type0_st28.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st28.html (not kept in the repository)",
+     "sha256": "44d7cd839bd0f84467dc0f962ed6715857ae4a1b4a7d79b1810a73e7da013ef7"
+    },
+    "ncw_2025_type0_st29.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st29.html (not kept in the repository)",
+     "sha256": "fbfeeb296a75d4eb9aabd2cd1f94aa7c0fd780189e31f2798357962ed1b917cc"
+    },
+    "ncw_2025_type0_st30.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st30.html (not kept in the repository)",
+     "sha256": "dedf18e0c40f723f913cd10ec2ad319b8a05899a8a558a1858d6d9e60d4441d4"
+    },
+    "ncw_2025_type0_st31.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st31.html (not kept in the repository)",
+     "sha256": "1478f5250a832829e971ac897d3e4719987c1e8e203f8846d84186b1de0a6933"
+    },
+    "ncw_2025_type0_st38.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st38.html (not kept in the repository)",
+     "sha256": "fe601b74dce8ed444e88e09e264b52a608eb2565a6e92f1618846884bda3fdc6"
+    },
+    "ncw_2025_type0_st32.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st32.html (not kept in the repository)",
+     "sha256": "01d1a940681d797dbcb32c59635712c1de130aca364319bb0c9e219c3587db09"
+    },
+    "ncw_2025_type0_st33.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st33.html (not kept in the repository)",
+     "sha256": "90a6fb072f4b5c0b70cc73e679bebf7fa94b46e9edca9a272e24a40b6000edaa"
+    },
+    "ncw_2025_type0_st34.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st34.html (not kept in the repository)",
+     "sha256": "fac367bb331eeec178d6981d2c7faa4ca1ceefeb00b4c2a8fa071ca2d6792ea3"
+    },
+    "ncw_2025_type0_st35.html": {
+     "path": "/tmp/ncw_2025_html/ncw_2025_type0_st35.html (not kept in the repository)",
+     "sha256": "358632a01cb41db74693cbf4c3f25d020c491f88a4ef85e573390098b7e279e8"
     }
-   }
+   },
+   "retrieved_on_2025": "2026-10-24"
   },
   {
    "id": "ncw_annual_reports_not_used",
