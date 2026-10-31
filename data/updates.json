@@ -1,6 +1,19 @@
 {
  "entries": [
   {
+   "date": "2026-10-31",
+   "items": [
+    {
+     "text": "The Context page now carries the spousal violence figures from the 2023-24 round of the National Family Health Survey, by state, beside the 2019-21 figure printed next to them. They fell in 29 of the 34 states and union territories with a figure and rose in 5. The fact sheets are provisional, and the page says what that means for the largest changes.",
+     "href": "/context/#nfhs6"
+    },
+    {
+     "text": "The States page has a new chart that sets each state's recorded rate against its own rate in an earlier year, for any of the 13 crimes and any starting year from 2017 to 2023.",
+     "href": "/states/#change"
+    }
+   ]
+  },
+  {
    "date": "2026-10-25",
    "items": [
     {
