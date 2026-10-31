@@ -570,3 +570,5 @@ tbody[id^="rg-"] { scroll-margin-top: 76px; }
   #regionCards .card b { font-size: 18px; }
   #regionCards .card span { font-size: 14px; }
 }
+.foot-by { padding-block: 0 36px; margin-top: -20px; font-size: 13.5px; }
+.foot-by a { text-decoration: underline; }
