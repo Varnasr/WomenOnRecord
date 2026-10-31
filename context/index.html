@@ -38,7 +38,7 @@
 <script>
   // The build this page came from, and a fingerprint for every file it loads
   // (scripts/build_pages.py). js/app.js reloads the page when a newer build is live.
-  window.WOR_BUILD = "74013bcaee"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"eea741be6c","data/context.csv":"97e8b2e6ad","data/context.json":"085770d9d7","data/corrections.json":"45ef9af2d4","data/events.json":"cb28f0bdd2","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/regions.json":"06e8823874","data/site.json":"22ea83fbc4","data/updates.json":"3c8a69628a","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"54b6cafd46","downloads/womenonrecord.xlsx":"a959f14e1d","js/app.js":"46e2ef39e7","js/charts.js":"664aa485da","js/i18n.js":"c4757f614b"};
+  window.WOR_BUILD = "3a5e58a47f"; window.WOR_V = {"css/fonts-bn.css":"8ce35cdc96","css/fonts-ta.css":"7ff3b862b8","css/fonts-ur.css":"c7ad4de1d1","css/fonts.css":"d6299a11d6","css/site.css":"eea741be6c","data/context.csv":"cb8b0dbe95","data/context.json":"ef48dc1669","data/corrections.json":"45ef9af2d4","data/events.json":"cb28f0bdd2","data/explore.json":"1f36c376c8","data/geo/india.json":"f82dbbe582","data/regions.json":"06e8823874","data/site.json":"22ea83fbc4","data/updates.json":"68d5ded54e","data/womenonrecord.csv":"b3c5bce116","downloads/codebook.csv":"ddfd8d05eb","downloads/context.xlsx":"5378d2944f","downloads/womenonrecord.xlsx":"a959f14e1d","js/app.js":"ab07b06dee","js/charts.js":"fa1a793d9b","js/i18n.js":"d45defaf14"};
   // Theme before first paint, so a dark-mode reader never sees a light flash.
   try { var t = localStorage.getItem('wor-theme') || localStorage.getItem('sc-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
@@ -114,6 +114,16 @@
     <p class="src">IIPS and ICF, <a href="https://dhsprogram.com/pubs/pdf/FR375/FR375.pdf">NFHS-5 India report</a>, table 15.13, p. 668, and the <a href="https://api.dhsprogram.com/">DHS Program API</a> for state help-seeking and sexual violence.</p>
   </section>
 
+  <section class="sec" id="nfhs6" aria-labelledby="h-nfhs6">
+    <h2 id="h-nfhs6" data-i18n="cx.n6.h">A newer round of the survey, 2023-24</h2>
+    <p class="intro" data-i18n="cx.n6.p">The survey was carried out again in 2023-24, and its fact sheets came out in May 2026. They are provisional. For every state and union territory except Manipur, which has no sheet, they print the share of ever-married women aged 18 to 49 who have ever experienced spousal violence, which the sheets define as physical or sexual violence, beside the figure from the fifth round.</p>
+    <p class="lead2" id="n6Lead"></p>
+    <figure class="chart cloth"><div id="n6Chart"></div><figcaption id="n6Cap"></figcaption></figure>
+    <details class="every"><summary data-i18n="cx.every">Every state and union territory</summary><div class="table-wrap" tabindex="0" role="region" aria-labelledby="h-nfhs6"><table class="grid sortable" id="n6Table"></table></div></details>
+    <p class="note" data-i18n="cx.n6.lim">The sheets print the figures and nothing more, so a change as large as Karnataka's, from 44.4 to 14.1, or Assam's, from 32.2 to 16.2, is the survey's own provisional estimate until the full report explains it. The 2019-21 figures here are the ones printed beside the 2023-24 figures in the new sheets. They differ slightly from the fifth round's own state sheets, by 0.1 points at the median and by 1.0 in Meghalaya at the most, so one tabulation is used throughout. Manipur has no sheet, and Lakshadweep is not shown because its figure was not read from the sheet.</p>
+    <p class="src">IIPS, <a href="https://www.nfhsiips.in/nfhsuser/assets/National%20Family%20Health%20Survey%20(NFHS-6)%202023-2024%20Fact%20Sheets.pdf">NFHS-6 India and State/UT Fact Sheets</a>, May 2026, indicator 95 in each state's table of key indicators.</p>
+  </section>
+
   <section class="sec" id="ncw" aria-labelledby="h-ncw">
     <h2 id="h-ncw" data-i18n="cx.ncw.h">Complaints to the National Commission for Women</h2>
     <p class="intro" data-i18n="cx.ncw.p">Any woman can complain to the National Commission for Women, online or by post, whether or not she has gone to the police. The Commission publishes how many complaints it received, from which state and about what.</p>
@@ -187,8 +197,8 @@
   <section class="sec" id="cx-data" aria-labelledby="h-cxdata">
     <h2 id="h-cxdata" data-i18n="cx.dl.h">The context data</h2>
     <ul class="downloads">
-      <li><a href="/downloads/context.xlsx?v=54b6cafd46" download><b data-i18n="dl.cx.t">Context workbook</b><span data-i18n="dl.cx">Eight other sources, from the household survey to election affidavits, one sheet each, with the source, table and page on every row.</span></a></li>
-      <li><a href="/data/context.csv?v=97e8b2e6ad" download><b data-i18n="dl.cxcsv.t">Context CSV</b><span data-i18n="dl.cxcsv">The same rows as the context workbook, in one file, with a column that names the source.</span></a></li>
+      <li><a href="/downloads/context.xlsx?v=5378d2944f" download><b data-i18n="dl.cx.t">Context workbook</b><span data-i18n="dl.cx">Eight other sources, from the household survey to election affidavits, one sheet each, with the source, table and page on every row.</span></a></li>
+      <li><a href="/data/context.csv?v=cb8b0dbe95" download><b data-i18n="dl.cxcsv.t">Context CSV</b><span data-i18n="dl.cxcsv">The same rows as the context workbook, in one file, with a column that names the source.</span></a></li>
     </ul>
   </section>
 </main>
@@ -210,8 +220,8 @@
     <button type="button" id="tourClose" data-i18n="tour.close">Close</button>
   </div>
 </div>
-<script src="/js/i18n.js?v=c4757f614b"></script>
-<script src="/js/charts.js?v=664aa485da"></script>
-<script src="/js/app.js?v=46e2ef39e7"></script>
+<script src="/js/i18n.js?v=d45defaf14"></script>
+<script src="/js/charts.js?v=fa1a793d9b"></script>
+<script src="/js/app.js?v=ab07b06dee"></script>
 </body>
 </html>

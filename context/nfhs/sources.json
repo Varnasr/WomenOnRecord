@@ -410,6 +410,15 @@
    "local_file": "nfhs/fs/OF43.WB.pdf",
    "sha256": "c29b9167911c13e8022e97a9ed44d9cbb14e5a84d5958f40c5e315941d33a0e3",
    "note": "Indicator 125 (spousal violence)."
+  },
+  {
+   "title": "National Family Health Survey (NFHS-6), 2023-24: India and State/UT Fact Sheets (provisional)",
+   "publisher": "International Institute for Population Sciences (IIPS), Mumbai; Ministry of Health and Family Welfare, Government of India",
+   "url": "https://www.nfhsiips.in/nfhsuser/assets/National%20Family%20Health%20Survey%20(NFHS-6)%202023-2024%20Fact%20Sheets.pdf",
+   "retrieved_on": "2026-10-31",
+   "local_file": null,
+   "sha256": null,
+   "note": "Indicator 95 on each state sheet. Not downloaded in this session (the host presents a certificate chain this environment does not trust). Figures come from data/nfhs6/states.json in Varnasr/how-india-lives at commit 2f7bff5 and were compared with The South First, 30 May 2026, https://thesouthfirst.com/telangana/reported-spousal-violence-declines-across-india-but-rises-sharply-in-kerala-nfhs-6/ (see notes.md)."
   }
  ]
 }

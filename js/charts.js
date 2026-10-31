@@ -313,10 +313,10 @@
   function dumbbell(el, spec) {
     var W = width(el), narrow = W < 560, fmt = spec.fmt || String;
     // On a phone the name sits on its own line above its row, so it is never cut.
-    var L = narrow ? 8 : Math.min(230, W * 0.42), R = 54, rh = narrow ? 50 : 30, T = 8;
+    var L = narrow ? 8 : Math.min(spec.labelW || 230, W * 0.42), R = 54, rh = narrow ? 50 : 30, T = 8;
     var H = T + spec.rows.length * rh + 6, g = '';
     spec.rows.forEach(function (r, i) {
-      var y = T + i * rh + (narrow ? 34 : rh / 2), mx = Math.max(r.a || 0, r.b || 0) * 1.12 || 1;
+      var y = T + i * rh + (narrow ? 34 : rh / 2), mx = spec.max || Math.max(r.a || 0, r.b || 0) * 1.12 || 1;
       var x = function (v) { return L + (W - L - R) * v / mx; };
       g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y + '" y2="' + y + '" stroke="var(--thread)"/>';
       if (narrow) g += '<text class="tick rowlab" x="0" y="' + (y - 14) + '">' + esc(r.label) + '</text>';

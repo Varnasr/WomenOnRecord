@@ -41,6 +41,19 @@
     <figure class="chart cloth"><div id="tileChart"></div><figcaption id="tileCap"></figcaption></figure>
   </section>
 
+  <section class="sec" id="change" aria-labelledby="h-chg">
+    <h2 id="h-chg" data-i18n="states.chg.h">Each state against its own past</h2>
+    <p class="intro" data-i18n="states.chg.p">Pick a crime and a starting year to see how each state's recorded rate has moved to {last}. A rise can mean more crime or more of it recorded, so every state is set against its own earlier figure, and the states are in alphabetical order.</p>
+    <div class="pick">
+      <label><span data-i18n="pick.crime">Crime</span>
+        <select id="chgHead"></select></label>
+      <label><span data-i18n="chg.from">From</span>
+        <select id="chgFrom"></select></label>
+    </div>
+    <figure class="chart cloth"><div id="chgChart"></div><figcaption id="chgCap"></figcaption></figure>
+    <p class="note" id="chgNote"></p>
+  </section>
+
   <section class="sec" id="years" aria-labelledby="h-years">
     <h2 id="h-years" data-i18n="years.h">The map in each year</h2>
     <figure class="chart cloth"><div id="yearMaps"></div><figcaption id="yearCap"></figcaption></figure>
