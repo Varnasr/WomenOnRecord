@@ -154,6 +154,10 @@ A ninth item, or a longer label in any language, will fold the header into
 the menu on a laptop. Measure at 1280 in all six languages after any change to
 the nav.
 
+## NFHS-6 on the Context page (October 2026)
+
+`context/nfhs/data.csv` carries indicator 95 of the NFHS-6 fact sheets (spousal violence, physical and/or sexual) as `NFHS6_FS_SPV_POS` with `_URBAN`, `_RURAL` and `_PREV` (the NFHS-5 total printed beside it in the NFHS-6 sheet). The compendium could not be downloaded in the session that added it, because www.nfhsiips.in presents a certificate chain that the environment does not trust, and verification was not turned off. The figures come from `data/nfhs6/states.json` in Varnasr/how-india-lives, which includes 13 sheets read by OCR, and were compared with The South First's report of 30 May 2026: all 56 comparable figures agreed. `context/nfhs/notes.md` says exactly what was and was not checked, and 23 of 34 states rest on the extraction alone. When the PDF can be downloaded, read the sheets directly, record its SHA-256 in `sources.json` and replace this paragraph. The in-sheet NFHS-5 column differs slightly from the NFHS-5 state sheets (0.1 points at the median, 1.0 at most), and the page uses the in-sheet column so that both figures come from one tabulation. Karnataka's fall from 44.4 to 14.1 and Assam's from 32.2 to 16.2 are shown as printed and described as provisional, with no cause offered. Lakshadweep is left out and Manipur has no sheet.
+
 ## Hosting, credit and terms
 
 The site is served by Netlify at www.womenonrecord.net. The footer credit, the

@@ -383,5 +383,12 @@
  "caste.r.pdall": "Cases for trial still pending at year end, all rape cases",
  "caste.states": "Rape cases recorded in each state in {y} in which the woman or girl belonged to a Scheduled Caste or a Scheduled Tribe, from NCRB tables 7A.2 and 7C.2. These are counts of cases. The states have very different Scheduled Caste and Scheduled Tribe populations, so the counts cannot be compared between states. States are listed in alphabetical order. Select a column heading to sort by it.",
  "caste.note": "NCRB records these cases in Volume 2 of Crime in India, as rape booked under the IPC or BNS read with the Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989. Its tables list rape of Scheduled Caste and Scheduled Tribe women and girls only under that heading, so a case in which the police did not apply the Act does not appear here. The figures start in 2021 because this site does not hold the 2020 Volume 2. In 2024, table 7A.2 prints Chhattisgarh's IPC cases as 100 beside 32 BNS cases and a total of 119, so the IPC figure cannot be right. This page uses the total, which adds up.",
- "states.rg.n": "{n} states and union territories"
+ "states.rg.n": "{n} states and union territories",
+ "cx.n6.lead": "Across India, {n6}% of ever-married women aged 18 to 49 reported spousal violence in 2023-24, against {n5}% in 2019-21. Of the {all} states and union territories with a figure, it fell in {down} and rose in {up}.",
+ "cx.n6.cap": "Ever-married women aged 18 to 49 who have ever experienced spousal violence, 2023-24 and 2019-21, as printed in the NFHS-6 fact sheets.",
+ "cx.n6.a": "2023-24",
+ "cx.n6.b": "2019-21",
+ "cx.n6.chg": "Change in points",
+ "states.chg.cap": "{crime}, cases recorded for every lakh women in {to} and {from}, by state.",
+ "states.chg.note": "Cases recorded in India fell from {a} in 2019 to {b} in 2020 and rose to {c} in 2021, so a comparison that starts in 2020 starts from the lowest year, and 2019 is the default."
 }

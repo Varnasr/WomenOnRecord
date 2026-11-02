@@ -526,9 +526,33 @@
     }
     draw();
   }
+  // Each state's rate in the latest year against its own rate in an earlier year. Never ranked.
+  function changeChart() {
+    var hs = $('chgHead'), fs = $('chgFrom'), last = D.years[D.years.length - 1];
+    var rv = function (code, p, y) { return code === 'MURDER_WOMEN' ? (rate(code, p, y) == null ? null : Math.round(rate(code, p, y) * 100) / 100) : S(code, 'rate', p, y); };
+    hs.innerHTML = MAPHEADS.map(function (c) { return '<option value="' + c + '">' + head(c) + '</option>'; }).join('');
+    hs.value = st.head;
+    fs.innerHTML = D.years.slice(0, -1).reverse().map(function (y) { return '<option>' + y + '</option>'; }).join('');
+    fs.value = D.years.indexOf(2019) >= 0 ? '2019' : String(D.years[0]);
+    function draw() {
+      var code = hs.value, from = Number(fs.value);
+      var list = STATES().filter(function (p) { return rv(code, p.id, last) != null || rv(code, p.id, from) != null; }).sort(byName);
+      var rows = list.map(function (p) { return { label: place(p.id), a: rv(code, p.id, last), b: rv(code, p.id, from) }; });
+      rows.push({ label: place('All India'), a: rv(code, 'All India', last), b: rv(code, 'All India', from) });
+      var top = Math.max.apply(null, rows.reduce(function (m, r) { return m.concat([r.a || 0, r.b || 0]); }, [0]));
+      $('chgCap').textContent = t('states.chg.cap', { crime: head(code), to: last, from: from });
+      C.dumbbell($('chgChart'), { rows: rows, aLabel: String(last), bLabel: String(from), max: top * 1.1 || 1, labelW: 270, fmt: function (v) { return fmt(v, 1); }, label: $('chgCap').textContent });
+    }
+    C.watch($('chgChart'), draw);
+    hs.addEventListener('change', draw); fs.addEventListener('change', draw);
+    var tot = function (y) { return S('TOTAL', 'cases', 'All India', y); };
+    $('chgNote').textContent = t('states.chg.note', { a: fmt(tot(2019), 0), b: fmt(tot(2020), 0), c: fmt(tot(2021), 0) });
+  }
+
   function states() {
     map();
     tileMap();
+    changeChart();
     yearMaps();
     cityTable();
     var rname = function (r) { return t('rg.n.' + r.id); };
@@ -1007,6 +1031,21 @@
       { label: t('cx.nfhs.c1'), get: function (p) { return cv('nfhs', 'NFHS5_SPV_POS', p, NF); }, pct: 1 },
       { label: t('cx.nfhs.c2'), get: function (p) { return cv('nfhs', 'NFHS5_SV_EVER', p, NF); }, pct: 1 },
       { label: t('cx.nfhs.c3'), get: function (p) { return cv('nfhs', 'NFHS5_HS_NEVER_TOLD', p, NF); }, pct: 1 }]);
+    // NFHS-6: spousal violence, 2023-24 against the 2019-21 figure printed beside it
+    var R6 = 'NFHS-6 (2023-24)', R5 = 'NFHS-5 (2019-21)';
+    var n6 = function (p) { return cv('nfhs', 'NFHS6_FS_SPV_POS', p, R6); }, n5 = function (p) { return cv('nfhs', 'NFHS6_FS_SPV_POS_PREV', p, R5); };
+    var in6 = STATES().filter(function (p) { return n6(p.id) != null && n5(p.id) != null; }).sort(byName);
+    $('n6Lead').textContent = t('cx.n6.lead', { n6: fmt(n6('All India'), 1), n5: fmt(n5('All India'), 1), all: in6.length,
+      down: in6.filter(function (p) { return n6(p.id) < n5(p.id); }).length, up: in6.filter(function (p) { return n6(p.id) > n5(p.id); }).length });
+    $('n6Cap').textContent = t('cx.n6.cap');
+    C.watch($('n6Chart'), function () {
+      C.dumbbell($('n6Chart'), { rows: in6.map(function (p) { return { label: place(p.id), a: n6(p.id), b: n5(p.id) }; }).concat([{ label: place('All India'), a: n6('All India'), b: n5('All India') }]),
+        aLabel: t('cx.n6.a'), bLabel: t('cx.n6.b'), max: 50, labelW: 270, fmt: function (v) { return fmt(v, 1) + '%'; }, label: $('n6Cap').textContent });
+    });
+    placeTable($('n6Table'), [
+      { label: t('cx.n6.b'), get: function (p) { return n5(p); }, dp: 1 },
+      { label: t('cx.n6.a'), get: function (p) { return n6(p); }, dp: 1 },
+      { label: t('cx.n6.chg'), get: function (p) { var a = n6(p), b = n5(p); return a == null || b == null ? null : Math.round((a - b) * 10) / 10; }, dp: 1 }]);
     // NCW
     var CY = [2020, 2021, 2022, 2023, 2024];
     var NY = CY.concat([2025]), LY = NY[NY.length - 1];
