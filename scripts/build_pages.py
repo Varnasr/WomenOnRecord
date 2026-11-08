@@ -148,14 +148,13 @@ def pages():
                 out[u.strip('/') + '/index.html'] = R(shell, m, content, u, f' data-crime="{c}"')
         else:
             out[meta['out']] = R(shell, meta, content, meta['url'])
-    # Every page, with its five translations, for search engines. The 404 page is left out.
+    # One entry per page. The ?lang= variants are not listed: each one is served the same HTML,
+    # whose canonical is the English address, so listing them pads the sitemap with duplicates.
     urls = sorted('/' + k[:-len('index.html')] for k in out if k.endswith('index.html'))
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
-          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        for l, h in alternates(u)[:-1]:
-            sm.append(f'<url><loc>{html.escape(h)}</loc>' + ''.join(
-                f'<xhtml:link rel="alternate" hreflang="{l2}" href="{html.escape(h2)}"/>' for l2, h2 in alternates(u)) + '</url>')
+        sm.append(f'<url><loc>{html.escape(SITE_URL + u)}</loc></url>')
     sm.append('</urlset>')
     out['sitemap.xml'] = '\n'.join(sm) + '\n'
     out['robots.txt'] = f'User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n'

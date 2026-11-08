@@ -572,3 +572,10 @@ tbody[id^="rg-"] { scroll-margin-top: 76px; }
 }
 .foot-by { padding-block: 0 36px; margin-top: -20px; font-size: 13.5px; }
 .foot-by a { text-decoration: underline; }
+
+/* The home page fills these lists from data after first paint. Reserve the filled height so
+   the sections below do not move: measured at 360 to 430 wide, 715 to 787px and 305 to 324px. */
+#findList { min-height: 700px; }
+#heroFigs { min-height: 300px; }
+@media (min-width: 601px) { #findList { min-height: 400px; } #heroFigs { min-height: 170px; } }
+@media (min-width: 1000px) { #findList { min-height: 260px; } #heroFigs { min-height: 130px; } }
