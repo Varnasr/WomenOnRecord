@@ -58,6 +58,21 @@ left-to-right isolate, because without it a range read 2024-2014 in Urdu. The
 attribute is not `data-src`, which `check.py` reads as a link to a file. The
 PNG and SVG cards are drawn from the box and do not include the tab.
 
+The contents list (`nav#toc`, built by `toc()` from the page's section headings)
+is drawn two ways from one element, so there is one landmark. From 1240px it is
+the rail at the side. Below that, on the crime and state pages only, `secbar()`
+makes it a slim bar that sticks under the header, marks the section being read
+(`aria-current="location"`) and draws a line as long as the share of the page
+read. The header's height is measured into `--toph`, and `scroll-padding-top`
+adds the bar's height, so a link or a focused control never lands under it. The
+items scroll sideways inside the bar; the page never gets wider. `covers()` puts
+a ruled list of the same headings at the top of the Crimes and States index
+pages, under the existing key `toc`. On the home page the findings are numbered
+ruled rows (`findings()` splits a two-sentence finding into a heading and a
+line), and the `dl.meth` under the opening sentence carries the source, the
+coverage and what the figures cannot show. `#findList` reserves its filled
+height in `css/site.css`; measure it again if a finding's wording changes.
+
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
 the charts, all plain SVG: `flow` (the sankey on the police and courts page),
 `lines`, `stack`, `slope`, `columns`, `heat` (state by year, on the crime

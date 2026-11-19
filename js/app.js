@@ -149,7 +149,13 @@
       ['+' + ch + '%', t('find.2', { a: fmt(pa[0], 0), b: fmt(pa[L], 0), y0: y0, y1: y1 }), '/crimes/pocso-rape/'],
       [t('field.big', { share: Math.round(cs) }), t('find.3', { cs: Math.round(cs), y: y1 }), '/courts/'],
       [t('find.yrs', { n: fmt(pend / done, 1) }), t('find.4', { done: fmt(done, 0), pend: fmt(pend, 0), y: y1, yrs: fmt(pend / done, 1) }), '/courts/#years']];
-    $('findList').innerHTML = f.map(function (x) { return '<li><b>' + x[0] + '</b><span>' + x[1] + '</span><a href="' + link(x[2]) + '">' + t('find.more') + '</a></li>'; }).join('');
+    // One ruled row for each finding: its number, the finding, and its figure at the
+    // end of the row. A finding of two sentences gives the first as the heading.
+    $('findList').innerHTML = f.map(function (x, i) {
+      var m = x[1].match(/^(.+?[.\u0964\u06d4])\s+(.+)$/), head = m ? m[1] : x[1], rest = m ? m[2] : '';
+      return '<li><span class="fn" aria-hidden="true">' + (i < 9 ? '0' : '') + (i + 1) + '</span><h3>' + head + '</h3>' +
+        (rest ? '<p>' + rest + '</p>' : '') + '<b class="ff">' + x[0] + '</b><a href="' + link(x[2]) + '">' + t('find.more') + '</a></li>';
+    }).join('');
   }
   function home() {
     hero();
@@ -1426,6 +1432,54 @@
     if (box.hidden) return;
     box.querySelector('ol').innerHTML = hs.map(function (h) { return '<li><a href="#' + h.id + '">' + h.textContent + '</a></li>'; }).join('');
     body.classList.add('has-toc');
+    if (PAGE === 'crime' || PAGE === 'state') secbar(box);
+  }
+  // On the long crime and state pages the contents list is also a slim bar under
+  // the header below 1240px, where the rail at the side does not fit. It marks the
+  // section being read and draws a line as long as the share of the page read.
+  // It is the same list and the same landmark as the rail, so there is one of them.
+  var spyOn = false;
+  function secbar(box) {
+    var root = document.documentElement, top = document.querySelector('header.top'), ol = box.querySelector('ol'), last = null;
+    root.classList.add('secbar');
+    function measure() { root.style.setProperty('--toph', top.offsetHeight + 'px'); }
+    function spy() {
+      var line = top.offsetHeight + (innerWidth < 1240 ? box.offsetHeight : 0) + 28, cur = null;
+      Array.prototype.forEach.call(ol.querySelectorAll('a'), function (a) {
+        var h = document.getElementById(a.getAttribute('href').slice(1));
+        if (h && h.getBoundingClientRect().top <= line) cur = a;
+        a.removeAttribute('aria-current');
+      });
+      if (cur) cur.setAttribute('aria-current', 'location');
+      var room = root.scrollHeight - innerHeight;
+      box.style.setProperty('--prog', room > 0 ? Math.min(1, Math.max(0, scrollY / room)).toFixed(4) : '0');
+      // keep the marked section in view inside the bar, without moving the page
+      if (cur && cur !== last && innerWidth < 1240 && !ol.contains(document.activeElement)) {
+        var a = cur.getBoundingClientRect(), o = ol.getBoundingClientRect();
+        ol.scrollLeft += (a.left + a.width / 2) - (o.left + o.width / 2);
+      }
+      last = cur;
+    }
+    measure(); spy();
+    if (spyOn) return;
+    spyOn = true;
+    var tick = false;
+    function later() { if (tick) return; tick = true; requestAnimationFrame(function () { tick = false; spy(); }); }
+    addEventListener('scroll', later, { passive: true });
+    addEventListener('resize', function () { measure(); later(); });
+    if (window.ResizeObserver) new ResizeObserver(function () { measure(); later(); }).observe(top);
+    setTimeout(function () { measure(); spy(); }, 600);
+  }
+  // The two index pages open with a ruled list of what the page covers, taken
+  // from its own section headings.
+  function covers() {
+    if (PAGE !== 'crimes' && PAGE !== 'states') return;
+    var head = document.querySelector('main .phead'); if (!head) return;
+    var hs = Array.prototype.slice.call(document.querySelectorAll('main h2[id]')).filter(function (h) { return !h.classList.contains('sr') && !h.closest('[hidden]'); });
+    var box = $('covers');
+    if (!box) { box = document.createElement('div'); box.id = 'covers'; box.className = 'covers'; head.appendChild(box); }
+    box.innerHTML = '<p class="kicker" id="coversH">' + t('toc') + '</p><ol aria-labelledby="coversH">' +
+      hs.map(function (h) { return '<li><a href="#' + h.id + '">' + h.textContent + '</a></li>'; }).join('') + '</ol>';
   }
 
   // ---------- tooltips ----------
@@ -1500,7 +1554,7 @@
   var PAGES = { regions: regions, updates: updates, corrections: corrections, explore: explore, context: context, home: home, protests: protests, courts: courts, states: states, 'north-east': northEast, state: state, crimes: crimes, crime: crime, method: method, counting: counting, path: pathPage };
   function renderAll() {
     if (PAGES[PAGE]) PAGES[PAGE]();
-    toc(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
+    toc(); covers(); links(); wireTips(); tools(); anchors(); setTimeout(jump, 50);
   }
 
   // Links into the old single page land on the page that now holds that section.

@@ -591,3 +591,68 @@ main figure.field, main figure.hero-iso { --figpad: 20px; }
 html[lang='ur'] .srctab, html[lang='ta'] .srctab, html[lang='bn'] .srctab, html[lang='hi'] .srctab, html[lang='mr'] .srctab { font-family: var(--text); letter-spacing: 0; font-size: 12.5px; }
 html[lang='ur'] .srctab { line-height: 1.9; }
 @media (max-width: 600px) { main figure.chart { --figpad: 14px; } main figure.field, main figure.hero-iso { --figpad: 16px; } }
+
+/* ---------- round two: findings as ruled rows, the method block, the section bar ---------- */
+/* What the records show: one ruled row for each finding. Its number, the finding
+   as a heading, and its figure at the end of the row, or under it on a phone. */
+.findings { grid-template-columns: minmax(0, 1fr); }
+.findings li, .findings li + li { padding: 18px 0 20px; border-inline-start: 0; display: grid; grid-template-columns: 2.6em minmax(0, 1fr); gap: 8px 12px; align-items: start; }
+.findings .fn { grid-column: 1; grid-row: 1; font: 500 13px/1.9 var(--mono); letter-spacing: .06em; color: var(--soft); font-variant-numeric: tabular-nums; }
+.findings h3, .findings p, .findings .ff, .findings a { grid-column: 2; }
+.findings h3 { margin: 0; font: 600 clamp(18px, 1.9vw, 21px)/1.4 var(--display); letter-spacing: -.005em; max-width: 46ch; }
+.findings p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--soft); max-width: 60ch; }
+.findings .ff { font-size: clamp(32px, 4.2vw, 44px); }
+.findings a { justify-self: start; }
+html[lang="ur"] .findings h3 { line-height: 2; }
+@media (min-width: 760px) {
+  .findings li, .findings li + li { grid-template-columns: 2.6em minmax(0, 1fr) minmax(190px, max-content); gap: 8px 28px; padding-block: 22px 24px; }
+  .findings .ff { grid-column: 3; grid-row: 1 / span 3; text-align: end; }
+}
+/* Reserved height for the list while it fills, measured at 360 to 1440 wide:
+   828 to 878px on a phone, 702px from 600 to 759, 598 to 648px from 760 up. */
+#findList { min-height: 820px; }
+@media (min-width: 601px) { #findList { min-height: 700px; } }
+@media (min-width: 760px) { #findList { min-height: 590px; } }
+
+/* The opening facts, labelled: where the figures come from, what they cover and
+   what they cannot show. */
+.meth { margin: 6px 0 0; display: grid; border-top: 1px solid var(--ink); max-width: 62ch; }
+.meth > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding: 9px 0 10px; border-bottom: 1px solid var(--thread); }
+.meth dt { font: 500 12px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--soft); }
+.meth dd { margin: 0; font-size: 15.5px; line-height: 1.5; }
+html[lang='ur'] .meth dt, html[lang='ta'] .meth dt, html[lang='bn'] .meth dt, html[lang='hi'] .meth dt, html[lang='mr'] .meth dt { font-family: var(--text); letter-spacing: 0; font-size: 13px; }
+html[lang='ur'] .meth dd, html[lang='ur'] .meth dt { line-height: 2; }
+@media (min-width: 480px) { .meth > div { grid-template-columns: 11.5em minmax(0, 1fr); gap: 14px; align-items: baseline; } }
+
+/* What an index page covers, from its own section headings. */
+.covers { margin-top: 6px; max-width: 62ch; }
+.covers ol { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.covers li { border-bottom: 1px solid var(--thread); }
+.covers a { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; color: var(--ink); text-decoration: none; font-weight: 500; }
+.covers a::after { content: "\2193"; color: var(--soft); }
+.covers a:hover { text-decoration: underline; }
+@media (min-width: 1240px) { body.has-toc .covers { display: none; } }
+@media print { .covers { display: none; } }
+
+/* The contents list as a slim bar under the header on the crime and state pages,
+   below the width where the rail at the side fits. --toph is the header's height
+   and --prog the share of the page read, both set in js/app.js. */
+.toc a[aria-current] { color: var(--ink); font-weight: 600; }
+@media (max-width: 1239px) {
+  html.secbar { scroll-padding-top: calc(var(--toph, 58px) + 60px); }
+  html.secbar body.has-toc .toc { display: block; position: sticky; top: var(--toph, 58px); z-index: 4; margin-inline: -16px; background: var(--ground); border-bottom: 1px solid var(--thread); }
+  html.secbar .toc p { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  html.secbar .toc ol { list-style: none; margin: 0; padding: 0 16px; display: flex; gap: 0 20px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; white-space: nowrap; }
+  html.secbar .toc ol::-webkit-scrollbar { display: none; }
+  html.secbar .toc li { flex: none; }
+  html.secbar .toc a { display: block; white-space: nowrap; padding: 11px 0 10px; font-size: 14.5px; color: var(--soft); text-decoration: none; }
+  html.secbar .toc a:hover { color: var(--ink); text-decoration: underline; }
+  html.secbar .toc a:focus-visible { outline-offset: -3px; }
+  html.secbar .toc a[aria-current] { color: var(--ink); }
+  html.secbar .toc::after { content: ""; position: absolute; inset-block-end: -1px; inset-inline-start: 0; height: 2px; width: calc(var(--prog, 0) * 100%); background: var(--red); }
+}
+@media (min-width: 720px) and (max-width: 1239px) {
+  html.secbar body.has-toc .toc { margin-inline: -28px; }
+  html.secbar .toc ol { padding-inline: 28px; }
+}
+@media print { html.secbar .toc { display: none !important; } }
