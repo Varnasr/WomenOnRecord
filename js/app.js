@@ -133,7 +133,7 @@
       [fmt(S('POCSO_RAPE', 'cases', 'All India', y), 0), t('hero.f3', { y: y }), 'tip.pocso']];
     var o = pc('RAPE', 'All India', y);
     $('heroIso').innerHTML = isoBlock(o, lc(crimeName('RAPE')), y);
-    $('heroIso').__csv = isoCsv(o);
+    $('heroIso').__csv = isoCsv(o); $('heroIso').__year = y;
     $('heroIso').setAttribute('aria-label', t('iso.cap', { crime: lc(crimeName('RAPE')), y: y, conv: fmt(o.conv, 0), pend: fmt(o.ptr, 0), share: isoParts(o)[3] }));
     $('heroFigs').innerHTML = out.map(function (f) { return '<div class="fig"><b>' + f[0] + '</b><span' + (f[2] ? ' data-tip="' + f[2] + '"' : '') + '>' + f[1] + '</span></div>'; }).join('');
   }
@@ -273,6 +273,7 @@
     var o = pc(code, 'All India', y), name = lc(crimeName(code));
     $('flowIntro').textContent = t('flow.intro', { y: y, crime: name, police: fmt(o.inv, 0), court: fmt(o.ct, 0), conv: fmt(o.conv, 0) });
     $('flowCap').textContent = t('flow.cap', { y: y });
+    $('flowChart').__year = y;
     C.watch($('flowChart'), function () { C.flow($('flowChart'), flowSpec(o), { fmt: function (v) { return fmt(v, 0); }, label: $('flowIntro').textContent }); });
   }
   function courts() {
@@ -304,6 +305,7 @@
     if ((c === 'RAPE' || c === 'MURDER_RAPE') && g('persons_arrested_female')) $('perIntro').textContent += ' ' + t('per.women');
     $('perCap').textContent = t('per.cap', { y: y, crime: lc(crimeName(c)) });
     var vals = STAGES.map(function (s) { return g(s[0]); });
+    $('perChart').__year = y;
     C.watch($('perChart'), function () {
       C.stack($('perChart'), { rows: STAGES.map(function (s, i) { return { label: t(s[1]), parts: [{ key: 'v', value: vals[i] }] }; }),
         keys: [{ key: 'v', label: t('per.h'), color: '--knot' }], values: true, fmt: function (v) { return fmt(v, 0); }, label: $('perCap').textContent });
@@ -335,7 +337,7 @@
     $('h-courts').textContent = t('courts.hy', { y: y });
     $('courtsIntro').textContent = t('courts.intro', { n: fmt(o.ct, 0), crime: name, y: y });
     $('field').innerHTML = isoBlock(o, name, y);
-    $('field').__csv = isoCsv(o);
+    $('field').__csv = isoCsv(o); $('field').__year = y;
     $('fieldCap').innerHTML = t('iso.cap', { crime: name, y: y, conv: '<b>' + fmt(o.conv, 0) + '</b>', pend: fmt(o.ptr, 0), share: share });
     $('field').setAttribute('aria-label', $('fieldCap').textContent);
   }
@@ -430,6 +432,7 @@
       svg.appendChild(el);
     });
     var india = mapValue(st.head, 'All India', st.year);
+    svg.__year = st.year;
     svg.__csv = [['state', st.measure === 'rate' ? 'per lakh women' : 'cases']].concat(vals.slice().sort(function (a, b) { return byName(a[0], b[0]); }).map(function (v) { return [place(v[0].id), v[1]]; }));
     var unit = st.measure === 'rate' ? t('unit.rate') : t('unit.cases');
     $('mapCap').textContent = t('map.cap', { crime: head(st.head), y: st.year, unit: unit, india: fmt(india, dp) });
@@ -687,6 +690,7 @@
       pocso: fmt(S('POCSO_VICTIMS_AGE', 'victims', p, y), 0) };
     $('ageCap').textContent = t(hasPo ? 'age.cap2' : 'age.cap', args);
     var labs = AGES.map(function (g) { return g[1].indexOf('age.') === 0 ? t(g[1]) : g[1]; });
+    $('ageChart').__year = y;
     C.watch($('ageChart'), function () {
       if (!hasPo) return C.columns($('ageChart'), { x: labs, xWrap: true, label: $('ageCap').textContent,
         fmt: function (v, tick) { return tick && v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); },
@@ -715,7 +719,7 @@
     // the hundred women, for every crime against women before this state's courts
     var o = pc('STATE', p, y1), tn = lc(t('tab.TOTAL'));
     $('stateIso').innerHTML = isoBlock(o, tn, y1);
-    $('stateIso').__csv = isoCsv(o);
+    $('stateIso').__csv = isoCsv(o); $('stateIso').__year = y1;
     $('stateIsoCap').textContent = t('state.iso.cap', { s: place(p), n: fmt(o.ct, 0), y: y1, conv: fmt(o.conv, 0), pend: fmt(o.ptr, 0), share: isoParts(o)[3] });
     $('stateIso').setAttribute('aria-label', $('stateIsoCap').textContent);
     // what was recorded
@@ -732,6 +736,7 @@
       return { label: head(c), hi: rc(c, p, y1), mark: rc(c, 'All India', y1),
         dots: STATES().filter(function (q) { return q.id !== p; }).map(function (q) { return { name: place(q.id), v: rc(c, q.id, y1) }; }).filter(function (d) { return d.v != null; }) };
     }).filter(function (r) { return r.hi != null || r.mark != null; });
+    $('stripChart').__year = y1;
     C.watch($('stripChart'), function () {
       C.strip($('stripChart'), { rows: srows, hiLabel: place(p), markLabel: t('india'), dotLabel: t('strip.dot'), label: t('strip.cap'), fmt: function (v) { return fmt(v, 2); } });
     });
@@ -795,6 +800,7 @@
     return items;
   }
   function drawMix(el, p, y, label) {
+    el.__year = y;
     var items = mixItems(p, y);
     C.watch(el, function () {
       C.treemap(el, { items: items, fmt: function (v) { return fmt(v, 0); }, label: label });
@@ -1341,6 +1347,21 @@
     var box = fig.querySelector('[aria-label]') || fig;
     return (p && p.textContent.trim()) || box.getAttribute('aria-label') || (fig.querySelector('figcaption') || {}).textContent || document.title;
   }
+  // The tab on the top edge of every chart names its source and the years it
+  // shows. A figure that draws another source says so in data-from in its page
+  // source. Every other chart is NCRB's, and its years are the ones the chart
+  // was given (__year) or the ones in the numbers behind it (__csv). A chart
+  // with neither shows the source alone. No table number is shown, because
+  // the page data does not carry one.
+  function srcOf(fig, box) {
+    var own = fig.getAttribute('data-from'); if (own) return own;
+    var ys = [], add = function (v) { if (/^(19|20)\d\d$/.test(String(v))) ys.push(+v); };
+    if (box.__year) [].concat(box.__year).forEach(add);
+    else if (box.__csv && box.__csv.length) { box.__csv[0].forEach(add); box.__csv.forEach(function (r) { add(r[0]); }); }
+    var a = Math.min.apply(null, ys), b = Math.max.apply(null, ys);
+    // the years are kept left to right inside a right-to-left line, so a range reads 2014-2024 in Urdu too
+    return t('src.ncrb') + (ys.length ? ' · \u2066' + (a === b ? a : a + '-' + b) + '\u2069' : '');
+  }
   function tools() {
     document.querySelectorAll('main figure.chart, main figure.isofig, main figure.field, main figure.map').forEach(function (fig) {
       if (fig.querySelector('.tools') || fig.querySelector('figure')) return;
@@ -1363,9 +1384,15 @@
       });
       bar.__box = box;
       fig.appendChild(bar);
+      var tab = document.createElement('p'); tab.className = 'srctab';
+      tab.__set = function () { var s = srcOf(fig, box); if (tab.textContent !== s) tab.textContent = s; };
+      fig.insertBefore(tab, fig.firstChild);
+      // a chart is redrawn when a year or a crime is picked, and the tab follows it
+      if (window.MutationObserver) new MutationObserver(tab.__set).observe(box, { childList: true });
     });
     // a chart may be redrawn with or without numbers behind it, so this is checked each time
     document.querySelectorAll('main figure .tools').forEach(function (bar) { bar.querySelector('[data-t=csv]').hidden = !(bar.__box && bar.__box.__csv); });
+    document.querySelectorAll('main figure > .srctab').forEach(function (tab) { tab.__set(); });
   }
   // A link button on every section heading: it copies this page's address with
   // the section in it, so a shared link opens on that section.

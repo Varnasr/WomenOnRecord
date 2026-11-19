@@ -45,6 +45,19 @@ WhatsApp message with the section's finding and link, and a copied link. Every
 section heading has a link button (`anchors()`). A new chart gets all of this
 by sitting in a `figure.chart` and keeping its numbers in `__csv`.
 
+`tools()` also puts a tab on the top edge of each figure's box (`.srctab`,
+`srcOf()` in `js/app.js`) that names the source and the years the chart shows.
+A figure that draws another source says so in `data-from` in its page source,
+in English like the `.src` lines (all nine Context charts do). Every other
+chart reads "NCRB · Crime in India" (`src.ncrb`, translated) and its years,
+taken from `__year` on the chart's box where one year is picked, or from the
+years in `__csv`. A chart with neither shows the source alone. No table number
+is shown, because `site.json` does not carry one. The tab follows a redraw
+through a MutationObserver on the box, and the years are wrapped in a
+left-to-right isolate, because without it a range read 2024-2014 in Urdu. The
+attribute is not `data-src`, which `check.py` reads as a link to a file. The
+PNG and SVG cards are drawn from the box and do not include the tab.
+
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds
 the charts, all plain SVG: `flow` (the sankey on the police and courts page),
 `lines`, `stack`, `slope`, `columns`, `heat` (state by year, on the crime

@@ -579,3 +579,15 @@ tbody[id^="rg-"] { scroll-margin-top: 76px; }
 #heroFigs { min-height: 300px; }
 @media (min-width: 601px) { #findList { min-height: 400px; } #heroFigs { min-height: 170px; } }
 @media (min-width: 1000px) { #findList { min-height: 260px; } #heroFigs { min-height: 130px; } }
+
+/* The tab on the top edge of a chart's box: its source and the years it shows.
+   It is pulled up by the box's own padding, so it sits across the border, and
+   it grows downwards when a long source wraps on a phone. */
+main figure.chart, main figure.map, main figure.field, main figure.isofig { margin-block-start: 10px; --figpad: 18px; }
+main figure.map { --figpad: 16px; }
+main figure.field, main figure.hero-iso { --figpad: 20px; }
+.srctab { margin: 0; margin-block-start: calc(-1 * var(--figpad) - 12px); width: fit-content; max-width: 100%; padding: 2px 8px; background: var(--ground); border: 1px solid var(--thread); border-radius: 3px; font: 500 11.5px/1.5 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--soft); }
+.isofig > .srctab { margin-block-end: 12px; }
+html[lang='ur'] .srctab, html[lang='ta'] .srctab, html[lang='bn'] .srctab, html[lang='hi'] .srctab, html[lang='mr'] .srctab { font-family: var(--text); letter-spacing: 0; font-size: 12.5px; }
+html[lang='ur'] .srctab { line-height: 1.9; }
+@media (max-width: 600px) { main figure.chart { --figpad: 14px; } main figure.field, main figure.hero-iso { --figpad: 16px; } }
