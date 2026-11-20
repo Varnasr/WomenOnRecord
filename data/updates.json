@@ -1,6 +1,27 @@
 {
  "entries": [
   {
+   "date": "2026-11-19",
+   "items": [
+    {
+     "text": "Every chart now carries a label on the top edge of its box that names its source and the years it shows. On the Context page each of the nine charts names its own source. The label follows the chart when you pick another year or crime.",
+     "href": "/crimes/rape/#trend"
+    },
+    {
+     "text": "The home page now lists what the records show as numbered rows, each with its figure beside it, and sets out under the opening sentence where the figures come from, which places and years they cover, and what they cannot show.",
+     "href": "/#findings"
+    },
+    {
+     "text": "On a phone or a small screen, each crime page and each state page now keeps a bar of its sections under the header. The bar marks the section you are reading and shows how far down the page you are.",
+     "href": "/crimes/rape/"
+    },
+    {
+     "text": "The Crimes page and the States page now open with a list of the sections on the page.",
+     "href": "/states/"
+    }
+   ]
+  },
+  {
    "date": "2026-10-31",
    "items": [
     {
