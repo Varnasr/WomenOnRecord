@@ -69,8 +69,13 @@ items scroll sideways inside the bar; the page never gets wider. `covers()` puts
 a ruled list of the same headings at the top of the Crimes and States index
 pages, under the existing key `toc`. On the home page the findings are numbered
 ruled rows (`findings()` splits a two-sentence finding into a heading and a
-line), and the `dl.meth` under the opening sentence carries the source, the
-coverage and what the figures cannot show. `#findList` reserves its filled
+line), and the `dl.meth` carries the source, the coverage and what the figures
+cannot show. In the page source it follows the hero figure, so on a phone the
+figure sits directly under the two buttons and the block comes after it; from
+960px the figure keeps the second column for two rows and the block sits under
+the opening text beside it. Measured at 390x844 on 20 November 2026, the
+"90 in 100" line starts at 466px (559px before the block existed, 763px while
+the block sat above the figure). `#findList` reserves its filled
 height in `css/site.css`; measure it again if a finding's wording changes.
 
 `js/app.js` draws only what the page's `data-page` names. `js/charts.js` holds

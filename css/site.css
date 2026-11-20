@@ -415,8 +415,13 @@ svg.band { display: none; }
 .hero-t { display: grid; gap: 14px; align-content: start; }
 .hero-iso { padding: 20px; background: var(--cloth); border: 1px solid var(--thread); border-radius: 3px; }
 @media (min-width: 960px) {
-  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px 48px; align-items: start; }
+  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto 1fr auto; gap: 20px 48px; align-items: start; }
   .hero .figs { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
+  /* The figure keeps the second column for both rows, so the method block sits under the
+     opening text beside it. In the source it follows the figure, which is the phone order. */
+  .hero-t { grid-column: 1; grid-row: 1; }
+  .hero-iso { grid-column: 2; grid-row: 1 / span 2; }
+  .hero > .meth { grid-column: 1; grid-row: 2; }
 }
 @media (max-width: 600px) { .hero-iso { padding: 16px 14px; } .iso { gap: 5px 4px; } .figs { grid-template-columns: 1fr; } .fig b { font-size: 30px; } }
 
