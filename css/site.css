@@ -419,9 +419,15 @@ svg.band { display: none; }
   .hero .figs { grid-column: 1 / -1; grid-template-columns: repeat(3, 1fr); }
   /* The figure keeps the second column for both rows, so the method block sits under the
      opening text beside it. In the source it follows the figure, which is the phone order. */
+  /* These are scoped to the home page's hero. The state pages use .hero-iso too, inside a
+     one-column section, and an unscoped grid-column: 2 there squeezed the section's heading
+     into a column 0px wide (live from 20 to 21 November 2026 on all 36 state pages). */
   .hero-t { grid-column: 1; grid-row: 1; }
-  .hero-iso { grid-column: 2; grid-row: 1 / span 2; }
+  .hero > .hero-iso { grid-column: 2; grid-row: 1 / span 2; align-self: stretch; }
   .hero > .meth { grid-column: 1; grid-row: 2; }
+  /* Twenty across and five down here. Ten by ten made the figure about twice as tall as the
+     text beside it and left some 600px of the first column empty. Phones keep ten by ten. */
+  .hero > .hero-iso .iso { grid-template-columns: repeat(20, 1fr); max-width: none; gap: 8px 5px; }
 }
 @media (max-width: 600px) { .hero-iso { padding: 16px 14px; } .iso { gap: 5px 4px; } .figs { grid-template-columns: 1fr; } .fig b { font-size: 30px; } }
 

@@ -73,7 +73,18 @@ line), and the `dl.meth` carries the source, the coverage and what the figures
 cannot show. In the page source it follows the hero figure, so on a phone the
 figure sits directly under the two buttons and the block comes after it; from
 960px the figure keeps the second column for two rows and the block sits under
-the opening text beside it. Measured at 390x844 on 20 November 2026, the
+the opening text beside it. From 960px the home page's hundred figures are also
+twenty across and five down (`.hero > .hero-iso .iso`), and the figure's panel
+stretches to the height of the first column. Ten by ten there made the figure
+1,188px tall beside 575px of text and left about 613px of the first column
+empty at 1280, 1440 and 1920; the two columns now end within 10px of each
+other in English and together in Urdu and Tamil. Phones and the share cards
+keep ten by ten. Every hero rule is written `.hero > ...`, because the state
+pages use `.hero-iso` inside a one-column section: an unscoped
+`grid-column: 2` squeezed the "Before the courts" heading on all 36 state
+pages into a column 0px wide for a day in November 2026. After changing the
+hero, look at the whole page at 1280 and 1440, and at a state page.
+Measured at 390x844 on 20 November 2026, the
 "90 in 100" line starts at 466px (559px before the block existed, 763px while
 the block sat above the figure). `#findList` reserves its filled
 height in `css/site.css`; measure it again if a finding's wording changes.
