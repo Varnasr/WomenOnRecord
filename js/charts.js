@@ -632,7 +632,8 @@
       .slice(0, left).forEach(function (x) { n[x[1]]++; });
     return n;
   }
-  // groups: [{n, fill, line}]. Returns ten rows of ten women.
+  // groups: [{n, fill, line}]. Returns a hundred women. The stylesheet sets them ten across,
+  // or twenty across in the home page's hero on a wide screen.
   function iso(groups) {
     var out = '', k = 0;
     groups.forEach(function (g) { for (var i = 0; i < g.n; i++) { out += woman(g.fill, g.line, k % 3 === 0); k++; } });
